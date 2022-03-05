@@ -14,19 +14,19 @@ client.once('ready', () => {
 	client.user.setActivity(' the server', { type: 'WATCHING' });
     console.log(`${client.user.tag} is ready!`)
 
-client.on('messageCreate', (message) => {
-    if (message.author.bot) return;
-    const ipCheckWords = require(`./filters/ipcheckfliter.json`)
+// client.on('messageCreate', (message) => {
+//     if (message.author.bot) return;
+//     const ipCheckWords = require(`./filters/ipcheckfliter.json`)
     
-    let ipFoundInText = false;
-    for (var i in ipCheckWords) {
-    if (message.content.toLowerCase().includes(ipCheckWords[i].toLowerCase())) ipFoundInText = true;
-    }
-    if (ipFoundInText) {
-        message.channel.send('Release Server IP: pandamium.eu \nSnapshot Server IP: snapshot.pandamium.eu')
-      return;
-    }
-})
+//     let ipFoundInText = false;
+//     for (var i in ipCheckWords) {
+//     if (message.content.toLowerCase().includes(ipCheckWords[i].toLowerCase())) ipFoundInText = true;
+//     }
+//     if (ipFoundInText) {
+//         message.channel.send('Release Server IP: pandamium.eu \nSnapshot Server IP: snapshot.pandamium.eu')
+//       return;
+//     }
+// })
 
 const scamLinkFlter = require(`./filters/ipcheckfliter.json`);
 // scam filter
@@ -49,23 +49,23 @@ client.on("messageCreate", message => {
         }
     }
 })
-const slurFilter = require(`./filters/slurfilter.json`);
-// slur filter
-client.on("messageCreate", message => {
-    const slurChannel = message.channelId
-    const slurTextLink = message.url
+// const slurFilter = require(`./filters/slurfilter.json`);
+// // slur filter
+// client.on("messageCreate", message => {
+//     const slurChannel = message.channelId
+//     const slurTextLink = message.url
 
-    let foundInText = false;
-    for (var i in slurFilter) {
-    if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
-    }
-    if (foundInText) {
-        client.channels.cache.get('948990457201975308').send(`[Discord] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
+//     let foundInText = false;
+//     for (var i in slurFilter) {
+//     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
+//     }
+//     if (foundInText) {
+//         client.channels.cache.get('948990457201975308').send(`[Discord] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
       
-      return;
-    }
+//       return;
+//     }
 
-})
+//})
     
 
 
