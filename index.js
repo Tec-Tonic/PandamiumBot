@@ -49,23 +49,21 @@ client.on("messageCreate", message => {
         }
     }
 })
-// const slurFilter = require(`./filters/slurfilter.json`);
-// // slur filter
-// client.on("messageCreate", message => {
-//     const slurChannel = message.channelId
-//     const slurTextLink = message.url
+const slurFilter = require(`./filters/slurfilter.json`);
+// slur filter
+client.on("messageCreate", message => {
+    const slurChannel = message.channelId
+    const slurTextLink = message.url
 
-//     let foundInText = false;
-//     for (var i in slurFilter) {
-//     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
-//     }
-//     if (foundInText) {
-//         client.channels.cache.get('948990457201975308').send(`[Discord] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
-      
-//       return;
-//     }
-
-//})
+    let foundInText = false;
+    for (var i in slurFilter) {
+    if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
+    }
+    if (foundInText) {
+        client.channels.cache.get('948990457201975308').send(`[Discord] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
+      return;
+    }
+})
     
 
 
