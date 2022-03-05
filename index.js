@@ -28,7 +28,7 @@ client.once('ready', () => {
 //     }
 // })
 
-const scamLinkFlter = require(`./filters/ipcheckfliter.json`);
+const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
 client.on("messageCreate", message => {
     var content = message.content;
