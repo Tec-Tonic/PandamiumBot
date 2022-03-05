@@ -36,14 +36,14 @@ client.on("messageCreate", message => {
     var stringToCheck = content;
     stringToCheck.replace(/\s+/g, '').toLowerCase();
     const scamAuthor = message.author
-    const scamAuthorNoPing = message.author.username
+    //const scamAuthorNoPing = message.author.username
     const scamChannel = message.channelId
 
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
             client.channels.cache.get('948990457201975308').send(`[Discord] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted! `)
-            message.channel.send(`Sorry ${scamAuthorNoPing}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
+            message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
             .then(message => {setTimeout(() => message.delete(), 600000)});
             break
         }
