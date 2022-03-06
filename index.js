@@ -64,7 +64,21 @@ client.on("messageCreate", message => {
       return;
     }
 })
-    
+const topicFilter = require(`./filters/chatalerts.json`);
+// controversial topic filter
+client.on("messageCreate", message => {
+    const topicChannel = message.channelId
+    const topicTextLink = message.url
+
+    let topicFoundInText = false;
+    for (var i in topicFilter) {
+    if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
+    }
+    if (topicFoundInText) {
+        client.channels.cache.get('948990457201975308').send(`[Discord] Possible __controversial topics__ are being used in <#${topicChannel}> \n${topicTextLink}`)
+      return;
+    }
+})  
 
 
 });
