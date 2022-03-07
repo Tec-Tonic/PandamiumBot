@@ -29,10 +29,8 @@ client.on("messageCreate", message => {
     const scamAuthor = message.author
     //const scamAuthorNoPing = message.author.username
     const scamChannel = message.channelId
-    
-    let topicChannel = message.channelId
-    if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
-    if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
+    if (scamChannel === snapInGameChannel) topicChannelName = "Snapshot" 
+    if (scamChannel === releaseInGameChannel) topicChannelName = "Release" 
 
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
@@ -49,10 +47,9 @@ const slurFilter = require(`./filters/slurfilter.json`);
 client.on("messageCreate", message => {
     const slurChannel = message.channelId
     const slurTextLink = message.url
-
-    let topicChannel = message.channelId
-    if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
-    if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
+    
+    if (slurChannel === snapInGameChannel) topicChannelName = "Snapshot" 
+    if (slurChannel === releaseInGameChannel) topicChannelName = "Release" 
     let foundInText = false;
     for (var i in slurFilter) {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
@@ -64,10 +61,9 @@ client.on("messageCreate", message => {
 })
 const topicFilter = require(`./filters/chatalerts.json`);
 // controversial topic filter
-client.on("messageCreate", message => {
-    const topicWithNameChannel = message.channelId
-    
-    let topicChannel = message.channelId
+client.on("messageCreate", message => {    
+    const topicChannel = message.channelId
+
     if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
     if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
     const topicTextLink = message.url
@@ -77,7 +73,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get('948990457201975308').send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicWithNameChannel}> \n${topicTextLink}`)
+        client.channels.cache.get('948990457201975308').send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicChannel}> \n${topicTextLink}`)
       return;
     }
 })  
