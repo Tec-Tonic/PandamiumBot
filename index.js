@@ -14,19 +14,8 @@ client.once('ready', () => {
 	client.user.setActivity(' the server', { type: 'WATCHING' });
     console.log(`${client.user.tag} is ready!`)
 
-// client.on('messageCreate', (message) => {
-//     if (message.author.bot) return;
-//     const ipCheckWords = require(`./filters/ipcheckfliter.json`)
-    
-//     let ipFoundInText = false;
-//     for (var i in ipCheckWords) {
-//     if (message.content.toLowerCase().includes(ipCheckWords[i].toLowerCase())) ipFoundInText = true;
-//     }
-//     if (ipFoundInText) {
-//         message.channel.send('Release Server IP: pandamium.eu \nSnapshot Server IP: snapshot.pandamium.eu')
-//       return;
-//     }
-// })
+    const snapInGameChannel = "604630001957994504"
+    const releaseInGameChannel = "824234748217393212"
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
@@ -67,7 +56,10 @@ client.on("messageCreate", message => {
 const topicFilter = require(`./filters/chatalerts.json`);
 // controversial topic filter
 client.on("messageCreate", message => {
-    const topicChannel = message.channelId
+    let topicChannel = message.channelId
+    if (topicChannel = snapInGameChannel) topicChannel = "Snapshot"
+    else if (topicChannel = releaseInGameChannel) topicChannel = "Release"
+    else if (topicChannel) topicChannel = "Discord"
     const topicTextLink = message.url
 
     let topicFoundInText = false;
@@ -75,11 +67,24 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get('948990457201975308').send(`Possible __controversial topic__ being mentioned in <#${topicChannel}> \n${topicTextLink}`)
+        client.channels.cache.get('948990457201975308').send(`[${topicChannel}] Possible __controversial topic__ being mentioned in <#${topicChannel}> \n${topicTextLink}`)
       return;
     }
 })  
 
+// client.on('messageCreate', (message) => {
+//     if (message.author.bot) return;
+//     const ipCheckWords = require(`./filters/ipcheckfliter.json`)
+    
+//     let ipFoundInText = false;
+//     for (var i in ipCheckWords) {
+//     if (message.content.toLowerCase().includes(ipCheckWords[i].toLowerCase())) ipFoundInText = true;
+//     }
+//     if (ipFoundInText) {
+//         message.channel.send('Release Server IP: pandamium.eu \nSnapshot Server IP: snapshot.pandamium.eu')
+//       return;
+//     }
+// })
 
 });
 
