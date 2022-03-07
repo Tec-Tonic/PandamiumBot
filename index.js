@@ -14,8 +14,11 @@ client.once('ready', () => {
 	client.user.setActivity(' the server', { type: 'WATCHING' });
     console.log(`${client.user.tag} is ready!`)
 
-    const snapInGameChannel = "947886430489837628" 
+    // punishment location, channel checks
+    const snapInGameChannel = "604630001957994504"
     const releaseInGameChannel = "824234748217393212"
+    let topicChannelName = "Discord"
+    let topicChannel = message.channelId
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
@@ -28,10 +31,13 @@ client.on("messageCreate", message => {
     //const scamAuthorNoPing = message.author.username
     const scamChannel = message.channelId
 
+    if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
+    if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
+
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
-            client.channels.cache.get('948990457201975308').send(`[Discord] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted! `)
+            client.channels.cache.get('948990457201975308').send(`[${topicChannelName}] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted! `)
             message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
             .then(message => {setTimeout(() => message.delete(), 600000)});
             break
@@ -43,13 +49,14 @@ const slurFilter = require(`./filters/slurfilter.json`);
 client.on("messageCreate", message => {
     const slurChannel = message.channelId
     const slurTextLink = message.url
-
+    if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
+    if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
     let foundInText = false;
     for (var i in slurFilter) {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
-        client.channels.cache.get('948990457201975308').send(`[Discord] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
+        client.channels.cache.get('948990457201975308').send(`[${topicChannelName}] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
       return;
     }
 })
@@ -57,11 +64,8 @@ const topicFilter = require(`./filters/chatalerts.json`);
 // controversial topic filter
 client.on("messageCreate", message => {
     const topicWithNameChannel = message.channelId
-    let topicChannelName = "Discord"
-    let topicChannel = message.channelId
-    if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" || "Error: 1"
-    if (topicChannel === releaseInGameChannel) topicChannelName = "Release" || "Error: 2"
-    // if (topicChannel) topicChannelName = "Discord" || "Error: 3"
+    if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
+    if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
     const topicTextLink = message.url
 
     let topicFoundInText = false;
