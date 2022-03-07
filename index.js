@@ -75,7 +75,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get('948990457201975308').send(`[Discord] Possible __controversial topics__ are being used in <#${topicChannel}> \n${topicTextLink}`)
+        client.channels.cache.get('948990457201975308').send(`Possible __controversial topic__ being mentioned in <#${topicChannel}> \n${topicTextLink}`)
       return;
     }
 })  
