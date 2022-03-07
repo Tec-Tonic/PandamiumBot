@@ -18,7 +18,6 @@ client.once('ready', () => {
     const snapInGameChannel = "604630001957994504"
     const releaseInGameChannel = "824234748217393212"
     let topicChannelName = "Discord"
-    let topicChannel = message.channelId
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
@@ -30,7 +29,8 @@ client.on("messageCreate", message => {
     const scamAuthor = message.author
     //const scamAuthorNoPing = message.author.username
     const scamChannel = message.channelId
-
+    
+    let topicChannel = message.channelId
     if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
     if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
 
@@ -49,6 +49,8 @@ const slurFilter = require(`./filters/slurfilter.json`);
 client.on("messageCreate", message => {
     const slurChannel = message.channelId
     const slurTextLink = message.url
+
+    let topicChannel = message.channelId
     if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
     if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
     let foundInText = false;
@@ -64,6 +66,8 @@ const topicFilter = require(`./filters/chatalerts.json`);
 // controversial topic filter
 client.on("messageCreate", message => {
     const topicWithNameChannel = message.channelId
+    
+    let topicChannel = message.channelId
     if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
     if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
     const topicTextLink = message.url
