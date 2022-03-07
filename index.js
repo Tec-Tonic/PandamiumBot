@@ -9,15 +9,12 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
+const topicChannelName = "Auto-log"
 
 client.once('ready', () => {
 	client.user.setActivity(' the server', { type: 'WATCHING' });
     console.log(`${client.user.tag} is ready!`)
 
-    // punishment location, channel checks
-    const snapInGameChannel = "604630001957994504"
-    const releaseInGameChannel = "824234748217393212"
-    let topicChannelName = "Discord"
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
@@ -25,12 +22,9 @@ client.on("messageCreate", message => {
     var content = message.content;
     var stringToCheck = content.replace(/\s+/g, '').toLowerCase();
     var stringToCheck = content;
-    stringToCheck.replace(/\s+/g, '').toLowerCase();
+stringToCheck.replace(/\s+/g, '').toLowerCase();
     const scamAuthor = message.author
-    //const scamAuthorNoPing = message.author.username
     const scamChannel = message.channelId
-    if (scamChannel === snapInGameChannel) topicChannelName = "Snapshot" 
-    if (scamChannel === releaseInGameChannel) topicChannelName = "Release" 
 
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
@@ -42,14 +36,13 @@ client.on("messageCreate", message => {
         }
     }
 })
+
 const slurFilter = require(`./filters/slurfilter.json`);
 // slur filter
 client.on("messageCreate", message => {
     const slurChannel = message.channelId
     const slurTextLink = message.url
     
-    if (slurChannel === snapInGameChannel) topicChannelName = "Snapshot" 
-    if (slurChannel === releaseInGameChannel) topicChannelName = "Release" 
     let foundInText = false;
     for (var i in slurFilter) {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
@@ -59,13 +52,11 @@ client.on("messageCreate", message => {
       return;
     }
 })
+
 const topicFilter = require(`./filters/chatalerts.json`);
 // controversial topic filter
 client.on("messageCreate", message => {    
     const topicChannel = message.channelId
-
-    if (topicChannel === snapInGameChannel) topicChannelName = "Snapshot" 
-    if (topicChannel === releaseInGameChannel) topicChannelName = "Release" 
     const topicTextLink = message.url
 
     let topicFoundInText = false;
@@ -77,20 +68,6 @@ client.on("messageCreate", message => {
       return;
     }
 })  
-
-// client.on('messageCreate', (message) => {
-//     if (message.author.bot) return;
-//     const ipCheckWords = require(`./filters/ipcheckfliter.json`)
-    
-//     let ipFoundInText = false;
-//     for (var i in ipCheckWords) {
-//     if (message.content.toLowerCase().includes(ipCheckWords[i].toLowerCase())) ipFoundInText = true;
-//     }
-//     if (ipFoundInText) {
-//         message.channel.send('Release Server IP: pandamium.eu \nSnapshot Server IP: snapshot.pandamium.eu')
-//       return;
-//     }
-// })
 
 });
 
