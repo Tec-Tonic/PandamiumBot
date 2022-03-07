@@ -57,10 +57,11 @@ const topicFilter = require(`./filters/chatalerts.json`);
 // controversial topic filter
 client.on("messageCreate", message => {
     const topicWithNameChannel = message.channelId
-    let topicChannel = message.channelId
-    if (topicChannel = snapInGameChannel) topicChannel = "Snapshot" || "Error: 1"
-    if (topicChannel = releaseInGameChannel) topicChannel = "Release" || "Error: 2"
-    if (topicChannel) topicChannel = "Discord" || "Error: 3"
+    let topicChannelName = "Error: main/chatalerts/line :60"
+    const topicChannel = message.channelId
+    if (topicChannel = snapInGameChannel) topicChannelName = "Snapshot" || "Error: 1"
+    if (topicChannel = releaseInGameChannel) topicChannelName = "Release" || "Error: 2"
+    if (topicChannel) topicChannelName = "Discord" || "Error: 3"
     const topicTextLink = message.url
 
     let topicFoundInText = false;
@@ -68,7 +69,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get('948990457201975308').send(`[${topicChannel}] Possible __controversial topic__ being mentioned in <#${topicWithNameChannel}> \n${topicTextLink}`)
+        client.channels.cache.get('948990457201975308').send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicWithNameChannel}> \n${topicTextLink}`)
       return;
     }
 })  
