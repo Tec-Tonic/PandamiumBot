@@ -14,7 +14,7 @@ client.once('ready', () => {
 	client.user.setActivity(' the server', { type: 'WATCHING' });
     console.log(`${client.user.tag} is ready!`)
 
-    const snapInGameChannel = "604630001957994504"
+    const snapInGameChannel = "947886430489837628" 
     const releaseInGameChannel = "824234748217393212"
 
 const scamLinkFlter = require(`./filters/filter.json`);
