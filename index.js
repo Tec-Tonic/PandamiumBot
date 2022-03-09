@@ -81,20 +81,6 @@ client.on("messageCreate", message => {
     }
 })  
 
-const watchFilter = require(`./watchplayer.json`);
-client.on("messageCreate", message => {
-    const playerChannel = message.channelId
-    const playerTextLink = message.url
-    
-    let foundPlayerInText = false;
-    for (var i in watchFilter) {
-    if (message.content.includes(watchFilter[i])) foundPlayerInText = true;
-    }
-    if (foundPlayerInText) {
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Player on the watch list loined <#${playerChannel}> \n${playerTextLink}`)
-      return;
-    }
-})
 
 });
 
