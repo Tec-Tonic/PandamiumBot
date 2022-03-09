@@ -1,4 +1,5 @@
 const Discord = require ("discord.js");
+const fs = require('fs')
 const { Intents } = Discord;
 const intents = new Intents ();
 for(const intent of Object.keys (Intents.FLAGS)){
@@ -9,6 +10,16 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
+//const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
+
+client.commands = new Discord.Collection();
+client.events = new Discord.Collection();
+
+['command_handler', 'event_handler'].forEach(handler =>{
+    require(`./handlers/${handler}`)(client, Discord);
+})
+
+
 const topicChannelName = "Auto-log"
 const logToServer = '948990457201975308'
 // Panda server logs : 950432522137927690
@@ -16,8 +27,6 @@ const logToServer = '948990457201975308'
 
 client.once('ready', () => {
 	client.user.setActivity(' Minecraft', { type: 'PLAYING' });
-    console.log(`${client.user.tag} is ready!`)
-
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
@@ -71,6 +80,21 @@ client.on("messageCreate", message => {
       return;
     }
 })  
+
+const watchFilter = require(`./watchplayer.json`);
+client.on("messageCreate", message => {
+    const playerChannel = message.channelId
+    const playerTextLink = message.url
+    
+    let foundPlayerInText = false;
+    for (var i in watchFilter) {
+    if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundPlayerInText = true;
+    }
+    if (foundPlayerInText) {
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Player on the watch list loined <#${playerChannel}> \n${playerTextLink}`)
+      return;
+    }
+})
 
 });
 
