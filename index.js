@@ -10,6 +10,7 @@ const client = new Discord.Client ({
 require('dotenv').config()
 
 const topicChannelName = "Auto-log"
+const logToServer = '948990457201975308'
 // Panda server logs : 950432522137927690
 // My server logs : 948990457201975308
 
@@ -31,7 +32,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
-            client.channels.cache.get('950432522137927690').send(`[${topicChannelName}] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted! `)
+            client.channels.cache.get(logToServer).send(`[${topicChannelName}] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted! `)
             message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
             .then(message => {setTimeout(() => message.delete(), 600000)});
             break
@@ -50,7 +51,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
-        client.channels.cache.get('950432522137927690').send(`[${topicChannelName}] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
       return;
     }
 })
@@ -66,7 +67,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get('950432522137927690').send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicChannel}> \n${topicTextLink}`)
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicChannel}> \n${topicTextLink}`)
       return;
     }
 })  
