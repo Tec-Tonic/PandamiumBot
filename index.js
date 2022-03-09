@@ -88,7 +88,7 @@ client.on("messageCreate", message => {
     
     let foundPlayerInText = false;
     for (var i in watchFilter) {
-    if (message.content().includes(watchFilter[i]())) foundPlayerInText = true;
+    if (message.content.match().includes(watchFilter[i]())) foundPlayerInText = true;
     }
     if (foundPlayerInText) {
         client.channels.cache.get(logToServer).send(`[${topicChannelName}] Player on the watch list loined <#${playerChannel}> \n${playerTextLink}`)
