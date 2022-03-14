@@ -7,9 +7,9 @@ module.exports = {
     async execute(message, args, cmd, client, Discord){
         
 
-        if(message.member.roles.cache.has('949814214241964122')){
+        // if(message.member.roles.cache.has('949814214241964122')){
         
-            message.reply(`Sorry this command is offline, errors found.\nError ID : 876321`)
+        //     message.reply(`Sorry this command is offline, errors found.\nError ID : 876321`)
 
         // message.react('👀')
         // function loadJSON(filename = '') {
@@ -29,4 +29,4 @@ module.exports = {
         // ;[`${args[0]}`].forEach(userToWatch => data.files.push(userToWatch)
         //     )
         // saveJSON('watchplayer.json', data)
-    }}}
+    }}
