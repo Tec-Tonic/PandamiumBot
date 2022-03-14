@@ -10,8 +10,6 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-//const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
-
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
@@ -21,7 +19,7 @@ client.events = new Discord.Collection();
 
 
 const topicChannelName = "Auto-log"
-const logToServer = '948990457201975308'
+const logToServer = '950432522137927690'
 // Panda server logs : 950432522137927690
 // My server logs : 948990457201975308
 
@@ -41,7 +39,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
-            client.channels.cache.get(logToServer).send(`[${topicChannelName}] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted! `)
+            client.channels.cache.get(logToServer).send(`[${topicChannelName}] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted. `)
             message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
             .then(message => {setTimeout(() => message.delete(), 600000)});
             break
