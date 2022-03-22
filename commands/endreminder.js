@@ -9,7 +9,7 @@ module.exports = {
         const logToServer1 = '948990457201975308'
         if(message.member.roles.cache.has('797498295815503942')){
 
-            message.channels.cache.get(logToServer1).send(`[${topicChannelName1}] <@546277533138550786> Reminder about the End reset.`)
+            client.channels.cache.get(logToServer1).send(`[${topicChannelName1}] <@546277533138550786> Reminder about the End reset.`)
 
         } else {
             return;
