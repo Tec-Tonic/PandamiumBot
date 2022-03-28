@@ -18,8 +18,8 @@ require('dotenv').config()
 // })
 
 
-const topicChannelName = "**Testing-Mode**"
-const logToServer = '947886430489837628'
+const topicChannelName = "Auto-log"
+const logToServer = '950432522137927690'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628
 
