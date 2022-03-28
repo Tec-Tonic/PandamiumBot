@@ -10,21 +10,22 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-client.commands = new Discord.Collection();
-client.events = new Discord.Collection();
+// client.commands = new Discord.Collection();
+// client.events = new Discord.Collection();
 
-['command_handler', 'event_handler'].forEach(handler =>{
-    require(`./handlers/${handler}`)(client, Discord);
-})
+// ['command_handler', 'event_handler'].forEach(handler =>{
+//     require(`./handlers/${handler}`)(client, Discord);
+// })
 
 
-const topicChannelName = "Auto-log"
-const logToServer = '950432522137927690'
+const topicChannelName = "**Testing-Mode**"
+const logToServer = '948990457201975308'
 // Panda server logs : 950432522137927690
 // My server logs : 948990457201975308
 
 client.once('ready', () => {
 	client.user.setActivity(' Minecraft', { type: 'PLAYING' });
+    console.log(`Logged in as Utility`);
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
@@ -58,7 +59,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Slurs are being used in <#${slurChannel}> \n${slurTextLink}`)
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Slur(s) are being used in <#${slurChannel}> \n${slurTextLink}`)
       return;
     }
 })
@@ -66,15 +67,18 @@ client.on("messageCreate", message => {
 const topicFilter = require(`./filters/chatalerts.json`);
 // controversial topic filter
 client.on("messageCreate", message => {    
+    if (message.author == client.user) return;
+
     const topicChannel = message.channelId
     const topicTextLink = message.url
-
+    const topicmessagelog = message.content
+    
     let topicFoundInText = false;
     for (var i in topicFilter) {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicChannel}> \n${topicTextLink}`)
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicChannel}> \n> ${topicmessagelog} \n${topicTextLink}`)
       return;
     }
 })  
