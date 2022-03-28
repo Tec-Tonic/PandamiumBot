@@ -19,9 +19,9 @@ require('dotenv').config()
 
 
 const topicChannelName = "**Testing-Mode**"
-const logToServer = '948990457201975308'
+const logToServer = '947886430489837628'
 // Panda server logs : 950432522137927690
-// My server logs : 948990457201975308
+// My server logs : 947886430489837628
 
 client.once('ready', () => {
 	client.user.setActivity(' Minecraft', { type: 'PLAYING' });
