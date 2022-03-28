@@ -51,15 +51,18 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
 const slurFilter = require(`./filters/slurfilter.json`);
 // slur filter
 client.on("messageCreate", message => {
+    if (message.author == client.user) return;
+
     const slurChannel = message.channelId
     const slurTextLink = message.url
-    
+    const slurmessagelog = message.content
+
     let foundInText = false;
     for (var i in slurFilter) {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Slur(s) are being used in <#${slurChannel}> \n${slurTextLink}`)
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Slurs are being used in <#${slurChannel}> \n> ||${slurmessagelog}|| \n${slurTextLink}`)
       return;
     }
 })
