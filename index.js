@@ -10,7 +10,7 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-const topicChannelName = "Testing-Mode"
+const topicChannelName = "**[**Testing-Mode**]**"
 const logToServer = '947886430489837628'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628
@@ -33,7 +33,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
-            client.channels.cache.get(logToServer).send(`[${topicChannelName}] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted. `)
+            client.channels.cache.get(logToServer).send(`${topicChannelName} ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted. `)
             message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
             .then(message => {setTimeout(() => message.delete(), 600000)});
             break
@@ -55,7 +55,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Slurs are being used in <#${slurChannel}> \n> ||${slurmessagelog}|| \n${slurTextLink}`)
+        client.channels.cache.get(logToServer).send(`${topicChannelName} Slurs are being used in <#${slurChannel}> \n> ||${slurmessagelog}|| \n${slurTextLink}`)
       return;
     }
 })
@@ -74,7 +74,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Possible __controversial topic__ being mentioned in <#${topicChannel}> \n> ${topicmessagelog} \n${topicTextLink}`)
+        client.channels.cache.get(logToServer).send(`${topicChannelName} Possible __controversial topic__ being mentioned in <#${topicChannel}> \n> ${topicmessagelog} \n${topicTextLink}`)
       return;
     }
 })  
@@ -93,7 +93,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(cheatFilter[i].toLowerCase())) cheatFoundInText = true;
     }
     if (cheatFoundInText) {
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] General terms about hacking/cheating being mentioned in <#${cheatChannel}> \n> ${cheatmessagelog} \n${cheatTextLink}`)
+        client.channels.cache.get(logToServer).send(`${topicChannelName} General terms about hacking/cheating being mentioned in <#${cheatChannel}> \n> ${cheatmessagelog} \n${cheatTextLink}`)
       return;
     }
 })  
@@ -117,7 +117,7 @@ client.on("messageCreate", message => {
     const textCaps = (caps / message.content.length) * 100;
     if (textCaps >= 95 ) {
     
-        client.channels.cache.get(logToServer).send(`[${topicChannelName}] More that 60% of this message is Caps, possible spam in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
+        client.channels.cache.get(logToServer).send(`${topicChannelName} More that 95% of this message is Caps, possible spam in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
      
     }
   })
