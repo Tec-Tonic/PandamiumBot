@@ -97,21 +97,21 @@ client.on("messageCreate", message => {
     }
 })  
 
-client.on("messageCreate", async msg => {
-    const capsChannel = msg.channelId
-    const capsTextLink = msg.url
-    const capsmessagelog = msg.content
+client.on("messageCreate", async message => {
+    const capsChannel = message.channelId
+    const capsTextLink = message.url
+    const capsmessagelog = message.content
 
-    if (msg.author == client.user || msg.content.length < 15) return;
+    if (message.author == client.user || message.content.length < 15) return;
     // Use `||` (OR) to make it cleaner.
     let non_caps, caps;
     // Create the variables.
-    for (x=0;x<msg.content.length;x++) {
-      if (msg.content[x].toUpperCase() === msg.content[x]) caps++;
+    for (x=0;x<message.content.length;x++) {
+      if (message.content[x].toUpperCase() === message.content[x]) caps++;
       else non_caps++;
     }
     // `caps` is the amount of capital letters, while `non_caps` is the amount of non-capital letters. This checks for each letter of the message and gets the amount of `caps` and `non_caps`.
-    const textCaps = (caps / msg.content.length) * 100;
+    const textCaps = (caps / message.content.length) * 100;
     // Gets a percentage of the capital letters.
     if (textCaps >= 80 ) {
         client.channels.cache.get(logToServer).send(`[${topicChannelName}] Message contains 80% __capital letter__ , message in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
