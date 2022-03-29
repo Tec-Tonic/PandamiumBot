@@ -10,8 +10,8 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-const topicChannelName = "**[**Testing-Mode**]**"
-const logToServer = '947886430489837628'
+const topicChannelName = "[Auto-Log]"
+const logToServer = '950432522137927690'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628
 
@@ -115,9 +115,9 @@ client.on("messageCreate", message => {
       else non_caps++;
     }
     const textCaps = (caps / message.content.length) * 100;
-    if (textCaps >= 95 ) {
+    if (textCaps >= 90 ) {
     
-        client.channels.cache.get(logToServer).send(`${topicChannelName} More that 95% of this message is Caps, possible spam in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
+        client.channels.cache.get(logToServer).send(`${topicChannelName} More that 90% of this message is Caps, possible spam in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
      
     }
   })
