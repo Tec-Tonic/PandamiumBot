@@ -98,7 +98,7 @@ client.on("messageCreate", message => {
     }
 })  
 // Caps here
-client.on("message", message => {
+client.on("messageCreate", message => {
     if (message.author == client.user) return 
 
     const capsChannel = message.channelId
@@ -111,7 +111,7 @@ client.on("message", message => {
   
     for (x=0;x<message.content.length;x++) {
       if (message.content[x].toUpperCase() === message.content[x]) caps++;
-      else (non_caps) ++;
+      else non_caps++;
     }
     const textCaps = (caps / message.content.length) * 100;
     if (textCaps >= 60 ) {
