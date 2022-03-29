@@ -97,24 +97,24 @@ client.on("messageCreate", message => {
     }
 })  
 
-client.on("messageCreate", async message => {
-    if (message.author == client.user) return console.log("failed to run further - line 101");
-
+client.on("messageCreate", message => {
+    
     const capsChannel = message.channelId
     const capsTextLink = message.url
     const capsmessagelog = message.content
 
+    if (message.author == client.user) return console.log("failed to run further - line 101");
     if (message.content.length < 15) return console.log("failed to run further- line 107");
-    // Use `||` (OR) to make it cleaner.
+        // Use `||` (OR) to make it cleaner.
     let non_caps, caps;
-    // Create the variables.
+        // Create the variables.
     for (x=0;x<message.content.length;x++) {
       if (message.content[x].toUpperCase() === message.content[x]) caps++;
       else non_caps++;
     }
-    // `caps` is the amount of capital letters, while `non_caps` is the amount of non-capital letters. This checks for each letter of the message and gets the amount of `caps` and `non_caps`.
+        // `caps` is the amount of capital letters, while `non_caps` is the amount of non-capital letters. This checks for each letter of the message and gets the amount of `caps` and `non_caps`.
     const textCaps = (caps / message.content.length) * 100;
-    // Gets a percentage of the capital letters.
+        // Gets a percentage of the capital letters.
     if (textCaps >= 80 ) {
         client.channels.cache.get(logToServer).send(`[${topicChannelName}] Message contains 80% __capital letter__ , message in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
     }})
