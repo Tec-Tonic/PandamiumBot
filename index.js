@@ -18,6 +18,7 @@ const logToServer = '947886430489837628'
 client.once('ready', () => {
 	client.user.setActivity(' Minecraft', { type: 'PLAYING' });
     console.log(`Logged in as Utility`);
+});
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
@@ -120,8 +121,6 @@ client.on("message", message => {
     }
   })
 
-
-});
 
 
 client.login(process.env.TOKEN);
