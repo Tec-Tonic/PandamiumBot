@@ -104,12 +104,12 @@ client.on("messageCreate", async message => {
     const capsmessagelog = message.content
 
     if (message.author == client.user) return console.log("failed to run further - line 106");
-    if (message.content.length < 15 ) return console.log("failed to run further- line 107");
+    if (message.channel.type === "dm" || message.content.length < 15 ) return console.log("failed to run further- line 107");
         // Use `||` (OR) to make it cleaner.
     let non_caps, caps;
         // Create the variables.
-    let x = 0;
-    for (x<message.content.length;x++;){
+  
+    for (x=0;x<msg.content.length;x++) {
       if (message.content[x].toUpperCase() === message.content[x]) caps++;
       else non_caps++;
     }
