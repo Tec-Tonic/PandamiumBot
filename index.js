@@ -107,12 +107,15 @@ client.on("messageCreate", message => {
 
     if (message.content.length < 15) return;
     
-    let non_caps
-    let caps
+    let non_caps = 0
+    let caps = 0
   
     for (x=0;x<message.content.length;x++) {
       if (message.content[x].toUpperCase() === message.content[x]) caps++;
       else non_caps++;
+
+    console.log(`No Caps = ${non_caps}`);
+        console.log(`Caps = ${caps}`);
     }
     const textCaps = (caps / message.content.length) * 100;
     if (textCaps >= 60 ) {
