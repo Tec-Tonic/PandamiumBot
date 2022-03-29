@@ -98,7 +98,7 @@ client.on("messageCreate", message => {
 })  
 
 client.on("messageCreate", async message => {
-    if (message.author == client.user) returnconsole.log("failed to run further - line 101");
+    if (message.author == client.user) return console.log("failed to run further - line 101");
 
     const capsChannel = message.channelId
     const capsTextLink = message.url
