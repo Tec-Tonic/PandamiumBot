@@ -111,7 +111,7 @@ client.on("messageCreate", async msg => {
       else non_caps++;
     }
     // `caps` is the amount of capital letters, while `non_caps` is the amount of non-capital letters. This checks for each letter of the message and gets the amount of `caps` and `non_caps`.
-    const textCaps = (caps / message.content.length) * 100;
+    const textCaps = (caps / msg.content.length) * 100;
     // Gets a percentage of the capital letters.
     if (textCaps >= 80 ) {
         client.channels.cache.get(logToServer).send(`[${topicChannelName}] Message contains 80% __capital letter__ , message in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
