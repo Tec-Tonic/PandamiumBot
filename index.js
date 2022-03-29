@@ -10,14 +10,6 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-// client.commands = new Discord.Collection();
-// client.events = new Discord.Collection();
-
-// ['command_handler', 'event_handler'].forEach(handler =>{
-//     require(`./handlers/${handler}`)(client, Discord);
-// })
-
-
 const topicChannelName = "Auto-log"
 const logToServer = '950432522137927690'
 // Panda server logs : 950432522137927690
@@ -86,6 +78,24 @@ client.on("messageCreate", message => {
     }
 })  
 
+const cheatFilter = require(`./filters/hacksfilter.json`);
+// hacking topic filter
+client.on("messageCreate", message => {    
+    if (message.author == client.user) return;
+
+    const cheatChannel = message.channelId
+    const cheatTextLink = message.url
+    const cheatmessagelog = message.content
+    
+    let cheatFoundInText = false;
+    for (var i in cheatFilter) {
+    if (message.content.toLowerCase().includes(cheatFilter[i].toLowerCase())) cheatFoundInText = true;
+    }
+    if (cheatFoundInText) {
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] General terms about hacking/cheating being mentioned in <#${cheatChannel}> \n> ${cheatmessagelog} \n${cheatTextLink}`)
+      return;
+    }
+})  
 
 });
 
