@@ -10,8 +10,8 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-const topicChannelName = "Auto-log"
-const logToServer = '950432522137927690'
+const topicChannelName = "Testing-Mode"
+const logToServer = '947886430489837628'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628
 
@@ -96,6 +96,26 @@ client.on("messageCreate", message => {
       return;
     }
 })  
+
+client.on("messageCreate", async msg => {
+    const capsChannel = message.channelId
+    const capsTextLink = message.url
+    const capsmessagelog = message.content
+
+    if (message.author == client.user || msg.content.length < 15) return;
+    // Use `||` (OR) to make it cleaner.
+    let non_caps, caps;
+    // Create the variables.
+    for (x=0;x<msg.content.length;x++) {
+      if (msg.content[x].toUpperCase() === msg.content[x]) caps++;
+      else non_caps++;
+    }
+    // `caps` is the amount of capital letters, while `non_caps` is the amount of non-capital letters. This checks for each letter of the message and gets the amount of `caps` and `non_caps`.
+    const textCaps = (caps / message.content.length) * 100;
+    // Gets a percentage of the capital letters.
+    if (textCaps >= 80 ) {
+        client.channels.cache.get(logToServer).send(`[${topicChannelName}] Message contains 80% __capital letter__ , message in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
+    }})
 
 });
 
