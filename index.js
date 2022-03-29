@@ -98,11 +98,13 @@ client.on("messageCreate", message => {
 })  
 
 client.on("messageCreate", async message => {
+    if (message.author == client.user) returnconsole.log("failed to run further - line 101");
+
     const capsChannel = message.channelId
     const capsTextLink = message.url
     const capsmessagelog = message.content
 
-    if (message.author == client.user || message.content.length < 15) return;
+    if (message.content.length < 15) return console.log("failed to run further- line 107");
     // Use `||` (OR) to make it cleaner.
     let non_caps, caps;
     // Create the variables.
