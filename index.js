@@ -98,11 +98,11 @@ client.on("messageCreate", message => {
 })  
 
 client.on("messageCreate", async msg => {
-    const capsChannel = message.channelId
-    const capsTextLink = message.url
-    const capsmessagelog = message.content
+    const capsChannel = msg.channelId
+    const capsTextLink = msg.url
+    const capsmessagelog = msg.content
 
-    if (message.author == client.user || msg.content.length < 15) return;
+    if (msg.author == client.user || msg.content.length < 15) return;
     // Use `||` (OR) to make it cleaner.
     let non_caps, caps;
     // Create the variables.
