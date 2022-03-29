@@ -104,7 +104,7 @@ client.on("messageCreate", message => {
     const capsmessagelog = message.content
 
     if (message.author == client.user) return console.log("failed to run further - line 101");
-    if (message.content.length() < 15) return console.log("failed to run further- line 107");
+    if (message.content.length < 2) return console.log("failed to run further- line 107");
         // Use `||` (OR) to make it cleaner.
     let non_caps, caps;
         // Create the variables.
