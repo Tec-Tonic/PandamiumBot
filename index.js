@@ -109,7 +109,7 @@ client.on("messageCreate", async message => {
     let non_caps, caps;
         // Create the variables.
   
-    for (x=0;x<msg.content.length;x++) {
+    for (x=0;x<message.content.length;x++) {
       if (message.content[x].toUpperCase() === message.content[x]) caps++;
       else non_caps++;
     }
