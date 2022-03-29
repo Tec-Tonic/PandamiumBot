@@ -113,9 +113,6 @@ client.on("messageCreate", message => {
     for (x=0;x<message.content.length;x++) {
       if (message.content[x].toUpperCase() === message.content[x]) caps++;
       else non_caps++;
-
-    console.log(`No Caps = ${non_caps}`);
-        console.log(`Caps = ${caps}`);
     }
     const textCaps = (caps / message.content.length) * 100;
     if (textCaps >= 60 ) {
