@@ -106,7 +106,7 @@ client.on("messageCreate", message => {
     const capsTextLink = message.url
     const capsmessagelog = message.content
 
-    if (message.content.length < 20) return;
+    if (message.content.length < 15) return;
     
     let non_caps = 0
     let caps = 0
@@ -116,9 +116,9 @@ client.on("messageCreate", message => {
       else non_caps++;
     }
     const textCaps = (caps / message.content.length) * 100;
-    if (textCaps >= 55 ) {
+    if (textCaps >= 75 ) {
     
-        client.channels.cache.get(logToServer).send(`${topicChannelName} More than 55% of this message is caps, possible spam in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
+        client.channels.cache.get(logToServer).send(`${topicChannelName} More than 75% of this message is caps, possible spam in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
      
     }
   })
