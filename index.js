@@ -10,6 +10,8 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
+const snapshotVersion = "22w12a"
+const releaseVersion = "1.18.2"
 const topicChannelName = "[Auto-Log]"
 const logToServer = '947886430489837628'
 // Panda server logs : 950432522137927690
@@ -137,6 +139,30 @@ client.on("messageCreate", message => {
     }
   })
 
+  // ip check
+  const ipFilter = require(`./filters/ipfilter.json`);
+// slur filter
+client.on("messageCreate", message => {
+    if (message.author == client.user) return;
+
+    const ipembed = new Discord.MessageEmbed()
+    .setColor('#008000')
+    .setTitle("Pandamium Server Ip's")
+    .setDescription(`Snapshot version : ${snapshotVersion}\nRelease version : ${releaseVersion}`)
+    .addFields(
+      {name:`Release Ip:`,value:`pandamium.eu`},
+      {name: `Snapshot Ip:`, value: `snapshot.pandamium.eu`}
+    ).setTimestamp()
+
+    let ipfoundInText = false;
+    for (var i in ipFilter) {
+    if (message.content.toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
+    }
+    if (ipfoundInText) {
+        message.channel.send({embeds: [ipembed]})
+      return;
+    }
+})
 
 
 client.login(process.env.TOKEN);
