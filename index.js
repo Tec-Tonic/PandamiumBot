@@ -100,7 +100,7 @@ client.on("messageCreate", message => {
 // Caps here
 client.on("messageCreate", message => {
     if (message.author == client.user) return 
-    if (message.content.startsWith("Online players (")) return;
+    if (message.content.includes("Online players")) {return};
 
     const capsChannel = message.channelId
     const capsTextLink = message.url
