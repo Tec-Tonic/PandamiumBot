@@ -107,6 +107,18 @@ client.on("messageCreate", message => {
     const capsChannel = message.channelId
     const capsTextLink = message.url
     const capsmessagelog = message.content
+    const filterCapPunctuation = message.content
+
+    var punctuation1 = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+
+    function removeCapPunctuation(string) {
+      return string
+        .split('')
+        .filter(function(letter) {
+          return punctuation1.indexOf(letter) === -1;
+        })
+        .join('');
+    }
 
     if (message.content.length < 15) return;
     
@@ -114,7 +126,7 @@ client.on("messageCreate", message => {
     let caps = 0
   
     for (x=0;x<message.content.length;x++) {
-      if (message.content[x].toUpperCase() === message.content[x]) caps++;
+      if (removeCapPunctuation(filterCapPunctuation)[x].toUpperCase() === message.content[x]) caps++;
       else non_caps++;
     }
     const textCaps = (caps / message.content.length) * 100;
