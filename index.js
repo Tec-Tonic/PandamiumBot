@@ -141,7 +141,7 @@ client.on("messageCreate", message => {
 
   // ip check
   const ipFilter = require(`./filters/ipfilter.json`);
-// slur filter
+
 client.on("messageCreate", message => {
     if (message.author == client.user) return;
     const filterpunctuation = message.content
@@ -168,7 +168,7 @@ client.on("messageCreate", message => {
     }
 
     let ipfoundInText = false;
-    if (client.channels.cache.get(noCapsChannels)) return;
+    if (!client.channels.cache.get(noCapsChannels)) return;
     for (var i in ipFilter) {
     if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
     }
