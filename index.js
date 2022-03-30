@@ -131,7 +131,7 @@ client.on("messageCreate", message => {
           {name:`Message :`,value:`${capsmessagelog}`},
           {name: `${fixedpercent}% Uppercase`, value: `check <#${capsChannel}> || [click me](${capsTextLink})`}
         )
-        .setTimestamp().setFooter(datetime)
+        .setTimestamp().footer(datetime)
         )
         
         
