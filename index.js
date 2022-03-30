@@ -146,7 +146,8 @@ client.on("messageCreate", message => {
     if (message.author == client.user) return;
     const filterpunctuation = message.content
     const noCapsChannels = ['958674960442884116', '949458490664038430']
-
+    if (message.channelId = noCapsChannels) return;
+    
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
     .setTitle("Pandamium Server Ip's")
@@ -168,7 +169,6 @@ client.on("messageCreate", message => {
     }
 
     let ipfoundInText = false;
-    if (!client.channels.cache.get(noCapsChannels)) return;
     for (var i in ipFilter) {
     if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
     }
