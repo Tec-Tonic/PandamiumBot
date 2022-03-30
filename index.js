@@ -121,12 +121,12 @@ client.on("messageCreate", message => {
     if (textCaps >= 75 ) {
       var fixedpercent = parseFloat(textCaps).toFixed( 1 );
       var datetime =  + currentdate.getDate() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getFullYear();  
-
+      const capsmessagelength = message.content
       client.channels.cache.get(logToServer).send(
         new Discord.MessageEmbed()
         .setColor('#7b9bcc')
         .setTitle("Auto-Log")
-        .setDescription(`Message length : ${testing}`)
+        .setDescription(`Message length : ${capsmessagelength}`)
         .addFields(
           {name:`Message :`,value:`${capsmessagelog}`},
           {name: `${fixedpercent}% Uppercase`, value: `check <#${capsChannel}> || [click me](${capsTextLink})`}
