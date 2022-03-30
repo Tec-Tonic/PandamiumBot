@@ -144,11 +144,10 @@ client.on("messageCreate", message => {
 
 client.on("messageCreate", message => {
     if (message.author == client.user) return;
-    const checkchannelid = message.channelId
+    if (message.author.bot) return;
+   
     const filterpunctuation = message.content
-    //const noCapsChannels = ['958674960442884116', '949458490664038430']
-    if (checkchannelid === ['958674960442884116', '949458490664038430']) return console.log('Rejected ip search')
-
+   
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
     .setTitle("Pandamium Server Ip's")
