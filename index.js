@@ -169,7 +169,7 @@ client.on("messageCreate", message => {
       {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
     ).setTimestamp()
 
-    var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+    var punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
     function removePunctuation(string) {
       return string
