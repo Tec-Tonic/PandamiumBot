@@ -119,9 +119,15 @@ client.on("messageCreate", message => {
     if (textCaps >= 75 ) {
       var fixedpercent = parseFloat(textCaps).toFixed( 1 );
 
-      const capsmessagelength = message.content
+      const capsmessagelength = message.content.length
 
-      const capsembed = new Discord.MessageEmbed().setColor('#7b9bcc').setTitle("Auto-Log").setDescription(`Message length : ${capsmessagelength}`).addFields({name:`Message :`,value:`${capsmessagelog}`},{name: `${fixedpercent}% Uppercase`, value: `check <#${capsChannel}> || [click me](${capsTextLink})`}
+      const capsembed = new Discord.MessageEmbed()
+      .setColor('#7b9bcc')
+      .setTitle("Auto-Log")
+      .setDescription(`Message length : ${capsmessagelength}`)
+      .addFields(
+        {name:`Message :`,value:`${capsmessagelog}`},
+        {name: `${fixedpercent}% Uppercase`, value: `check <#${capsChannel}> || [click me](${capsTextLink})`}
       ).setTimestamp()
       client.channels.cache.get(logToServer).send({embeds: [capsembed]})
       
