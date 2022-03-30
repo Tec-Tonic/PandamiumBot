@@ -144,6 +144,7 @@ client.on("messageCreate", message => {
 // slur filter
 client.on("messageCreate", message => {
     if (message.author == client.user) return;
+    const filterpunctuation = message.content
 
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
@@ -154,15 +155,20 @@ client.on("messageCreate", message => {
       {name: `Snapshot Ip:`, value: `snapshot.pandamium.eu`}
     ).setTimestamp()
 
-    var regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
     function removePunctuation(string) {
-      return string.replace(regex, '');
+      return string
+        .split('')
+        .filter(function(letter) {
+          return punctuation.indexOf(letter) === -1;
+        })
+        .join('');
     }
 
     let ipfoundInText = false;
     for (var i in ipFilter) {
-    if (removePunctuation.message.content.toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
+    if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
     }
     if (ipfoundInText) {
         message.channel.send({embeds: [ipembed]})
