@@ -154,9 +154,15 @@ client.on("messageCreate", message => {
       {name: `Snapshot Ip:`, value: `snapshot.pandamium.eu`}
     ).setTimestamp()
 
+    var regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+
+    function removePunctuation(string) {
+      return string.replace(regex, '');
+    }
+
     let ipfoundInText = false;
     for (var i in ipFilter) {
-    if (message.content.toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
+    if (removePunctuation.message.content.toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
     }
     if (ipfoundInText) {
         message.channel.send({embeds: [ipembed]})
