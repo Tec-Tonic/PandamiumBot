@@ -150,11 +150,11 @@ client.on("messageCreate", message => {
    
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
-    .setTitle("Pandamium Server Ip's")
+    .setTitle("Pandamium Server IP's")
     .setDescription(`Snapshot version : ${snapshotVersion}\nRelease version : ${releaseVersion}`)
     .addFields(
-      {name:`Release Ip:`,value:`pandamium.eu`},
-      {name: `Snapshot Ip:`, value: `snapshot.pandamium.eu`}
+      {name:`Release IP:`,value:`pandamium.eu`},
+      {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
     ).setTimestamp()
 
     var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
