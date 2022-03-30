@@ -11,9 +11,11 @@ const client = new Discord.Client ({
 require('dotenv').config()
 
 const topicChannelName = "[Auto-Log]"
-const logToServer = '950432522137927690'
+const logToServer = '947886430489837628'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628
+
+var currentdate = new Date(); 
 
 client.once('ready', () => {
 	client.user.setActivity(' Minecraft', { type: 'PLAYING' });
@@ -118,7 +120,22 @@ client.on("messageCreate", message => {
     const textCaps = (caps / message.content.length) * 100;
     if (textCaps >= 75 ) {
       var fixedpercent = parseFloat(textCaps).toFixed( 1 );
-        client.channels.cache.get(logToServer).send(`${topicChannelName} This message is ${fixedpercent}% caps, check <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
+      var datetime =  + currentdate.getDate() + "/" + (currentdate.getMonth()+1)  + "/" + currentdate.getFullYear();  
+
+      client.channels.cache.get(logToServer).send(
+        new Discord.MessageEmbed()
+        .setColor('#7b9bcc')
+        .setTitle("Auto-Log")
+        .setDescription(`Message length : ${testing}`)
+        .addFields(
+          {name:`Message :`,value:`${capsmessagelog}`},
+          {name: `${fixedpercent}% Uppercase`, value: `check <#${capsChannel}> || [click me](${capsTextLink})`}
+        )
+        .setTimestamp().setFooter(datetime)
+        )
+        
+        
+        //(`${topicChannelName} This message is ${fixedpercent}% caps, check <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
      
     }
   })
