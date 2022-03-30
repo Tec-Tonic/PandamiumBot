@@ -147,7 +147,7 @@ client.on("messageCreate", message => {
     const checkchannelid = message.channelId
     const filterpunctuation = message.content
     const noCapsChannels = ['958674960442884116', '949458490664038430']
-    if (checkchannelid === noCapsChannels) return;
+    if (noCapsChannels = checkchannelid) return console.log('Rejected ip search')
 
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
