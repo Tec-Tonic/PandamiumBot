@@ -145,6 +145,7 @@ client.on("messageCreate", message => {
 client.on("messageCreate", message => {
     if (message.author == client.user) return;
     const filterpunctuation = message.content
+    const noCapsChannels = ['958674960442884116', '949458490664038430']
 
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
@@ -167,11 +168,12 @@ client.on("messageCreate", message => {
     }
 
     let ipfoundInText = false;
+    if (client.message.channelId === noCapsChannels) return;
     for (var i in ipFilter) {
     if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
     }
     if (ipfoundInText) {
-        message.channel.send({embeds: [ipembed]})
+        message.channel.send({embeds: [ipembed]}).then(message => {setTimeout(() => message.delete(), 600000)});
       return;
     }
 })
