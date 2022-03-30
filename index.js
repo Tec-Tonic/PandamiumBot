@@ -117,8 +117,8 @@ client.on("messageCreate", message => {
     }
     const textCaps = (caps / message.content.length) * 100;
     if (textCaps >= 75 ) {
-    
-        client.channels.cache.get(logToServer).send(`${topicChannelName} More than 75% of this message is caps, possible spam in <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
+      var fixedpercent = parseFloat(textCaps).toFixed( 1 );
+        client.channels.cache.get(logToServer).send(`${topicChannelName} This message is ${fixedpercent}% caps, check <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
      
     }
   })
