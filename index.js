@@ -144,10 +144,11 @@ client.on("messageCreate", message => {
 
 client.on("messageCreate", message => {
     if (message.author == client.user) return;
+    const checkchannelid = message.channelId
     const filterpunctuation = message.content
     const noCapsChannels = ['958674960442884116', '949458490664038430']
-    if (message.channelId = noCapsChannels) return;
-    
+    if (checkchannelid === noCapsChannels) return;
+
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
     .setTitle("Pandamium Server Ip's")
