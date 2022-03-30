@@ -168,7 +168,7 @@ client.on("messageCreate", message => {
     }
 
     let ipfoundInText = false;
-    if (client.message.channelId === noCapsChannels) return;
+    if (client.channels.cache.get(noCapsChannels)) return;
     for (var i in ipFilter) {
     if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
     }
