@@ -14,7 +14,7 @@ const prefix = '!';
 const snapshotVersion = "22w13a";
 const releaseVersion = "1.18.2";
 const topicChannelName = "[Auto-Log]";
-const logToServer = '950432522137927690';
+const logToServer = '947886430489837628';
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628 
 
@@ -23,14 +23,15 @@ client.once('ready', () => {
     console.log(`Logged in as Utility`);
 });
 
+// ip command
 client.on('messageCreate', message =>{ 
   const ip2embed = new Discord.MessageEmbed()
     .setColor('#008000')
     .setTitle("Pandamium Server IP's")
     .addFields(
-      {name:`Release IP:`,value:`pandamium.eu`},
-      {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
-    ).setTimestamp()
+      {name:`Release IP:`,value:`pandamium.eu`, inline: true},
+      {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`, inline: true}
+    )
 
   if(!message.content.startsWith(prefix) || message.author.bot) return;
 
