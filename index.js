@@ -10,10 +10,11 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-const snapshotVersion = "22w13a"
-const releaseVersion = "1.18.2"
-const topicChannelName = "[Auto-Log]"
-const logToServer = '950432522137927690'
+const prefix = '!';
+const snapshotVersion = "22w13a";
+const releaseVersion = "1.18.2";
+const topicChannelName = "[Auto-Log]";
+const logToServer = '950432522137927690';
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628 
 
@@ -21,6 +22,25 @@ client.once('ready', () => {
 	client.user.setActivity(' Minecraft', { type: 'PLAYING' });
     console.log(`Logged in as Utility`);
 });
+
+client.on('messageCreate', message =>{ 
+  const ip2embed = new Discord.MessageEmbed()
+    .setColor('#008000')
+    .setTitle("Pandamium Server IP's")
+    .addFields(
+      {name:`Release IP:`,value:`pandamium.eu`},
+      {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
+    ).setTimestamp()
+
+  if(!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args =message.content.slice(prefix.length).split(/ +/);
+  const command = args.shift().toLowerCase();
+
+  if(command === 'ip'){
+    message.channel.send({embeds: [ip2embed]})
+  }
+})
 
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
