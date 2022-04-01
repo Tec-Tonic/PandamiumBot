@@ -153,6 +153,7 @@ client.on("messageCreate", message => {
 
   // ip check
   const ipFilter = require(`./filters/ipfilter.json`);
+  const ipembed = require(`./embeds/ipembed`);
 
 client.on("messageCreate", message => {
     if (message.author == client.user) return;
@@ -160,14 +161,14 @@ client.on("messageCreate", message => {
    
     const filterpunctuation = message.content
    
-    const ipembed = new Discord.MessageEmbed()
-    .setColor('#008000')
-    .setTitle("Pandamium Server IP's")
-    .setDescription(`Release version : ${releaseVersion} \nSnapshot version : ${snapshotVersion}`)
-    .addFields(
-      {name:`Release IP:`,value:`pandamium.eu`},
-      {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
-    ).setTimestamp()
+    // const ipembed = new Discord.MessageEmbed()
+    // .setColor('#008000')
+    // .setTitle("Pandamium Server IP's")
+    // .setDescription(`Release version : ${releaseVersion} \nSnapshot version : ${snapshotVersion}`)
+    // .addFields(
+    //   {name:`Release IP:`,value:`pandamium.eu`},
+    //   {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
+    // ).setTimestamp()
 
     var punctuation = "!\"#$%&'()*+,´-./:;<=>?@[\\]^_`{|}~";
 
