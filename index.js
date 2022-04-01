@@ -32,10 +32,19 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
     const scamAuthor = message.author
     const scamChannel = message.channelId
 
+    const scamLinkEmbed = new Discord.MessageEmbed()
+      .setColor('#FF0000')
+      .setTitle("Scam links!")
+      .setDescription(`Slurs are being used!`)
+      .addFields(
+        {name:`User :`,value:`${scamAuthor} sent a scam link!`},
+        {name: `<#${scamChannel}> || No link, message deleted`}
+      ).setTimestamp()
+
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
-            client.channels.cache.get(logToServer).send(`${topicChannelName} ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted. `)
+            client.channels.cache.get(logToServer).send({embeds: [scamLinkEmbed]})
             message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
             .then(message => {setTimeout(() => message.delete(), 60000)});
             break
@@ -52,12 +61,21 @@ client.on("messageCreate", message => {
     const slurTextLink = message.url
     const slurmessagelog = message.content
 
+    const slurEmbed = new Discord.MessageEmbed()
+      .setColor('#FF0000')
+      .setTitle("Slurs!")
+      .setDescription(`Slurs are being used!`)
+      .addFields(
+        {name:`Message :`,value:`${slurmessagelog}`},
+        {name: `check <#${slurChannel}> || [click me](${slurTextLink})`}
+      ).setTimestamp()
+
     let foundInText = false;
     for (var i in slurFilter) {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
-        client.channels.cache.get(logToServer).send(`${topicChannelName} Slurs are being used in <#${slurChannel}> \n> ||${slurmessagelog}|| \n${slurTextLink}`)
+      client.channels.cache.get(logToServer).send({embeds: [slurEmbed]})
       return;
     }
 })
@@ -71,12 +89,21 @@ client.on("messageCreate", message => {
     const topicTextLink = message.url
     const topicmessagelog = message.content
     
+    const controversialSpeachEmbed = new Discord.MessageEmbed()
+      .setColor('#7b9bcc')
+      .setTitle("Controversial Topics!")
+      .setDescription(`Possible __controversial topic__ being mentioned`)
+      .addFields(
+        {name:`Message :`,value:`${topicmessagelog}`},
+        {name: `check <#${topicChannel}> || [click me](${topicTextLink})`}
+      ).setTimestamp()
+
     let topicFoundInText = false;
     for (var i in topicFilter) {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get(logToServer).send(`${topicChannelName} Possible __controversial topic__ being mentioned in <#${topicChannel}> \n> ${topicmessagelog} \n${topicTextLink}`)
+      client.channels.cache.get(logToServer).send({embeds: [controversialSpeachEmbed]})
       return;
     }
 })  
@@ -89,13 +116,22 @@ client.on("messageCreate", message => {
     const cheatChannel = message.channelId
     const cheatTextLink = message.url
     const cheatmessagelog = message.content
-    
+
+    const hackingSpeachEmbed = new Discord.MessageEmbed()
+      .setColor('#7b9bcc')
+      .setTitle("General Terms about Hacking!")
+      .setDescription(`General terms about hacking/cheating being mentioned!`)
+      .addFields(
+        {name:`Message :`,value:`${cheatmessagelog}`},
+        {name: `check <#${cheatChannel}> || [click me](${cheatTextLink})`}
+      ).setTimestamp()
+      
     let cheatFoundInText = false;
     for (var i in cheatFilter) {
     if (message.content.toLowerCase().includes(cheatFilter[i].toLowerCase())) cheatFoundInText = true;
     }
     if (cheatFoundInText) {
-        client.channels.cache.get(logToServer).send(`${topicChannelName} General terms about hacking/cheating being mentioned in <#${cheatChannel}> \n> ${cheatmessagelog} \n${cheatTextLink}`)
+      client.channels.cache.get(logToServer).send({embeds: [hackingSpeachEmbed]})
       return;
     }
 })  
@@ -137,7 +173,7 @@ client.on("messageCreate", message => {
 
       const capsembed = new Discord.MessageEmbed()
       .setColor('#7b9bcc')
-      .setTitle("Auto-Log")
+      .setTitle("Caps Spam!")
       .setDescription(`Message length : ${capsmessagelength}`)
       .addFields(
         {name:`Message :`,value:`${capsmessagelog}`},
