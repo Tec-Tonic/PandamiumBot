@@ -10,7 +10,7 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
-const snapshotVersion = "22w12a"
+const snapshotVersion = "22w13a"
 const releaseVersion = "1.18.2"
 const topicChannelName = "[Auto-Log]"
 const logToServer = '950432522137927690'
@@ -37,7 +37,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
             message.delete();
             client.channels.cache.get(logToServer).send(`${topicChannelName} ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted. `)
             message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
-            .then(message => {setTimeout(() => message.delete(), 600000)});
+            .then(message => {setTimeout(() => message.delete(), 60000)});
             break
         }
     }
@@ -163,13 +163,13 @@ client.on("messageCreate", message => {
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
     .setTitle("Pandamium Server IP's")
-    .setDescription(`Snapshot version : ${snapshotVersion}\nRelease version : ${releaseVersion}`)
+    .setDescription(`Release version : ${releaseVersion} \nSnapshot version : ${snapshotVersion}`)
     .addFields(
       {name:`Release IP:`,value:`pandamium.eu`},
       {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
     ).setTimestamp()
 
-    var punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+    var punctuation = "!\"#$%&'()*+,´-./:;<=>?@[\\]^_`{|}~";
 
     function removePunctuation(string) {
       return string
@@ -182,10 +182,10 @@ client.on("messageCreate", message => {
 
     let ipfoundInText = false;
     for (var i in ipFilter) {
-    if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i].toLowerCase())) ipfoundInText = true;
+    if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i])) ipfoundInText = true;
     }
     if (ipfoundInText) {
-        message.channel.send({embeds: [ipembed]}).then(message => {setTimeout(() => message.delete(), 600000)});
+        message.channel.send({embeds: [ipembed]}).then(message => {setTimeout(() => message.delete(), 60000)});
       return;
     }
 })
