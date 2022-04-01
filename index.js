@@ -10,6 +10,7 @@ const client = new Discord.Client ({
 });
 require('dotenv').config()
 
+const prefix = '!'
 const snapshotVersion = "22w13a"
 const releaseVersion = "1.18.2"
 const topicChannelName = "[Auto-Log]"
