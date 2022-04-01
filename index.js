@@ -38,7 +38,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
       .setDescription(`Slurs are being used!`)
       .addFields(
         {name:`User :`,value:`${scamAuthor} sent a scam link!`},
-        {name: `<#${scamChannel}>`, value: `No link, message deleted`}
+        {name: `Info :`, value: `<#${scamChannel}> || No link, message deleted`}
       ).setTimestamp()
 
     for (var i = 0; i < scamLinkFlter.length; i++) {
@@ -67,7 +67,7 @@ client.on("messageCreate", message => {
       .setDescription(`Slurs are being used!`)
       .addFields(
         {name:`Message :`,value:`${slurmessagelog}`},
-        {name: `check <#${slurChannel}>`, value: `[click me](${slurTextLink})`}
+        {name: `Info: `, value: `check <#${slurChannel}> || [click me](${slurTextLink})`}
       ).setTimestamp()
 
     let foundInText = false;
@@ -95,7 +95,7 @@ client.on("messageCreate", message => {
       .setDescription(`Possible __controversial topic__ being mentioned`)
       .addFields(
         {name:`Message :`,value:`${topicmessagelog}`},
-        {name: `check <#${topicChannel}>`, value: ` [click me](${topicTextLink})`}
+        {name: `Info :`, value: `check <#${topicChannel}> || [click me](${topicTextLink})`}
       ).setTimestamp()
 
     let topicFoundInText = false;
@@ -123,7 +123,7 @@ client.on("messageCreate", message => {
       .setDescription(`General terms about hacking/cheating being mentioned!`)
       .addFields(
         {name:`Message :`,value:`${cheatmessagelog}`},
-        {name: `check <#${cheatChannel}>`, value: `[click me](${cheatTextLink})`}
+        {name: `Info :`, value: `check <#${cheatChannel}> || [click me](${cheatTextLink})`}
       ).setTimestamp()
       
     let cheatFoundInText = false;
