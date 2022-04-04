@@ -11,10 +11,8 @@ const client = new Discord.Client ({
 require('dotenv').config()
 
 const prefix = '!'
-const snapshotVersion = "22w13a"
-const releaseVersion = "1.18.2"
 const topicChannelName = "[Auto-Log]"
-const logToServer = '950432522137927690'
+const logToServer = '947886430489837628'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628 
 
@@ -123,6 +121,7 @@ client.on("messageCreate", message => {
 client.on("messageCreate", message => {
     if (message.author == client.user) return 
     if (message.content.includes("Online players")) {return};
+    if (message.content.includes('<@')) {return};
 
     const capsChannel = message.channelId
     const capsTextLink = message.url
@@ -157,7 +156,7 @@ client.on("messageCreate", message => {
 
       const capsembed = new Discord.MessageEmbed()
       .setColor('#7b9bcc')
-      .setTitle("Auto-Log")
+      .setTitle("Caps Warning!")
       .setDescription(`Message length : ${capsmessagelength}`)
       .addFields(
         {name:`Message :`,value:`${capsmessagelog}`},
@@ -183,13 +182,12 @@ client.on("messageCreate", message => {
     const ipembed = new Discord.MessageEmbed()
     .setColor('#008000')
     .setTitle("Pandamium Server IP's")
-    .setDescription(`Release version : ${releaseVersion} \nSnapshot version : ${snapshotVersion}`)
     .addFields(
       {name:`Release IP:`,value:`pandamium.eu`},
       {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
     ).setTimestamp()
 
-    var punctuation = "!\"#$%&'()*+,´-./:;<=>?@[\\]^_`{|}~";
+    var punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
     function removePunctuation(string) {
       return string
