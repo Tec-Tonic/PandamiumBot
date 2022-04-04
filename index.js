@@ -120,7 +120,7 @@ client.on("messageCreate", message => {
         {name: `Message :`, value: `${cheatmessagelog}`},
         {name: `Info :`, value: `Check <#${cheatChannel}> || [Click Me](${cheatTextLink})`}
       )
-      client.channels.cache.get(logToServer).send({embeds: [cheatEmbed]})
+      client.channels.cache.get(logToServer).send(cheatEmbed)
       return;
     }
 })  
