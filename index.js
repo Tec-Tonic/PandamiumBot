@@ -70,12 +70,20 @@ client.on("messageCreate", message => {
     const slurTextLink = message.url
     const slurmessagelog = message.content
 
+    const slurEmbed = new Discord.MessageEmbed()
+      .setColor('#FF0000')
+      .setTitle("Slurs!")
+      .addFields(
+        {name:`Message :`,value:`|| ${slurmessagelog} ||`},
+        {name:`Info: `,value: `check <#${slurChannel}> || [click me](${slurTextLink})`}
+      )
+
     let foundInText = false;
     for (var i in slurFilter) {
     if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
-        client.channels.cache.get(logToServer).send(`${topicChannelName} Slurs are being used in <#${slurChannel}> \n> ||${slurmessagelog}|| \n${slurTextLink}`)
+      client.channels.cache.get(logToServer).send({embeds: [slurEmbed]})
       return;
     }
 })
@@ -89,12 +97,20 @@ client.on("messageCreate", message => {
     const topicTextLink = message.url
     const topicmessagelog = message.content
     
+    const controEmbed = new Discord.MessageEmbed()
+       .setColor('#7b9bcc')
+       .setTitle("Controversial Topics!")
+       .addFields(
+         {name:`Message :`,value:`${topicmessagelog}`},
+         {name: `Info :`,value: `check <#${topicChannel}> || [click me](${topicTextLink})`}
+       )
+
     let topicFoundInText = false;
     for (var i in topicFilter) {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channels.cache.get(logToServer).send(`${topicChannelName} Possible __controversial topic__ being mentioned in <#${topicChannel}> \n> ${topicmessagelog} \n${topicTextLink}`)
+        client.channel.cache.get(logToServer).send({embeds: [controEmbed]})
       return;
     }
 })  
