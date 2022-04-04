@@ -110,7 +110,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
     }
     if (topicFoundInText) {
-        client.channel.cache.get(logToServer).send({embeds: [controEmbed]})
+      client.channels.cache.get(logToServer).send({embeds: [controEmbed]})
       return;
     }
 })  
