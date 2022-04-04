@@ -12,7 +12,7 @@ require('dotenv').config()
 
 const prefix = '!'
 const topicChannelName = "[Auto-Log]"
-const logToServer = '947886430489837628'
+const logToServer = '947886430489837628cd'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628 
 
@@ -108,12 +108,20 @@ client.on("messageCreate", message => {
     const cheatTextLink = message.url
     const cheatmessagelog = message.content
     
+    const cheatEmbed = new Discord.MessageEmbed()
+    .setColor('#7b9bcc')
+    .setTitle('Terms about Hacking/Cheating!')
+    .addFields(
+      {name: `Message :`, value: `${cheatmessagelog}`},
+      {name: `Info :`, value: `Check <#${cheatChannel}> || [Click Me](${cheatTextLink})`}
+    )
+
     let cheatFoundInText = false;
     for (var i in cheatFilter) {
     if (message.content.toLowerCase().includes(cheatFilter[i].toLowerCase())) cheatFoundInText = true;
     }
     if (cheatFoundInText) {
-        client.channels.cache.get(logToServer).send(`${topicChannelName} General terms about hacking/cheating being mentioned in <#${cheatChannel}> \n> ${cheatmessagelog} \n${cheatTextLink}`)
+      client.channels.cache.get(logToServer).send({embeds: [cheatEmbed]})
       return;
     }
 })  
