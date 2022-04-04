@@ -108,19 +108,18 @@ client.on("messageCreate", message => {
     const cheatTextLink = message.url
     const cheatmessagelog = message.content
     
-    const cheatEmbed = new Discord.MessageEmbed()
-    .setColor('#7b9bcc')
-    .setTitle('Terms about Hacking/Cheating!')
-    .addFields(
-      {name: `Message :`, value: `${cheatmessagelog}`},
-      {name: `Info :`, value: `Check <#${cheatChannel}> || [Click Me](${cheatTextLink})`}
-    )
-
     let cheatFoundInText = false;
     for (var i in cheatFilter) {
     if (message.content.toLowerCase().includes(cheatFilter[i].toLowerCase())) cheatFoundInText = true;
     }
     if (cheatFoundInText) {
+      const cheatEmbed = new Discord.MessageEmbed()
+      .setColor('#7b9bcc')
+      .setTitle('Terms about Hacking/Cheating!')
+      .addFields(
+        {name: `Message :`, value: `${cheatmessagelog}`},
+        {name: `Info :`, value: `Check <#${cheatChannel}> || [Click Me](${cheatTextLink})`}
+      )
       client.channels.cache.get(logToServer).send({embeds: [cheatEmbed]})
       return;
     }
