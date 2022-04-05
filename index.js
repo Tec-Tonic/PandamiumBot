@@ -11,13 +11,12 @@ const client = new Discord.Client ({
 require('dotenv').config()
 
 const prefix = '!'
-const topicChannelName = "[Auto-Log]"
 const logToServer = '950432522137927690'
 // Panda server logs : 950432522137927690
 // My server logs : 947886430489837628 
 
 client.once('ready', () => {
-	client.user.setActivity(' Minecraft', { type: 'PLAYING' });
+	client.user.setActivity(' Minecraft', { type: 'WATCHING' });
     console.log(`Logged in as Utility`);
 });
 
@@ -26,15 +25,12 @@ client.on('messageCreate', message =>{
     .setColor('#008000')
     .setTitle("Pandamium Server IP's")
     .addFields(
-      {name:`Release IP:`,value:`pandamium.eu`, inline: true},
-      {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`, inline: true}
+      {name:`Release IP:`,value:`pandamium.eu`},
+      {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
     )
-
   if(!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args =message.content.slice(prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
-
+    const args =message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
   if(command === 'ip'){
     message.channel.send({embeds: [ip2embed]})
   }
@@ -43,19 +39,20 @@ client.on('messageCreate', message =>{
 const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
 client.on("messageCreate", message => {
+  if (message.author == client.user) return;
     var content = message.content;
-    var stringToCheck = content.replace(/\s+/g, '').toLowerCase();
-    var stringToCheck = content;
+      var stringToCheck = content.replace(/\s+/g, '').toLowerCase();
+        var stringToCheck = content;
 stringToCheck.replace(/\s+/g, '').toLowerCase();
     const scamAuthor = message.author
-    const scamChannel = message.channelId
+      const scamChannel = message.channelId
 
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
-            client.channels.cache.get(logToServer).send(`${topicChannelName} ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted. `)
-            message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
-            .then(message => {setTimeout(() => message.delete(), 60000)});
+              client.channels.cache.get(logToServer).send(`[Scam-Links] ${scamAuthor} sent a scam link in <#${scamChannel}>. Message was deleted. `)
+                message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
+                  .then(message => {setTimeout(() => message.delete(), 60000)});
             break
         }
     }
@@ -187,9 +184,6 @@ client.on("messageCreate", message => {
         {name: `${fixedpercent}% Uppercase`, value: `check <#${capsChannel}> || [click me](${capsTextLink})`}
       ).setTimestamp()
       client.channels.cache.get(logToServer).send({embeds: [capsembed]})
-      
-        
-        //(`${topicChannelName} This message is ${fixedpercent}% caps, check <#${capsChannel}> \n> ${capsmessagelog} \n${capsTextLink}`)
      
     }
   })
@@ -227,6 +221,7 @@ client.on("messageCreate", message => {
     if (removePunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i])) ipfoundInText = true;
     }
     if (ipfoundInText) {
+        message.react('☑️')
         message.channel.send({embeds: [ipembed]}).then(message => {setTimeout(() => message.delete(), 60000)});
       return;
     }
