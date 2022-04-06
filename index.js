@@ -16,8 +16,9 @@ const logToServer = '950432522137927690'
 // My server logs : 947886430489837628 
 
 client.once('ready', () => {
-	client.user.setActivity(' Minecraft', { type: 'WATCHING' });
-    console.log(`Logged in as Utility`);
+  const serverCount = client.guilds.cache.size
+	client.user.setActivity(' Discord', { type: 'WATCHING' });
+    console.log(`Logged in as ${client.user.tag} in ${serverCount}`);
 });
 
 client.on('messageCreate', message =>{ 
@@ -173,15 +174,12 @@ client.on("messageCreate", message => {
     if (textCaps >= 75 ) {
       var fixedpercent = parseFloat(textCaps).toFixed( 1 );
 
-      const capsmessagelength = message.content.length
-
       const capsembed = new Discord.MessageEmbed()
       .setColor('#7b9bcc')
       .setTitle("Caps Warning!")
-      .setDescription(`Message length : ${capsmessagelength}`)
       .addFields(
         {name:`Message :`,value:`${capsmessagelog}`},
-        {name: `${fixedpercent}% Uppercase`, value: `check <#${capsChannel}> || [click me](${capsTextLink})`}
+        {name: `Info :`, value: `check <#${capsChannel}> || [click me](${capsTextLink}) \n${fixedpercent}% Uppercase`}
       ).setTimestamp()
       client.channels.cache.get(logToServer).send({embeds: [capsembed]})
      
