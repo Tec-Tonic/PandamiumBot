@@ -83,7 +83,8 @@ client.on("messageCreate", message => {
 })  
 
 client.on("messageCreate", message => {
-    if (message.author == client.user) return 
+    if (message.author == client.user) return; 
+    if (!message.author.bot) return;
     if (message.content.includes("Online players")) {return};
     if (message.content.includes('<@')) {return};
     if (message.content.length < 15) return;
