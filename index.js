@@ -42,6 +42,16 @@ client.on('messageCreate', message =>{
         client.command.get('ip').execute(message,Discord,client)
     }
   })
+  
+  client.on('messageCreate', message =>{ 
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+      const args =message.content.slice(prefix.length).split(/ +/);
+      const command = args.shift().toLowerCase();
+      if(message.author.id !== '546277533138550786') return;
+      if(command === 'alert'){
+        client.command.get('alert').execute(message,Discord,client)
+    }
+  })
 const slurFilter = require(`./filters/slurfilter.json`)
 client.on("messageCreate", message => {
     let foundInText = false;
