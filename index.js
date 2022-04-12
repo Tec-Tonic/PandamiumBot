@@ -52,14 +52,21 @@ client.on('messageCreate', message =>{
         client.command.get('alert').execute(message,Discord,client)
     }
   })
-const slurFilter = require(`./filters/slurfilter.json`)
+const alertFilter = require(`./filters/alert.json`)
+const stopAlertFilter = require(`./filters/alertstop.json`)
 client.on("messageCreate", message => {
+  const wait = require('util').promisify(setTimeout);
+
     let foundInText = false;
-    for (var i in slurFilter) {
-    if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
+    for (var i in alertFilter) {
+    if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
     }
+    for (var i in stopAlertFilter) {
+      if (!message.content.toLowerCase().includes(stopAlertFilter[i].toLowerCase())) foundInText = false;
+      }
     if (foundInText) {
-     client.command.get('slur').execute(message,Discord,client)
+      await wait(60000)
+     client.command.get('alert').execute(message,Discord,client)
       return;
     }
 })
@@ -112,6 +119,7 @@ client.on("messageCreate", message => {
   })
 
   const ipFilter = require(`./filters/ipfilter.json`);
+const { waitForDebugger } = require('inspector');
   client.on("messageCreate", message => {
       if (message.author == client.user) return;
       if (message.author.bot) return;
