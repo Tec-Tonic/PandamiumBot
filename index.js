@@ -61,10 +61,10 @@ client.on("messageCreate", async message => {
     for (var i in alertFilter) {
     if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
     }
-    await wait(60000)
     for (var i in stopAlertFilter) {
       if (message.content.toLowerCase().includes(stopAlertFilter[i].toLowerCase())) foundInText = false;
       }
+    await wait(60000)
     if (foundInText) {
      client.command.get('alert').execute(message,Discord,client)
       return;
