@@ -1,4 +1,4 @@
-//const log = require(`../logtoserver.json`).toString('')
+const mylog = "963436191426957352"
 module.exports = {
     name: 'alert',
     execute(message,Discord,client){
@@ -7,8 +7,8 @@ module.exports = {
       .setColor('#FF0000')
       .setTitle("Alert!")
       .addFields(
-        {name:`Snapshot Server`,value:`Went offline <t:${Date.now()/ 1000 | 0}>`}
+        {name:`Snapshot Server`,value:`Went offline/restarted on <t:${Date.now()/ 1000 | 0}>`}
         )
     
-        message.channel.send({embeds: [alertEmbed]})
+        client.channels.cache.get(mylog).send({embeds: [alertEmbed]})
 }}
