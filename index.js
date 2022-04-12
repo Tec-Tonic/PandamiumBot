@@ -65,7 +65,7 @@ client.on("messageCreate", message => {
       if (!message.content.toLowerCase().includes(stopAlertFilter[i].toLowerCase())) foundInText = false;
       }
     if (foundInText) {
-      await wait(60000)
+      wait(60000)
      client.command.get('alert').execute(message,Discord,client)
       return;
     }
