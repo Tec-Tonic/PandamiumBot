@@ -42,18 +42,8 @@ client.on('messageCreate', message =>{
         client.command.get('ip').execute(message,Discord,client)
     }
   })
-  
-  client.on('messageCreate', message =>{ 
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
-      const args =message.content.slice(prefix.length).split(/ +/);
-      const command = args.shift().toLowerCase();
-      if(message.author.id !== '546277533138550786') return;
-      if(command === 'alert'){
-        client.command.get('alert').execute(message,Discord,client)
-    }
-  })
-const alertFilter = require(`./filters/alert.json`)
-//const stopAlertFilter = require(`./filters/alertstop.json`)
+
+  const alertFilter = require(`./filters/alert.json`)
 client.on("messageCreate", async message => {
   let wait = async (ms) => await new Promise(r => setTimeout(r,ms));
 
