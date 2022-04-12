@@ -54,18 +54,18 @@ client.on('messageCreate', message =>{
   })
 const alertFilter = require(`./filters/alert.json`)
 const stopAlertFilter = require(`./filters/alertstop.json`)
-client.on("messageCreate", message => {
+client.on("messageCreate", async message => {
   const wait = require('util').promisify(setTimeout);
 
     let foundInText = false;
     for (var i in alertFilter) {
     if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
     }
+    await wait(60000)
     for (var i in stopAlertFilter) {
       if (message.content.toLowerCase().includes(stopAlertFilter[i].toLowerCase())) foundInText = false;
       }
     if (foundInText) {
-      wait(60000)
      client.command.get('alert').execute(message,Discord,client)
       return;
     }
