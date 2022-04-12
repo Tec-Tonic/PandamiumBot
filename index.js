@@ -62,7 +62,7 @@ client.on("messageCreate", message => {
     if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
     }
     for (var i in stopAlertFilter) {
-      if (!message.content.toLowerCase().includes(stopAlertFilter[i].toLowerCase())) foundInText = false;
+      if (message.content.toLowerCase().includes(stopAlertFilter[i].toLowerCase())) foundInText = false;
       }
     if (foundInText) {
       wait(60000)
