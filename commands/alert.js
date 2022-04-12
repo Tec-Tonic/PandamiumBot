@@ -7,7 +7,7 @@ module.exports = {
       .setColor('#FF0000')
       .setTitle("Alert!")
       .addFields(
-        {name:`Snapshot Server`,value:`Went offline <t:${parseInt(message.author.createdTimestamp / 1000, 10)}>`}
+        {name:`Snapshot Server`,value:`Went offline <t:${Date.now()}>`}
         )
     
         message.channel.send({embeds: [alertEmbed]})
