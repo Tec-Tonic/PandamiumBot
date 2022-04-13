@@ -46,6 +46,7 @@ client.on('messageCreate', message =>{
   const alertFilter = require(`./filters/alert.json`)
   // Current Alert Code for restarts
 client.on("messageCreate", message => {
+  if (message.author == client.user) return;
   let foundInText = false;
     for (var i in alertFilter) {
     if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
@@ -60,10 +61,10 @@ client.on("messageCreate", message => {
       const strTime = `${hours}:${minutes} ${ampm}`;
       return strTime;
     };
-    if (formatAMPM(new Date()) == '12:00 pm') return;
-    if (formatAMPM(new Date()) == '12:00 am') return;
-    if (formatAMPM(new Date()) == '6:00 pm') return;
-    if (formatAMPM(new Date()) == '6:00 am') return;
+    if (formatAMPM(new Date()) == '12:00 pm') foundInText = false;
+    if (formatAMPM(new Date()) == '12:00 am') foundInText = false;
+    if (formatAMPM(new Date()) == '6:00 pm') foundInText = false;
+    if (formatAMPM(new Date()) == '6:00 am') foundInText = false;
     if (foundInText) {
      client.command.get('alert').execute(message,Discord,client)
       return;
