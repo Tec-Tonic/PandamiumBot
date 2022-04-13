@@ -44,14 +44,26 @@ client.on('messageCreate', message =>{
   })
 
   const alertFilter = require(`./filters/alert.json`)
-client.on("messageCreate", async message => {
-  let wait = async (ms) => await new Promise(r => setTimeout(r,ms));
-
-    let foundInText = false;
+  // Current Alert Code for restarts
+client.on("messageCreate", message => {
+  let foundInText = false;
     for (var i in alertFilter) {
     if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
     }
-    await wait(30000)
+    const formatAMPM = (date) => {
+      let hours = date.getHours();
+      let minutes = date.getMinutes();    
+      const ampm = hours >= 12 ? 'pm' : 'am';
+      hours %= 12;
+      hours = hours || 12;    
+      minutes = minutes < 10 ? `0${minutes}` : minutes;
+      const strTime = `${hours}:${minutes} ${ampm}`;
+      return strTime;
+    };
+    if (formatAMPM(new Date()) == '12:00 pm') return;
+    if (formatAMPM(new Date()) == '12:00 am') return;
+    if (formatAMPM(new Date()) == '6:00 pm') return;
+    if (formatAMPM(new Date()) == '6:00 am') return;
     if (foundInText) {
      client.command.get('alert').execute(message,Discord,client)
       return;
