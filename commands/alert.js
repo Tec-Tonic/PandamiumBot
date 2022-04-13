@@ -7,7 +7,7 @@ module.exports = {
       .setColor('#FF0000')
       .setTitle("Alert!")
       .addFields(
-        {name:`Snapshot Server`,value:`Went offline/restarted on <t:${Date.now()/ 1000 | 0}>`}
+        {name:`Snapshot Server`,value:`Went offline, <t:${Date.now()/ 1000 | 0}>`}
         )
     
         client.channels.cache.get(mylog).send({embeds: [alertEmbed]})
