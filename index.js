@@ -65,8 +65,10 @@ client.on("messageCreate", message => {
     if (formatAMPM(new Date()) == '12:00 am') foundInText = false;
     if (formatAMPM(new Date()) == '6:00 pm') foundInText = false;
     if (formatAMPM(new Date()) == '6:00 am') foundInText = false;
+    
     if (foundInText) {
      client.command.get('alert').execute(message,Discord,client)
+     console.log(formatAMPM(new Date()))
       return;
     }
 })
