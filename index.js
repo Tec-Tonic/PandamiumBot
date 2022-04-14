@@ -61,14 +61,13 @@ client.on("messageCreate", message => {
       const strTime = `${hours}:${minutes} ${ampm}`;
       return strTime;
     };
-    if (formatAMPM(new Date()) == '12:00 pm') foundInText = false;
-    if (formatAMPM(new Date()) == '12:00 am') foundInText = false;
-    if (formatAMPM(new Date()) == '6:00 pm') foundInText = false;
-    if (formatAMPM(new Date()) == '6:00 am') foundInText = false;
+    if (formatAMPM(new Date()) == '11:00 pm') foundInText = false;
+    if (formatAMPM(new Date()) == '11:00 am') foundInText = false;
+    if (formatAMPM(new Date()) == '5:00 pm') foundInText = false;
+    if (formatAMPM(new Date()) == '5:00 am') foundInText = false;
     
     if (foundInText) {
      client.command.get('alert').execute(message,Discord,client)
-     console.log(formatAMPM(new Date()))
       return;
     }
 })
