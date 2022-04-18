@@ -1,4 +1,4 @@
-const mylog = "963436191426957352"
+const myLog = "963436191426957352"
 module.exports = {
     name: 'alert',
     execute(message,Discord,client){
@@ -10,5 +10,5 @@ module.exports = {
         {name:`Snapshot Server`,value:`Went offline/restarted, <t:${Date.now()/ 1000 | 0}>`}
         )
     
-        client.channels.cache.get(mylog).send({embeds: [alertEmbed]})
+        client.channels.cache.get(myLog).send({embeds: [alertEmbed]})
 }}

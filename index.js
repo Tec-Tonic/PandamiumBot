@@ -47,6 +47,7 @@ client.on('messageCreate', message =>{
   // Current Alert Code for restarts
 client.on("messageCreate", message => {
   if (message.author == client.user) return;
+  if (!message.author.bot) return;
   let foundInText = false;
     for (var i in alertFilter) {
     if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
