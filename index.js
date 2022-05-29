@@ -107,6 +107,20 @@ client.on("messageCreate", message => {
     }
 })
 
+const cheatFilter = require(`./filters/slurfilter.json`);
+// slur topic filter
+client.on("messageCreate", message => {    
+  if (message.author == client.user) return;
+  let foundInText = false;
+  for (var i in slurFilter) {
+  if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
+  }
+  if (foundInText) {
+    client.command.get('slurfilter').execute(message,Discord,client)
+    return;
+  }
+})  
+
 const topicFilter = require(`./filters/contro.json`);
 // controversial topic filter
 client.on("messageCreate", message => {    
