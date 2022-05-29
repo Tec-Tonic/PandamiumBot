@@ -8,7 +8,7 @@ const client = new Discord.Client({
 require('dotenv').config()
 const fs = require('fs');
 const prefix = '!'
-const log = require(`../logtoserver.json`).toString('')
+const log = require(`../Util/logtoserver.json`).toString('')
 
 var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
