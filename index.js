@@ -51,14 +51,16 @@ client.on("messageCreate", message => {
     var content = message.content;
       var stringToCheck = content.replace(/\s+/g, '').toLowerCase();
         var stringToCheck = content;
+
+        const scamAuthor = message.author
+          const scamChannel = message.channelId
+            const scamTextLink = message.url
+
 stringToCheck.replace(/\s+/g, '').toLowerCase();
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])){  
             message.delete();
-            const scamAuthor = message.author
-            const scamChannel = message.channelId
-            const scamTextLink = message.url
-    
+
             const scamEmbed = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle("Scam Link")
