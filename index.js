@@ -43,7 +43,7 @@ client.on('messageCreate', message =>{
     }
   })
 
-  const scamLinkFlter = require(`./filters/filter.json`);
+const scamLinkFlter = require(`./filters/filter.json`);
 // scam filter
 client.on("messageCreate", message => {
   if (message.author == client.user) return;
@@ -53,18 +53,15 @@ client.on("messageCreate", message => {
 stringToCheck.replace(/\s+/g, '').toLowerCase();
     for (var i = 0; i < scamLinkFlter.length; i++) {
         if (content.includes(scamLinkFlter[i])) foundInText = true;  
-            
-        if (foundInText) {
-          message.delete()
-          client.command.get('scamlink').execute(message,Discord,client)
-           return;
-         }
-           
-        
     }
+    if (foundInText) {
+      message.delete()
+      client.command.get('scamlink').execute(message,Discord,client)
+       return;
+     }
 })
 
-  const alertFilter = require(`./filters/alert.json`)
+const alertFilter = require(`./filters/alert.json`)
   // Current Alert Code for restarts
 client.on("messageCreate", message => {
   if (message.author == client.user) return;
