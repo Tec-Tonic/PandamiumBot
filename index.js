@@ -77,36 +77,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
     }
 })
 
-  const alertFilter = require(`./filters/alert.json`)
-  // Current Alert Code for restarts
-client.on("messageCreate", message => {
-  if (message.author == client.user) return;
-  if (!message.author.bot) return;
-  let foundInText = false;
-    for (var i in alertFilter) {
-    if (message.content.toLowerCase().includes(alertFilter[i].toLowerCase())) foundInText = true;
-    }
-    const formatAMPM = (date) => {
-      let hours = date.getHours();
-      let minutes = date.getMinutes();    
-      const ampm = hours >= 12 ? 'pm' : 'am';
-      hours %= 12;
-      hours = hours || 12;    
-      minutes = minutes < 10 ? `0${minutes}` : minutes;
-      const strTime = `${hours}:${minutes} ${ampm}`;
-      return strTime;
-    };
-    if (formatAMPM(new Date()) == '11:00 pm') foundInText = false;
-    if (formatAMPM(new Date()) == '11:00 am') foundInText = false;
-    if (formatAMPM(new Date()) == '5:00 pm') foundInText = false;
-    if (formatAMPM(new Date()) == '5:00 am') foundInText = false;
-    
-    if (foundInText) {
-     client.command.get('alert').execute(message,Discord,client)
-      return;
-    }
-})
-
+ 
 const slurFilter = require(`./filters/slurfilter.json`);
 // slur topic filter
 client.on("messageCreate", message => {    
