@@ -66,7 +66,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
             .setTitle("Scam Link")
             .addFields(
                 {name : "Scam link was Deleted!", value: `[click me](${scamTextLink})`},
-                {name : `${scamAuthor} sent the message`, value : `In ${scamChannel}`}
+                {name : `Info :`, value : `${scamAuthor} || <#${scamChannel}>`}
                 )
     
             client.channels.cache.get(log).send(({embeds: [scamEmbed]}))
