@@ -29,7 +29,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     const serverCount = client.guilds.cache.size
-      client.user.setActivity(' Discord', { type: 'WATCHING' });
+      client.user.setActivity(' Discord!', { type: 'WATCHING' });
       console.log(`Logged in as ${client.user.tag} on ${serverCount} servers`);
   });
 
