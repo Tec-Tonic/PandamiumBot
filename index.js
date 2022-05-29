@@ -64,9 +64,9 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
             const scamEmbed = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle("Scam Link")
+            .setDescription("Scam link deleted.")
             .addFields(
-                {name : "Scam link was Deleted!", value: `[click me](${scamTextLink})`},
-                {name : `Info :`, value : `${scamAuthor} || <#${scamChannel}>`}
+                {name : `Info :`, value : `Author: ${scamAuthor} || Channel: <#${scamChannel}>`}
                 )
     
             client.channels.cache.get(log).send(({embeds: [scamEmbed]}))
