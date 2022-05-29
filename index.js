@@ -111,12 +111,12 @@ const slurFilter = require(`./filters/slurfilter.json`);
 // slur topic filter
 client.on("messageCreate", message => {    
   if (message.author == client.user) return;
-  let foundInText = false;
+  let slurfoundInText = false;
   for (var i in slurFilter) {
-  if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) foundInText = true;
+  if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) slurfoundInText = true;
   }
-  if (foundInText) {
-    client.command.get('slurfilter').execute(message,Discord,client)
+  if (slurfoundInText) {
+    client.command.get('slur').execute(message,Discord,client)
     return;
   }
 })  
