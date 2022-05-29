@@ -107,7 +107,7 @@ client.on("messageCreate", message => {
     }
 })
 
-const cheatFilter = require(`./filters/slurfilter.json`);
+const slurFilter = require(`./filters/slurfilter.json`);
 // slur topic filter
 client.on("messageCreate", message => {    
   if (message.author == client.user) return;
