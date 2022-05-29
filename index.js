@@ -52,11 +52,15 @@ client.on("messageCreate", message => {
         var stringToCheck = content;
 stringToCheck.replace(/\s+/g, '').toLowerCase();
     for (var i = 0; i < scamLinkFlter.length; i++) {
-        if (content.includes(scamLinkFlter[i])){  
-            message.delete();
-            client.command.get('scamlink').execute(message,Discord,client)
-            return
-        }
+        if (content.includes(scamLinkFlter[i])) foundInText = true;  
+            
+        if (foundInText) {
+          message.delete()
+          client.command.get('scamlink').execute(message,Discord,client)
+           return;
+         }
+           
+        
     }
 })
 
