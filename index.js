@@ -159,7 +159,7 @@ const { waitForDebugger } = require('inspector');
   client.on("messageCreate", message => {
     if (message.author == client.user) return;
     const args = message.content
-    const version = args.shift(6).toLowerCase();
+    const version = args[6]
 
       let announcefoundInText = false;
       for (var i in announcementFilter) {
