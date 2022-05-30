@@ -161,7 +161,7 @@ const { waitForDebugger } = require('inspector');
     const filterpunctuation = message.content
       let announcefoundInText = false;
       for (var i in announcementFilter) {
-      if (removeCapPunctuation(filterpunctuation).toLowerCase().includes(announcementFilter[i])) announcefoundInText = true;
+      if (message.content.toLowerCase().includes(announcementFilter[i].toLowerCase())) announcefoundInText = true;
       }
       if (announcefoundInText) {
         client.channels.cache.get(personalLog).send(message.content)
