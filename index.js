@@ -158,13 +158,15 @@ const { waitForDebugger } = require('inspector');
   const announcementFilter = require(`./filters/anouncement.json`)
   client.on("messageCreate", message => {
     if (message.author == client.user) return;
-    const filterpunctuation = message.content
+    const args = message.content
+    const version = args.shift(6).toLowerCase();
+
       let announcefoundInText = false;
       for (var i in announcementFilter) {
       if (message.content.toLowerCase().includes(announcementFilter[i].toLowerCase())) announcefoundInText = true;
       }
       if (announcefoundInText) {
-        client.channels.cache.get(personalLog).send(message.content)
+        client.channels.cache.get(personalLog).send(version)
         return;
       }
   })
