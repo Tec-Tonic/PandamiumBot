@@ -9,6 +9,7 @@ require('dotenv').config()
 const fs = require('fs');
 const prefix = '!'
 const log = require(`./logtoserver.json`).toString('')
+const personalLog = '963436191426957352'
 
 var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
@@ -54,7 +55,6 @@ client.on("messageCreate", message => {
 
         const scamAuthor = message.author
           const scamChannel = message.channelId
-            const scamTextLink = message.url
 
 stringToCheck.replace(/\s+/g, '').toLowerCase();
     for (var i = 0; i < scamLinkFlter.length; i++) {
@@ -152,6 +152,19 @@ const { waitForDebugger } = require('inspector');
       if (ipfoundInText) {
           message.react('☑️')
           client.command.get('ip').execute(message,Discord,client)
+        return;
+      }
+  })
+  const announcementFilter = "The Snapshot server was updated to"
+  client.on("messageCreate", message => {
+    if (message.author == client.user) return;
+    const filterpunctuation = message.content
+      let announcefoundInText = false;
+      for (var i in announcementFilter) {
+      if (removeCapPunctuation(filterpunctuation).toLowerCase().includes(announcementFilter[i])) announcefoundInText = true;
+      }
+      if (announcefoundInText) {
+        client.channels.cache.get(personalLog).send(message.content)
         return;
       }
   })
