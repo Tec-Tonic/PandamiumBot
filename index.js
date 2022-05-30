@@ -160,6 +160,7 @@ const { waitForDebugger } = require('inspector');
   const announcementFilter = require(`./filters/anouncement.json`)
   client.on("messageCreate", message => {
     if (message.author == client.user) return;
+    wait(1000)
     let foundmessage = message.content
     let args1 = message.content.replace(`<@&980742669779234857> The Snapshot server was updated to`).split(/ +/)
       foundmessage = args1[1]
