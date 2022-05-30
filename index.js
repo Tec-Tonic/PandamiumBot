@@ -155,7 +155,7 @@ const { waitForDebugger } = require('inspector');
         return;
       }
   })
-  const announcementFilter = "The Snapshot server was updated to"
+  const announcementFilter = require(`./filters/anouncement.json`)
   client.on("messageCreate", message => {
     if (message.author == client.user) return;
     const filterpunctuation = message.content
