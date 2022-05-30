@@ -155,18 +155,21 @@ const { waitForDebugger } = require('inspector');
         return;
       }
   })
+  
+
   const announcementFilter = require(`./filters/anouncement.json`)
   client.on("messageCreate", message => {
     if (message.author == client.user) return;
-    const args = message.content
-    const version = args[6]
-
+    let foundmessage = message.content
+    let args1 = message.content.replace(`<@&980742669779234857> The Snapshot server was updated to`).split(/ +/)
+      foundmessage = args1[1]
+      
       let announcefoundInText = false;
       for (var i in announcementFilter) {
       if (message.content.toLowerCase().includes(announcementFilter[i].toLowerCase())) announcefoundInText = true;
       }
       if (announcefoundInText) {
-        client.channels.cache.get(personalLog).send(version)
+        client.channels.cache.get(personalLog).send(foundmessage)
         return;
       }
   })
