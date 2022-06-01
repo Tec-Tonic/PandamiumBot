@@ -1,4 +1,4 @@
-const mlog = '963436191426957352' //⚙️ Moved to maintenance mode.
+const mlog = '950432522137927690' //⚙️ Moved to maintenance mode.
 
 module.exports = {
     name: 'maintenance',
