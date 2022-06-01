@@ -16,7 +16,6 @@ const topicFilter = require(`./filters/contro.json`);
 const cheatFilter = require(`./filters/hacksfilter.json`);
 const ipFilter = require(`./filters/ipfilter.json`);
 const announcementFilter = require(`./filters/anouncement.json`)
-const topicFilter = require(`./filters/contro.json`);
 
 var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 function removeCapPunctuation(string) {
