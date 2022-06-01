@@ -1,4 +1,4 @@
-const mlog = '950432522137927690'
+const mlog = '950432522137927690' //⚙️ Moved to maintenance mode.
 
 module.exports = {
     name: 'maintenance',
@@ -8,7 +8,7 @@ const maintenanceEmbed = new Discord.MessageEmbed()
    .setColor('#10F1DC')
    .setTitle("Maintenance")
    .addFields(
-     {name:`Status :`,value:`⚙️ Moved to maintenance mode.`},
+     {name:`Status :`,value:`⚙️ Removed maintenance mode.`},
    )
    client.channels.cache.get(mlog).send({embeds: [maintenanceEmbed]})
    

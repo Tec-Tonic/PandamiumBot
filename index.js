@@ -41,31 +41,11 @@ client.once('ready', () => {
   });
 
 client.on('messageCreate', message =>{   
-  if(!message.content.startsWith(prefix) || message.author.bot) return;
-  const targs = message.content.slice(prefix.length).split(/ +/);
-  const tcommand = targs.shift().toLowerCase();
-  if(tcommand === 'sendupdate6370'){
-    message.react('☑️')
-    client.command.get('maintenance').execute(message,Discord,client)
-}
+ 
 // scam filter
   if (message.author == client.user) return;
-    var content = message.content;
-      var stringToCheck = content.replace(/\s+/g, '').toLowerCase();
-        var stringToCheck = content;
-      const scamAuthor = message.author
-    const scamChannel = message.channelId
-
-stringToCheck.replace(/\s+/g, '').toLowerCase();
-  for (var i = 0; i < scamLinkFlter.length; i++) {
-      if (content.includes(scamLinkFlter[i])){  
-          message.delete();
-          client.command.get('scam').execute(message,Discord,client)
-            message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
-             .then(message => {setTimeout(() => message.delete(), 60000)});
-            return
-          }
-        }
+  client.command.get('scam').execute(message,Discord,client)
+         
 
 // slur topic filter
   if (message.author == client.user) return;
@@ -138,6 +118,9 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
   if(command === 'ip'){
     message.react('☑️')
     client.command.get('ip').execute(message,Discord,client)
+} else if(command === 'sendupdate6370'){
+  message.react('☑️')
+  client.command.get('maintenance').execute(message,Discord,client)
 }
 
     })
