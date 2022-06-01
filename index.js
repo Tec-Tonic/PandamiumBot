@@ -53,6 +53,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
   for (var i = 0; i < scamLinkFlter.length; i++) {
       if (content.includes(scamLinkFlter[i])){  
           message.delete();
+          client.command.get('scam').execute(message,Discord,client)
             message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
              .then(message => {setTimeout(() => message.delete(), 60000)});
             return
