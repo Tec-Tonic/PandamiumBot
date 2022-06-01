@@ -21,7 +21,7 @@ module.exports = {
    if (removeCapPunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i])) ipfoundInText = true;
    }
    if (ipfoundInText) {
-      message.react('☑️')
+      message.react('<:resolved:942896814154199150> ')
     
     const ip2embed = new Discord.MessageEmbed()
       .setColor('#008000')
@@ -31,5 +31,5 @@ module.exports = {
         {name: `Snapshot IP:`, value: `snapshot.pandamium.eu`}
         )
     
-        message.channel.send({embeds: [ip2embed]}).then(message => {setTimeout(() => message.delete(), 60000)});
+        message.channel.send({embeds: [ip2embed]}) //.then(message => {setTimeout(() => message.delete(), 60000)});
 }}}
