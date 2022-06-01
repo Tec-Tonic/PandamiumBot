@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client({
     intents : [
         Discord.Intents.FLAGS.GUILDS,
-        Discord.Intents.FLAGS.GUILD_MESSAGES
+        Discord.Intents.FLAGS.GUILD_MESSAGES,
+        Discord.Intents.FLAGS.GUILD_MEMBERS,
+        Discord.Intents.FLAGS.GUILD_PRESENCES
     ]
 });
 require('dotenv').config()
@@ -24,6 +26,13 @@ client.once('ready', () => {
       client.user.setActivity(' Discord!', { type: 'WATCHING' });
       console.log(`Logged in as ${client.user.tag} on ${serverCount} servers`);
   });
+
+  client.on('guildMemberAdd', (member) => {
+    setTimeout(() => {
+        const message = member.guild.channels.cache.get('531885643626971170').lastMessage
+        message.react('<:pandamium:797762197567832105>')
+    }, 500)
+})
 
 client.on('messageCreate', message =>{   
 // scam filter
