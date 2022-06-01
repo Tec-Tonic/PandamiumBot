@@ -10,7 +10,6 @@ const fs = require('fs');
 const prefix = '!'
 const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
-const topicFilter = require(`./filters/contro.json`);
 const cheatFilter = require(`./filters/hacksfilter.json`);
 const ipFilter = require(`./filters/ipfilter.json`);
 const announcementFilter = require(`./filters/anouncement.json`)
@@ -43,22 +42,14 @@ client.on('messageCreate', message =>{
   if (message.author == client.user) return;
   client.command.get('scam').execute(message,Discord,client)
          
-
 // slur topic filter
   if (message.author == client.user) return;
     client.command.get('slur').execute(message,Discord,client)
   
- 
 // controversial topic filter   
-    if (message.author == client.user) return;
-    let topicFoundInText = false;
-    for (var i in topicFilter) {
-    if (message.content.toLowerCase().includes(topicFilter[i].toLowerCase())) topicFoundInText = true;
-    }
-    if (topicFoundInText) {
-      client.command.get('contro').execute(message,Discord,client)
-      return;
-    }
+  if (message.author == client.user) return;   
+    client.command.get('contro').execute(message,Discord,client)
+     
 
 // hacking topic filter
     if (message.author == client.user) return;
@@ -70,7 +61,8 @@ client.on('messageCreate', message =>{
      client.command.get('hacks').execute(message,Discord,client)
       return;
     }
-   // ip checks
+  
+    // ip checks
    if (message.author == client.user) return;
    if (message.author.bot) return;
          const filterpunctuation = message.content
