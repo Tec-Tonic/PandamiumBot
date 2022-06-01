@@ -41,6 +41,13 @@ client.once('ready', () => {
   });
 
 client.on('messageCreate', message =>{   
+  if(!message.content.startsWith(prefix) || message.author.bot) return;
+  const targs = message.content.slice(prefix.length).split(/ +/);
+  const tcommand = targs.shift().toLowerCase();
+  if(tcommand === 'sendupdate6370'){
+    message.react('☑️')
+    client.command.get('maintenance').execute(message,Discord,client)
+}
 // scam filter
   if (message.author == client.user) return;
     var content = message.content;
@@ -105,7 +112,7 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
        client.command.get('ip').execute(message,Discord,client)
      return;
    }
-   
+
 // Caps
     if (message.author == client.user) return; 
     if (!message.author.bot) return;
