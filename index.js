@@ -10,19 +10,7 @@ const fs = require('fs');
 const prefix = '!'
 const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
-const cheatFilter = require(`./filters/hacksfilter.json`);
-const ipFilter = require(`./filters/ipfilter.json`);
 const announcementFilter = require(`./filters/anouncement.json`)
-
-var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
-function removeCapPunctuation(string) {
-  return string
-    .split('')
-    .filter(function(letter) {
-      return punctuation.indexOf(letter) === -1;
-    })
-    .join('');
-}
 
 client.command = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -50,60 +38,30 @@ client.on('messageCreate', message =>{
   if (message.author == client.user) return;   
     client.command.get('contro').execute(message,Discord,client)
      
-
 // hacking topic filter
-    if (message.author == client.user) return;
-    let cheatFoundInText = false;
-    for (var i in cheatFilter) {
-    if (message.content.toLowerCase().includes(cheatFilter[i].toLowerCase())) cheatFoundInText = true;
-    }
-    if (cheatFoundInText) {
-     client.command.get('hacks').execute(message,Discord,client)
-      return;
-    }
+  if (message.author == client.user) return;
+    client.command.get('hacks').execute(message,Discord,client)
   
-    // ip checks
-   if (message.author == client.user) return;
-   if (message.author.bot) return;
-         const filterpunctuation = message.content
-   let ipfoundInText = false;
-   for (var i in ipFilter) {
-   if (removeCapPunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i])) ipfoundInText = true;
-   }
-   if (ipfoundInText) {
-       message.react('☑️')
-       client.command.get('ip').execute(message,Discord,client)
-     return;
-   }
-
+// ip checks
+  if (message.author == client.user) return;
+  if (message.author.bot) return;
+    client.command.get('ip').execute(message,Discord,client)
+  
 // Caps
-    if (message.author == client.user) return; 
-    if (!message.author.bot) return;
-    if (message.content.includes("Online players")) {return};
-    if (message.content.includes('<@')) {return};
-    if (message.content.length < 15) return;
-        let non_caps = 0
-        let caps = 0
-    const filterCapPunctuation = message.content
-    for (x=0;x<message.content.length;x++) {
-      if (removeCapPunctuation(filterCapPunctuation[x]).toUpperCase() === message.content[x]) caps++;
-      else non_caps++;
-    }
-    const textCaps = (caps / message.content.length) * 100;
-    if (textCaps >= 75 ) {
-        client.command.get('caps').execute(message,Discord,client)
-    }
+  if (message.author == client.user) return; 
+    client.command.get('caps').execute(message,Discord,client)
+    
 
-       // prefix ip command
-  if(!message.content.startsWith(prefix) || message.author.bot) return;
+// prefix ip command
+if (message.author == client.user) return;
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
   if(command === 'ip'){
     message.react('☑️')
-    client.command.get('ip').execute(message,Discord,client)
+    client.command.get('prefixip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
   message.react('☑️')
-  //client.command.get('maintenance').execute(message,Discord,client)
+    client.command.get('maintenance').execute(message,Discord,client)
 }
 
     })
