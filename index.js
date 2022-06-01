@@ -10,7 +10,6 @@ const fs = require('fs');
 const prefix = '!'
 const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
-const scamLinkFlter = require(`./filters/filter.json`);
 const slurFilter = require(`./filters/slurfilter.json`);
 const topicFilter = require(`./filters/contro.json`);
 const cheatFilter = require(`./filters/hacksfilter.json`);
@@ -120,7 +119,7 @@ client.on('messageCreate', message =>{
     client.command.get('ip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
   message.react('☑️')
-  client.command.get('maintenance').execute(message,Discord,client)
+  //client.command.get('maintenance').execute(message,Discord,client)
 }
 
     })

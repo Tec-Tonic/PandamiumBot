@@ -1,4 +1,5 @@
 const log = require(`../logtoserver.json`).toString('')
+const scamLinkFlter = require(`../filters/filter.json`);
 module.exports = {
     name: 'scam',
     execute(message,Discord,client){
