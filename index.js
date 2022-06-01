@@ -13,8 +13,6 @@ const prefix = '!'
 const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
 const announcementFilter = require(`./filters/anouncement.json`)
-const mongoose = require('mongoose')
-const testSchema = require(`./commands/test-schema`)
 
 client.command = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -23,21 +21,10 @@ for(const file of commandFiles){
     client.command.set(command.name, command);
 }
 
-client.once('ready', async () => {
-  await mongoose.connect(process.env.MONGO_URI, 
-    {
-        keepAlive : true
-    })
-
+client.once('ready', () => {
     const serverCount = client.guilds.cache.size
       client.user.setActivity(' Discord!', { type: 'WATCHING' });
       console.log(`Logged in as ${client.user.tag} on ${serverCount} servers`);
-
-      setTimeout( async () => {
-        await new testSchema ({
-            message: 'Hello world',
-        }).save()
-    }, 1000)
   });
 
   client.on('guildMemberAdd', (member) => {
