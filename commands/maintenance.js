@@ -1,4 +1,4 @@
-const mlog = '963436191426957352' //'950432522137927690'
+const mlog = '950432522137927690'
 
 module.exports = {
     name: 'maintenance',
