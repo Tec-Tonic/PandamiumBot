@@ -14,7 +14,7 @@ const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
 const announcementFilter = require(`./filters/anouncement.json`)
 const mongoose = require('mongoose')
-const testSchema = require(`./test-schema`)
+const testSchema = require(`../Util/commands/test-schema`)
 
 client.command = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
