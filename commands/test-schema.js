@@ -1,4 +1,3 @@
-const { string } = require('mathjs')
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
