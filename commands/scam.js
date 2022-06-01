@@ -15,7 +15,7 @@ module.exports = {
     stringToCheck.replace(/\s+/g, '').toLowerCase();
         for (var i = 0; i < scamLinkFlter.length; i++) {
             if (content.includes(scamLinkFlter[i])){  
-                //message.delete();
+                message.delete();
     
                 const scamEmbed = new Discord.MessageEmbed()
                 .setColor('#FF0000')
@@ -26,8 +26,8 @@ module.exports = {
                     )
         
                 client.channels.cache.get(log).send(({embeds: [scamEmbed]}))
-                    //message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
-                      //.then(message => {setTimeout(() => message.delete(), 60000)});
+                    message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
+                      .then(message => {setTimeout(() => message.delete(), 60000)});
                 break
             }
         }
