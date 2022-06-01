@@ -10,7 +10,6 @@ const fs = require('fs');
 const prefix = '!'
 const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
-const slurFilter = require(`./filters/slurfilter.json`);
 const topicFilter = require(`./filters/contro.json`);
 const cheatFilter = require(`./filters/hacksfilter.json`);
 const ipFilter = require(`./filters/ipfilter.json`);
@@ -47,14 +46,8 @@ client.on('messageCreate', message =>{
 
 // slur topic filter
   if (message.author == client.user) return;
-  let slurfoundInText = false;
-  for (var i in slurFilter) {
-  if (message.content.toLowerCase().includes(slurFilter[i].toLowerCase())) slurfoundInText = true;
-  }
-  if (slurfoundInText) {
     client.command.get('slur').execute(message,Discord,client)
-    return;
-  }
+  
  
 // controversial topic filter   
     if (message.author == client.user) return;
