@@ -1,4 +1,6 @@
 const ipFilter = require(`../filters/ipfilter.json`);
+const fs = require('fs');
+var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 function removeCapPunctuation(string) {
   return string
     .split('')
