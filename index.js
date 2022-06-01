@@ -40,7 +40,6 @@ client.once('ready', () => {
   });
 
 client.on('messageCreate', message =>{   
- 
 // scam filter
   if (message.author == client.user) return;
   client.command.get('scam').execute(message,Discord,client)
