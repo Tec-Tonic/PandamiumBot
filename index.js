@@ -92,7 +92,20 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
      client.command.get('hacks').execute(message,Discord,client)
       return;
     }
-  
+   // ip checks
+   if (message.author == client.user) return;
+   if (message.author.bot) return;
+         const filterpunctuation = message.content
+   let ipfoundInText = false;
+   for (var i in ipFilter) {
+   if (removeCapPunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i])) ipfoundInText = true;
+   }
+   if (ipfoundInText) {
+       message.react('☑️')
+       client.command.get('ip').execute(message,Discord,client)
+     return;
+   }
+   
 // Caps
     if (message.author == client.user) return; 
     if (!message.author.bot) return;
@@ -110,21 +123,6 @@ stringToCheck.replace(/\s+/g, '').toLowerCase();
     if (textCaps >= 75 ) {
         client.command.get('caps').execute(message,Discord,client)
     }
-  
-  // ip checks
-const { waitForDebugger } = require('inspector');
-      if (message.author == client.user) return;
-      if (message.author.bot) return;
-            const filterpunctuation = message.content
-      let ipfoundInText = false;
-      for (var i in ipFilter) {
-      if (removeCapPunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i])) ipfoundInText = true;
-      }
-      if (ipfoundInText) {
-          message.react('☑️')
-          client.command.get('ip').execute(message,Discord,client)
-        return;
-      }
 
        // prefix ip command
   if(!message.content.startsWith(prefix) || message.author.bot) return;
