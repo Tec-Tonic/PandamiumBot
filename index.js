@@ -65,7 +65,7 @@ client.on('messageCreate', message =>{
 if (message.author == client.user) return;
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
-  if(command === 'ip'){
+  if(command === 'ip'){cd 
     client.command.get('prefixip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
   message.react('☑️')
