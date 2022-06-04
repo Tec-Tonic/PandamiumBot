@@ -66,14 +66,13 @@ if (message.author == client.user) return;
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
   if(command === 'ip'){
-    message.react('<:resolved:942896814154199150> ')
     client.command.get('prefixip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
   message.react('☑️')
     client.command.get('maintenance').execute(message,Discord,client)
 }
 
-    })
+  })
 
     
   //Announcement checks

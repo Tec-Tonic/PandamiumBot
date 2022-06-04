@@ -4,7 +4,7 @@ module.exports = {
     execute(message,Discord,client){
       
       if(!message.content.startsWith(prefix) || message.author.bot) return;
-
+      message.react('<:resolved:942896814154199150> ')
     const ip2embed = new Discord.MessageEmbed()
       .setColor('#008000')
       .setTitle("Pandamium Server IP's")
