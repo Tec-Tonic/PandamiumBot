@@ -9,7 +9,7 @@ const maintenanceEmbed = new Discord.MessageEmbed()
    .setColor('#10F1DC')
    .setTitle("Maintenance")
    .addFields(
-     {name:`Status :`,value:`⚙️ Enabled maintenance mode.`}
+     {name:`Info :`,value:`🔘 Fixed error above`}
    )
    client.channels.cache.get(mlog).send({embeds: [maintenanceEmbed]})
    
