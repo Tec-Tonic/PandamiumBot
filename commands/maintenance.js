@@ -7,7 +7,7 @@ module.exports = {
 
 const maintenanceEmbed = new Discord.MessageEmbed()
    .setColor('#10F1DC')
-   .setTitle("Maintenance")
+   .setTitle("Changelog")
    .addFields(
      {name:`Info :`,value:`🔘 Fixed error above`}
    )
