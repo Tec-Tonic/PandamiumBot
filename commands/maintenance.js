@@ -1,4 +1,4 @@
-const mlog = '947886430489837628' 
+const mlog = '963436191426957352' 
 //⚙️ Moved to maintenance mode.
 // 🔘
 module.exports = {
@@ -9,9 +9,9 @@ module.exports = {
 
 const maintenanceEmbed = new Discord.MessageEmbed()
    .setColor('#10F1DC')
-   .setTitle(`${args[1]}`)
+   .setTitle(`Changelog`)
    .addFields(
-     {name:`${args[2]} :`,value:`${args[3]}`}
+     {name:`Info :`,value:`🔘 Added \`!appeal\` command. \nJust reply to the message and then type !appeal. The message will be sent to <#780489408536772620> with a thread, and an Up and Down vote!`}
    )
    client.channels.cache.get(mlog).send({embeds: [maintenanceEmbed]})
    
