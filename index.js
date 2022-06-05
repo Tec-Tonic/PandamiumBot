@@ -13,6 +13,7 @@ const prefix = '!'
 const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
 const announcementFilter = require(`./filters/anouncement.json`)
+const mlog = '963436191426957352'
 
 client.command = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -65,13 +66,48 @@ client.on('messageCreate', message =>{
 if (message.author == client.user) return;
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
-  if(command === 'ip'){cd 
+  if(command === 'ip'){ 
     client.command.get('prefixip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
   message.react('☑️')
     client.command.get('maintenance').execute(message,Discord,client)
 }
+})
 
+//ban appeal
+client.on('messageCreate', async message => {
+if (message.author == client.user) return;
+
+    let replyThere = true;
+    if(!message.reference) replyThere = false;
+    if(message.content.includes('!appeal')){
+      if(!message.member.roles.cache.find(r => r.name === "Staff")) return console.log(`${message.content.author.user} used !appeal`);
+        if (replyThere){
+          message.react('🆗')
+        const repliedTo = await message.channel.messages.fetch(message.reference.messageId);
+        let threadAuthor = repliedTo.author
+
+        const msgAccept = new Discord.MessageEmbed()
+        .setColor('#32FF00')
+        .setTitle('Ban Appeal')
+        .setDescription(`${repliedTo.content}`)
+        .addFields(
+          {name:`Ban appeal author:`, value:`${repliedTo.author}`, inline: true},
+          )
+      
+          await client.channels.cache.get(mlog).send({embeds: [msgAccept]}).then(message =>{
+          message.react('👍'),
+          message.react('👎')
+          message.startThread({
+            name: `${threadAuthor.username}-${message.createdTimestamp}`,
+            autoArchiveDuration: 60,
+            type: 'GUILD_PUBLIC_THREAD'
+        });
+          })
+        
+       
+        
+    }}
   })
 
     
