@@ -81,7 +81,7 @@ if (message.author == client.user) return;
     let replyThere = true;
     if(!message.reference) replyThere = false;
     if(message.content.includes('!appeal')){
-      if(!message.member.roles.cache.find(r => r.name === "Staff")) return console.log(`${message.content.author.user} used !appeal`);
+      if(!message.member.roles.cache.find(r => r.name === "Staff")) return console.log(`${message.content.author} used !appeal`);
         if (replyThere){
           message.react('🆗')
         const repliedTo = await message.channel.messages.fetch(message.reference.messageId);
