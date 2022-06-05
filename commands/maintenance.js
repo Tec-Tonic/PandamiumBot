@@ -5,6 +5,8 @@ module.exports = {
     name: 'maintenance',
     execute(message,Discord,client){
 
+    let args = message.content
+
 const maintenanceEmbed = new Discord.MessageEmbed()
    .setColor('#10F1DC')
    .setTitle(`${args[0]}`)
