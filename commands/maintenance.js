@@ -5,7 +5,7 @@ module.exports = {
     name: 'maintenance',
     execute(message,Discord,client){
 
-    let args = message.content
+    let args = message.content.split(/ +/)
 
 const maintenanceEmbed = new Discord.MessageEmbed()
    .setColor('#10F1DC')
