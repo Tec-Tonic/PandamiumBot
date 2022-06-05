@@ -9,9 +9,9 @@ module.exports = {
 
 const maintenanceEmbed = new Discord.MessageEmbed()
    .setColor('#10F1DC')
-   .setTitle(`${args[0]}`)
+   .setTitle(`${args[1]}`)
    .addFields(
-     {name:`${args[1]} :`,value:`${args[2]}`}
+     {name:`${args[2]} :`,value:`${args[3]}`}
    )
    client.channels.cache.get(mlog).send({embeds: [maintenanceEmbed]})
    
