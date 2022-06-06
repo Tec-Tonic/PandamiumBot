@@ -10,10 +10,8 @@ const client = new Discord.Client({
 require('dotenv').config()
 const fs = require('fs');
 const prefix = '!'
-const log = require(`./logtoserver.json`).toString('')
 const personalLog = '963436191426957352'
 const announcementFilter = require(`./filters/anouncement.json`)
-const mlog = '963436191426957352'
 
 client.command = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -24,7 +22,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     const serverCount = client.guilds.cache.size
-      client.user.setActivity(' Discord!', { type: 'WATCHING' });
+      client.user.setActivity(' Discord', { type: 'WATCHING' });
       console.log(`Logged in as ${client.user.tag} on ${serverCount} servers`);
   });
 
@@ -38,35 +36,21 @@ client.once('ready', () => {
 client.on('messageCreate', message =>{   
 // scam filter
   if (message.author == client.user) return;
-  client.command.get('scam').execute(message,Discord,client)
-         
+    client.command.get('scam').execute(message,Discord,client)
 // slur topic filter
-  if (message.author == client.user) return;
     client.command.get('slur').execute(message,Discord,client)
-  
 // controversial topic filter   
-  if (message.author == client.user) return;   
     client.command.get('contro').execute(message,Discord,client)
-     
 // hacking topic filter
-  if (message.author == client.user) return;
     client.command.get('hacks').execute(message,Discord,client)
-  
 // ip checks
-  if (message.author == client.user) return;
-  if (message.author.bot) return;
     client.command.get('ip').execute(message,Discord,client)
-  
 // Caps
-  if (message.author == client.user) return; 
     client.command.get('caps').execute(message,Discord,client)
-    
-
 // prefix ip command
-if (message.author == client.user) return;
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
-  if(command === 'ip'){ 
+if(command === 'ip'){ 
     client.command.get('prefixip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
   message.react('☑️')
@@ -95,7 +79,7 @@ if (message.author == client.user) return;
           {name:`Ban appeal author:`, value:`${repliedTo.author}`, inline: true},
           )
       
-          await client.channels.cache.get(mlog).send({embeds: [msgAccept]}).then(message =>{
+          await client.channels.cache.get('780489408536772620').send({embeds: [msgAccept]}).then(message =>{
           message.react('👍'),
           message.react('👎')
           message.startThread({
