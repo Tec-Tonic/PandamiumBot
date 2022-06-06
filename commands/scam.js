@@ -1,4 +1,4 @@
-const log = '963436191426957352' //require(`../logtoserver.json`).toString('')
+const log = require(`../logtoserver.json`).toString('')
 const scamLinkFlter = require(`../filters/filter.json`);
 module.exports = {
     name: 'scam',
