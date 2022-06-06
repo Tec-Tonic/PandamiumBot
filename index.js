@@ -12,6 +12,7 @@ const fs = require('fs');
 const prefix = '!'
 const personalLog = '963436191426957352'
 const announcementFilter = require(`./filters/anouncement.json`)
+const banchannel = '780489408536772620'
 
 client.command = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -64,7 +65,7 @@ if (message.author == client.user) return;
 
     let replyThere = true;
     if(!message.reference) replyThere = false;
-    if(message.content.includes('!appeal')){
+    if(message.content.includes('!testing')){
       if(!message.member.roles.cache.find(r => r.name === "Staff")) return console.log(`${message.author.username} used !appeal`);
         if (replyThere){
           message.react('🆗')
@@ -73,17 +74,14 @@ if (message.author == client.user) return;
 
         const msgAccept = new Discord.MessageEmbed()
         .setColor('#32FF00')
-        .setTitle('Ban Appeal')
+        .setTitle(`${repliedTo.author.username}`)
         .setDescription(`${repliedTo.content}`)
-        .addFields(
-          {name:`Ban appeal author:`, value:`${repliedTo.author}`, inline: true},
-          )
       
-          await client.channels.cache.get('780489408536772620').send({embeds: [msgAccept]}).then(message =>{
+          await client.channels.cache.get(banchannel).send({embeds: [msgAccept]}).then(message =>{
           message.react('👍'),
           message.react('👎')
           message.startThread({
-            name: `${threadAuthor.username}-${message.createdTimestamp}`,
+            name: `${threadAuthor.username}`,
             autoArchiveDuration: 60,
             type: 'GUILD_PUBLIC_THREAD'
         });
