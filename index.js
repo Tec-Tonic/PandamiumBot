@@ -48,6 +48,8 @@ client.on('messageCreate', message =>{
     client.command.get('ip').execute(message,Discord,client)
 // Caps
     client.command.get('caps').execute(message,Discord,client)
+// Watch
+    client.command.get('watch').execute(message,Discord,client)
 // prefix ip command
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
