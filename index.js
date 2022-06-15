@@ -12,7 +12,7 @@ const fs = require('fs');
 const prefix = '!'
 const personalLog = '963436191426957352'
 const announcementFilter = require(`./filters/anouncement.json`)
-const banchannel = '780489408536772620'
+const banchannel = '780489408536772620' 
 
 client.command = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -67,7 +67,7 @@ if (message.author == client.user) return;
 
     let replyThere = true;
     if(!message.reference) replyThere = false;
-    if(message.content.includes('!testing')){
+    if(message.content.includes('!appeal')){
       if(!message.member.roles.cache.find(r => r.name === "Staff")) return console.log(`${message.author.username} used !appeal`);
         if (replyThere){
           message.react('🆗')
