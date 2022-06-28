@@ -1,4 +1,4 @@
-const log = require(`../logtoserver.json`).toString('')
+const log = "963436191426957352" //require(`../logtoserver.json`).toString('')
 const scamLinkFlter = require(`../filters/filter.json`);
 module.exports = {
     name: 'scam',
@@ -15,7 +15,7 @@ module.exports = {
     stringToCheck.replace(/\s+/g, '').toLowerCase();
         for (var i = 0; i < scamLinkFlter.length; i++) {
             if (content.includes(scamLinkFlter[i])){  
-                message.delete();
+                //message.delete();
     
                 const scamEmbed = new Discord.MessageEmbed()
                 .setColor('#FF0000')
