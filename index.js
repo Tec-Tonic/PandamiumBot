@@ -34,6 +34,13 @@ client.once('ready', () => {
     }, 500)
 })
 
+client.on('guildMemberRemove', (leaveMember) => {
+  const leaveMemberProfile = message.author.avatarURL()
+  const deleteMsgEmbed = new Discord.MessageEmbed().setColor('#FF0000').description(`${leaveMemberProfile} | ${leaveMember} has left the server`)
+  client.channels.cache.get(personalLog).send(({embeds: [deleteMsgEmbed]}))
+})
+
+
 //Deleted message check
 client.on('messageDelete', message => {
   const deletedMessage = message.content
@@ -43,7 +50,7 @@ client.on('messageDelete', message => {
   client.channels.cache.get(personalLog).send(({embeds: [deleteMsgEmbed]}))
   })
   
-  
+
 client.on('messageCreate', message =>{   
 // scam filter
   if (message.author == client.user) return;
