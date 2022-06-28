@@ -10,7 +10,7 @@ const client = new Discord.Client({
 require('dotenv').config()
 const fs = require('fs');
 const prefix = '!'
-const personalLog = '963436191426957352'
+const personalLog = '963436191426957352' 
 const announcementFilter = require(`./filters/anouncement.json`)
 const banchannel = '780489408536772620' 
 
@@ -34,6 +34,16 @@ client.once('ready', () => {
     }, 500)
 })
 
+//Deleted message check
+client.on('messageDelete', message => {
+  const deletedMessage = message.content
+  const deleteMsgEmbed = new Discord.MessageEmbed().setColor('#FF0000').setTitle("Message Deleted").addFields(
+    {name: `Message :`, value: `${deletedMessage}`},
+    )
+  client.channels.cache.get(personalLog).send(({embeds: [deleteMsgEmbed]}))
+  })
+  
+  
 client.on('messageCreate', message =>{   
 // scam filter
   if (message.author == client.user) return;
