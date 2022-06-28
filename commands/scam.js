@@ -22,6 +22,7 @@ module.exports = {
                 .setTitle("Scam Link")
                 .setDescription("Scam link deleted.")
                 .addFields(
+                    {name: `Trigger :`, value: `${scamLinkFlter[i]}`},
                     {name : `Info :`, value : `Author: ${scamAuthor} || Channel: <#${scamChannel}>`}
                     )
         
