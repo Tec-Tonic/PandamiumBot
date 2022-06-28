@@ -17,7 +17,7 @@ module.exports = {
     
         const slurEmbed = new Discord.MessageEmbed()
           .setColor('#FF0000')
-          .setTitle("Slurs!")
+          .setTitle("Slurs")
           .addFields(
             {name:`Message :`,value:`|| ${slurmessagelog} ||`},
             {name:`Info: `,value: `check <#${slurChannel}> || [click me](${slurTextLink})`}
