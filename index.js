@@ -28,9 +28,10 @@ client.once('ready', () => {
   });
 
   client.on('guildMemberAdd', (member) => {
+    const pandaEmoji = `<:pandamium:797762197567832105>` 
     setTimeout(() => {                                  
         const message = member.guild.channels.cache.get('531885643626971170').lastMessage
-        message.react('<:pandamium:>')
+        message.react(pandaEmoji)
     }, 500)
 })
 
