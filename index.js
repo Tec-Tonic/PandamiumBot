@@ -30,7 +30,7 @@ client.once('ready', () => {
   client.on('guildMemberAdd', (member) => {
     setTimeout(() => {                                  
         const message = member.guild.channels.cache.get('531885643626971170').lastMessage
-        message.react('<:pandamium:797762197567832105>')
+        message.react('<:pandamium:>')
     }, 500)
 })
 
