@@ -35,7 +35,7 @@ module.exports = {
                         )
 
                 
-                client.channels.cache.get(myLog).send(({embeds: [scamEmbed]})) //normal server
+                client.channels.cache.get(log).send(({embeds: [scamEmbed]})) //normal server
                 client.channels.cache.get(myLog).send(({embeds: [scamwithtriggerEmbed]})) //my server
                     message.channel.send(`Sorry ${scamAuthor}, Scam links are not allowed. Open a ticket in <#750352670702698657> if this is a mistake!`)
                       .then(message => {setTimeout(() => message.delete(), 60000)});
