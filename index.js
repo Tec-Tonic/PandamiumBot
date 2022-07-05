@@ -37,11 +37,7 @@ client.once('ready', () => {
 
 //Deleted message check
 client.on('messageDelete', message => {
-  const deletedMessage = message.content
-  const deleteMsgEmbed = new Discord.MessageEmbed().setColor('#FF0000').setTitle("Message Deleted").addFields(
-    {name: `Message :`, value: `${deletedMessage}`},
-    )
-  client.channels.cache.get(personalLog).send(({embeds: [deleteMsgEmbed]}))
+  client.command.get('confirmDelete').execute(message,Discord,client)
   })
   
 
