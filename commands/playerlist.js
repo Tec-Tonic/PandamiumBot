@@ -7,10 +7,12 @@ module.exports = {
         var ChannelName = message.channel.name
         if(ChannelName !== "snapshot-ingame-chat") return
         if(message.author.bot) return;
-        
+        const sentMessage = message.content
+        if(!sentMessage === "!playerlist") return
+
+
         list.status('snapshot.pandamium.eu').then((Response) =>{
             const nameArr = Response.players.sample.map(obj => obj.name).join("\n");
-           
             const playerembed = new Discord.MessageEmbed()
                 .setColor('GREEN')
                 .addFields(
@@ -18,7 +20,7 @@ module.exports = {
                             {name:`Players:`, value: `${nameArr}` },
                         )
                         message.channel.send(({embeds: [playerembed]}));
-                        return
+                        
           
          })
         .catch ((error) =>{
