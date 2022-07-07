@@ -5,6 +5,7 @@ const client = new Discord.Client({
         Discord.Intents.FLAGS.GUILD_MESSAGES,
         Discord.Intents.FLAGS.GUILD_MEMBERS,
         Discord.Intents.FLAGS.GUILD_PRESENCES
+       
     ]
 });
 require('dotenv').config()
@@ -55,8 +56,8 @@ client.on('messageCreate', message =>{
     client.command.get('ip').execute(message,Discord,client)
 // Caps
     client.command.get('caps').execute(message,Discord,client)
-// Watch
-    //client.command.get('watch').execute(message,Discord,client)
+// playerlist
+    client.command.get('playerlist').execute(message,Discord,client)
 // prefix ip command
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
