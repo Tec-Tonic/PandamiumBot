@@ -7,9 +7,8 @@ module.exports = {
         var ChannelName = message.channel.name
         if(ChannelName !== "snapshot-ingame-chat") return
         if(message.author.bot) return;
-        const sentMessage = message.content
-        if(!sentMessage === "!playerlist") return
-
+       
+        if(message.content.includes('!playerlist')){
 
         list.status('snapshot.pandamium.eu').then((Response) =>{
             const nameArr = Response.players.sample.map(obj => obj.name).join("\n");
@@ -20,12 +19,11 @@ module.exports = {
                             {name:`Players:`, value: `${nameArr}` },
                         )
                         message.channel.send(({embeds: [playerembed]}));
-                        
           
          })
         .catch ((error) =>{
             message.channel.send('There was an error!');
             throw error;
-        })
+        })}
     }
 }
