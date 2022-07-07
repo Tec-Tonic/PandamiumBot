@@ -6,7 +6,8 @@ module.exports = {
 
         var ChannelName = message.channel.name
         if(ChannelName !== "snapshot-ingame-chat") return
-
+        if(message.author.bot) return;
+        
         list.status('snapshot.pandamium.eu').then((Response) =>{
             const nameArr = Response.players.sample.map(obj => obj.name).join("\n");
            
