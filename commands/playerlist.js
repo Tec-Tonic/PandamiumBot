@@ -17,7 +17,7 @@ module.exports = {
                             {name:`Players:`, value: `${nameArr}` },
                         )
                         message.channel.send(({embeds: [playerembed]}));
-
+                        return
           
          })
         .catch ((error) =>{
