@@ -11,12 +11,12 @@ module.exports = {
         if(message.content.includes('!playerlist')){
 
         list.status('snapshot.pandamium.eu').then((Response) =>{
-            const nameArr = Response.players.sample.map(obj => obj.name).join("\n");
+            const nameArr = Response.players.sample.map(obj => obj.name).join(", ");
             const playerembed = new Discord.MessageEmbed()
                 .setColor('GREEN')
                 .addFields(
                             {name: 'Online:', value: ` ${Response.players.online}/${Response.players.max}`,},
-                            {name:`Players:`, value: `${nameArr}` },
+                            {name:`Players:`, value: `\`\`\`${nameArr}\`\`\`` },
                         )
                         message.channel.send(({embeds: [playerembed]}));
           
