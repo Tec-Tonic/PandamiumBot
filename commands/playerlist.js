@@ -5,7 +5,7 @@ module.exports = {
     execute(message,Discord,client){
 
         var ChannelName = message.channel.name
-        if(ChannelName !== "bot-tests") return //snapshot-ingame-chat
+        if(ChannelName !== "snapshot-ingame-chat") return //snapshot-ingame-chat
         if(message.author.bot) return;
        
         if(message.content.includes('!playerlist')){
