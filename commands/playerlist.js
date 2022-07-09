@@ -20,7 +20,7 @@ module.exports = {
                             {name:`Players:`, value: `\`\`\`${nameArr}\`\`\`` },
                         )
                         message.channel.send(({embeds: [playerembed]})).then(message => {setTimeout(() => message.delete(), 1000 * 30)});;
-                        nameArr.clear();
+                        
          })
         .catch ((error) =>{
             message.channel.send('There was an error!');
