@@ -18,7 +18,7 @@ module.exports = {
                             {name: 'Online:', value: ` ${Response.players.online}/${Response.players.max}`,},
                             {name:`Players:`, value: `\`\`\`${nameArr}\`\`\`` },
                         )
-                        message.channel.send(({embeds: [playerembed]}));
+                        message.channel.send(({embeds: [playerembed]})).then(message => {setTimeout(() => message.delete(), 1000 * 30)});;
           
          })
         .catch ((error) =>{

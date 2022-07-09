@@ -7,6 +7,7 @@ module.exports = {
 const cheatChannel = message.channelId
 const cheatTextLink = message.url
 const cheatmessagelog = message.content
+const cheatAuthor = message.author
 
 let cheatFoundInText = false;
     for (var i in cheatFilter) {
@@ -20,7 +21,8 @@ const cheatEmbed = new Discord.MessageEmbed()
   .addFields(
     {name: `Message :`, value: `${cheatmessagelog}`},
     {name: `Info :`, value: `Check <#${cheatChannel}> || [Click Me](${cheatTextLink})`}
-  )
+  ).setFooter(`Author : ${cheatAuthor}`)
+
   client.channels.cache.get(log).send({embeds: [cheatEmbed]})
     }
     }

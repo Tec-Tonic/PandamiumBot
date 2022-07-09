@@ -7,7 +7,8 @@ module.exports = {
         const slurChannel = message.channelId
         const slurTextLink = message.url
         const slurmessagelog = message.content
-        
+        const slurAuthor = message.author
+
         let slurfoundInText = false;
         
         for (var i in slurFilter) {
@@ -21,7 +22,7 @@ module.exports = {
           .addFields(
             {name:`Message :`,value:`|| ${slurmessagelog} ||`},
             {name:`Info: `,value: `check <#${slurChannel}> || [click me](${slurTextLink})`}
-          )
+          ).setFooter(`Author : ${slurAuthor}`)
 
           client.channels.cache.get(log).send(({embeds: [slurEmbed]}))
         } else return;

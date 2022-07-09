@@ -8,6 +8,7 @@ module.exports = {
 const topicChannel = message.channelId
 const topicTextLink = message.url
 const topicmessagelog = message.content
+const topicAuthor = message.author
 
 let topicFoundInText = false;
     for (var i in topicFilter) {
@@ -21,7 +22,8 @@ const controEmbed = new Discord.MessageEmbed()
    .addFields(
      {name:`Message :`,value:`${topicmessagelog}`},
      {name: `Info :`,value: `check <#${topicChannel}> || [click me](${topicTextLink})`}
-   )
+   ).setFooter(`Author : ${topicAuthor}`)
+   
    client.channels.cache.get(log).send({embeds: [controEmbed]})
    
   }

@@ -55,7 +55,7 @@ client.on('messageCreate', message =>{
 // ip checks
     client.command.get('ip').execute(message,Discord,client)
 // Caps
-    client.command.get('caps').execute(message,Discord,client)
+    //client.command.get('caps').execute(message,Discord,client)
 // playerlist
     client.command.get('playerlist').execute(message,Discord,client)
 // prefix ip command
@@ -102,22 +102,4 @@ if (message.author == client.user) return;
     }}
   })
 
-    
-  //Announcement checks
-  const wait = require('util').promisify(setTimeout);
-  client.on("messageCreate", async message => {
-    if (message.author == client.user) return;
-    await wait(1000)
-    let foundmessage = message.content
-    let args1 = message.content.replace(`<@&980742669779234857> The Snapshot server was updated to`).split(/ +/)
-      foundmessage = args1[1]
-        let announcefoundInText = false;
-      for (var i in announcementFilter) {
-       if (message.content.toLowerCase().includes(announcementFilter[i].toLowerCase())) announcefoundInText = true;
-      }
-      if (announcefoundInText) {
-        client.channels.cache.get(personalLog).send(foundmessage)
-        return;
-      }
-  })
   client.login(process.env.TOKEN);
