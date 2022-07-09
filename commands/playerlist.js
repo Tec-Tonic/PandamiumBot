@@ -13,13 +13,16 @@ module.exports = {
         list.status('snapshot.pandamium.eu').then((Response) =>{
             message.delete()
             const nameArr = Response.players.sample.map(obj => obj.name).join(", ");
-            const playerembed = new Discord.MessageEmbed()
-                .setColor('GREEN')
-                .addFields(
-                            {name: 'Online:', value: ` ${Response.players.online}/${Response.players.max}`,},
-                            {name:`Players:`, value: `\`\`\`${nameArr}\`\`\`` },
-                        )
-                        message.channel.send(({embeds: [playerembed]}))//.then(message => {setTimeout(() => message.delete(), 1000 * 30)})
+            message.channel.send(` **Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``).then(message => {setTimeout(() => message.delete(), 1000 * 30)});
+            
+            
+            // const playerembed = new Discord.MessageEmbed()
+            //     .setColor('GREEN')
+            //     .addFields(
+            //                 {name: 'Online:', value: ` ${Response.players.online}/${Response.players.max}`,},
+            //                 {name:`Players:`, value: `\`\`\`${nameArr}\`\`\`` },
+            //             )
+            //             message.channel.send(({embeds: [playerembed]}))
                         
          })
         .catch ((error) =>{
