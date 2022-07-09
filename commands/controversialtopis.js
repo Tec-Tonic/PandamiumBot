@@ -8,7 +8,7 @@ module.exports = {
 const topicChannel = message.channelId
 const topicTextLink = message.url
 const topicmessagelog = message.content
-const topicAuthor = message.author
+const topicAuthor = message.author.username
 
 let topicFoundInText = false;
     for (var i in topicFilter) {

@@ -41,7 +41,6 @@ client.on('messageDelete', message => {
   client.command.get('confirmDelete').execute(message,Discord,client)
   })
   
-
 client.on('messageCreate', message =>{   
 // scam filter
   if (message.author == client.user) return;

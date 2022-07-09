@@ -7,7 +7,7 @@ module.exports = {
 const cheatChannel = message.channelId
 const cheatTextLink = message.url
 const cheatmessagelog = message.content
-const cheatAuthor = message.author
+const cheatAuthor = message.author.username
 
 let cheatFoundInText = false;
     for (var i in cheatFilter) {

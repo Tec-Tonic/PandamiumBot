@@ -7,7 +7,7 @@ module.exports = {
         const slurChannel = message.channelId
         const slurTextLink = message.url
         const slurmessagelog = message.content
-        const slurAuthor = message.author
+        const slurAuthor = message.author.username
 
         let slurfoundInText = false;
         
