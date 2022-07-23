@@ -9,7 +9,7 @@ const deletedMessageChannel = message.channelId
 
 const deleteMsgEmbed = new Discord.MessageEmbed().setColor('#FF0000').setTitle("Message Deleted").addFields(
   {name: `Message :`, value: `${deletedMessage}`},
-  {name: `Info :`, value: `Author | ${deletedMessageAuthor} Channel | <#${deletedMessageChannel}>`}
+  {name: `Info :`, value: `Author | ${deletedMessageAuthor} \nChannel | <#${deletedMessageChannel}>`}
   )
 client.channels.cache.get(personalLog).send(({embeds: [deleteMsgEmbed]}))
 
