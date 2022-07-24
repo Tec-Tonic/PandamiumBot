@@ -96,24 +96,7 @@ if (message.author == client.user) return;
         
           
 
-    // Slash commands
-    client.on('ready', () => {
-    const guildId = '797494884159848469'
-    const guild = client.guilds.cache.get(guildId)
-      let slashCommands 
-
-      if (guild) {
-        slashCommands = guild.slashCommands
-      } else {
-        slashCommands = client.application?.slashCommands
-      }
-
-      slashCommands?.create({
-        name : 'playerlist',
-        description: 'Displays the players on the Snapshot Server',
-      })
-    
-    })
+   
     }} 
   })
 
