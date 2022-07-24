@@ -8,6 +8,7 @@ module.exports = {
         if(ChannelName !== "snapshot-ingame-chat") return //snapshot-ingame-chat
         if(message.author.bot) return;
        
+        message.content.toLowerCase()
         if(message.content.startsWith('!playerlist')){
 
         list.status('snapshot.pandamium.eu').then((Response) =>{
