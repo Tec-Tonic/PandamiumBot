@@ -44,9 +44,6 @@ client.on('messageDelete', message => {
 client.on('messageCreate', message =>{   
 // scam filter
   if (message.author == client.user) return;
-  const command = args.shift().toLowerCase();
-  const args = message.content.slice(prefix.length).split(/ +/);
-  
     client.command.get('scam').execute(message,Discord,client)
 // slur topic filter
     client.command.get('slur').execute(message,Discord,client)
@@ -57,15 +54,17 @@ client.on('messageCreate', message =>{
 // ip checks
     client.command.get('ip').execute(message,Discord,client)
 // playerlist
- 
-if(command === 'playerlist'){
-    client.command.get('playerlist').execute(message,Discord,client)
+    //client.command.get('playerlist').execute(message,Discord,client)
 // prefix ip command
-} else if(command === 'ip'){ 
+  const args = message.content.slice(prefix.length).split(/ +/);
+  const command = args.shift().toLowerCase();
+if(command === 'ip'){ 
     client.command.get('prefixip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
   message.react('☑️')
     client.command.get('maintenance').execute(message,Discord,client)
+} else if(command === 'playerlist'){
+    client.command.get('playerlist').execute(message,Discord,client)
 }
 })
 
