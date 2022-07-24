@@ -54,10 +54,10 @@ client.on('messageCreate', message =>{
 // ip checks
     client.command.get('ip').execute(message,Discord,client)
 // playerlist
+    const command = args.shift().toLowerCase();
+    const args = message.content.slice(prefix.length).split(/ +/);
     client.command.get('playerlist').execute(message,Discord,client)
 // prefix ip command
-  const args = message.content.slice(prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
 if(command === 'ip'){ 
     client.command.get('prefixip').execute(message,Discord,client)
 } else if(command === 'sendupdate6370'){
