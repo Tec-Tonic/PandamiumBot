@@ -88,7 +88,7 @@ if (message.author == client.user) return;
           message.react('👍'),
           message.react('👎')
           message.startThread({
-            name: `${threadAuthor.username}`,
+            name: `Appeal ${threadAuthor.username}`,
             autoArchiveDuration: 60,
             type: 'GUILD_PUBLIC_THREAD'
         });
