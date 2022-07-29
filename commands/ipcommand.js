@@ -30,11 +30,11 @@ module.exports = {
     
 
       list.status('pandamium.eu').then((ResponseRelease) =>{
-          releaseVersionIP = ResponseRelease.version.name
-      })
-        list.status('snapshot.pandamium.eu').then((ResponseSnapshot) =>{
-          snapVersionIP = ResponseSnapshot.version.name
-        })
+      list.status('snapshot.pandamium.eu').then((ResponseSnapshot) =>{
+         
+        const releaseVersionIP = ResponseRelease.version.name
+        const snapVersionIP = ResponseSnapshot.version.name
+       
           
         const ip2embed = new Discord.MessageEmbed()
         .setColor('#008000')
@@ -44,5 +44,12 @@ module.exports = {
           {name: `Snapshot IP: `, value: `snapshot.pandamium.eu\n **Version:** ${snapVersionIP}`},
           )
     
-        message.channel.send({embeds: [ip2embed]}).then(message => {setTimeout(() => message.delete(), 30000)});
-  }}}
+        message.channel.send({embeds: [ip2embed]}).then(message => {setTimeout(function() {message.edit(`**[**Delete**]** Removed, will be deleted shortly.`)}, 30000);setTimeout(function() {message.delete()}, 32000)})
+  
+        
+        
+        
+        //.then(message => {setTimeout(() => message.delete(), 30000)});
+      })
+    })
+  }}} 
