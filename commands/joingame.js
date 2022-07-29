@@ -6,7 +6,7 @@ module.exports = {
     name: 'joinSnapshot',
     execute(message,Discord,client){
       if (message.author == client.user) return;
-      if(!message.member.roles.cache.has('604637157029838888')) return
+      if(!message.author.username === "PandamiumBot") return
 
     const joinMessage = message.content
 
