@@ -30,10 +30,12 @@ module.exports = {
     
 
       list.status('pandamium.eu').then((ResponseRelease) =>{
+          releaseVersionIP = ResponseRelease.version.name
+      })
         list.status('snapshot.pandamium.eu').then((ResponseSnapshot) =>{
-          const snapVersionIP = ResponseSnapshot.version.name
-          const releaseVersionIP = ResponseRelease.version.name
-  
+          snapVersionIP = ResponseSnapshot.version.name
+        })
+          
         const ip2embed = new Discord.MessageEmbed()
         .setColor('#008000')
         .setTitle("Pandamium Server IP's")
@@ -43,4 +45,4 @@ module.exports = {
           )
     
         message.channel.send({embeds: [ip2embed]}).then(message => {setTimeout(() => message.delete(), 30000)});
-   }) }) }}}
+  }}}
