@@ -82,7 +82,7 @@ if(command === 'ip'){
         //if(embed[i].description.toLowerCase().includes('joined the game'))
         // check each embed if it includes word 'hi' or not
         {
-          client.channels.cache.get(personalLog).send(embed)
+          client.channels.cache.get(personalLog).send(embed[i])
         }
       }
     }
