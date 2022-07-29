@@ -13,8 +13,9 @@ module.exports = {
         list.status('snapshot.pandamium.eu').then((Response) =>{
             message.delete()
             //if (`${Response.players.online}` === "0") return message.channel.send(`**No online players**`)
+            console.log(`Players online : ${Response.players.online}`)
             
-            const nameArr = Response.players.sample.map(obj => obj.name).join(", ") | message.channel.send(`**No online players**`)
+            const nameArr = Response.players.sample.map(obj => obj.name).join(", ")
             message.channel.send(` **Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``).then(message => {setTimeout(() => message.delete(), 1000 * 30)});
             
             
