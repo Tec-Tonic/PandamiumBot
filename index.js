@@ -12,7 +12,6 @@ require('dotenv').config()
 const fs = require('fs');
 const prefix = '!'
 const personalLog = '963436191426957352' 
-const announcementFilter = require(`./filters/anouncement.json`)
 const banchannel = '780489408536772620' 
 
 client.command = new Discord.Collection();
@@ -64,6 +63,9 @@ if(command === 'ip'){
   message.react('☑️')
     client.command.get('maintenance').execute(message,Discord,client)
 }
+
+//Detect player join
+    client.command.get('joinSnapshot').execute(message,Discord,client)
 })
 
 //ban appeal
