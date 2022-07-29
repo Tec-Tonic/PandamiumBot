@@ -21,6 +21,5 @@ module.exports = {
         {name: `Snapshot IP: `, value: `snapshot.pandamium.eu\n **Version:** ${snapVersionIP}`},
         )
      
-        message.channel.send({embeds: [ip2embed]}).then(message => {setTimeout(() => message.delete(), 30000)});
-
+        message.channel.send({embeds: [ip2embed]}).then(message => {setTimeout(function() {message.edit(`**[**Delete**]** Will be deleted shortly.`)}, 30000);setTimeout(function() {message.delete()}, 32000)})
       })     }) }}
