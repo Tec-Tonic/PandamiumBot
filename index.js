@@ -76,7 +76,7 @@ if(command === 'ip'){
       // Loop it since in v13 you can send multiple embed in single message
       {
         
-        if(embed[i].title === null) return console.log(No title)
+        if(embed[i].title === null) return console.log(`No title`)
         // check each embed if it has title or not, if it doesnt then do nothing
 
         if(embed[i].title.toLowerCase().includes('joined the game'))
