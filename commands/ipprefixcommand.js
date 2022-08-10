@@ -6,7 +6,7 @@ module.exports = {
     execute(message,Discord,client){
       
       if(!message.content.startsWith(prefix) || message.author.bot) return;
-      message.react('<:resolved:942896814154199150> ')
+      message.react('<:resolved:1006341376314720376> ')
     
       list.status('pandamium.eu').then((Responses) =>{
       list.status('snapshot.pandamium.eu').then((Response) =>{

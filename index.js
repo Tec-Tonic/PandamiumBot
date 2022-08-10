@@ -63,9 +63,7 @@ if(command === 'ip'){
   message.react('☑️')
     client.command.get('maintenance').execute(message,Discord,client)
 }
-
-//Detect player join
-    client.command.get('joinSnapshot').execute(message,Discord,client)
+    //client.command.get('help').execute(message,Discord,client)
 })
 
 //ban appeal
@@ -101,5 +99,5 @@ if (message.author == client.user) return;
    
     }} 
   })
-
   client.login(process.env.TOKEN);
+  //client.login("Nzg1OTc4NDYyODM3Mjc2Njg0.Gi80Nt.clm5LSFzw9EnI32D6VHQoA--5kXTw426h7EpQc"); Token 

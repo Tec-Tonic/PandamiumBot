@@ -26,7 +26,7 @@ module.exports = {
    if (removeCapPunctuation(filterpunctuation).toLowerCase().includes(ipFilter[i])) ipfoundInText = true;
    }
    if (ipfoundInText) {
-      message.react('<:resolved:942896814154199150> ')
+      message.react('<:resolved:1006341376314720376> ')
     
 
       list.status('pandamium.eu').then((ResponseRelease) =>{
