@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const util = require('minecraft-server-util');
 const client = new Discord.Client({
     intents : [
         Discord.Intents.FLAGS.GUILDS,
@@ -23,7 +24,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     const serverCount = client.guilds.cache.size
-      client.user.setActivity('Discord', { type: 'WATCHING' });
+      
       console.log(`Logged in as ${client.user.tag} on ${serverCount} servers`);
   });
 
@@ -41,6 +42,11 @@ client.on('messageDelete', message => {
   })
   
 client.on('messageCreate', message =>{   
+
+  util.status("pandamium.eu").then((Response) => {
+  client.user.setActivity(`Release players: ${Response.players.online}/${Response.players.max}`, { type: 'PLAYING' });
+  });
+
 // scam filter
   if (message.author == client.user) return;
     client.command.get('scam').execute(message,Discord,client)
