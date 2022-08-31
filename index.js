@@ -1,7 +1,10 @@
 require("dotenv").config();
 const fs = require("fs");
 const prefix = "!";
-const { BOT_TOKEN, APP_ID, GUILD_ID } = process.env;
+const APP_ID = '785978462837276684'
+const GUILD_ID = '504627012921589763'
+const BOT_TOKEN = 'Nzg1OTc4NDYyODM3Mjc2Njg0.Gi80Nt.clm5LSFzw9EnI32D6VHQoA--5kXTw426h7EpQc'
+
 
 const { Partials, ChannelType } = require('discord.js');
 const { registerCommands } = require("./utils/registry");
@@ -86,7 +89,7 @@ async function main() {
       Routes.applicationGuildCommands(APP_ID, GUILD_ID)
     );
     console.log(registeredSlashCommands);
-    await client.login(process.env.BOT_TOKEN);
+    await client.login(BOT_TOKEN);
   } catch (err) {
     console.log(err);
   }
@@ -102,7 +105,7 @@ client.on("messageCreate", (message) => {
       activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
       status: "online",
     });
-    
+
   });
 
 
