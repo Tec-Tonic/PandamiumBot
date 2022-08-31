@@ -102,7 +102,7 @@ client.on("messageCreate", (message) => {
       activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
       status: "online",
     });
-
+    
   });
 
 
