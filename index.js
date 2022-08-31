@@ -86,7 +86,7 @@ async function main() {
       Routes.applicationGuildCommands(APP_ID, GUILD_ID)
     );
     console.log(registeredSlashCommands);
-    await client.login(BOT_TOKEN);
+    await client.login(process.env.BOT_TOKEN);
   } catch (err) {
     console.log(err);
   }
