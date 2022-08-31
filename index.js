@@ -104,5 +104,5 @@ if (message.author == client.user) return;
    
     }} 
   })
-  client.login(process.env.TOKEN);
+  //client.login(process.env.TOKEN);
   //client.login("Nzg1OTc4NDYyODM3Mjc2Njg0.Gi80Nt.clm5LSFzw9EnI32D6VHQoA--5kXTw426h7EpQc"); Token 
