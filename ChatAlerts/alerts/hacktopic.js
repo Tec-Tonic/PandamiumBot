@@ -5,6 +5,7 @@ module.exports = {
   name: "hacks",
   execute(message, client) {
     if (message.author.bot) return;
+    
     const cheatChannel = message.channelId;
     const cheatTextLink = message.url;
     const cheatmessagelog = message.content;
