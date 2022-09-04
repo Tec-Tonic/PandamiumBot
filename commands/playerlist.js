@@ -15,7 +15,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
   };
 
     util.queryFull('pandamium.eu', 25566, options).then((Response) => {
-      const intAuth = interactionUser.user.username
+      const intAuth = interaction.user.username
       const playerlistInteractionUsed = new EmbedBuilder().setColor('#2DF904').setTitle(`Playerlist`).setDescription(`Playerlist used by ${intAuth}`).setTimestamp()
       client.channels.cache.get('963436191426957352').send({ embeds: [playerlistInteractionUsed] })
 
