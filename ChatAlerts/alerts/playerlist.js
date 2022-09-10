@@ -28,8 +28,8 @@ module.exports = {
                 setTimeout(() => message.delete(), 1000 * 30);
               });
 
-          const nameArr = Response.players.list
-            .join(", ");
+          const nameArr = Response.players.list.join(", ").toString().replace("__T0m__", "__Tec__");
+
           message.channel
             .send(
               ` **Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``
