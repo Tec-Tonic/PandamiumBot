@@ -106,7 +106,9 @@ client.on("messageCreate", (message) => {
       status: "online",
     });
 
-  });
+  }).catch((error) => {
+    throw error
+  })
 
 
 
