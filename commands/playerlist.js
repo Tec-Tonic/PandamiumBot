@@ -23,7 +23,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         .get("963436191426957352")
         .send({ embeds: [playerlistInteractionUsed] });
 
-      util.queryBasic("pandamium.eu", 25565, options).then((ResponseRelease) => {
+      util.queryFull("pandamium.eu", 25565, options).then((ResponseRelease) => {
         const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0")
           return interaction.reply({content:`**No online players**` ,ephemeral: true});
@@ -40,7 +40,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         if (ChannelName === "release-ingame-chat") {
           const nameArrRelease = ResponseRelease.players.list.join(", ");
           return interaction.reply({
-            content: ` **Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``,
+            content: `This command is undergoing maintenance, please use \`!playerlist\` to check online players!` /*` **Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``*/,
             ephemeral: true,
           });
         }
