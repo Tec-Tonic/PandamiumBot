@@ -26,7 +26,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       util.queryFull("pandamium.eu", 25565, options).then((ResponseRelease) => {
         const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0")
-          return interaction.reply(`**No online players**`);
+          return interaction.reply({content:`**No online players**` ,ephemeral: true});
 
         const nameArr = Response.players.list.join(", ").toString().replace("__T0m__", "__Tec__")
 
