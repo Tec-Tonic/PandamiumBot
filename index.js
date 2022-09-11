@@ -101,11 +101,18 @@ client.on("messageCreate", (message) => {
 
   util.status("pandamium.eu").then((Response) => {
 
+    const checkIfPlayer = Response.players.online;
+        if (checkIfPlayer.toString() === "0"){
+          return client.user.setPresence({
+            activities: [{ name: `minecraft`, type: ActivityType.Playing }],
+            status: "online",
+          })
+        } else {
     client.user.setPresence({
       activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
       status: "online",
     });
-
+  }
   }).catch((error) => {
     throw error
   })
