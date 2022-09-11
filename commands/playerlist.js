@@ -23,7 +23,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         .get("963436191426957352")
         .send({ embeds: [playerlistInteractionUsed] });
 
-      util.queryFull("pandamium.eu", 25565, options).then((ResponseRelease) => {
+      util.queryBasic("pandamium.eu", 25565, options).then((ResponseRelease) => {
         const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0")
           return interaction.reply({content:`**No online players**` ,ephemeral: true});
