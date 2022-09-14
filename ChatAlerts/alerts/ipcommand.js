@@ -4,7 +4,7 @@ const fs = require("fs");
 const list = require("minecraft-server-util");
 
 //remove Punctuation
-var punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+var punctuation = "!\"#$%&'()*+,-./:;<=>@[\\]^_`{|}~";
 function removeCapPunctuation(string) {
   return string
     .split("")
