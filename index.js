@@ -95,9 +95,9 @@ async function main() {
   }
 }
 
-
-//message commands
-client.on("messageCreate", (message) => {
+client.on('messageCreate', (message) => {
+  const channelNames = message.channel.name
+  if (channelNames === "release-ingame-chat") {
 
   util.status("pandamium.eu").then((Response) => {
 
@@ -114,6 +114,11 @@ client.on("messageCreate", (message) => {
     });
   }
   })
+}
+})
+
+//message commands
+client.on("messageCreate", (message) => {
 
 
   // scam filter
