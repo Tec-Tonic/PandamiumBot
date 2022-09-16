@@ -38,7 +38,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           });
         }
         if (ChannelName === "release-ingame-chat") {
-          const nameArrRelease = ResponseRelease.players.sample.join(", ");
+          const nameArrRelease = ResponseRelease.players.sample.map(obj => obj.name).join(", ");
           return interaction.reply({
             content: /*`This command is undergoing maintenance, please use \`!playerlist\` to check online players!`*/ ` **Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``,
             ephemeral: true,
