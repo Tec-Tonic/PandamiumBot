@@ -25,8 +25,12 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
       util.status("pandamium.eu", 25565, options).then((ResponseRelease) => {
         const checkIfPlayer = Response.players.online;
+        const checkIfPlayerRelease = ResponseRelease.players.online
         if (checkIfPlayer.toString() === "0")
           return interaction.reply({content:`**No online players**` ,ephemeral: true});
+          const checkIfPlayerRelease = ResponseRelease.players.online;
+          if (checkIfPlayer.toString() === "0")
+            return interaction.reply({content:`**No online players**` ,ephemeral: true});
 
         const nameArr = Response.players.list.join(", ").toString().replace("__T0m__", "__Tec__")
 
