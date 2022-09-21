@@ -17,11 +17,13 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       const intAuth = interaction.user.username;
       const playerlistInteractionUsed = new EmbedBuilder()
         .setColor("#2DF904")
-        .setDescription(`Playerlist used by ${intAuth}`)
+        .setDescription(`Snapshot Playerlist used by ${intAuth}`)
         .setTimestamp();
-      client.channels.cache
-        .get("963436191426957352")
-        .send({ embeds: [playerlistInteractionUsed] });
+      
+        const playerlistInteractionUsedRelease = new EmbedBuilder()
+        .setColor("#2DF904")
+        .setDescription(`Release Playerlist used by ${intAuth}`)
+        .setTimestamp();
 
       util.status("pandamium.eu", 25565, options).then((ResponseRelease) => {
         const checkIfPlayer = Response.players.online;
@@ -36,12 +38,17 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
         var ChannelName = interaction.channel.name;
         if (ChannelName === "snapshot-ingame-chat") {
+        
+          client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsed] });
           return interaction.reply({
             content: ` **Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``,
             ephemeral: true,
           });
+          
         }
         if (ChannelName === "release-ingame-chat") {
+
+          client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsedRelease] });
           const nameArrRelease = ResponseRelease.players.sample.map(obj => obj.name).join(", ");
           return interaction.reply({
             content: /*`This command is undergoing maintenance, please use \`!playerlist\` to check online players!`*/ ` **Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``,
