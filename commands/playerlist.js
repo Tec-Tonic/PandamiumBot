@@ -31,7 +31,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         var ChannelName = interaction.channel.name;
         if (ChannelName === "snapshot-ingame-chat") {
 
-          const checkIfPlayer = ResponseRelease.players.online;
+          const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0"){
           return interaction.reply({content:`**No online players - Test 1**` ,ephemeral: true});
         }
@@ -44,7 +44,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           
         }
         if (ChannelName === "release-ingame-chat") {
-          const checkIfPlayerRelease = Response.players.online;
+          const checkIfPlayerRelease = ResponseRelease.players.online;
           if (checkIfPlayerRelease.toString() === "0"){
             return interaction.reply({content:`**No online players - Test 2**` ,ephemeral: true});
           }
