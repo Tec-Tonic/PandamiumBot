@@ -26,18 +26,15 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         .setTimestamp();
 
       util.status("pandamium.eu", 25565, options).then((ResponseRelease) => {
-        const checkIfPlayer = Response.players.online;
-        if (checkIfPlayer.toString() === "0"){
-          return interaction.reply({content:`**No online players**` ,ephemeral: true});
-        }
-          const checkIfPlayerRelease = ResponseRelease.players.online;
-        if (checkIfPlayerRelease.toString() === "0"){
-          return interaction.reply({content:`**No online players**` ,ephemeral: true});
-        }
         const nameArr = Response.players.list.join(", ").toString().replace("__T0m__", "__Tec__")
 
         var ChannelName = interaction.channel.name;
         if (ChannelName === "snapshot-ingame-chat") {
+
+          const checkIfPlayer = ResponseRelease.players.online;
+        if (checkIfPlayer.toString() === "0"){
+          return interaction.reply({content:`**No online players**` ,ephemeral: true});
+        }
         
           client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsed] });
           return interaction.reply({
@@ -47,6 +44,10 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           
         }
         if (ChannelName === "release-ingame-chat") {
+          const checkIfPlayerRelease = Response.players.online;
+          if (checkIfPlayerRelease.toString() === "0"){
+            return interaction.reply({content:`**No online players**` ,ephemeral: true});
+          }
 
           client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsedRelease] });
           const nameArrRelease = ResponseRelease.players.sample.map(obj => obj.name).join(", ");
