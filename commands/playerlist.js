@@ -33,7 +33,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
           const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0"){
-          return interaction.reply({content:`**No online players - Test 1**` ,ephemeral: true});
+          return interaction.reply({content:`**No online players**` ,ephemeral: true});
         }
         
           client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsed] });
@@ -46,7 +46,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         if (ChannelName === "release-ingame-chat") {
           const checkIfPlayerRelease = ResponseRelease.players.online;
           if (checkIfPlayerRelease.toString() === "0"){
-            return interaction.reply({content:`**No online players - Test 2**` ,ephemeral: true});
+            return interaction.reply({content:`**No online players**` ,ephemeral: true});
           }
 
           client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsedRelease] });
