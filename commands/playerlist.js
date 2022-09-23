@@ -8,13 +8,16 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
   }
 
   run(client, interaction) {
+    //options for both release & Snapshot
     const options = {
       sessionID: 1, // a random 32-bit signed number, optional
       enableSRV: true, // SRV record lookup
     };
 
+    // Interaction Author
     const intAuth = interaction.user.username;
-    //snapshot
+
+    //snapshot code
     util.queryFull("pandamium.eu", 25566, options).then((Response) => {
       const nameArr = Response.players.list
         .join(", ")
@@ -25,7 +28,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       const playerlistInteractionUsed = new EmbedBuilder()
         .setColor("#2DF904")
         .setDescription(
-          `Snapshot Playerlist used by ${intAuth} \n\n**Online players :** \n${nameArr}`
+          `**Snapshot Playerlist** used by **${intAuth}** \n\n**Online players :** \n${nameArr}`
         )
         .setTimestamp();
 
@@ -68,9 +71,9 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
         //Used to get Username and playerlist (for release) data once command is executed
         const playerlistInteractionUsedRelease = new EmbedBuilder()
-          .setColor("#2DF904")
+          .setColor("#058823")
           .setDescription(
-            `Release Playerlist used by ${intAuth} \n\n**Online players :** \n${nameArrRelease}`
+            `**Release Playerlist** used by **${intAuth}** \n\n**Online players :** \n${nameArrRelease}`
           )
           .setTimestamp();
 
