@@ -50,10 +50,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           });
         }
         if (ChannelName === "release-ingame-chat") {
-          client.channels.cache
-            .get("963436191426957352")
-            .send({ embeds: [playerlistInteractionUsedRelease] });
-
+          
           const checkIfPlayerRelease = ResponseRelease.players.online;
           if (checkIfPlayerRelease.toString() === "0") {
             return interaction.reply({
@@ -74,6 +71,10 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         )
         .setTimestamp();
 
+        client.channels.cache
+            .get("963436191426957352")
+            .send({ embeds: [playerlistInteractionUsedRelease] });
+            
           return interaction.reply({
             content: /*`This command is undergoing maintenance, please use \`!playerlist\` to check online players!`*/ ` **Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``,
             ephemeral: true,
