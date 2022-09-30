@@ -53,9 +53,15 @@ if(message.channel.type === ChannelType.DM) {
   message.reply('Hello, If you are trying to link your account please message <@604625105758322688> (you can click the @ to message it)')
   console.log(`${author.username}` + ' tried to send code ' + linkCode)
 }
-
-
 });
+
+client.on('guildMemberAdd', (member) => {
+  const pandaEmoji = `<:pandamium:797762197567832105>` 
+  setTimeout(() => {                                  
+      const message = member.guild.channels.cache.get('531885643626971170').lastMessage
+      message.react(pandaEmoji)
+  }, 500)
+})
 
 //interactions
 client.rest.setToken(BOT_TOKEN);
@@ -139,9 +145,6 @@ client.on("messageCreate", (message) => {
   const command = args.shift().toLowerCase();
   if (command === "ip") {
     client.command.get("prefixip").execute(message, client);
-  } else if (command === "sendupdate6370") {
-    message.react("☑️");
-    client.command.get("maintenance").execute(message, client);
   }
 });
 
