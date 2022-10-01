@@ -51,17 +51,10 @@ if (message.author.bot) return;
 if(message.channel.type === ChannelType.DM) {
   if ( !linkCode ) return 
   message.reply('Hello, If you are trying to link your account please message <@604625105758322688> (you can click the @ to message it)')
-  console.log(`${author.username}` + ' tried to send code ' + linkCode)
+  client.channels.cache.get('963436191426957352').send(`${author.username}` + ' tried to send code ' + linkCode)
 }
 });
 
-client.on('guildMemberAdd', (member) => {
-  const pandaEmoji = `<:pandamium:797762197567832105>` 
-  setTimeout(() => {                                  
-      const message = member.guild.channels.cache.get('531885643626971170').lastMessage
-      message.react(pandaEmoji)
-  }, 500)
-})
 
 //interactions
 client.rest.setToken(BOT_TOKEN);
