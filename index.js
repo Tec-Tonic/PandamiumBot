@@ -34,14 +34,16 @@ client.on("ready", () => {
 
 //testing join message embed
 client.on('messageCreate', (message) =>{
-
-  for(var i = 0; i < message.embeds.length; i++) {
-    if(message.embeds[i].description.includes("joined the server") || message.embeds[i].description.includes("joined the server")) {
-      console.log(message.content)
-      //client.channels.cache.get('963436191426957352').send(message.content)
-        break;
+    if(message.content.toLowerCase().includes('joined the server')){
+      console.log("Key Word Detected ");
 }
-  }
+//   for(var i = 0; i < message.embeds.length; i++) {
+//     if(message.embeds[i].description.includes("joined the server") || message.embeds[i].description.includes("joined the server")) {
+//       console.log(message.content)
+//       //client.channels.cache.get('963436191426957352').send(message.content)
+//         break;
+// }
+//   }
 })
 
 // Chat Alert checks
