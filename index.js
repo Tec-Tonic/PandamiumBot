@@ -43,15 +43,17 @@ for (const file of commandFiles) {
 
 //DM message responder
 client.on("messageCreate", async message => {
-
+  
   let linkCode = Number(message.content.replace(/\D/g, ''))
   let author = message.author
+
+  const codeEmbed = new EmbedBuilder().setColor('#F205FA').setDescription(`${author.username}` + ' tried to send code ' + linkCode)
 
 if (message.author.bot) return;
 if(message.channel.type === ChannelType.DM) {
   if ( !linkCode ) return 
   message.reply('Hello, If you are trying to link your account please message <@604625105758322688> (you can click the @ to message it)')
-  client.channels.cache.get('963436191426957352').send(`${author.username}` + ' tried to send code ' + linkCode)
+  client.channels.cache.get('963436191426957352').send({ embeds: [codeEmbed] })
 }
 });
 
