@@ -29,6 +29,9 @@ const client = new Client({
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
+
+  const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
+  client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 });
 
 // Chat Alert checks
