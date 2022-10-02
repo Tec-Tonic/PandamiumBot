@@ -31,19 +31,6 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-
-//testing join message embed
-client.on('messageCreate', (message) =>{
-
-  for(var i = 0; i < message.embeds.length; i++) {
-    if(message.embeds[i].title.includes("joined the server") || message.embeds[i].title.includes("joined the server")) {
-      console.log(message.content)
-      //client.channels.cache.get('963436191426957352').send(message.content)
-        break;
-}
-  }
-})
-
 // Chat Alert checks
 client.command = new Collection();
 const commandFiles = fs
