@@ -1,6 +1,8 @@
 require("dotenv").config();
 const fs = require("fs");
 const prefix = "!";
+const welcomeChannel = '531885643626971170'
+const pandaEmoji = `<:pandamium:797762197567832105>`
 const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
 const BOT_TOKEN = 'Nzg1OTc4NDYyODM3Mjc2Njg0.Gi80Nt.clm5LSFzw9EnI32D6VHQoA--5kXTw426h7EpQc'
@@ -33,6 +35,15 @@ client.on("ready", () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 });
+
+// welcome reactions
+client.on('messageCreate', () =>{
+  
+  const message = client.channels.cache.get(welcomeChannel).lastMessage
+  message.react(pandaEmoji)
+  return;
+
+})
 
 // Chat Alert checks
 client.command = new Collection();
