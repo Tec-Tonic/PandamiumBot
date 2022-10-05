@@ -1,8 +1,8 @@
 require("dotenv").config();
 const fs = require("fs");
 const prefix = "!";
-const welcomeChannel = '531885643626971170'
-const pandaEmoji = `<:pandamium:797762197567832105>`
+const welcomeChannel = '531885643626971170' //pandamium welcome channel
+const pandaEmoji = `<:pandamium:797762197567832105>` //pandamium emoji
 const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
 const BOT_TOKEN = 'Nzg1OTc4NDYyODM3Mjc2Njg0.Gi80Nt.clm5LSFzw9EnI32D6VHQoA--5kXTw426h7EpQc'
