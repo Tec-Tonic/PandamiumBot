@@ -37,13 +37,13 @@ client.on("ready", () => {
 });
 
 // welcome reactions
-client.on('messageCreate', () =>{
+// client.on('messageCreate', () =>{
   
-  const message = client.channels.cache.get(welcomeChannel).lastMessage
-  message.react(pandaEmoji)
-  return;
+//   const message = client.channels.cache.get(welcomeChannel).lastMessage
+//   message.react(pandaEmoji)
+//   return;
 
-})
+// })
 
 // Chat Alert checks
 client.command = new Collection();
