@@ -23,7 +23,9 @@ const client = new Client({
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.DirectMessageReactions,
-    GatewayIntentBits.DirectMessageTyping
+    GatewayIntentBits.DirectMessageTyping,
+    GatewayIntentBits.GuildEmojisAndStickers,
+    GatewayIntentBits.GuildMembers
   ],
   partials: [Partials.Message, Partials.Channel, Partials.Reaction],
   rest: { version: "10" }
@@ -37,13 +39,13 @@ client.on("ready", () => {
 });
 
 // welcome reactions
-// client.on('messageCreate', () =>{
-  
-//   const message = client.channels.cache.get(welcomeChannel).lastMessage
-//   message.react(pandaEmoji)
-//   return;
-
-// })
+client.on('guildMemberAdd', (member) => {
+  const pandaEmoji = `<:pandamium:797762197567832105>` 
+  setTimeout(() => {                                  
+      const message = member.guild.channels.cache.get('531885643626971170').lastMessage
+      message.react(pandaEmoji)
+  }, 500)
+})
 
 // Chat Alert checks
 client.command = new Collection();
