@@ -121,8 +121,8 @@ client.on('messageCreate', (message) => {
     const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0"){
           return client.user.setPresence({
-            activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
-            status: "online",
+            activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
+            status: "idle",
           })
         } else {
     client.user.setPresence({
