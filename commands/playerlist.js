@@ -32,6 +32,14 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         )
         .setTimestamp();
 
+      // Snapshot better playerlist
+      const playerlistEmbedBetter = new EmbedBuilder()
+      .setColor("#2DF904")
+      .setTitle(
+        `**Online players (${Response.players.online}/${Response.players.max}):**`
+      )
+      .setDescription(`\`\`\`${nameArr}\`\`\``);
+
       var ChannelName = interaction.channel.name;
       if (ChannelName === "snapshot-ingame-chat") {
         client.channels.cache
@@ -47,7 +55,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         }
 
         return interaction.reply({
-          content: ` **Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``,
+          embeds: [playerlistEmbedBetter],
           ephemeral: true,
         });
       }
@@ -77,12 +85,21 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           )
           .setTimestamp();
 
+        //release beter playerlist
+        const playerlistEmbedBetterRelease = new EmbedBuilder()
+        .setColor("#2DF904")
+        .setTitle(
+          `**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`
+        )
+        .setDescription(`\`\`\`${nameArrRelease}\`\`\``);
+
+        // command history log (Release)
         client.channels.cache
           .get("963436191426957352")
           .send({ embeds: [playerlistInteractionUsedRelease] });
 
         return interaction.reply({
-          content: ` **Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``,
+          embeds: [playerlistEmbedBetterRelease],
           ephemeral: true,
         });
       }
