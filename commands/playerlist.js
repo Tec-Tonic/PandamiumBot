@@ -19,10 +19,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
     //Snapshot Code
     util.queryFull("pandamium.eu", 25566, options).then((Response) => {
-      const nameArr = Response.players.list
-        .join(", ")
-        .toString()
-        //.replace("__T0m__", "__Tec__");
+      const nameArr = Response.players.list.join(", ").toString();
 
       //intPrintOut Discord Log
       const playerlistInteractionUsed = new EmbedBuilder()
@@ -34,11 +31,16 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
       // Snapshot better playerlist
       const playerlistEmbedBetter = new EmbedBuilder()
-      .setColor("#2DF904")
-      .setTitle(
-        `**Online players (${Response.players.online}/${Response.players.max}):**`
-      )
-      .setDescription(`\`\`\`${nameArr}\`\`\``);
+        .setColor("#2DF904")
+        .setTitle(
+          `**Online players (${Response.players.online}/${Response.players.max}):**`
+        )
+        .setDescription(`\`\`\`${nameArr}\`\`\``);
+
+      // Snapshot better no players
+      const playerlistemptyEmbed = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setTitle(`**No online players**`);
 
       var ChannelName = interaction.channel.name;
       if (ChannelName === "snapshot-ingame-chat") {
@@ -49,7 +51,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0") {
           return interaction.reply({
-            content: `**No online players**`,
+            embeds: [playerlistemptyEmbed],
             ephemeral: true,
           });
         }
@@ -60,15 +62,21 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         });
       }
     });
-    
+
     //Release Code
     util.status("pandamium.eu", 25565, options).then((ResponseRelease) => {
       var ChannelName = interaction.channel.name;
+
+      // Release better no players
+      const playerlistemptyEmbedRelease = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setTitle(`**No online players**`);
+
       if (ChannelName === "release-ingame-chat") {
         const checkIfPlayerRelease = ResponseRelease.players.online;
         if (checkIfPlayerRelease.toString() === "0") {
           return interaction.reply({
-            content: `**No online players**`,
+            embeds: [playerlistemptyEmbedRelease],
             ephemeral: true,
           });
         }
@@ -85,13 +93,13 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           )
           .setTimestamp();
 
-        //release beter playerlist
+        //release better playerlist
         const playerlistEmbedBetterRelease = new EmbedBuilder()
-        .setColor("#2DF904")
-        .setTitle(
-          `**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`
-        )
-        .setDescription(`\`\`\`${nameArrRelease}\`\`\``);
+          .setColor("#2DF904")
+          .setTitle(
+            `**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`
+          )
+          .setDescription(`\`\`\`${nameArrRelease}\`\`\``);
 
         // command history log (Release)
         client.channels.cache
@@ -113,4 +121,3 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       .toJSON();
   }
 };
-
