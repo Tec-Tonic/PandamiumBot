@@ -22,7 +22,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       const nameArr = Response.players.list
         .join(", ")
         .toString()
-        .replace("__T0m__", "__Tec__");
+        //.replace("__T0m__", "__Tec__");
 
       //intPrintOut Discord Log
       const playerlistInteractionUsed = new EmbedBuilder()
