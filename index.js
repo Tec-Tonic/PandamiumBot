@@ -139,7 +139,7 @@ client.on("messageCreate", (message) => {
 
 
   // scam filter
-  if (message.author.bot) return;
+  if (message.author == client.user) return;
   client.command.get("scam").execute(message, client);
   // slur topic filter
   client.command.get("slur").execute(message, client);
