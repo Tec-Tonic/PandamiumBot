@@ -5,7 +5,7 @@ const welcomeChannel = '531885643626971170' //pandamium welcome channel
 const pandaEmoji = `<:pandamium:797762197567832105>` //pandamium emoji
 const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
-const BOT_TOKEN = require("./server_bot_token.json")
+const BOT_TOKEN = require("./server_bot_token.json").toString();
 
 
 const { Partials, ChannelType } = require('discord.js');
