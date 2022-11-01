@@ -17,9 +17,9 @@ module.exports = {
     for (var i = 0; i < scamLinkFlter.length; i++) {
       if (content.includes(scamLinkFlter[i])) {
 
-        setTimeout(function() { 
+        //setTimeout(function() { 
           message.delete();
-      }, 2000);
+      //}, 2000);
 
 
       const scamButtonRedirect = new ActionRowBuilder().addComponents(
