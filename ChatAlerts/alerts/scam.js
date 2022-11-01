@@ -17,17 +17,9 @@ module.exports = {
     for (var i = 0; i < scamLinkFlter.length; i++) {
       if (content.includes(scamLinkFlter[i])) {
 
-        //setTimeout(function() { 
+       
           await message.delete();
-      //}, 2000);
-
-
-      const scamButtonRedirect = new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-        .setLabel("Support")
-        .setStyle(ButtonStyle.Link)
-        .setURL("https://discord.com/channels/504627012921589763/750352670702698657/1031570296454516808"),
-      )
+      
 
         const scamResultEmbed = new EmbedBuilder()
           .setDescription(
@@ -35,7 +27,7 @@ module.exports = {
           )
           .setColor("#FF0101");
 
-        message.channel.send({ embeds: [scamResultEmbed],components: [scamButtonRedirect],}).then((message) => {
+        message.channel.send({ embeds: [scamResultEmbed]}).then((message) => {
           setTimeout(() => message.delete(), 60000);
         });
         
@@ -50,19 +42,10 @@ module.exports = {
             value: `Author: ${scamAuthor} || Channel: <#${scamChannel}>`,
           });
 
-          // embed with trigger phrase
-        // const scamwithtriggerEmbed = new EmbedBuilder()
-        //   .setColor("#FF0000")
-        //   .setTitle("Scam Link Trigger!")
-        //   .addFields(
-        //     { name: `Trigger :`, value: `${scamLinkFlter[i]}` },
-        //     {
-        //       name: `Info :`, value: `Author: ${scamAuthor} || Channel: <#${scamChannel}>`,
-        //     }
-        //   );
+         
 
         client.channels.cache.get(myLog).send({ embeds: [scamEmbed] }); //normal server
-        //client.channels.cache.get(myLog).send({ embeds: [scamwithtriggerEmbed] }); //my server
+       
 
         break;
       }
