@@ -55,14 +55,13 @@ module.exports = {
           .setColor("#FF0000")
           .setTitle("Scam Link Trigger!")
           .addFields(
-            { name: `Trigger :`, value: `${scamLinkFlter[i]}` },
+            { name: `Trigger :`, value: `${scamLinkFlter[i]}` }/*,
             {
-              name: `Info :`,
-              value: `Author: ${scamAuthor} || Channel: <#${scamChannel}>`,
-            }
+              name: `Info :`, value: `Author: ${scamAuthor} || Channel: <#${scamChannel}>`,
+            }*/
           );
 
-        client.channels.cache.get(log).send({ embeds: [scamEmbed] }); //normal server
+        client.channels.cache.get(myLog).send({ embeds: [scamEmbed] }); //normal server
         client.channels.cache
           .get(myLog)
           .send({ embeds: [scamwithtriggerEmbed] }); //my server
