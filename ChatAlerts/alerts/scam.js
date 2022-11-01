@@ -35,7 +35,7 @@ module.exports = {
           )
           .setColor("#FF0101");
 
-        message.send({ embeds: [scamResultEmbed] ,components: [scamButtonRedirect],}).then((message) => {
+        message.reply({ embeds: [scamResultEmbed] ,components: [scamButtonRedirect],}).then((message) => {
           setTimeout(() => message.delete(), 60000);
         });
         
