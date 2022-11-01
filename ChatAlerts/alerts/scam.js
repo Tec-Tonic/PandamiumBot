@@ -22,12 +22,12 @@ module.exports = {
       }, 2000);
 
 
-      const scamButtonRedirect = new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-        .setLabel("Support")
-        .setStyle(ButtonStyle.Link)
-        .setURL("https://discord.com/channels/504627012921589763/750352670702698657/1031570296454516808"),
-      )
+      // const scamButtonRedirect = new ActionRowBuilder().addComponents(
+      //   new ButtonBuilder()
+      //   .setLabel("Support")
+      //   .setStyle(ButtonStyle.Link)
+      //   .setURL("https://discord.com/channels/504627012921589763/750352670702698657/1031570296454516808"),
+      // )
 
         const scamResultEmbed = new EmbedBuilder()
           .setDescription(
@@ -35,7 +35,7 @@ module.exports = {
           )
           .setColor("#FF0101");
 
-        message.reply({ embeds: [scamResultEmbed] ,components: [scamButtonRedirect],}).then((message) => {
+        message.reply({ embeds: [scamResultEmbed]}).then((message) => {
           setTimeout(() => message.delete(), 60000);
         });
         
