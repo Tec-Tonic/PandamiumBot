@@ -51,20 +51,18 @@ module.exports = {
           });
 
           // embed with trigger phrase
-        const scamwithtriggerEmbed = new EmbedBuilder()
-          .setColor("#FF0000")
-          .setTitle("Scam Link Trigger!")
-          .addFields(
-            { name: `Trigger :`, value: `${scamLinkFlter[i]}` },
-            {
-              name: `Info :`, value: `Author: ${scamAuthor} || Channel: <#${scamChannel}>`,
-            }
-          );
+        // const scamwithtriggerEmbed = new EmbedBuilder()
+        //   .setColor("#FF0000")
+        //   .setTitle("Scam Link Trigger!")
+        //   .addFields(
+        //     { name: `Trigger :`, value: `${scamLinkFlter[i]}` },
+        //     {
+        //       name: `Info :`, value: `Author: ${scamAuthor} || Channel: <#${scamChannel}>`,
+        //     }
+        //   );
 
         client.channels.cache.get(myLog).send({ embeds: [scamEmbed] }); //normal server
-        client.channels.cache
-          .get(myLog)
-          .send({ embeds: [scamwithtriggerEmbed] }); //my server
+        //client.channels.cache.get(myLog).send({ embeds: [scamwithtriggerEmbed] }); //my server
 
         break;
       }
