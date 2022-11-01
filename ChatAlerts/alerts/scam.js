@@ -4,7 +4,7 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require("
 const scamLinkFlter = require(`../filters/scamlink.json`);
 module.exports = {
   name: "scam",
- async execute(message, client) {
+ execute(message, client) {
     if (message.author == client.user) return;
     var content = message.content;
     var stringToCheck = content.replace(/\s+/g, "").toLowerCase();
@@ -18,7 +18,7 @@ module.exports = {
       if (content.includes(scamLinkFlter[i])) {
 
        
-          await message.delete();
+         // await message.delete();
       
 
         const scamResultEmbed = new EmbedBuilder()
@@ -36,7 +36,7 @@ module.exports = {
         const scamEmbed = new EmbedBuilder()
           .setColor("#FF0000")
           .setTitle("Scam Link")
-          .setDescription("Scam link deleted.")
+          .setDescription("**Scam link needs to be deleted.**")
           .addFields({
             name: `Info :`,
             value: `Author: ${scamAuthor} || Channel: <#${scamChannel}>`,
