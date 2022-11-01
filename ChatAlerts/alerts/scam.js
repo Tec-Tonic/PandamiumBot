@@ -1,5 +1,5 @@
 const log = require('../../serverlog.json').toString('')
-const myLog = "1011748320793866301";
+const myLog = "963436191426957352"; 
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require("discord.js");
 const scamLinkFlter = require(`../filters/scamlink.json`);
 module.exports = {
