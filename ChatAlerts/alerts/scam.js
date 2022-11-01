@@ -62,7 +62,7 @@ module.exports = {
             }
           );
 
-        client.channels.cache.get(myLog).send({ embeds: [scamEmbed] }); //normal server
+        client.channels.cache.get(log).send({ embeds: [scamEmbed] }); //normal server
         client.channels.cache
           .get(myLog)
           .send({ embeds: [scamwithtriggerEmbed] }); //my server
