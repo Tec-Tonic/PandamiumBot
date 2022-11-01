@@ -4,7 +4,7 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require("
 const scamLinkFlter = require(`../filters/scamlink.json`);
 module.exports = {
   name: "scam",
-  execute(message, client) {
+ async execute(message, client) {
     if (message.author == client.user) return;
     var content = message.content;
     var stringToCheck = content.replace(/\s+/g, "").toLowerCase();
@@ -18,7 +18,7 @@ module.exports = {
       if (content.includes(scamLinkFlter[i])) {
 
         //setTimeout(function() { 
-          message.delete();
+          await message.delete();
       //}, 2000);
 
 
