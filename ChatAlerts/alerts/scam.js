@@ -24,9 +24,9 @@ module.exports = {
 
       const scamButtonRedirect = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
-          .setCustomId('support-redirect')
-          .setLabel("Support")
-          .setStyle(ButtonStyle.Primary)
+        .setLabel("Support")
+        .setStyle(ButtonStyle.Link)
+        .setURL("https://discord.com/channels/504627012921589763/750352670702698657/1031570296454516808"),
       )
 
         const scamResultEmbed = new EmbedBuilder()
@@ -35,7 +35,7 @@ module.exports = {
           )
           .setColor("#FF0101");
 
-        message.reply({ embeds: [scamResultEmbed] ,components: [scamButtonRedirect],}).then((message) => {
+        message.send({ embeds: [scamResultEmbed] ,components: [scamButtonRedirect],}).then((message) => {
           setTimeout(() => message.delete(), 60000);
         });
         

@@ -31,20 +31,23 @@ module.exports = class IpSlashCommand extends BaseSlashCommand {
               name: `Snapshot IP: `,
               value: `snapshot.pandamium.eu\n **Version:** ${snapVersionIP}`,
             }
-          );
+          )
+          .setDescription(
+            `ⓘ | Buttons below will take you to [pastebin](https://pastebin.com/)`
+          )
 
           const CopyPasteIP = new ActionRowBuilder().addComponents(
                   new ButtonBuilder()
                     .setLabel("Release IP")
                     .setStyle(ButtonStyle.Link)
-                    .setURL("https://pastebin.com/raw/LyNSkBrS"),
+                    .setURL("https://pastebin.com/raw/cfi77L2e"),
                   new ButtonBuilder()
                     .setLabel("Snapshot IP")
                     .setStyle(ButtonStyle.Link)
-                    .setURL("https://minecraftservers.org/vote/562059"),
+                    .setURL("https://pastebin.com/raw/LyNSkBrS"),
           )
 
-        return interaction.reply({ embeds: [ipEmbed], components: [CopyPasteIP] ,ephemeral: true });
+        return interaction.reply({ embeds: [ipEmbed],components: [CopyPasteIP],ephemeral: true });
       });
     });
   }
