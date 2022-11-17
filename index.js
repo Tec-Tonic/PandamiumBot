@@ -97,11 +97,11 @@ async function main() {
       cmd.getSlashCommandJSON()
     );
     console.log(slashCommandsJson);
-    await client.rest.put(Routes.applicationCommand(APP_ID), {
+    await client.rest.put(Routes.applicationGuildCommands(APP_ID, GUILD_ID), {
       body: slashCommandsJson,
     });
     const registeredSlashCommands = await client.rest.get(
-      Routes.applicationCommand(APP_ID)
+      Routes.applicationGuildCommands(APP_ID, GUILD_ID)
     );
     console.log(registeredSlashCommands);
     await client.login(BOT_TOKEN);
