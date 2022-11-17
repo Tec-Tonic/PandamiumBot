@@ -1,8 +1,6 @@
 require("dotenv").config();
 const fs = require("fs");
 const prefix = "!";
-const welcomeChannel = '531885643626971170' //pandamium welcome channel
-const pandaEmoji = `<:pandamium:797762197567832105>` //pandamium emoji
 const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
 const BOT_TOKEN = require("./server_bot_token.json").toString();
@@ -74,7 +72,7 @@ if(message.channel.type === ChannelType.DM) {
 });
 
 
-//interactions
+// Interactions
 client.rest.setToken(BOT_TOKEN);
 
 client.on("interactionCreate", (interaction) => {
@@ -99,11 +97,11 @@ async function main() {
       cmd.getSlashCommandJSON()
     );
     console.log(slashCommandsJson);
-    await client.rest.put(Routes.applicationGuildCommands(APP_ID, GUILD_ID), {
+    await client.rest.put(Routes.applicationCommand(APP_ID), {
       body: slashCommandsJson,
     });
     const registeredSlashCommands = await client.rest.get(
-      Routes.applicationGuildCommands(APP_ID, GUILD_ID)
+      Routes.applicationCommand(APP_ID)
     );
     console.log(registeredSlashCommands);
     await client.login(BOT_TOKEN);
@@ -134,24 +132,24 @@ client.on('messageCreate', (message) => {
 }
 })
 
-//message commands
+// Message commands
 client.on("messageCreate", (message) => {
 
 
-  // scam filter
+  // Scam filter
   if (message.author == client.user) return;
   client.command.get("scam").execute(message, client);
-  // slur topic filter
+  // Slur topic filter
   client.command.get("slur").execute(message, client);
-  // controversial topic filter
+  // Controversial topic filter
   client.command.get("contro").execute(message, client);
-  // hacking topic filter
+  // Hacking topic filter
   client.command.get("hacks").execute(message, client);
-  // ip checks
+  // IP checks
   client.command.get("ip").execute(message, client);
-  // playerlist
+  // Playerlist
   client.command.get("playerlist").execute(message, client);
-  // prefix ip command
+  // Prefix IP command
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
   if (command === "ip") {
