@@ -7,7 +7,7 @@ module.exports = {
     if (ChannelName !== "snapshot-ingame-chat") return; //snapshot-ingame-chat
     if (message.author.bot) return;
 
-    if (message.content.startsWith("!playerlist")) {
+    if (message.content.startsWith("!playerlist") || message.content.startsWith("!list")) {
       const options = {
         sessionID: 1, // a random 32-bit signed number, optional
         enableSRV: true // SRV record lookup
