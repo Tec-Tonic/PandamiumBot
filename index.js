@@ -161,12 +161,24 @@ client.on("messageCreate", (message) => {
 //auths
 const pinAuthorID = "1040686309074796564";
 const pinChannel = "614507998357880862";
-//const pinDatabase = "1045064453957369957";
+const delmojiraBed = require('./ChatAlerts/filters/updatedel.json')
 
 client.on("messageCreate", (message) => {
+  let delmsg = false;
+
   if (message.author.id === pinAuthorID) {
     if (message.channelId === pinChannel) {
-      message.pin();
+      
+      for (var i in delmojiraBed) {
+      if (message.content.toLowerCase().includes(delmojiraBed[i].toLowerCase())) delmsg = true
+      }
+
+      if (delmsg){
+        message.react("❌")
+      } else {
+        message.pin();
+      }
+      
     }
   }
 });
