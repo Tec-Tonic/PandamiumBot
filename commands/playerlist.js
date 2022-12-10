@@ -16,6 +16,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
     // Interaction Author
     const intAuth = interaction.user.username;
+    var channelName = interaction.channel.name;
+      if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
     //Snapshot Code
     util.queryFull("pandamium.eu", 25566, options).then((Response) => {
@@ -112,6 +114,17 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         });
       }
     });
+  } else {
+
+    const errPlayerlist = new EmbedBuilder()
+    .setDescription('Please use <#824234748217393212> or <#604630001957994504>.').setColor('#FF0000')
+
+    interaction.reply({
+      embeds: [errPlayerlist],
+      ephemeral: true,
+    })
+  }
+  
   }
 
   getSlashCommandJSON() {
