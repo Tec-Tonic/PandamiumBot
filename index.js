@@ -157,4 +157,18 @@ client.on("messageCreate", (message) => {
   }
 });
 
+//pin message command
+//auths
+const pinAuthorID = "1040686309074796564";
+const pinChannel = "614507998357880862";
+//const pinDatabase = "1045064453957369957";
+
+client.on("messageCreate", (message) => {
+  if (message.author.id === pinAuthorID) {
+    if (message.channelId === pinChannel) {
+      message.pin();
+    }
+  }
+});
+
 main();
