@@ -29,7 +29,7 @@ module.exports = class IpSlashCommand extends BaseSlashCommand {
             },
             {
               name: `Snapshot IP: `,
-              value: `snapshot.pandamium.eu\n **Version:** ${snapVersionIP} \nⓘ | Buttons below will take you to [pastebin](https://pastebin.com/)`,
+              value: `snapshot.pandamium.eu\n **Version:** ${snapVersionIP} \n\nⓘ | Buttons below will take you to [pastebin](https://pastebin.com/)`,
             }
           )
 
