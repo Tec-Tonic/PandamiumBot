@@ -1,6 +1,6 @@
 const log = require('../../serverlog.json').toString('')
 const { EmbedBuilder } = require("discord.js");
-const topicFilter = require(`../filters/contro.json`);
+const topicFilter = require(`../filters/contro_filter.json`);
 module.exports = {
   name: "contro",
   execute(message, client) {

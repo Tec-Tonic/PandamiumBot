@@ -1,6 +1,6 @@
 const log = require('../../serverlog.json').toString('')
 const { EmbedBuilder } = require("discord.js");
-const cheatFilter = require(`../filters/hacksfilter.json`);
+const cheatFilter = require(`../filters/hacks_filter.json`);
 module.exports = {
   name: "hacks",
   execute(message, client) {

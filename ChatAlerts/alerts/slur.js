@@ -1,6 +1,6 @@
 const log = require('../../serverlog.json').toString('')
 const { EmbedBuilder } = require("discord.js");
-const slurFilter = require(`../filters/slurfilter.json`);
+const slurFilter = require(`../filters/slur_filter.json`);
 module.exports = {
   name: "slur",
   execute(message, client) {

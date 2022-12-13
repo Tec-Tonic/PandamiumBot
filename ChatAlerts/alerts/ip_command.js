@@ -1,4 +1,4 @@
-const ipFilter = require(`../filters/ipfilter.json`);
+const ipFilter = require(`../filters/ip_filter.json`);
 const { EmbedBuilder } = require("discord.js");
 const fs = require("fs");
 const list = require("minecraft-server-util");

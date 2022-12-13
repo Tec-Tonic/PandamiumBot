@@ -161,7 +161,7 @@ client.on("messageCreate", (message) => {
 //auths
 const pinAuthorID = "1040686309074796564";
 const pinChannel = "614507998357880862";
-const delmojiraBed = require('./ChatAlerts/filters/updatedel.json')
+const delmojiraBed = require('./ChatAlerts/filters/update_del.json')
 
 client.on("messageCreate", (message) => {
   let delmsg = false;

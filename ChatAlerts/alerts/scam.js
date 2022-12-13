@@ -1,7 +1,7 @@
 const log = require('../../serverlog.json').toString('')
 const myLog = "963436191426957352";
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require("discord.js");
-const scamLinkFlter = require(`../filters/scamlink.json`);
+const scamLinkFlter = require(`../filters/scam_link_filter.json`);
 module.exports = {
   name: "scam",
   execute(message, client) {
