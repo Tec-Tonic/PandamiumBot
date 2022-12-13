@@ -29,11 +29,8 @@ module.exports = class IpSlashCommand extends BaseSlashCommand {
             },
             {
               name: `Snapshot IP: `,
-              value: `snapshot.pandamium.eu\n **Version:** ${snapVersionIP}`,
+              value: `snapshot.pandamium.eu\n **Version:** ${snapVersionIP} \nⓘ | Buttons below will take you to [pastebin](https://pastebin.com/)`,
             }
-          )
-          .setDescription(
-            `ⓘ | Buttons below will take you to [pastebin](https://pastebin.com/)`
           )
 
           const CopyPasteIP = new ActionRowBuilder().addComponents(
