@@ -3,7 +3,7 @@ const fs = require("fs");
 const prefix = "!";
 const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
-const BOT_TOKEN = process.env.BOT_TOKEN
+//const BOT_TOKEN = require("./server_bot_token.json").toString();
 
 
 const { Partials, ChannelType } = require('discord.js');
@@ -73,7 +73,7 @@ if(message.channel.type === ChannelType.DM) {
 
 
 // Interactions
-client.rest.setToken(BOT_TOKEN);
+client.rest.setToken(process.env.BOT_TOKEN); // changed
 
 client.on("interactionCreate", (interaction) => {
   if (interaction.isChatInputCommand()) {
@@ -104,7 +104,7 @@ async function main() {
       Routes.applicationCommands(APP_ID)
     );
     console.log(registeredSlashCommands);
-    await client.login(BOT_TOKEN);
+    await client.login(process.env.BOT_TOKEN); //changed
   } catch (err) {
     console.log(err);
   }
