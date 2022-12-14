@@ -159,9 +159,9 @@ client.on("messageCreate", (message) => {
 
 //pin message command
 //auths
-const pinAuthorID = "1040686309074796564";
-const pinChannel = "614507998357880862";
-const delmojiraBed = require('./ChatAlerts/filters/update_del.json')
+const pinAuthorID = "1040686309074796564"; // @Mojira#news - 1040686309074796564
+const pinChannel = "614507998357880862"; // #snapshot-server-chat - 614507998357880862
+const delmojiraBed = require('./ChatAlerts/filters/update_del.json') // filter words to delete from mojira
 
 client.on("messageCreate", (message) => {
   let delmsg = false;
@@ -174,7 +174,12 @@ client.on("messageCreate", (message) => {
       }
 
       if (delmsg){
-        message.react("❌")
+          message.react("❌")
+
+          setTimeout(function () {
+            message.delete()
+          }, 15000);
+
       } else {
         message.pin();
       }
