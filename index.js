@@ -3,7 +3,7 @@ const fs = require("fs");
 const prefix = "!";
 const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
-const BOT_TOKEN = require("./server_bot_token.json").toString();
+const BOT_TOKEN = process.env.BOT_TOKEN
 
 
 const { Partials, ChannelType } = require('discord.js');
