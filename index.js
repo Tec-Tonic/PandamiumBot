@@ -72,7 +72,7 @@ if(message.channel.type === ChannelType.DM) {
 });
 
 
-// Interactions
+// Interaction(s)
 client.rest.setToken(BOT_TOKEN); 
 
 client.on("interactionCreate", (interaction) => {
