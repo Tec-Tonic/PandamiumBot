@@ -165,6 +165,8 @@ const delmojiraBed = require('./ChatAlerts/filters/update_del.json') // filter w
 
 client.on("messageCreate", (message) => {
   let delmsg = false;
+  if (message.author.bot) return;
+  const deleteEmbed = new EmbedBuilder().setColor('#FF0000').setTitle(`Mojira message being deleted in 10 second(s)`).setDescription(`\nMessage :\n${message}`)
 
   if (message.author.id === pinAuthorID) {
     if (message.channelId === pinChannel) {
@@ -175,6 +177,7 @@ client.on("messageCreate", (message) => {
 
       if (delmsg){
           message.react("❌")
+          client.channels.cache.get('1024714159637680168').send({embeds : [deleteEmbed]})
 
           setTimeout(function () {
             message.delete()
