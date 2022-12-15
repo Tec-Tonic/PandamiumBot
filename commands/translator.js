@@ -12,6 +12,7 @@ module.exports = class TestCommand extends BaseSlashCommand {
 
     async run(client, interaction) {
 
+        const ERRembed = new EmbedBuilder().setColor('#FF0000').setTitle(`Unable to translate!`)
         const msgID = await interaction.targetId
         const channelID = await interaction.channelId
        
@@ -24,10 +25,14 @@ module.exports = class TestCommand extends BaseSlashCommand {
                 const isoName = ISO6391.getName(getIsoName)
 
                 const embed = new EmbedBuilder().setColor('#00FFFF').setDescription(`${isoName} -> English`).setFields({name: `Translate :`, value: `${foreignLanguage}`}, {name: `Translation :`, value: `${res.text}`},)
-                interaction.reply({embeds: [embed]}); 
+                interaction.reply({embeds: [embed], ephemeral: true,}); 
 
                 
-              })
+              }).catch(err => {
+                interaction.reply({embeds: [ERRembed], ephemeral: true,})
+                console.error(err);
+                
+              });
               
 
         
