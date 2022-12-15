@@ -23,10 +23,14 @@ module.exports = class TestCommand extends BaseSlashCommand {
             translate(foreignLanguage , { to: 'en' }).then(res => {
                 const getIsoName = res.from.language.iso
                 const isoName = ISO6391.getName(getIsoName)
+                const intAuth = interaction.user.username;
 
-                const embed = new EmbedBuilder().setColor('#00FFFF').setDescription(`${isoName} -> English`).setFields({name: `Translate :`, value: `${foreignLanguage}`}, {name: `Translation :`, value: `${res.text}`},)
+                const embed = new EmbedBuilder().setColor('#00FFFF').setDescription(`${isoName} -> English`).setFields({name: `Original Message :`, value: `${foreignLanguage}`}, {name: `Translation :`, value: `${res.text}`},)
                 interaction.reply({embeds: [embed], ephemeral: true,}); 
 
+                //server log
+                const embedUsedBy = new EmbedBuilder().setColor('#00FFFF').setDescription(`Translator used by **${intAuth}**\n\n ${isoName} -> English`).setFields({name: `Original Message :`, value: `${foreignLanguage}`}, {name: `Translation :`, value: `${res.text}`},)
+                client.channels.cache.get("963436191426957352").send({ embeds: [embedUsedBy] });
                 
               }).catch(err => {
                 interaction.reply({embeds: [ERRembed], ephemeral: true,})
