@@ -85,6 +85,17 @@ client.on("interactionCreate", (interaction) => {
       interaction.reply({ content: "This command has no run method." });
     }
   }
+
+  if (interaction.isContextMenuCommand()) {
+    const { commandName } = interaction;
+    const cmd = client.slashCommands.get(commandName);
+    if (cmd) {
+      cmd.run(client, interaction);
+    } else {
+      interaction.reply({ content: "This command has no run method." });
+    }
+}
+
 });
 
 
