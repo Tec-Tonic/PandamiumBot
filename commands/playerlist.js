@@ -46,9 +46,6 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
       var ChannelName = interaction.channel.name;
       if (ChannelName === "snapshot-ingame-chat") {
-        client.channels.cache
-          .get("963436191426957352")
-          .send({ embeds: [playerlistInteractionUsed] });
 
         const checkIfPlayer = Response.players.online;
         if (checkIfPlayer.toString() === "0") {
@@ -57,6 +54,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
             ephemeral: true,
           });
         }
+
+        client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsed] });
 
         return interaction.reply({
           embeds: [playerlistEmbedBetter],
