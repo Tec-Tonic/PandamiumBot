@@ -163,7 +163,7 @@ const pinAuthorID = "1040686309074796564"; // @Mojira#news - 1040686309074796564
 const pinChannel = "614507998357880862"; // #snapshot-server-chat - 614507998357880862
 const delmojiraBed = require('./ChatAlerts/filters/update_del.json') // filter words to delete from mojira
 
-client.on("messageCreate", (message) => {
+client.on("messageCreate", async (message) => {
   let delmsg = false;
   if (message.author.bot) return;
   const deleteEmbed = new EmbedBuilder().setColor('#FF0000').setTitle(`Mojira message being deleted in 10 second(s)`).setDescription(`\nMessage :\n${message}`)
@@ -184,6 +184,11 @@ client.on("messageCreate", (message) => {
           }, 15000);
 
       } else {
+        const test = await message.channel.messages.fetchPinned()
+        const test2 = test.first()
+        if (!test) return console.log(`No messages to unpin`)
+        test2.unpin()
+
         message.pin();
       }
       
