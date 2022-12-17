@@ -5,6 +5,7 @@ const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
 
 
+
 const BOT_TOKEN = process.env.TOKEN //require("./server_bot_token.json").toString();
 
 
@@ -37,7 +38,7 @@ client.on("ready", () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 
-  rest.delete(Routes.applicationGuildCommand(APP_ID, GUILD_ID, '1014613696221298888'))
+  client.rest.delete(Routes.applicationGuildCommand(APP_ID, GUILD_ID, '1014613696221298888'))
 	.then(() => console.log('Successfully deleted guild command'))
 	.catch(console.error);
 
