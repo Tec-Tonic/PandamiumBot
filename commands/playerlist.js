@@ -29,7 +29,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         .setDescription(
           `**Snapshot Playerlist** used by **${intAuth}** \n\n**Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``
         )
-        .setTimestamp();
+        
 
       // Snapshot better playerlist
       const playerlistEmbedBetter = new EmbedBuilder()
@@ -92,7 +92,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           .setDescription(
             `**Release Playerlist** used by **${intAuth}** \n\n**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``
           )
-          .setTimestamp();
+          
 
         //release better playerlist
         const playerlistEmbedBetterRelease = new EmbedBuilder()
