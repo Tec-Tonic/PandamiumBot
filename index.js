@@ -39,21 +39,7 @@ client.on("ready", () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 
-  client.application.commands.fetch('1014613696221298888') // id of your command
-      .then( (command) => {
-    console.log(`Fetched command ${command.name}`)
-    // further delete it like so:
-    command.delete()
-    console.log(`Deleted command ${command.name}`)
-    }).catch(console.error);
-
-    client.application.commands.fetch('1014613696221298889') // id of your command
-      .then( (command) => {
-    console.log(`Fetched command ${command.name}`)
-    // further delete it like so:
-    command.delete()
-    console.log(`Deleted command ${command.name}`)
-    }).catch(console.error);
+  guild.command.delete('1014613696221298888')
 
 });
 
