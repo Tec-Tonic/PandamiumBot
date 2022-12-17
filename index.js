@@ -35,8 +35,14 @@ client.on("ready", () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 
-  GUILD_ID.commands.delete('1014613696221298888');
-  GUILD_ID.commands.delete('1014613696221298889');
+  guild.commands.delete('1014613696221298888')
+  .then(console.log)
+  .catch(console.error);
+
+  guild.commands.delete('1014613696221298889')
+  .then(console.log)
+  .catch(console.error);
+  
 });
 
 // welcome reactions
