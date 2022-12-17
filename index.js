@@ -38,7 +38,7 @@ client.on("ready", () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 
-  client.rest.delete(Routes.applicationGuildCommand(APP_ID, GUILD_ID, '1014613696221298888'))
+  client.rest.delete(Routes.applicationGuildCommand(APP_ID, GUILD_ID, '1014613696221298889'))
 	.then(() => console.log('Successfully deleted guild command'))
 	.catch(console.error);
 
