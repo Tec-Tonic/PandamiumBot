@@ -39,7 +39,7 @@ client.on("ready", () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 
-  guild.command.delete('1014613696221298888')
+  guild.commands.cache.find('1014613696221298888').delete()
 
 });
 
