@@ -3,6 +3,10 @@ const fs = require("fs");
 const prefix = "!";
 const APP_ID = '785978462837276684'
 const GUILD_ID = '504627012921589763'
+
+//temp
+const guild = '504627012921589763'
+
 const BOT_TOKEN = process.env.TOKEN //require("./server_bot_token.json").toString();
 
 
@@ -42,7 +46,7 @@ client.on("ready", () => {
   guild.commands.delete('1014613696221298889')
   .then(console.log)
   .catch(console.error);
-  
+
 });
 
 // welcome reactions
