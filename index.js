@@ -217,7 +217,7 @@ client.on("messageCreate", async (message) => {
 
 //embed reader test
 client.on('messageCreate', (msg) =>{
-  if (message.author == client.user) return;
+  if (msg.author == client.user) return;
   const joinLeaveChannel = `1024719637201551410`
   
 
