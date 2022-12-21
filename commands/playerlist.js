@@ -2,6 +2,13 @@ const BaseSlashCommand = require("../utils/BaseSlashCommands");
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const util = require("minecraft-server-util");
 
+const data = require('../ChatAlerts/filters/funny_quotes.json')
+
+function randomObject(obj) {
+  let arr = Object.values(obj);
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
 module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
   constructor() {
     super("playerlist");
@@ -57,6 +64,22 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
 
         client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsed] });
 
+      //Single player Online
+      if (checkIfPlayer.toString() === "1"){
+        const singlePlayerlistEmbedBetter = new EmbedBuilder()
+      .setColor("#2DF904")
+      .setTitle(
+        `**Online players (${Response.players.online}/${Response.players.max}):**`
+      )
+      .setDescription(`\`\`\`${nameArr}\`\`\``);
+
+      return interaction.reply({
+        embeds: [singlePlayerlistEmbedBetter],
+        ephemeral: true,
+      });
+      
+      }
+
         return interaction.reply({
           embeds: [playerlistEmbedBetter],
           ephemeral: true,
@@ -64,7 +87,11 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       }
     });
 
+
+     //===========================================================================================
     //Release Code
+    
+    
     util.status("pandamium.eu", 25565, options).then((ResponseRelease) => {
       var ChannelName = interaction.channel.name;
 

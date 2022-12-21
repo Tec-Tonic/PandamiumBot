@@ -215,4 +215,14 @@ client.on("messageCreate", async (message) => {
   }
 });
 
+//embed reader test
+client.on('messageCreate', (msg) =>{
+  
+  msg.embeds.forEach((embed) => {
+    console.log(embed.title);
+    console.log(embed.description);
+    console.log(embed.data)
+});
+});
+
 main();
