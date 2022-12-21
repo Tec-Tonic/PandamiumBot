@@ -217,11 +217,15 @@ client.on("messageCreate", async (message) => {
 
 //embed reader test
 client.on('messageCreate', (msg) =>{
+  if (message.author == client.user) return;
+  const joinLeaveChannel = `1024719637201551410`
   
+
   msg.embeds.forEach((embed) => {
-    console.log(embed.title);
-    console.log(embed.description);
-    console.log(embed.data)
+    const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
+    const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
+    console.log(embed.author.name);
+    client.channels.cache.get(joinLeaveChannel).send({embeds : [joinEmbed]})
 });
 });
 
