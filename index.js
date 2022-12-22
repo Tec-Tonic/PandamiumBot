@@ -217,7 +217,8 @@ client.on("messageCreate", async (message) => {
 
 //embed reader 
 client.on('messageCreate', (msg) =>{
-  if (msg.author == client.user) return;
+  if (msg.author.id === '785978462837276684') return;
+  
   const joinLeaveChannel = `1024719637201551410`
   const deathChannel = `1055267682787786822`
   const deathMessage = require('./ChatAlerts/filters/death_message_logs.json')
