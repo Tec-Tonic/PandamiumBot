@@ -218,6 +218,7 @@ client.on("messageCreate", async (message) => {
 //embed reader 
 client.on('messageCreate', (msg) =>{
   if (msg.author.id === '785978462837276684') return;
+  if (msg.channelId === '950432522137927690') return;
   
   const joinLeaveChannel = `1024719637201551410`
   const deathChannel = `1055267682787786822`
