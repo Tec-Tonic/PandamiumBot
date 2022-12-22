@@ -224,22 +224,22 @@ client.on('messageCreate', (msg) =>{
   
 
   msg.embeds.forEach((embed) => {
-    const msgFilter = embed.author.name.toString()
+    //const msgFilter = embed.author.name.toString()
 
     const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const deathEmbed = new EmbedBuilder().setColor('#000000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     console.log(embed.author.name);
     
-    if (msgFilter.includes('joined the game')) {
+    if (embed.author.name.toString().includes('joined the game')) {
     client.channels.cache.get(joinLeaveChannel).send({embeds : [joinEmbed]})
     }
-    if (msgFilter.includes('left the game')) {
+    if (embed.author.name.toString().includes('left the game')) {
       client.channels.cache.get(joinLeaveChannel).send({embeds : [leaveEmbed]})
       }
 
       for (var i in deathMessage) {
-      if (msgFilter.includes(deathMessage[i])) {
+      if (embed.author.name.toString().includes(deathMessage[i])) {
         client.channels.cache.get(deathChannel).send({embeds : [deathEmbed]})
         }
       }
