@@ -224,7 +224,7 @@ client.on('messageCreate', (msg) =>{
   
 
   msg.embeds.forEach((embed) => {
-    const msgFilter = embed.author.name.toString().toLowerCase()
+    const msgFilter = embed.author.name.toString()
 
     const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
@@ -239,7 +239,7 @@ client.on('messageCreate', (msg) =>{
       }
 
       for (var i in deathMessage) {
-      if (msgFilter.includes(deathMessage[i].toLowerCase)) {
+      if (msgFilter.includes(deathMessage[i])) {
         client.channels.cache.get(deathChannel).send({embeds : [deathEmbed]})
         }
       }
