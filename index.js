@@ -215,14 +215,16 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-//embed reader test
+//embed reader 
 client.on('messageCreate', (msg) =>{
   if (msg.author == client.user) return;
   const joinLeaveChannel = `1024719637201551410`
+  const deathChannel = `1055267682787786822`
+  const deathMessage = require('./ChatAlerts/filters/death_message_logs.json')
   
 
   msg.embeds.forEach((embed) => {
-    const msgFilter = embed.author.name.toString()
+    const msgFilter = embed.author.name.toString().toLowerCase()
 
     const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
@@ -234,6 +236,12 @@ client.on('messageCreate', (msg) =>{
     }
     if (msgFilter.includes('left the game')) {
       client.channels.cache.get(joinLeaveChannel).send({embeds : [leaveEmbed]})
+      }
+
+      for (var i in deathMessage) {
+      if (msgFilter.includes(deathMessage[i].toLowerCase)) {
+        client.channels.cache.get(deathChannel).send({embeds : [deathEmbed]})
+        }
       }
       
 });
