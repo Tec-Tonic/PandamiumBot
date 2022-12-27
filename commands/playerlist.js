@@ -71,7 +71,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       .setTitle(
         `**Online players (${Response.players.online}/${Response.players.max}):**`
       )
-      .setDescription(`\`\`\`${nameArr}\`\`\``);
+      .setDescription(`\`\`\`${nameArr}\`\`\` \n` + randomObject(data));
 
       return interaction.reply({
         embeds: [singlePlayerlistEmbedBetter],
