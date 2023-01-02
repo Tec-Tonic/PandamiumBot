@@ -227,10 +227,10 @@ client.on('messageCreate', (msg) =>{
   //Stop / Start message 
   if (msg.author.id === '604625105758322688') {
   if (msg.toString().includes('Server has stopped!')) {
-    client.channels.cache.get(joinLeaveChannel).send('🛑 Server has stopped!') 
+    client.channels.cache.get(joinLeaveChannel).send('🛑 **Server has stopped!**') 
   }
   if (msg.toString().includes('Server has started!')) {
-    client.channels.cache.get(joinLeaveChannel).send('✅ Server has started!') 
+    client.channels.cache.get(joinLeaveChannel).send('✅ **Server has started!**') 
   }
   }
 
@@ -239,7 +239,6 @@ client.on('messageCreate', (msg) =>{
     const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const deathEmbed = new EmbedBuilder().setColor('#000000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
-    console.log(embed.author.name);
     
     if (embed.author.name.toString().includes('joined the game')) {
     client.channels.cache.get(joinLeaveChannel).send({embeds : [joinEmbed]})
