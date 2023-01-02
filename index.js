@@ -236,7 +236,7 @@ client.on('messageCreate', (msg) =>{
 
   msg.embeds.forEach((embed) => {
 
-    const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL}).setDescription(`<t:${Math.round(msg.author.createdTimestamp / 1000)}>`)
+    const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL}).setDescription(`<t:${parseInt(msg.author.createdTimestamp / 1000, 10)}>`)
     const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const deathEmbed = new EmbedBuilder().setColor('#000000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     
