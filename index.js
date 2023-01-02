@@ -180,7 +180,7 @@ client.on("messageCreate", (message) => {
 //auths
 const pinAuthorID = "1040686309074796564"; // @Mojira#news - 1040686309074796564
 const pinChannel = "614507998357880862"; // #snapshot-server-chat - 614507998357880862
-const delmojiraBed = require('./ChatAlerts/filters/update_del.json') // filter words to delete from mojira
+const delmojiraBed = require('./filters/update_del.json') // filter words to delete from mojira
 
 client.on("messageCreate", async (message) => {
   let delmsg = false;
@@ -217,16 +217,24 @@ client.on("messageCreate", async (message) => {
 
 //embed reader 
 client.on('messageCreate', (msg) =>{
-  if (msg.author.id === '785978462837276684') return;
-  if (msg.channelId === '950432522137927690') return;
+  if (msg.author.id === '785978462837276684') return; // Client
+  if (msg.channelId === '950432522137927690') return; // Not sure why this is here
   
-  const joinLeaveChannel = `1024719637201551410`
-  const deathChannel = `1055267682787786822`
-  const deathMessage = require('./ChatAlerts/filters/death_message_logs.json')
+  const joinLeaveChannel = `1024719637201551410` //Logs
+  const deathChannel = `1055267682787786822` //Logs
+  const deathMessage = require('./filters/death_message_logs.json')
   
+  //Stop / Start message 
+  if (msg.author.id === '604625105758322688') {
+  if (msg.toString().includes('Server has stopped!')) {
+    client.channels.cache.get(joinLeaveChannel).send('🛑 Server has stopped!') 
+  }
+  if (msg.toString().includes('Server has started!')) {
+    client.channels.cache.get(joinLeaveChannel).send('✅ Server has started!') 
+  }
+  }
 
   msg.embeds.forEach((embed) => {
-    //const msgFilter = embed.author.name.toString()
 
     const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
     const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})

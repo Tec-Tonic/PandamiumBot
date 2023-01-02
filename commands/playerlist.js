@@ -2,7 +2,7 @@ const BaseSlashCommand = require("../utils/BaseSlashCommands");
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const util = require("minecraft-server-util");
 
-const data = require('../ChatAlerts/filters/funny_quotes.json')
+const data = require('../filters/funny_quotes.json')
 
 function randomObject(obj) {
   let arr = Object.values(obj);
