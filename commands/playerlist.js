@@ -69,7 +69,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         const singlePlayerlistEmbedBetter = new EmbedBuilder()
       .setColor("#2DF904")
       .setTitle(
-        `**Online players (${Response.players.online}/${Response.players.max}):**`
+        `**Online player (${Response.players.online}/${Response.players.max}):**`
       )
       .setDescription(`\`\`\`${nameArr}\`\`\` \n` + randomObject(data));
 
