@@ -259,13 +259,13 @@ client.on('messageCreate', (msg) =>{
 });
 
 
-client.on('messageCreate', (msg) =>{
-  try {
-  client.channels.cache.get('1067825782182920283').send(msg.author.username)
-  } catch (err) {
-    console.log(err);
-  }
- })
+// client.on('messageCreate', (msg) =>{
+//   try {
+//   client.channels.cache.get('1067825782182920283').send(msg.author.username)
+//   } catch (err) {
+//     console.log(err);
+//   }
+//  })
 
 
 main();
