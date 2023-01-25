@@ -245,6 +245,9 @@ client.on('messageCreate', (msg) =>{
     if (embed.author.name.toString().includes('joined the game')) {
     client.channels.cache.get(joinLeaveChannel).send({embeds : [joinEmbed]})
     }
+    if (embed.author.name.toString().includes('joined the game')) {
+      client.channels.cache.get('1067908005988937808').send(embed.author.name)
+      }
     if (embed.author.name.toString().includes('left the game')) {
       client.channels.cache.get(joinLeaveChannel).send({embeds : [leaveEmbed]})
       }
