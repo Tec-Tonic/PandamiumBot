@@ -206,8 +206,7 @@ client.on("messageCreate", async (message) => {
           client.channels.cache.get('1024714159637680168').send({embeds : [deleteEmbed]})
 
           setTimeout(function () {
-           // message.delete()       Temp while I test
-           console.log('deleted message')
+           message.delete()     
           }, 15000);
 
       } else {
