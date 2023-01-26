@@ -14,8 +14,8 @@ const { registerCommands } = require("./utils/registry");
 const util = require("minecraft-server-util");
 const {ActionRowBuilder,ButtonBuilder,ButtonStyle,SelectMenuBuilder,EmbedBuilder,Client,GatewayIntentBits,ActivityType,Routes,Message,messageLink,Collection,channelLink,} = require("discord.js");
 const { type } = require("os");
-const mongoose  = require('mongoose');
-const testSchema = require('./schema/watchlist_schema');
+//const mongoose  = require('mongoose');
+//const testSchema = require('./schema/watchlist_schema');
 
 const client = new Client({
   intents: [
@@ -36,10 +36,10 @@ const client = new Client({
 
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  await mongoose.connect(process.env.MONGO, 
-    {
-      keepAlive: true
-    })
+  // await mongoose.connect(process.env.MONGO, 
+  //   {
+  //     keepAlive: true
+  //   })
     
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
