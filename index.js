@@ -14,6 +14,8 @@ const { registerCommands } = require("./utils/registry");
 const util = require("minecraft-server-util");
 const {ActionRowBuilder,ButtonBuilder,ButtonStyle,SelectMenuBuilder,EmbedBuilder,Client,GatewayIntentBits,ActivityType,Routes,Message,messageLink,Collection,channelLink,} = require("discord.js");
 const { type } = require("os");
+const mongoose  = require('mongoose');
+const testSchema = require('./schema/watchlist_schema');
 
 const client = new Client({
   intents: [
@@ -32,11 +34,16 @@ const client = new Client({
   rest: { version: "10" }
 });
 
-client.on("ready", () => {
+client.on("ready", async () => {
   console.log(`Logged in as ${client.user.tag}!`);
-
+  await mongoose.connect(process.env.MONGO, 
+    {
+      keepAlive: true
+    })
+    
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
+
 
   // how to delete a command!
   //client.rest.delete(Routes.applicationGuildCommand(APP_ID, GUILD_ID, '1014613696221298889')).then(() => console.log('Successfully deleted guild command')).catch(console.error);
@@ -246,7 +253,7 @@ client.on('messageCreate', (msg) =>{
     client.channels.cache.get(joinLeaveChannel).send({embeds : [joinEmbed]})
     }
     if (embed.author.name.toString().includes('joined the game')) {
-      client.channels.cache.get('1067908005988937808').send(embed.author.name)
+      client.channels.cache.get('1067908005988937808').send(embed.author.name.toString())
       }
     if (embed.author.name.toString().includes('left the game')) {
       client.channels.cache.get(joinLeaveChannel).send({embeds : [leaveEmbed]})
@@ -260,16 +267,6 @@ client.on('messageCreate', (msg) =>{
       
 });
 });
-
-
-// client.on('messageCreate', (msg) =>{
-//   try {
-//   if (msg.author == client.user) return;
-//   client.channels.cache.get('1067825782182920283').send(msg.author.username)
-//   } catch (err) {
-//     console.log(err);
-//   }
-//  })
 
 
 main();
