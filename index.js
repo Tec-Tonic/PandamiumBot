@@ -185,7 +185,7 @@ client.on("messageCreate", (message) => {
 
 //pin message command
 //auths
-const pinAuthorID = "1040686309074796564"; // @Mojira#news - 1040686309074796564
+const pinAuthorName = "Mojira #news"; // @Mojira#news - 1040686309074796564
 const pinChannel = "614507998357880862"; // #snapshot-server-chat - 614507998357880862
 const delmojiraBed = require('./filters/update_del.json') // filter words to delete from mojira
 
@@ -194,7 +194,7 @@ client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
   const deleteEmbed = new EmbedBuilder().setColor('#FF0000').setTitle(`Mojira message being deleted in 10 second(s)`).setDescription(`\nMessage :\n${message}`)
 
-  if (message.author.id === pinAuthorID) {
+  if (message.author.username === pinAuthorName) {
     if (message.channelId === pinChannel) {
       
       for (var i in delmojiraBed) {
@@ -206,7 +206,8 @@ client.on("messageCreate", async (message) => {
           client.channels.cache.get('1024714159637680168').send({embeds : [deleteEmbed]})
 
           setTimeout(function () {
-            message.delete()
+           // message.delete()       Temp while I test
+           console.log('deleted message')
           }, 15000);
 
       } else {
