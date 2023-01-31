@@ -129,7 +129,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
               `**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`
             )
             .setDescription(`\`\`\`${nameArrRelease}\`\`\``)
-            .setFooter({ text: `Version: ${ResponseRelease.version}` })
+            .setFooter({ text: `Version: ${ResponseRelease.version.name}` })
           // command history log (Release)
           client.channels.cache
             .get("963436191426957352")
