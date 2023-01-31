@@ -35,7 +35,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         .setColor("#2DF904")
         .setDescription(
           `**Snapshot Playerlist** used by **${intAuth}** \n\n**Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``
-        )
+        ).setFooter({ text: 'Pandamium Snapshot Server', iconURL: 'https://minecraft-mp.com/images/favicon/232030.png?ts=1674235572'})
         
 
       // Snapshot better playerlist
@@ -44,7 +44,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         .setTitle(
           `**Online players (${Response.players.online}/${Response.players.max}):**`
         )
-        .setDescription(`\`\`\`${nameArr}\`\`\``);
+        .setDescription(`\`\`\`${nameArr}\`\`\``)
+        .setFooter({ text: 'Pandamium Snapshot Server', iconURL: 'https://minecraft-mp.com/images/favicon/232030.png?ts=1674235572'})
 
       // Snapshot better no players
       const playerlistemptyEmbed = new EmbedBuilder()
@@ -71,7 +72,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       .setTitle(
         `**Online player (${Response.players.online}/${Response.players.max}):**`
       )
-      .setDescription(`\`\`\`${nameArr}\`\`\` \n` + randomObject(data));
+      .setDescription(`\`\`\`${nameArr}\`\`\` \n` + randomObject(data))
+      .setFooter({ text: 'Pandamium Snapshot Server', iconURL: 'https://minecraft-mp.com/images/favicon/232030.png?ts=1674235572'})
 
       return interaction.reply({
         embeds: [singlePlayerlistEmbedBetter],
@@ -118,7 +120,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           .setColor("#058823")
           .setDescription(
             `**Release Playerlist** used by **${intAuth}** \n\n**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``
-          )
+          ) .setFooter({ text: 'Pandamium Release Server', iconURL: 'https://minecraft-mp.com/images/favicon/232030.png?ts=1674235572'})
           
 
         //release better playerlist
@@ -127,7 +129,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           .setTitle(
             `**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`
           )
-          .setDescription(`\`\`\`${nameArrRelease}\`\`\``);
+          .setDescription(`\`\`\`${nameArrRelease}\`\`\``)
+          .setFooter({ text: 'Pandamium Release Server', iconURL: 'https://minecraft-mp.com/images/favicon/232030.png?ts=1674235572'})
 
         // command history log (Release)
         client.channels.cache
