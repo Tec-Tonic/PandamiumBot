@@ -34,7 +34,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         const playerlistInteractionUsed = new EmbedBuilder()
           .setColor("#2DF904")
           .setDescription(
-            `**Snapshot Playerlist** used \n\n**Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``
+            `**Snapshot Playerlist**\n\n**Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``
           )
 
         // Snapshot better playerlist
@@ -118,7 +118,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           const playerlistInteractionUsedRelease = new EmbedBuilder()
             .setColor("#058823")
             .setDescription(
-              `**Release Playerlist** used \n\n**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``
+              `**Release Playerlist**\n\n**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``
             )
 
 
