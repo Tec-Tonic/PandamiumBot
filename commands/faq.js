@@ -15,7 +15,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
   run(client, interaction) {
 
     const Blocked = new EmbedBuilder().setColor('#FF0000').setDescription(`You do not have access to this command!`)
-    const revoke = interaction.member.roles.cache.some(r => r.name === "NoSNapshotIngameChat")
+    const revoke = interaction.member.roles.cache.some(r => r.name === "NoSnapshotIngameChat")
     if (revoke) return interaction.reply({embeds: [Blocked], ephemeral: true})
 
     const category = interaction.options.getString("category");
