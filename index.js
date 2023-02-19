@@ -289,7 +289,6 @@ client.on('interactionCreate', async (interaction) =>{
   let toLang = ''
   let toLangFull = ''
 
-  if (!interaction.isStringSelectMenu()) return;
     if (interaction.customId === 'LangSelector') {
       let choices = ""
       await interaction.values.forEach(async value => {
