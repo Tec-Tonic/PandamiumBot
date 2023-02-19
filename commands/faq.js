@@ -14,14 +14,16 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
   run(client, interaction) {
 
+    // No access
     const Blocked = new EmbedBuilder().setColor('#FF0000').setDescription(`You do not have access to this command!`)
-    const revoke = interaction.member.roles.cache.some(r => r.name === "NoSnapshotIngameChat")
+    const revoke = interaction.member.roles.cache.some(r => r.name === "NoSNapshotIngameChat")
     if (revoke) return interaction.reply({embeds: [Blocked], ephemeral: true})
 
     const category = interaction.options.getString("category");
 
+    // Connection
     if (category === "connect-faq") {
-      const connectionEmbed = new EmbedBuilder().setDescription(
+      const connectionEmbed = new EmbedBuilder().setColor('#2DF904').setDescription(
         `
         Possible ways to fix connection issues (snapshot server):
 
@@ -36,10 +38,24 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       interaction.reply({ embeds: [connectionEmbed] });
     }
 
-    if (category === "data-faq") {
+    // Dont Ask To Ask Link
+    else if (category === "data-faq") {
         interaction.reply('https://dontasktoask.com/')
     }
+
+    // Reset Info
+    else if (category === "reset-faq") {
+      const WorldResetEmbed = new EmbedBuilder().setColor('#2DF904').setDescription(
+        `
+      Last reset : 26th September 2021
+
+      The Snapshot server was reset because the world could not be updated from [21W37A](https://www.minecraft.net/en-us/article/minecraft-snapshot-21w37a) to [21W38A](https://www.minecraft.net/en-us/article/minecraft-snapshot-21w38a) after Mojang added the new world generation. All dimensions were reset. 
+      We always keep player data (E.g. Playtime, Votes and inventories) `)
+
+      interaction.reply({ embeds: [WorldResetEmbed] });
+    }
   }
+
 
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
@@ -51,8 +67,9 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
           .setDescription("The help category")
           .setRequired(true)
           .addChoices(
-        { name: "Connection Issues", value: "connect-faq" },
-        { name: "Dont Ask To Ask", value: "data-faq" },
+        { name: "connection-issues", value: "connect-faq" },
+        { name: "dont-ask-to-ask", value: "data-faq" },
+        { name: "last-world-reset", value: "reset-faq" },
       ))
       .toJSON();
   }
