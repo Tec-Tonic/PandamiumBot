@@ -239,7 +239,7 @@ client.on('messageCreate', (msg) => {
   const revokePost = new EmbedBuilder().setColor('#FF0000').setDescription('You may not comment on posts here, this channel is for high quality images only!')
 
   const channelName = msg.channel.name //
-  if (channelName === 'shdsahdas') { 
+  if (channelName === 'gallery') { 
     if (msg.attachments.size > 0 | msg.embeds.length > 0) {
       return;
     } else {
