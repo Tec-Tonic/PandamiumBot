@@ -245,6 +245,7 @@ client.on('messageCreate', (msg) => {
     } else {
       msg.delete()
         .then(msg => {
+          console.log('Gallery message has been deleted')
           msg.channel.send({ embeds: [revokePost] })
             .then(delMsg => {
               setTimeout(() => delMsg.delete(), 30000)
