@@ -24,11 +24,11 @@ module.exports = class TestCommand extends BaseSlashCommand {
     const LanguageSelect = new ActionRowBuilder().addComponents(
       new StringSelectMenuBuilder()
         .setCustomId("LangSelector")
-        .setPlaceholder("Please select the Language")
+        .setPlaceholder("Select Language")
         .addOptions(
           {
             label: "English",
-            description: "Will be translated to English!",
+            description: "Will be translated to English",
             value: "english-select",
           },
           {

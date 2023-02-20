@@ -233,55 +233,29 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-//embed reader 
-client.on('messageCreate', (msg) =>{
-  if (msg.author.id === '785978462837276684') return; // Client
-  if (msg.channelId === '950432522137927690') return; // Not sure why this is here (stops constant loop lol)
-  
-  const joinLeaveChannel = `1024719637201551410` //Logs
-  const deathChannel = `1055267682787786822` //Logs
-  const deathMessage = require('./filters/death_message_logs.json')
-  
-  //Stop / Start message 
-  if (msg.author.id === '604625105758322688') {
-  if (msg.toString().includes('Server has stopped!')) {
-    client.channels.cache.get(joinLeaveChannel).send('🛑 **Server has stopped!**') 
-  }
-  if (msg.toString().includes('Server has started!')) {
-    client.channels.cache.get(joinLeaveChannel).send('✅ **Server has started!**') 
-  }
-  }
 
-  msg.embeds.forEach((embed) => {
+client.on('messageCreate', (msg) => {
+  if (msg.author == client.user) return;
+  const revokePost = new EmbedBuilder().setColor('#FF0000').setDescription('You may not comment on posts here, this channel is for high quality images only!')
 
-    var ts = Math.round((new Date()).getTime() / 1000);
-
-    const joinEmbed = new EmbedBuilder().setColor('#00FF00').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL}) //.setDescription(`<t:${ts}:R>`)
-    const leaveEmbed = new EmbedBuilder().setColor('#FF0000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
-    const deathEmbed = new EmbedBuilder().setColor('#000000').setAuthor({name: embed.author.name, iconURL: embed.author.proxyIconURL})
-    
-    if (embed.author.name.toString().includes('joined the game')) {
-    client.channels.cache.get(joinLeaveChannel).send({embeds : [joinEmbed]})
+  const channelName = msg.channel.name //gallery
+  if (channelName === 'bot-commands') { 
+    if (msg.attachments.size > 0 | msg.embeds.length > 0) {
+      return;
+    } else {
+      msg.delete()
+        .then(msg => {
+          msg.channel.send({ embeds: [revokePost] })
+            .then(delMsg => {
+              setTimeout(() => delMsg.delete(), 30000)
+            })
+        })
     }
-    if (embed.author.name.toString().includes('joined the game')) {
-      client.channels.cache.get('1067908005988937808').send(embed.author.name.toString())
-      }
-    if (embed.author.name.toString().includes('left the game')) {
-      client.channels.cache.get(joinLeaveChannel).send({embeds : [leaveEmbed]})
-      }
-
-      for (var i in deathMessage) {
-      if (embed.author.name.toString().includes(deathMessage[i])) {
-        client.channels.cache.get(deathChannel).send({embeds : [deathEmbed]})
-        }
-      }
-      
-});
-});
+  }
+})
 
 
 //lang
-
 client.on('interactionCreate', async (interaction) =>{
 
   const translate = require("@iamtraction/google-translate");
