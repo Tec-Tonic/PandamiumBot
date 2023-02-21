@@ -54,6 +54,30 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
       interaction.reply({ embeds: [WorldResetEmbed] });
     }
+
+    // Mods MC
+    else if (category === "mods-faq") {
+      const snapModVersion = '23w07a'
+
+      let mods = true //True = mod are in date
+      const ModsOutdateEmbed = new EmbedBuilder().setColor('#ff0000').setTitle('Minecraft Mods').setDescription(`These mods have not been updated yet, we will update this asap.`)
+
+      const ModsEmbed = new EmbedBuilder().setColor('#2DF904').setTitle(`Minecraft Mods`).setFields(
+        {name: `Malilib (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/malilib-fabric-23w07a-0.14.0.jar)"},
+        {name: `Litematica (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/litematica-fabric-23w07a-0.13.1.jar)"},
+        {name: `Minihud (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/minihud-fabric-23w07a-0.25.0.jar)"},
+        {name: `Item Scroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/itemscroller-fabric-23w07a-0.18.0.jar )"},
+        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/justmap-1.2.270-23w07a-release.jar) \n\nFor a more detailed version visit -> https://tomalbrc.github.io/blog"},
+
+      )
+
+      if (mods) {
+      interaction.reply({ embeds: [ModsEmbed] });
+    } else {
+      interaction.reply({ embeds: [ModsOutdateEmbed] });
+    }
+    
+  }
   }
 
 
@@ -70,6 +94,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         { name: "connection-issues", value: "connect-faq" },
         { name: "dont-ask-to-ask", value: "data-faq" },
         { name: "last-world-reset", value: "reset-faq" },
+        { name: "lastest-snapshot-mods", value: "mods-faq" },
       ))
       .toJSON();
   }
