@@ -66,7 +66,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       ).setFooter({text: "Please DO NOT contact the original creators regarding issues!"})
 
 
-      const AlertNewSnapshot = new EmbedBuilder().setColor('#ff0000').setTitle('New Sapshot').setDescription('Please Note, there is a new snapshot. This command will be updated when all mods are ported \n\n Feel free to check out [Minecraft Snapshot 1.19.4 Pre Release 1](https://www.minecraft.net/en-us/article/minecraft-1-19-4-pre-release-1)')
+      const AlertNewSnapshot = new EmbedBuilder().setColor('#ff0000').setTitle('New Sapshot').setDescription('There is a new snapshot, This command will be updated when all mods are ported \n\n Feel free to check out [Minecraft Snapshot 1.19.4 Pre Release 1](https://www.minecraft.net/en-us/article/minecraft-1-19-4-pre-release-1)')
       if (mods) {
       interaction.reply({ embeds: [ModsEmbed,AlertNewSnapshot] });
     } else {
