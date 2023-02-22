@@ -7,6 +7,9 @@ const {
   EmbedBuilder,
 } = require("discord.js");
 
+const util = require("minecraft-server-util");
+
+
 module.exports = class faqSlashCommand extends BaseSlashCommand {
   constructor() {
     super("faq");
@@ -45,6 +48,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
     // Reset Info
     else if (category === "reset-faq") {
+
       const WorldResetEmbed = new EmbedBuilder().setColor('#2DF904').setDescription(
         `
       Last reset : 26th September 2021
@@ -63,13 +67,17 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       const ModsOutdateEmbed = new EmbedBuilder().setColor('#ff0000').setTitle('Minecraft Mods').setDescription(`These mods have not been updated yet, we will update this asap.`)
 
       const ModsEmbed = new EmbedBuilder().setColor('#2DF904').setTitle(`Minecraft Mods`).setFields(
+        {name: `----\n Ported by : [object Object]#5860 \n----`, value: `\n`},
         {name: `Malilib (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/malilib-fabric-23w07a-0.14.0.jar)"},
         {name: `Litematica (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/litematica-fabric-23w07a-0.13.1.jar)"},
         {name: `Minihud (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/minihud-fabric-23w07a-0.25.0.jar)"},
-        {name: `Item Scroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/itemscroller-fabric-23w07a-0.18.0.jar )"},
-        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/justmap-1.2.270-23w07a-release.jar) \n\nFor a more detailed version visit -> https://tomalbrc.github.io/blog"},
+        {name: `Itemscroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/itemscroller-fabric-23w07a-0.18.0.jar )"},
+        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/justmap-1.2.270-23w07a-release.jar)"},
 
-      )
+        {name: `----\n Ported by : IMS#7902 \n----`, value: `\n`},
+        {name: `Iris (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods.github.io/mods/iris-mc23w07a-1.6.0-beta-snap.4-da9a6229-dirty.jar)"},
+        {name: `Sodium (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods.github.io/mods/sodium-fabric-mc23w07a-0.4.10rev.e17e95d.jar)"},
+      ).setFooter({text: "Please DO NOT contact the original creators regarding issues!"})
 
       if (mods) {
       interaction.reply({ embeds: [ModsEmbed] });
@@ -78,7 +86,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     }
     
   }
-  }
+}
 
 
   getSlashCommandJSON() {
