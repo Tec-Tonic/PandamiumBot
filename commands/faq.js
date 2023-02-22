@@ -26,17 +26,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
     // Connection
     if (category === "connect-faq") {
-      const connectionEmbed = new EmbedBuilder().setColor('#2DF904').setDescription(
-        `
-        Possible ways to fix connection issues (snapshot server):
-
-        • Clear your dns cache (if you’re on Windows, try the command \`ipconfig /flushdns\`)
-        • Use the IP \`pandamium.eu:25566\`
-        • Use the IP \`116.202.216.130:25566\`
-        • Try using a VPN
-        • Wait it out - it may be a problem with your ISP who will fix the problem themselves (try again in a few hours)
-        • https://help.minecraft.net/hc/en-us/articles/360034754052-Multiplayer-Connection-Issues-Java-Edition-
-            `
+      const connectionEmbed = new EmbedBuilder().setColor('#2DF904').setDescription(`Possible ways to fix connection issues (snapshot server):\n• Clear your dns cache (if you’re on Windows, try the command \`ipconfig /flushdns\`)\n• Use the IP \`pandamium.eu:25566\`\n• Use the IP \`116.202.216.130:25566\`\n• Try using a VPN\n• Wait it out - it may be a problem with your ISP who will fix the problem themselves (try again in a few hours)\n• https://help.minecraft.net/hc/en-us/articles/360034754052-Multiplayer-Connection-Issues-Java-Edition-`
       );
       interaction.reply({ embeds: [connectionEmbed] });
     }
@@ -50,11 +40,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     else if (category === "reset-faq") {
 
       const WorldResetEmbed = new EmbedBuilder().setColor('#2DF904').setDescription(
-        `
-      Last reset : 26th September 2021
-
-      The Snapshot server was reset because the world could not be updated from [21W37A](https://www.minecraft.net/en-us/article/minecraft-snapshot-21w37a) to [21W38A](https://www.minecraft.net/en-us/article/minecraft-snapshot-21w38a) after Mojang added the new world generation. All dimensions were reset. 
-      We always keep player data (E.g. Playtime, Votes and inventories) `)
+        `Last reset : 26th September 2021\n\nThe Snapshot server was reset because the world could not be updated from [21W37A](https://www.minecraft.net/en-us/article/minecraft-snapshot-21w37a) to [21W38A](https://www.minecraft.net/en-us/article/minecraft-snapshot-21w38a) after Mojang added the new world generation. All dimensions were reset. \nWe always keep player data (E.g. Playtime, Votes and inventories) `)
 
       interaction.reply({ embeds: [WorldResetEmbed] });
     }
@@ -79,8 +65,10 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         {name: `Sodium (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods.github.io/mods/sodium-fabric-mc23w07a-0.4.10rev.e17e95d.jar)"},
       ).setFooter({text: "Please DO NOT contact the original creators regarding issues!"})
 
+
+      const AlertNewSnapshot = new EmbedBuilder().setColor('#ff0000').setTitle('New Sapshot').setDescription('Please Note, there is a new snapshot. This command will be updated when all mods are ported \n\n Feel free to check out [Minecraft Snapshot 1.19.4 Pre Release 1](https://www.minecraft.net/en-us/article/minecraft-1-19-4-pre-release-1)')
       if (mods) {
-      interaction.reply({ embeds: [ModsEmbed] });
+      interaction.reply({ embeds: [ModsEmbed,AlertNewSnapshot] });
     } else {
       interaction.reply({ embeds: [ModsOutdateEmbed] });
     }
