@@ -53,14 +53,14 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       let mods = true //True = mod are in date
       const ModsOutdateEmbed = new EmbedBuilder().setColor('#ff0000').setTitle('Minecraft Mods').setDescription(`These mods have not been updated yet, we will update this asap.`)
 
-      //version : 23w07a
+      //version : 1.19.4 per release 1
       const ModsEmbed = new EmbedBuilder().setColor('#2DF904').setTitle(`Minecraft Mods`).setFields(
         {name: `----\n Ported by : [object Object]#5860 \n----`, value: `\n`},
-        {name: `Malilib (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
-        {name: `Litematica (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
-        {name: `Minihud (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
-        {name: `Itemscroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
-        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
+        {name: `Malilib (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/malilib-fabric-1.19.4-pre1-0.15.0.jar)"},
+        {name: `Litematica (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/litematica-fabric-1.19.4-pre1-0.14.0.jar)"}, 
+        {name: `Minihud (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/minihud-fabric-1.19.4-pre1-0.26.0.jar)"},
+        {name: `Itemscroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/itemscroller-fabric-1.19.4-pre1-0.19.0.jar)"}, 
+        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/justmap-1.2.276-1.19.4-pre1-release.jar)"}, 
 
       )
       // version : 1.19.4 per release 1
@@ -80,7 +80,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
       const AlertNewSnapshot = new EmbedBuilder().setColor('#ff0000').setTitle('New Sapshot').setDescription('Please Note, there is a new snapshot. This command will be updated when all mods are ported \n\n Feel free to check out [Minecraft Snapshot 1.19.4 Pre Release 1](https://www.minecraft.net/en-us/article/minecraft-1-19-4-pre-release-1)')
       if (mods) {
-      interaction.reply({ embeds: [ShaderModsEmbed,miscModsEmbed,] });
+      interaction.reply({ embeds: [ModsEmbed,ShaderModsEmbed,miscModsEmbed,] });
     } else {
       interaction.reply({ embeds: [ModsOutdateEmbed] });
     }
