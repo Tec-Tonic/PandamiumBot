@@ -47,28 +47,40 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
     // Mods MC
     else if (category === "mods-faq") {
-      const snapModVersion = '23w07a'
+      const oldSnapVersion = '23w07a'
+      const snapModVersion = '1.19.4 Pre-release 1'
 
       let mods = true //True = mod are in date
       const ModsOutdateEmbed = new EmbedBuilder().setColor('#ff0000').setTitle('Minecraft Mods').setDescription(`These mods have not been updated yet, we will update this asap.`)
 
+      //version : 23w07a
       const ModsEmbed = new EmbedBuilder().setColor('#2DF904').setTitle(`Minecraft Mods`).setFields(
         {name: `----\n Ported by : [object Object]#5860 \n----`, value: `\n`},
-        {name: `Malilib (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/malilib-fabric-23w07a-0.14.0.jar)"},
-        {name: `Litematica (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/litematica-fabric-23w07a-0.13.1.jar)"},
-        {name: `Minihud (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/minihud-fabric-23w07a-0.25.0.jar)"},
-        {name: `Itemscroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/itemscroller-fabric-23w07a-0.18.0.jar )"},
-        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/justmap-1.2.270-23w07a-release.jar)"},
+        {name: `Malilib (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
+        {name: `Litematica (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
+        {name: `Minihud (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
+        {name: `Itemscroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
+        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/)"},
 
-        {name: `----\n Ported by : IMS#7902 \n----`, value: `\n`},
-        {name: `Iris (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods.github.io/mods/iris-mc23w07a-1.6.0-beta-snap.4-da9a6229-dirty.jar)"},
-        {name: `Sodium (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods.github.io/mods/sodium-fabric-mc23w07a-0.4.10rev.e17e95d.jar)"},
+      )
+      // version : 1.19.4 per release 1
+      const ShaderModsEmbed = new EmbedBuilder().setColor('#2DF904').setFields(
+        {name: `Shader Related Mods\n----\n Ported by : IMS#7902 \n----`, value: `\n`},
+        {name: `Iris (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods/mods/iris-mc1.19.4-pre1-1.6.0-beta-snap.4-e5979bdc-dirty.jar)", inline: true},
+        {name: `Sodium (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods/mods/sodium-fabric-mc1.19.4-pre1-0.4.10rev.7869ae2-dirty.jar)", inline: true},
+
+        
+      ) 
+      // version : 1.19.4 pre release 1
+      const miscModsEmbed = new EmbedBuilder().setColor('#2DF904').setFields(
+        {name: `----\n Other Mods \n----`, value: `\n`},
+        {name: `Fabric API (${snapModVersion})`, value: "[Download](https://beta.curseforge.com/minecraft/mc-mods/fabric-api/download/4407699)", inline: true},
+        {name: `Fabric Loader`, value: "[Open](https://fabricmc.net/)", inline: true},
       ).setFooter({text: "Please DO NOT contact the original creators regarding issues!"})
 
-
-      const AlertNewSnapshot = new EmbedBuilder().setColor('#ff0000').setTitle('New Sapshot').setDescription('There is a new snapshot, This command will be updated when all mods are ported \n\n Feel free to check out [Minecraft Snapshot 1.19.4 Pre-Release 1](https://www.minecraft.net/en-us/article/minecraft-1-19-4-pre-release-1)')
+      const AlertNewSnapshot = new EmbedBuilder().setColor('#ff0000').setTitle('New Sapshot').setDescription('Please Note, there is a new snapshot. This command will be updated when all mods are ported \n\n Feel free to check out [Minecraft Snapshot 1.19.4 Pre Release 1](https://www.minecraft.net/en-us/article/minecraft-1-19-4-pre-release-1)')
       if (mods) {
-      interaction.reply({ embeds: [ModsEmbed,AlertNewSnapshot] });
+      interaction.reply({ embeds: [ShaderModsEmbed,miscModsEmbed,] });
     } else {
       interaction.reply({ embeds: [ModsOutdateEmbed] });
     }
