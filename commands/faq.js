@@ -50,8 +50,8 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       const oldSnapVersion = '23w07a'
       const snapModVersion = '1.19.4 Pre-release 1'
 
-      let mods = true //True = mod are in date
-      const ModsOutdateEmbed = new EmbedBuilder().setColor('#ff0000').setTitle('Minecraft Mods').setDescription(`These mods have not been updated yet, we will update this asap.`)
+      let mods = false //True = mod are in date
+      const ModsOutdateEmbed = new EmbedBuilder().setColor('#ff0000').setTitle('Minecraft Mods').setDescription(`This command is out-of-date, it is being updated`)
 
       //version : 1.19.4 per release 1
       const ModsEmbed = new EmbedBuilder().setColor('#2DF904').setTitle(`Minecraft Mods`).setFields(
