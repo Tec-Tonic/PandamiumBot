@@ -47,43 +47,21 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
     // Mods MC
     else if (category === "mods-faq") {
-      const oldSnapVersion = '23w07a'
+      
       const snapModVersion = '1.19.4 Pre-release 1'
+      const modLink = new EmbedBuilder().setColor('#2DF904').setTitle(`${snapModVersion} Mods`).setDescription(`All mods are uploaded to a github page, use button to navigate to the site. \n\n**Mods :**\n**-** Malilib\n**-** Litematica\n**-** Minihud \nand more.. `)
+      const modbtnUse = new EmbedBuilder().setDescription('GitHub Embed Generated').setColor('#2DF904')
+      const modbtn = new ActionRowBuilder()
+			.addComponents(
+				new ButtonBuilder()
+					.setURL('https://tec-tonic.github.io/snapshot-mods/')
+					.setLabel('GitHub Page')
+					.setStyle(ButtonStyle.Link),
+			);
 
-      let mods = false //True = mod are in date
-      const ModsOutdateEmbed = new EmbedBuilder().setColor('#ff0000').setTitle('Minecraft Mods').setDescription(`This command is out-of-date, it is being updated`)
-
-      //version : 1.19.4 per release 1
-      const ModsEmbed = new EmbedBuilder().setColor('#2DF904').setTitle(`Minecraft Mods`).setFields(
-        {name: `----\n Ported by : [object Object]#5860 \n----`, value: `\n`},
-        {name: `Malilib (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/malilib-fabric-1.19.4-pre1-0.15.0.jar)"},
-        {name: `Litematica (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/litematica-fabric-1.19.4-pre1-0.14.0.jar)"}, 
-        {name: `Minihud (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/minihud-fabric-1.19.4-pre1-0.26.0.jar)"},
-        {name: `Itemscroller (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/itemscroller-fabric-1.19.4-pre1-0.19.0.jar)"}, 
-        {name: `Just Map (${snapModVersion})`, value: "[Download](https://tomalbrc.github.io/blog/mods/justmap-1.2.276-1.19.4-pre1-release.jar)"}, 
-
-      )
-      // version : 1.19.4 per release 1
-      const ShaderModsEmbed = new EmbedBuilder().setColor('#2DF904').setFields(
-        {name: `Shader Related Mods\n----\n Ported by : IMS#7902 \n----`, value: `\n`},
-        {name: `Iris (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods/mods/iris-mc1.19.4-pre1-1.6.0-beta-snap.4-e5979bdc-dirty.jar)", inline: true},
-        {name: `Sodium (${snapModVersion})`, value: "[Download](https://tec-tonic.github.io/snapshot-mods/mods/sodium-fabric-mc1.19.4-pre1-0.4.10rev.7869ae2-dirty.jar)", inline: true},
-
-        
-      ) 
-      // version : 1.19.4 pre release 1
-      const miscModsEmbed = new EmbedBuilder().setColor('#2DF904').setFields(
-        {name: `----\n Other Mods \n----`, value: `\n`},
-        {name: `Fabric API (${snapModVersion})`, value: "[Download](https://beta.curseforge.com/minecraft/mc-mods/fabric-api/download/4407699)", inline: true},
-        {name: `Fabric Loader`, value: "[Open](https://fabricmc.net/)", inline: true},
-      ).setFooter({text: "Please DO NOT contact the original creators regarding issues!"})
-
-      const AlertNewSnapshot = new EmbedBuilder().setColor('#ff0000').setTitle('New Sapshot').setDescription('Please Note, there is a new snapshot. This command will be updated when all mods are ported \n\n Feel free to check out [Minecraft Snapshot 1.19.4 Pre Release 1](https://www.minecraft.net/en-us/article/minecraft-1-19-4-pre-release-1)')
-      if (mods) {
-      interaction.reply({ embeds: [ModsEmbed,ShaderModsEmbed,miscModsEmbed,] });
-    } else {
-      interaction.reply({ embeds: [ModsOutdateEmbed] });
-    }
+      interaction.reply({ embeds: [modLink], components: [modbtn], ephemeral: true});
+      client.channels.cache.get('963436191426957352').send({embeds: [modbtnUse]}) //console log
+   
     
   }
 }
@@ -102,8 +80,9 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         { name: "connection-issues", value: "connect-faq" },
         { name: "dont-ask-to-ask", value: "data-faq" },
         { name: "last-world-reset", value: "reset-faq" },
-        { name: "lastest-snapshot-mods", value: "mods-faq" },
+        { name: "snapshot-mods", value: "mods-faq" },
       ))
       .toJSON();
   }
 };
+
