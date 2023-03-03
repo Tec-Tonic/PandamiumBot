@@ -3,6 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const util = require("minecraft-server-util");
 
 const data = require('../filters/funny_quotes.json')
+const logs = process.env.LOGS
 
 function randomObject(obj) {
   let arr = Object.values(obj);
@@ -62,7 +63,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
             });
           }
 
-          client.channels.cache.get("963436191426957352").send({ embeds: [playerlistInteractionUsed] });
+          client.channels.cache.get(logs).send({ embeds: [playerlistInteractionUsed] });
 
           //Single player Online
           if (checkIfPlayer.toString() === "1") {
@@ -132,7 +133,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
             .setFooter({ text: `Version: ${ResponseRelease.version.name}` })
           // command history log (Release)
           client.channels.cache
-            .get("963436191426957352")
+            .get(logs)
             .send({ embeds: [playerlistInteractionUsedRelease] });
 
           return interaction.reply({
