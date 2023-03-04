@@ -1,4 +1,4 @@
-const prefix = "!";
+const prefix = process.env.PREFIX
 const { EmbedBuilder } = require("discord.js");
 const list = require("minecraft-server-util");
 
