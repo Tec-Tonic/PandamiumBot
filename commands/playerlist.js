@@ -3,6 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const util = require("minecraft-server-util");
 
 const data = require('../filters/funny_quotes.json')
+const staffMember = require("../filters/staff.json");
 const logs = process.env.LOGS
 
 function randomObject(obj) {
@@ -143,6 +144,33 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         }
       });
     } else {
+      let StaffFoundInText = false;
+      for (var i in staffMember) {
+        if (intAuth.includes(staffMember[i])) StaffFoundInText = true;
+      }
+
+      if (StaffFoundInText) {
+        util.queryFull("pandamium.eu", 25566, options).then((Response) => {
+          util.queryFull("pandamium.eu", 25565, options).then((ResponseRelease) => {
+            
+            //snapshot array
+            const nameArr = Response.players.list.join(", ").toString() || 'No online players'
+            const nameLinkSnapshot = Response.players.list.join("\n https://namemc.com/profile/") || 'No online players'
+            //release array
+            const nameArrRelease = ResponseRelease.players.list.join(", ").toString() || 'No online players'
+            const nameLinkRelease = ResponseRelease.players.list.join("\n https://namemc.com/profile/") || 'No online players'
+
+            //snapshot
+            const playerlistEmbedBetter = new EmbedBuilder().setColor("#2DF904").setTitle(`**Snapshot Online players (${Response.players.online}/${Response.players.max}):**`).setDescription(`\`\`\`${nameArr}\`\`\``).setFooter({ text: `Version: ${Response.version}` });
+            //release
+            const playerlistEmbedBetterRelease = new EmbedBuilder().setColor("#058823").setTitle(`**Release Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`).setDescription(`\`\`\`${nameArrRelease}\`\`\``).setFooter({ text: `Version: ${ResponseRelease.version}` });
+            //Namemc
+            const Namemc = new EmbedBuilder().setColor('#2E86C1').setTitle('NameMC Profiles').setDescription(`**Snapshot**\n https://namemc.com/profile/${nameLinkSnapshot} \n\n **Release**\n https://namemc.com/profile/${nameLinkRelease}`) //https://namemc.com/profile/_Tec_.2
+              return interaction.reply({content: `**Extra Information for Staff**\n`, embeds: [playerlistEmbedBetter, playerlistEmbedBetterRelease, Namemc], ephemeral: true,});
+
+            });
+        });
+      } else {
 
       const errPlayerlist = new EmbedBuilder()
         .setDescription('Please use <#824234748217393212> or <#604630001957994504>.').setColor('#FF0000')
@@ -152,7 +180,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         ephemeral: true,
       })
     }
-
+   }
   }
 
   getSlashCommandJSON() {

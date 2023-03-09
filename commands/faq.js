@@ -31,6 +31,10 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       interaction.reply({ embeds: [connectionEmbed] });
     }
 
+    // Update Game versions 
+    else if (category === "gameVer-faq") {
+      interaction.reply('https://help.minecraft.net/hc/en-us/articles/360034754852-Changing-game-versions-')
+    }
     // Dont Ask To Ask Link
     else if (category === "data-faq") {
         interaction.reply('https://dontasktoask.com/')
@@ -77,10 +81,11 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
           .setDescription("The help category")
           .setRequired(true)
           .addChoices(
-        { name: "connection-issues", value: "connect-faq" },
-        { name: "dont-ask-to-ask", value: "data-faq" },
-        { name: "last-world-reset", value: "reset-faq" },
-        { name: "snapshot-mods", value: "mods-faq" },
+        { name: "Connection Issues", value: "connect-faq" },
+        { name: "Change Game Version", value: "gameVer-faq" },
+        { name: "Dont Ask To Ask", value: "data-faq" },
+        { name: "Last World Reset (Snapshot)", value: "reset-faq" },
+        { name: "Snapshot Mods", value: "mods-faq" },
       ))
       .toJSON();
   }
