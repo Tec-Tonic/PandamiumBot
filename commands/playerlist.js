@@ -24,7 +24,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     };
 
     // Interaction Author
-    const intAuth = interaction.user.username;
+    const intAuth = interaction.user.tag;
+
     var channelName = interaction.channel.name;
     if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
