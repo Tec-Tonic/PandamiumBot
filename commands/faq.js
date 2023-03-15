@@ -52,15 +52,16 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     // Mods MC
     else if (category === "mods-faq") {
       
-      const snapModVersion = '1.19.4 Pre-release 1'
+      const snapModVersion = '1.19.4 Mods'
       const modLink = new EmbedBuilder().setColor('#2DF904').setTitle(`${snapModVersion} Mods`).setDescription(`All mods are uploaded to a github page, use button to navigate to the site. \n\n**Mods :**\n**-** Malilib\n**-** Litematica\n**-** Minihud \nand more.. `)
       const modbtnUse = new EmbedBuilder().setDescription('GitHub Embed Generated').setColor('#2DF904')
       const modbtn = new ActionRowBuilder()
 			.addComponents(
 				new ButtonBuilder()
 					.setURL('https://tec-tonic.github.io/snapshot-mods/')
-					.setLabel('GitHub Page')
-					.setStyle(ButtonStyle.Link),
+					.setLabel('Update in progress') //GitHub Page
+					.setStyle(ButtonStyle.Link)
+          .setDisabled(true)
 			);
 
       interaction.reply({ embeds: [modLink], components: [modbtn], ephemeral: true});
