@@ -22,9 +22,8 @@ const messageId = parsed[3];
 const channelId = parsed[2];
 const guildId = parsed[1];
 
-console.log(guildId)
-
-if(guildId === '797494884159848469') {
+//panda
+if(guildId === '504627012921589763') { 
 
     const channel = await client.channels.fetch(channelId);
     const message = await channel.messages.fetch(messageId);
