@@ -28,7 +28,7 @@ if(guildId === '504627012921589763') {
     const channel = await client.channels.fetch(channelId);
     const message = await channel.messages.fetch(messageId);
 
-    const linkReply = new EmbedBuilder().setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/`+message.author.id+`/`+message.author.avatar+`.jpeg`, url: 'https://www.pandamium.com' }).setDescription(`${message.content}`).setColor('#1EE3CE')
+    const linkReply = new EmbedBuilder().setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/`+message.author.id+`/`+message.author.avatar+`.jpeg`, url: `${link}` }).setDescription(`${message.content}`).setColor('#1EE3CE')
     
     await interaction.reply({ embeds: [linkReply]});
 } else {
