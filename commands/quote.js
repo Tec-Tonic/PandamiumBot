@@ -30,10 +30,14 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
             const time = Math.round(message.createdTimestamp / 1000);
 
             
-            var EMBED_COLOR = message.member.displayHexColor
-                if (EMBED_COLOR == 'null') {
+            try {
+                var EMBED_COLOR = message.member.displayHexColor
+            } catch {
                 var EMBED_COLOR = '#1BEACA'
-                }
+            }
+            if (EMBED_COLOR == '#000000') {
+                 var EMBED_COLOR = '#1BEACA'
+            }
 
             console.log(EMBED_COLOR)
 
