@@ -23,13 +23,17 @@ const channelId = parsed[2];
 const guildId = parsed[1];
 
 //panda
-if(guildId === '504627012921589763') { 
+if(guildId === '504627012921589763') {
 
     const channel = await client.channels.fetch(channelId);
     const message = await channel.messages.fetch(messageId);
 
-    const linkReply = new EmbedBuilder().setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/`+message.author.id+`/`+message.author.avatar+`.jpeg`, url: `${link}` }).setDescription(`${message.content}`).setColor('#1EE3CE')
-    
+   const time = Math.round(message.createdTimestamp / 1000);
+
+    const linkReply = new EmbedBuilder().setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/`+message.author.id+`/`+message.author.avatar+`.jpeg`, url: `${link}` })
+    .setDescription(`${message.content} \n\nMessage created <t:${time}:R> in <#${channelId}>`)
+    .setColor('#1EE3CE')
+
     await interaction.reply({ embeds: [linkReply]});
 } else {
     interaction.reply({ embeds: [ErrlinkReply]})
