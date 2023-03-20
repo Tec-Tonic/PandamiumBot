@@ -34,7 +34,7 @@ if(guildId === '504627012921589763') {
    .setDescription(`${message.content}`)
    .setColor('#1EE3CE')
 
-   const dateReply = new EmbedBuilder().setDescription(`[Message](${link}) created <t:${time}:R> in <#${channelId}>`).setColor('#1EE3CE')
+   const dateReply = new EmbedBuilder().setDescription(`[Original Message](${link}) created <t:${time}:R> in <#${channelId}>`).setColor('#1EE3CE')
 
    await interaction.reply({ embeds: [dateReply, linkReply]});
 } else {
