@@ -32,9 +32,9 @@ if(guildId === '504627012921589763') {
 
    const linkReply = new EmbedBuilder().setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/`+message.author.id+`/`+message.author.avatar+`.jpeg`, url: `${link}` })
    .setDescription(`${message.content}`)
-   .setColor('#1EE3CE')
+   .setColor(message.member.displayHexColor)
 
-   const dateReply = new EmbedBuilder().setDescription(`[Original Message](${link}) created <t:${time}:R> in <#${channelId}>`).setColor('#1EE3CE')
+   const dateReply = new EmbedBuilder().setDescription(`[Original Message](${link}) created <t:${time}:R> in <#${channelId}>`).setColor(message.member.displayHexColor)
 
    await interaction.reply({ embeds: [dateReply, linkReply]});
 } else {
