@@ -47,11 +47,11 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
                 .setColor(EMBED_COLOR)
 
             const dateReply = new EmbedBuilder()
-                .setDescription(`[Message](${link}) created <t:${time}:R> in <#${channelId}>`)
+                .setDescription(`[Original Message](${link}) created <t:${time}:R> in <#${channelId}>`)
                 .setColor(EMBED_COLOR)
 
 
-            await interaction.reply({ embeds: [linkReply, dateReply] });
+            await interaction.reply({ embeds: [dateReply, linkReply] });
 
         } else {
             interaction.reply({ embeds: [ErrlinkReply] })
