@@ -36,7 +36,7 @@ if(guildId === '504627012921589763') {
 
    const dateReply = new EmbedBuilder().setDescription(`[Message](${link}) created <t:${time}:R> in <#${channelId}>`).setColor('#1EE3CE')
 
-   await interaction.reply({ embeds: [linkReply, dateReply]});
+   await interaction.reply({ embeds: [dateReply, linkReply]});
 } else {
     interaction.reply({ embeds: [ErrlinkReply]})
 }
