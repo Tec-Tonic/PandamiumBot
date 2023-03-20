@@ -30,16 +30,10 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
             const time = Math.round(message.createdTimestamp / 1000);
 
             
-            try {
-                var EMBED_COLOR = message.member.displayHexColor
-            } catch {
+            var EMBED_COLOR = message.member.displayHexColor
+                if (EMBED_COLOR == '#000000') {
                 var EMBED_COLOR = '#1BEACA'
-            };
-            if (EMBED_COLOR == '#000000') {
-                 var EMBED_COLOR = '#1BEACA'
-            }
-
-            console.log(EMBED_COLOR)
+                }
 
             const linkReply = new EmbedBuilder()
                 .setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/` + message.author.id + `/` + message.author.avatar + `.jpeg`, url: `${link}` })
