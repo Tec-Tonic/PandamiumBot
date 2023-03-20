@@ -13,15 +13,16 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
     }
 
     async run(client, interaction) {
+
         const link = interaction.options.getString('link')
         const ErrlinkReply = new EmbedBuilder().setDescription(`I do not have access to this message, provide a message link from this server.`).setColor('#FF0000')
+
         const discordLinkReg = /\/([0-9].*)\/([0-9].*)\/([0-9].*[^/])\/{0,}/
         const parsed = discordLinkReg.exec(link)
         const messageId = parsed[3];
         const channelId = parsed[2];
         const guildId = parsed[1];
 
-        //panda
         if (guildId === '504627012921589763') {
 
             const channel = await client.channels.fetch(channelId);
@@ -30,7 +31,7 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
 
             
             var EMBED_COLOR = message.member.displayHexColor
-                if (EMBED_COLOR == '#000000') {
+                if (EMBED_COLOR == 'null') {
                 var EMBED_COLOR = '#1BEACA'
                 }
 
