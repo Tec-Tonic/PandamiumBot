@@ -34,7 +34,7 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
                 var EMBED_COLOR = message.member.displayHexColor
             } catch {
                 var EMBED_COLOR = '#1BEACA'
-            }
+            };
             if (EMBED_COLOR == '#000000') {
                  var EMBED_COLOR = '#1BEACA'
             }
