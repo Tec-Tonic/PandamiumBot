@@ -28,13 +28,13 @@ if(guildId === '504627012921589763') {
     const channel = await client.channels.fetch(channelId);
     const message = await channel.messages.fetch(messageId);
    const time = Math.round(message.createdTimestamp / 1000);
-
+    let colour = message.member.displayHexColor || '#2EFF00'
 
    const linkReply = new EmbedBuilder().setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/`+message.author.id+`/`+message.author.avatar+`.jpeg`, url: `${link}` })
    .setDescription(`${message.content}`)
-   .setColor(message.member.displayHexColor)
+   .setColor(colour)
 
-   const dateReply = new EmbedBuilder().setDescription(`[Message](${link}) created <t:${time}:R> in <#${channelId}>`).setColor(message.member.displayHexColor)
+   const dateReply = new EmbedBuilder().setDescription(`[Message](${link}) created <t:${time}:R> in <#${channelId}>`).setColor(colour)
 
     
 
