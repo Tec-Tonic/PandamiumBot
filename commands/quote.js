@@ -45,7 +45,7 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
                 .setColor(EMBED_COLOR)
 
             const dateReply = new EmbedBuilder()
-                .setDescription(`[Original Message](${link}) created <t:${time}:R> in <#${channelId}>`)
+                .setDescription(`[Original Message](${link}) sent <t:${time}:R> in <#${channelId}>`)
                 .setColor(EMBED_COLOR)
 
 
