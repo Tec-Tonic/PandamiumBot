@@ -17,7 +17,7 @@ const sendToConsole = "1037707228897095811"; //jarvisconsole
 
 module.exports = class TestCommand extends BaseSlashCommand {
   constructor() {
-    super("Translate");
+    super("Translate App");
   }
 
   async run(client, interaction) {
