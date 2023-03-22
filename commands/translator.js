@@ -24,11 +24,7 @@ const {
       
     const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
 
-    const translateFile = require('./commands/translator');
-
-    const msgID = await translateFile.msgid
-    const channelID = await translateFile.chanid
-    const foreignLanguage = await client.channels.cache.get(channelID).messages.fetch(msgID);
+    const foreignLanguage = await client.channels.cache.get(interaction.channel.id).messages.fetch(interaction.id);
 
     translate(foreignLanguage, { to: `en` })
       .then((res) => {
