@@ -24,7 +24,7 @@ const {
       
     const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
 
-    const foreignLanguage = await client.channels.cache.get(interaction.channel.id).messages.fetch(interaction.id);
+    const foreignLanguage = interaction.options.getString("input");
 
     translate(foreignLanguage, { to: `en` })
       .then((res) => {
