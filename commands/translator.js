@@ -17,7 +17,7 @@ const {
   
   module.exports = class TranslateCommand extends BaseSlashCommand {
     constructor() {
-      super("Translate_Text");
+      super("translate");
     }
   
     async run(client, interaction) {
