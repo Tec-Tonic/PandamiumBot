@@ -281,7 +281,7 @@ client.on('interactionCreate', async (interaction) => {
 
     const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
 
-    const translateFile = require('./commands/translator');
+    const translateFile = require('./commands/translator_app');
 
     const msgID = await translateFile.msgid
     const channelID = await translateFile.chanid
