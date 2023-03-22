@@ -1,108 +1,61 @@
 const {
-  Client,
-  ContextMenuCommandInteraction,
-  ApplicationCommandType,
-} = require("discord.js");
-const BaseSlashCommand = require("../utils/BaseSlashCommands");
-const {
-  SlashCommandBuilder,
-  EmbedBuilder,
-  ContextMenuCommandBuilder,
-  ActionRowBuilder,
-  StringSelectMenuBuilder,
-} = require("discord.js");
-const translate = require("@iamtraction/google-translate");
-const ISO6391 = require("iso-639-1");
-const sendToConsole = "1037707228897095811"; //jarvisconsole
+    Client,
+    ContextMenuCommandInteraction,
+    ApplicationCommandType,
+  } = require("discord.js");
+  const BaseSlashCommand = require("../utils/BaseSlashCommands");
+  const {
+    SlashCommandBuilder,
+    EmbedBuilder,
+    ContextMenuCommandBuilder,
+    ActionRowBuilder,
+    StringSelectMenuBuilder,
+  } = require("discord.js");
+  const translate = require("@iamtraction/google-translate");
+  const ISO6391 = require("iso-639-1");
+  const sendToConsole = "1037707228897095811"; //jarvisconsole
+  
+  module.exports = class TranslateCommand extends BaseSlashCommand {
+    constructor() {
+      super("Translate");
+    }
+  
+    async run(client, interaction) {
+      
+    const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
 
-module.exports = class TestCommand extends BaseSlashCommand {
-  constructor() {
-    super("Translate");
+    const translateFile = require('./commands/translator');
+
+    const msgID = await translateFile.msgid
+    const channelID = await translateFile.chanid
+    const foreignLanguage = await client.channels.cache.get(channelID).messages.fetch(msgID);
+
+    translate(foreignLanguage, { to: `en` })
+      .then((res) => {
+        const getIsoName = res.from.language.iso;
+        const isoName = ISO6391.getName(getIsoName);
+
+        const translatedEmbed = new EmbedBuilder().setColor("#00FFFF").setDescription(`${isoName} -> English`).setFields({ name: `Original Message :`, value: `${foreignLanguage}` }, { name: `Translation :`, value: `${res.text}` }).setFooter({ text: "Google Translate", iconURL: "https://www.transparentpng.com/thumb/google-logo/google-logo-png-icon-free-download-SUF63j.png", });
+        interaction.reply({ embeds: [translatedEmbed], ephemeral: true });
+      })
+      .catch((err) => {
+        interaction.reply({ embeds: [ERRembed], ephemeral: true });
+        console.error(err);
+      });
+
   }
-
-  async run(client, interaction) {
-    const LanguageSelect = new ActionRowBuilder().addComponents(
-      new StringSelectMenuBuilder()
-        .setCustomId("LangSelector")
-        .setPlaceholder("Select Language")
-        .addOptions(
-          {
-            label: "English",
-            description: "Will be translated to English",
-            value: "english-select",
-          },
-          {
-            label: "Mandarin Chinese",
-            description: "这会将消息翻译成普通话",
-            value: "chinese-select",
-          },
-          {
-            label: "Hindi",
-            description: "यह संदेश का हिंदी में अनुवाद करेगा",
-            value: "hindi-select",
-          },
-          {
-            label: "Spanish",
-            description: "Esto traducirá el mensaje al español.",
-            value: "spanish-select",
-          },
-          {
-            label: "French",
-            description: "Cela traduira le message en français",
-            value: "french-select",
-          },
-          {
-            label: "Arabic",
-            description: "سيؤدي هذا إلى ترجمة الرسالة إلى اللغة العربية",
-            value: "arabic-select",
-          },
-          {
-            label: "Russian",
-            description: "Это переведет сообщение на русский язык.",
-            value: "russian-select",
-          },
-          {
-            label: "Portuguese",
-            description: "Isso traduzirá a mensagem para o português",
-            value: "portuguese-select",
-          },
-          {
-            label: "Indonesian",
-            description: "Ini akan menerjemahkan pesan ke bahasa Indonesia",
-            value: "indonesian-select",
-          },
-          {
-            label: "Urdu",
-            description: "اس سے پیغام کا اردو میں ترجمہ ہو جائے گا۔",
-            value: "urdu-select",
-          },
-          {
-            label: "Japanese",
-            description: "これでメッセージが日本語に翻訳されます",
-            value: "japanese-select",
-          },
-          {
-            label: "German",
-            description: "Dadurch wird die Nachricht ins Deutsche übersetzt",
-            value: "german-select",
-          }
-        )
-    );
-    
-    
-    const msgID = await interaction.targetId;
-    module.exports.msgid = msgID
-
-    const channelID = await interaction.channelId;
-    module.exports.chanid = channelID
-    
-    interaction.reply({components : [LanguageSelect], ephemeral: true})
-    
-  }
+      
+      
+      
   getSlashCommandJSON() {
-    return new ContextMenuCommandBuilder()
-      .setName(this.name)
-      .setType(ApplicationCommandType.Message)
-      .toJSON();
-  }
+    return new SlashCommandBuilder()
+        .setName(this.name)
+        .setDescription("Translates text to English")
+        .addStringOption(option =>
+            option.setName('input')
+                .setDescription('text required')
+                .setRequired(true))
+        .toJSON();
+}
 };
+  
