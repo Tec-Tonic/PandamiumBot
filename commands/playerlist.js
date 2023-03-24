@@ -96,7 +96,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       
 
 
-      util.status("new.pandamium.eu", 25565, options).then((ResponseRelease) => {
+      util.status("pandamium.eu", 25565, options).then((ResponseRelease) => {
         var ChannelName = interaction.channel.name;
 
         // Release better no players
