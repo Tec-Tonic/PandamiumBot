@@ -88,7 +88,6 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         { name: "Change Game Version", value: "gameVer-faq" },
         { name: "Dont Ask To Ask", value: "data-faq" },
         { name: "Last World Reset (Snapshot)", value: "reset-faq" },
-        { name: "Snapshot Mods", value: "mods-faq" },
       ))
       .toJSON();
   }
