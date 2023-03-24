@@ -38,7 +38,7 @@ client.on("ready", async () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 
-  util.status("new.pandamium.eu").then((Response) => {
+  util.status("pandamium.eu").then((Response) => {
 
     const checkIfPlayer = Response.players.online;
     if (checkIfPlayer.toString() === "0") {
@@ -149,7 +149,7 @@ client.on('messageCreate', (message) => {
   const channelNames = message.channel.name
   if (channelNames === "release-ingame-chat") {
 
-    util.status("new.pandamium.eu").then((Response) => {
+    util.status("pandamium.eu").then((Response) => {
 
       const checkIfPlayer = Response.players.online;
       if (checkIfPlayer.toString() === "0") {
