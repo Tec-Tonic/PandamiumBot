@@ -30,7 +30,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
       //Snapshot Code
-      util.queryFull("snapshot.pandamium.eu", 25566, options).then((Response) => {
+      util.queryFull("pandamium.eu", 25566, options).then((Response) => {
         const nameArr = Response.players.list.join(", ").toString();
 
         //intPrintOut Discord Log
