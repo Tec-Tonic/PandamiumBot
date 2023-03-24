@@ -14,6 +14,7 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
 
     async run(client, interaction) {
 
+    try {
         const link = interaction.options.getString('link')
         const ErrlinkReply = new EmbedBuilder().setDescription(`I do not have access to this message, provide a message link from this server.`).setColor('#FF0000')
 
@@ -29,7 +30,6 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
             const message = await channel.messages.fetch(messageId);
             const time = Math.round(message.createdTimestamp / 1000);
 
-            
             try {
                 var EMBED_COLOR = message.member.displayHexColor
             } catch {
@@ -54,7 +54,10 @@ module.exports = class QuoteSlashCommand extends BaseSlashCommand {
         } else {
             interaction.reply({ embeds: [ErrlinkReply] })
         }
-    }
+    } catch {
+        const ErrorThrow = new EmbedBuilder().setColor('#FF0000').setDescription('Please use a valid link!')
+        interaction.reply({ embeds: [ErrorThrow], ephemeral: true})
+    }}
 
     getSlashCommandJSON() {
         return new SlashCommandBuilder()
