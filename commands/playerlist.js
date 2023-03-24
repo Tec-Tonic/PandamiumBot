@@ -30,7 +30,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
       const errPlayerlist1 = new EmbedBuilder()
-        .setDescription('This command is not working, It will fix it later!').setColor('#FF0000')
+        .setDescription('This command is not working, It will fix it later! Please use !playerlist').setColor('#FF0000')
       interaction.reply({embeds: [errPlayerlist1], ephemeral: true})
     //   //Snapshot Code
     //   util.queryFull("snapshot.pandamium.eu", 25566, options).then((Response) => {
