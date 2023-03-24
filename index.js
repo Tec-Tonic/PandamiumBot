@@ -38,26 +38,21 @@ client.on("ready", async () => {
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
 
-  client.user.setPresence({
-             activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
-             status: "online",
-           });
+  util.status("new.pandamium.eu").then((Response) => {
 
-  // util.status("pandamium.eu").then((Response) => {
-
-  //   const checkIfPlayer = Response.players.online;
-  //   if (checkIfPlayer.toString() === "0") {
-  //     client.user.setStatus('idle')
-  //     return client.user.setPresence({
-  //       activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
-  //     })
-  //   } else {
-  //     client.user.setPresence({
-  //       activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
-  //       status: "online",
-  //     });
-  //   }
-  // })
+    const checkIfPlayer = Response.players.online;
+    if (checkIfPlayer.toString() === "0") {
+      client.user.setStatus('idle')
+      return client.user.setPresence({
+        activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
+      })
+    } else {
+      client.user.setPresence({
+        activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
+        status: "online",
+      });
+    }
+  })
 
   // how to delete a command!
   //client.rest.delete(Routes.applicationGuildCommand(APP_ID, GUILD_ID, '1014613696221298889')).then(() => console.log('Successfully deleted guild command')).catch(console.error);
@@ -151,25 +146,25 @@ async function main() {
 }
 
 client.on('messageCreate', (message) => {
-  // const channelNames = message.channel.name
-  // if (channelNames === "release-ingame-chat") {
+  const channelNames = message.channel.name
+  if (channelNames === "release-ingame-chat") {
 
-  //   util.status("pandamium.eu").then((Response) => {
+    util.status("new.pandamium.eu").then((Response) => {
 
-  //     const checkIfPlayer = Response.players.online;
-  //     if (checkIfPlayer.toString() === "0") {
-  //       client.user.setStatus('idle')
-  //       return client.user.setPresence({
-  //         activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
-  //       })
-  //     } else {
-  //       client.user.setPresence({
-  //         activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
-  //         status: "online",
-  //       });
-  //     }
-  //   })
-  // }
+      const checkIfPlayer = Response.players.online;
+      if (checkIfPlayer.toString() === "0") {
+        client.user.setStatus('idle')
+        return client.user.setPresence({
+          activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
+        })
+      } else {
+        client.user.setPresence({
+          activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
+          status: "online",
+        });
+      }
+    })
+  }
 })
 
 // Message commands
