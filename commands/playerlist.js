@@ -29,148 +29,151 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     var channelName = interaction.channel.name;
     if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
-      //Snapshot Code
-      util.queryFull("snapshot.pandamium.eu", 25566, options).then((Response) => {
-        const nameArr = Response.players.list.join(", ").toString();
+      const errPlayerlist1 = new EmbedBuilder()
+        .setDescription('This command is not working, It will fix it later!').setColor('#FF0000')
+      interaction.reply({embeds: [errPlayerlist1], ephemeral: true})
+    //   //Snapshot Code
+    //   util.queryFull("snapshot.pandamium.eu", 25566, options).then((Response) => {
+    //     const nameArr = Response.players.list.join(", ").toString();
 
-        //intPrintOut Discord Log
-        const playerlistInteractionUsed = new EmbedBuilder()
-          .setColor("#2DF904")
-          .setDescription(
-            `**Snapshot Playerlist**\n\n**Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``
-          )
+    //     //intPrintOut Discord Log
+    //     const playerlistInteractionUsed = new EmbedBuilder()
+    //       .setColor("#2DF904")
+    //       .setDescription(
+    //         `**Snapshot Playerlist**\n\n**Online players (${Response.players.online}/${Response.players.max}):** \n\`\`\`${nameArr}\`\`\``
+    //       )
 
-        // Snapshot better playerlist
-        const playerlistEmbedBetter = new EmbedBuilder()
-          .setColor("#2DF904")
-          .setTitle(
-            `**Online players (${Response.players.online}/${Response.players.max}):**`
-          )
-          .setDescription(`\`\`\`${nameArr}\`\`\``)
-          .setFooter({ text: `Version: ${Response.version}` })
+    //     // Snapshot better playerlist
+    //     const playerlistEmbedBetter = new EmbedBuilder()
+    //       .setColor("#2DF904")
+    //       .setTitle(
+    //         `**Online players (${Response.players.online}/${Response.players.max}):**`
+    //       )
+    //       .setDescription(`\`\`\`${nameArr}\`\`\``)
+    //       .setFooter({ text: `Version: ${Response.version}` })
 
-        // Snapshot better no players
-        const playerlistemptyEmbed = new EmbedBuilder()
-          .setColor("#FF0000")
-          .setTitle(`**No online players**`);
+    //     // Snapshot better no players
+    //     const playerlistemptyEmbed = new EmbedBuilder()
+    //       .setColor("#FF0000")
+    //       .setTitle(`**No online players**`);
 
-        var ChannelName = interaction.channel.name;
-        if (ChannelName === "snapshot-ingame-chat") {
+    //     var ChannelName = interaction.channel.name;
+    //     if (ChannelName === "snapshot-ingame-chat") {
 
-          const checkIfPlayer = Response.players.online;
-          if (checkIfPlayer.toString() === "0") {
-            return interaction.reply({
-              embeds: [playerlistemptyEmbed],
-              ephemeral: true,
-            });
-          }
+    //       const checkIfPlayer = Response.players.online;
+    //       if (checkIfPlayer.toString() === "0") {
+    //         return interaction.reply({
+    //           embeds: [playerlistemptyEmbed],
+    //           ephemeral: true,
+    //         });
+    //       }
 
-          client.channels.cache.get(logs).send({ embeds: [playerlistInteractionUsed] });
+    //       client.channels.cache.get(logs).send({ embeds: [playerlistInteractionUsed] });
 
-          //Single player Online
-          if (checkIfPlayer.toString() === "1") {
-            const singlePlayerlistEmbedBetter = new EmbedBuilder()
-              .setColor("#2DF904")
-              .setTitle(
-                `**Online player (${Response.players.online}/${Response.players.max}):**`
-              )
-              .setDescription(`\`\`\`${nameArr}\`\`\` \n` + randomObject(data))
-              .setFooter({ text: `Version: ${Response.version}` })
+    //       //Single player Online
+    //       if (checkIfPlayer.toString() === "1") {
+    //         const singlePlayerlistEmbedBetter = new EmbedBuilder()
+    //           .setColor("#2DF904")
+    //           .setTitle(
+    //             `**Online player (${Response.players.online}/${Response.players.max}):**`
+    //           )
+    //           .setDescription(`\`\`\`${nameArr}\`\`\` \n` + randomObject(data))
+    //           .setFooter({ text: `Version: ${Response.version}` })
 
-            return interaction.reply({
-              embeds: [singlePlayerlistEmbedBetter],
-              ephemeral: true,
-            });
+    //         return interaction.reply({
+    //           embeds: [singlePlayerlistEmbedBetter],
+    //           ephemeral: true,
+    //         });
 
-          }
+    //       }
 
-          return interaction.reply({
-            embeds: [playerlistEmbedBetter],
-            ephemeral: true,
-          });
-        }
-      });
+    //       return interaction.reply({
+    //         embeds: [playerlistEmbedBetter],
+    //         ephemeral: true,
+    //       });
+    //     }
+    //   });
 
 
-      //====================================== Release Code ======================================
+    //   //====================================== Release Code ======================================
       
 
 
-      util.status("new.pandamium.eu", 25565, options).then((ResponseRelease) => {
-        var ChannelName = interaction.channel.name;
+    //   util.status("new.pandamium.eu", 25565, options).then((ResponseRelease) => {
+    //     var ChannelName = interaction.channel.name;
 
-        // Release better no players
-        const playerlistemptyEmbedRelease = new EmbedBuilder()
-          .setColor("#FF0000")
-          .setTitle(`**No online players**`);
+    //     // Release better no players
+    //     const playerlistemptyEmbedRelease = new EmbedBuilder()
+    //       .setColor("#FF0000")
+    //       .setTitle(`**No online players**`);
 
-        if (ChannelName === "release-ingame-chat") {
-          const checkIfPlayerRelease = ResponseRelease.players.online;
-          if (checkIfPlayerRelease.toString() === "0") {
-            return interaction.reply({
-              embeds: [playerlistemptyEmbedRelease],
-              ephemeral: true,
-            });
-          }
+    //     if (ChannelName === "release-ingame-chat") {
+    //       const checkIfPlayerRelease = ResponseRelease.players.online;
+    //       if (checkIfPlayerRelease.toString() === "0") {
+    //         return interaction.reply({
+    //           embeds: [playerlistemptyEmbedRelease],
+    //           ephemeral: true,
+    //         });
+    //       }
 
-          const nameArrRelease = ResponseRelease.players.sample
-            .map((obj) => obj.name)
-            .join(", ");
+    //       const nameArrRelease = ResponseRelease.players.sample
+    //         .map((obj) => obj.name)
+    //         .join(", ");
 
-          //intPrintOut Discord Log
-          const playerlistInteractionUsedRelease = new EmbedBuilder()
-            .setColor("#058823")
-            .setDescription(
-              `**Release Playerlist**\n\n**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``
-            )
+    //       //intPrintOut Discord Log
+    //       const playerlistInteractionUsedRelease = new EmbedBuilder()
+    //         .setColor("#058823")
+    //         .setDescription(
+    //           `**Release Playerlist**\n\n**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):** \n\`\`\`${nameArrRelease}\`\`\``
+    //         )
 
 
-          //release better playerlist
-          const playerlistEmbedBetterRelease = new EmbedBuilder()
-            .setColor("#2DF904")
-            .setTitle(
-              `**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`
-            )
-            .setDescription(`\`\`\`${nameArrRelease}\`\`\``)
-            .setFooter({ text: `Version: ${ResponseRelease.version.name}` })
-          // command history log (Release)
-          client.channels.cache
-            .get(logs)
-            .send({ embeds: [playerlistInteractionUsedRelease] });
+    //       //release better playerlist
+    //       const playerlistEmbedBetterRelease = new EmbedBuilder()
+    //         .setColor("#2DF904")
+    //         .setTitle(
+    //           `**Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`
+    //         )
+    //         .setDescription(`\`\`\`${nameArrRelease}\`\`\``)
+    //         .setFooter({ text: `Version: ${ResponseRelease.version.name}` })
+    //       // command history log (Release)
+    //       client.channels.cache
+    //         .get(logs)
+    //         .send({ embeds: [playerlistInteractionUsedRelease] });
 
-          return interaction.reply({
-            embeds: [playerlistEmbedBetterRelease],
-            ephemeral: true,
-          });
-        }
-      });
-    } else {
-      let StaffFoundInText = false;
-      for (var i in staffMember) {
-        if (intAuth.includes(staffMember[i])) StaffFoundInText = true;
-      }
+    //       return interaction.reply({
+    //         embeds: [playerlistEmbedBetterRelease],
+    //         ephemeral: true,
+    //       });
+    //     }
+    //   });
+    // } else {
+    //   let StaffFoundInText = false;
+    //   for (var i in staffMember) {
+    //     if (intAuth.includes(staffMember[i])) StaffFoundInText = true;
+    //   }
 
-      if (StaffFoundInText) {
-        util.queryFull("pandamium.eu", 25566, options).then((Response) => {
-          util.queryFull("pandamium.eu", 25565, options).then((ResponseRelease) => {
+    //   if (StaffFoundInText) {
+    //     util.queryFull("pandamium.eu", 25566, options).then((Response) => {
+    //       util.queryFull("pandamium.eu", 25565, options).then((ResponseRelease) => {
             
-            //snapshot array
-            const nameArr = Response.players.list.join(", ").toString() || 'No online players'
-            const nameLinkSnapshot = Response.players.list.join("\n https://namemc.com/profile/") || 'No online players'
-            //release array
-            const nameArrRelease = ResponseRelease.players.list.join(", ").toString() || 'No online players'
-            const nameLinkRelease = ResponseRelease.players.list.join("\n https://namemc.com/profile/") || 'No online players'
+    //         //snapshot array
+    //         const nameArr = Response.players.list.join(", ").toString() || 'No online players'
+    //         const nameLinkSnapshot = Response.players.list.join("\n https://namemc.com/profile/") || 'No online players'
+    //         //release array
+    //         const nameArrRelease = ResponseRelease.players.list.join(", ").toString() || 'No online players'
+    //         const nameLinkRelease = ResponseRelease.players.list.join("\n https://namemc.com/profile/") || 'No online players'
 
-            //snapshot
-            const playerlistEmbedBetter = new EmbedBuilder().setColor("#2DF904").setTitle(`**Snapshot Online players (${Response.players.online}/${Response.players.max}):**`).setDescription(`\`\`\`${nameArr}\`\`\``).setFooter({ text: `Version: ${Response.version}` });
-            //release
-            const playerlistEmbedBetterRelease = new EmbedBuilder().setColor("#058823").setTitle(`**Release Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`).setDescription(`\`\`\`${nameArrRelease}\`\`\``).setFooter({ text: `Version: ${ResponseRelease.version}` });
-            //Namemc
-            const Namemc = new EmbedBuilder().setColor('#2E86C1').setTitle('NameMC Profiles').setDescription(`**Snapshot**\n https://namemc.com/profile/${nameLinkSnapshot} \n\n **Release**\n https://namemc.com/profile/${nameLinkRelease}`) //https://namemc.com/profile/_Tec_.2
-              return interaction.reply({content: `**Extra Information for Staff**\n`, embeds: [playerlistEmbedBetter, playerlistEmbedBetterRelease, Namemc], ephemeral: true,});
+    //         //snapshot
+    //         const playerlistEmbedBetter = new EmbedBuilder().setColor("#2DF904").setTitle(`**Snapshot Online players (${Response.players.online}/${Response.players.max}):**`).setDescription(`\`\`\`${nameArr}\`\`\``).setFooter({ text: `Version: ${Response.version}` });
+    //         //release
+    //         const playerlistEmbedBetterRelease = new EmbedBuilder().setColor("#058823").setTitle(`**Release Online players (${ResponseRelease.players.online}/${ResponseRelease.players.max}):**`).setDescription(`\`\`\`${nameArrRelease}\`\`\``).setFooter({ text: `Version: ${ResponseRelease.version}` });
+    //         //Namemc
+    //         const Namemc = new EmbedBuilder().setColor('#2E86C1').setTitle('NameMC Profiles').setDescription(`**Snapshot**\n https://namemc.com/profile/${nameLinkSnapshot} \n\n **Release**\n https://namemc.com/profile/${nameLinkRelease}`) //https://namemc.com/profile/_Tec_.2
+    //           return interaction.reply({content: `**Extra Information for Staff**\n`, embeds: [playerlistEmbedBetter, playerlistEmbedBetterRelease, Namemc], ephemeral: true,});
 
-            });
-        });
+    //         });
+    //     });
       } else {
 
       const errPlayerlist = new EmbedBuilder()
@@ -182,7 +185,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       })
     }
    }
-  }
+  //}
 
   getSlashCommandJSON() {
     return new SlashCommandBuilder()
