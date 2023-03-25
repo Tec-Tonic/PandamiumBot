@@ -242,7 +242,7 @@ https://minecraft.global/server/173/vote
     :white_small_square:Join even if the server is full
     :white_small_square: Donator only #commands 
     
-    `).setColor('#b055ff ')
+    `).setColor('#b055ff')
     
     const emb2 = new EmbedBuilder().setDescription(
         `
@@ -251,7 +251,7 @@ https://minecraft.global/server/173/vote
     ↳ Open a ticket in #support and tell us your Minecraft and Patreon names.
     ↳ Link your Patreon and Discord accounts. To do that, follow this link: https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role
     
-    `).setColor('#b055ff ')
+    `).setColor('#b055ff')
     
     
     await interaction.channel.send('https://cdn.discordapp.com/attachments/1079532215584706670/1089244539597897780/donations.png')
