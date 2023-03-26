@@ -443,8 +443,6 @@ await interaction.channel.send({embeds: [rr]})
         const embed15 = new EmbedBuilder()
         .setDescription(`**These rules apply to the Pandamium Minecraft servers and the official Pandamium Discord. They also extend to direct messages if these messages are related to Pandamium.**\n\n**The rules may be edited by the Owner (Sundroid) at any time.**`).setColor('#D02FB7')
 
-       //await interaction.channel.send(`https://media.discordapp.net/attachments/1062874624066605137/1087150896489697350/image_2.png?width=1440&height=130`)
-
        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274040839057489/1089579687149326426/image.png')
         await interaction.channel.send({embeds: [embed, embed1, embed2, embed3, embed4, embed5, embed6, embed7, embed8, embed9, ]})
         await interaction.channel.send({embeds: [embed10, embed11, embed12, embed13, embed14, embed15]})
@@ -487,7 +485,7 @@ await interaction.channel.send({embeds: [rr]})
 
       if (update === 'vote'){
         const emb = new EmbedBuilder().setDescription(`
-        Voting daily is a great way to help Pandamium become more popular! When you vote, you will receive one vote credit per site. These credits can be used in our vote shop to buy useful items. Please note, votes are required in order to rank up. For more information, check out #ranks.
+        Voting daily is a great way to help Pandamium become more popular! When you vote, you will receive one vote credit per site. These credits can be used in our vote shop to buy useful items. Please note, votes are required in order to rank up. For more information, check out <#1089326766474154004>.
 
         **You can get these links by running \`/trigger vote\` ingame.**
         
