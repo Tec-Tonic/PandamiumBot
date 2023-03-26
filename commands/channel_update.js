@@ -523,6 +523,55 @@ await interaction.channel.send({embeds: [rr]})
         await interaction.channel.send({embeds: [em1]})
       }
         
+
+      if (update === 'mmh') {
+        const mmh1 = new EmbedBuilder().setDescription(`
+        **TAXIDERMIST ADVANCEMENT GUIDE**
+
+**How can I obtain these mob heads?**
+The mob heads drop from mobs that are killed by charged creepers (creepers which have been struck by lightning).
+
+**How many mobs drop their heads?**
+There are 178 unique heads that you can obtain (not including the vanilla heads).
+All heads (except the Wither, Wolf and Vex heads) drop from mobs with specific data values.
+
+**Wither ** - The Wither will drop 1 to 3 random wither heads when killed by a Charged Creeper.
+:white_small_square:Wither
+:white_small_square:Armoured Wither
+:white_small_square:Invulnerable Wither
+:white_small_square:Armoured Invulnerable Wither
+
+**Wolf **- Wolves have a 50/50 chance of dropping either a Wolf head, or an Angry Wolf head. This was done as there is no way to detect if a wolf is angry using a loot table predicate.
+:white_small_square:Wolf
+:white_small_square:Angry Wolf
+
+**Vex **- Vexes have a 50/50 chance of dropping either a Vex head, or an Charging Vex head. This was done as there is no way to detect if a vex is charging using a loot table predicate.
+:white_small_square:Vex
+:white_small_square:Charging Vex
+
+**Is there a limit to the number of mob heads that drop per explosion?**
+No, as long as a mob is killed by a charged creeper's explosion, it will drop a head.
+
+**Is the mob head drop rate 100%?**
+Yes.
+
+**Will the charged creeper definitely kill a mob, or do I need to take into consideration a mobs health?**
+For most mobs, they're a one-shot from a charged creeper explosion, but some mobs (such as ravagers, withers and wardens) are not, so you will have to weaken these mobs first.
+
+**What size of slime/magma cube drop heads?**
+All sizes of the mob drop their respective mob heads.
+
+**How can I preview what the mob heads look like?**
+You can view all of the mob heads on our [**website**](https://www.pandamium.com/info/more-mob-heads). To see them in-game, download the datapack below and put it into your world's datapacks folder. Then open the world (or run /reload) and run the following command: \`function pandamium.mob_heads:give_all\`
+
+[**Datapack Download**](https://cdn.discordapp.com/attachments/380394321217716227/1075501943516041256/Pandamium_Mob_Heads.zip)
+
+`).setColor('#FE5453')
+
+    await interaction.channel.send('https://media.discordapp.net/attachments/1079532292080422914/1089581400073711686/image.png')
+    await interaction.channel.send({embeds: [mmh1]})
+      }
+
     } else { 
         return interaction.reply('This command is restricted')
     }
@@ -544,10 +593,11 @@ await interaction.channel.send({embeds: [rr]})
         { name: "Custom Recipes", value: "custom" },
         { name: "Donations", value: "donate" },
         { name: "FAQ", value: "faq" },
+        { name: "More Mob Heads", value: "mmh" },
         { name: "Ranks", value: "ranks" },
         { name: "Reaction Roles", value: "rr" },
         { name: "Rules", value: "rule" },
-        { name: "Staff Applications", value: "sa" },
+        { name: "Staff Applications [Closed]", value: "sa" },
         { name: "Vote", value: "vote" },
         { name: "Welcome", value: "welcome" },
         
