@@ -383,10 +383,10 @@ Owns the Discord and Minecraft servers.ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ�
         React below to select which pings you would like to receive:
 
         📣 ⭢ Snapshot Announcement Pings
-        <:snapshotchangelogping:1089615570909024356>   ⭢ Snapshot Changelog Pings
-        <:releaseannouncementping:1089615567520022609>   ⭢ Release Announcement Pings
-        <:releasechangelogping:1089615569516511402>  ⭢ Release Changelog Pings
-        <:eyeofender:1089616682756092065>  ⭢ End Reset Pings
+        <:snapshotchangelogping:1089615059090677760>   ⭢ Snapshot Changelog Pings
+        <:releaseannouncementping:1089613992491753573>    ⭢ Release Announcement Pings
+        <:releasechangelogping:1089615057324888235>   ⭢ Release Changelog Pings
+        <:eyeofender:1089616416929489047>   ⭢ End Reset Pings
         :tada: ⭢ Event Pings
 `).setColor('#F53068')
 
