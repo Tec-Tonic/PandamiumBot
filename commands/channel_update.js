@@ -122,11 +122,11 @@ const disc = new EmbedBuilder().setDescription(`
 **/faq** → displays a list of frequently asked questions
 `).setColor('#AF61E1')
 
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274505295314964/1089632067521892362/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089327016379162644/1089632067521892362/image.png')
         await interaction.channel.send({embeds: [snap]})
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274505295314964/1089632368073134162/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089327016379162644/1089632368073134162/image.png')
         await interaction.channel.send({embeds: [release]})
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274505295314964/1089632536763830312/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089327016379162644/1089632536763830312/image.png')
         await interaction.channel.send({embeds: [disc]})
       }
 
@@ -151,17 +151,17 @@ const disc = new EmbedBuilder().setDescription(`
           **Snapshot Server:**
           :white_small_square:10 Homes
           :white_small_square:Access to lots of particle effects
-          :white_small_square:Donator only <#1089274505295314964> 
+          :white_small_square:Donator only <#1089327016379162644> 
           
           **Release Server:**
           :white_small_square:25 Homes & Larger claim limits
           :white_small_square:Join even if the server is full
-          :white_small_square: Donator only <#1089274505295314964> 
+          :white_small_square: Donator only <#1089327016379162644> 
           
           
           **HOW TO GET DONATOR RANK**
           ↳ Make a donation via [**Patreon**](https://www.patreon.com/pandamium)
-          ↳ Open a ticket in <#1089274100565950596> and tell us your Minecraft and Patreon names.
+          ↳ Open a ticket in <#1089326603672223794> and tell us your Minecraft and Patreon names.
           ↳ [**Link**](https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role) your Patreon and Discord accounts.
           
           
@@ -210,14 +210,14 @@ const disc = new EmbedBuilder().setDescription(`
         const f5 = new EmbedBuilder()
         .setDescription(`
         **‣ How can I get more homes or bigger claims?**
-          You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#1089274345702039673> Instead you can also donate if you want, check out \n<#1089274399200391178>.
+          You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#1089326766474154004> Instead you can also donate if you want, check out \n<#1089326826834366684>.
          
         `).setColor('#FFA200')
         
         const f6 = new EmbedBuilder()
         .setDescription(`
         **‣ How can I join or create a town?**
-        To join a town, you need to apply in their Discord channel. It is up to the owners of the respective groups to accept/deny your application. To create your own, you need to open a ticket in <#1089274100565950596> and follow the correct template for the town application. Go to <#1089274446000423075> for more detail.
+        To join a town, you need to apply in their Discord channel. It is up to the owners of the respective groups to accept/deny your application. To create your own, you need to open a ticket in <#1089326603672223794> and follow the correct template for the town application. Go to <#1089326977225347092> for more detail.
          
         `).setColor('#FFA200')
         
@@ -324,14 +324,14 @@ Players who have donated.
 **Snapshot Perks**:
 **▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
 **▫️**Access to lots of particle effects
-**▫️**Donator only <#1089274505295314964> 
+**▫️**Donator only <#1089327016379162644> 
         
 **Release Perks**: 
 **▫️**Homes: **25**
 **▫️**Claims: **15**
 **▫️**Max Claim Area: **250,000 Blocks**
 **▫️**Join even if the server is full
-**▫️**Donator only <#1089274505295314964>`).setColor('#AA00AA')
+**▫️**Donator only <#1089327016379162644>`).setColor('#AA00AA')
 
         const embed8 = new EmbedBuilder().setTitle(`VIP`)
         .setDescription(`
@@ -462,7 +462,7 @@ await interaction.channel.send({embeds: [rr]})
         
         
         **HOW TO APPLY**
-        :white_small_square: Open a Staff Application ticket in <#1089274100565950596> and follow the directions. 
+        :white_small_square: Open a Staff Application ticket in <#1089326603672223794> and follow the directions. 
         
         When you submit your application, it will be transferred to a private staff area for review and your ticket will be closed. Applications that have been transferred are unable to be edited.
         
