@@ -19,7 +19,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
   async run(client, interaction) {
 
     const update = interaction.options.getString("channel_name");
-    if (interaction.user.id === '546277533138550786') {
+    if (interaction.user.id === '546277533138550786' || interaction.user.id === '1089362805137887232') {
 
         if (update === "rules") {
             const embed = new EmbedBuilder().setTitle(`1 - PUNISHMENTS`)
@@ -337,6 +337,22 @@ In return, you'll receive the **Donator** rank as a thank you, both in Minecraft
      await interaction.channel.send(`*Note: Donations through Patreon are subscriptions. Once you donate, you'll be charged every month until you cancel. Donator Rank is given for 1 month per $5 you donate! If you change your Minecraft or Patreon name, you need to tell us that, otherwise we won't know where the donation should go. *`)
     
         }
+
+        if (update === "welcome") {
+            const em1 = new EmbedBuilder()
+            .setDescription(`
+    **HOW TO LINK YOUR ACCOUNTS**
+    ▫️Log into the **Release Server**  →  \`pandamium.eu\`
+    ▫️Use the command \`/discord link\` in-game. You will get a 4 digit link code.
+    ▫️Send a private message with this link code to <@604625105758322688>
+    `).setColor('#D10E91')
+    
+            await interaction.channel.send('https://cdn.discordapp.com/attachments/1079529798000447548/1089307714519310496/image.png')
+            await interaction.channel.send('To access our Discord server, you need to link your Minecraft account to your Discord account. The following only needs to be done once:')
+            await interaction.channel.send({embeds: [em1]})
+            await interaction.channel.send('*Note: To send a dm to the bot, you need to enable the* `Allow direct messages from server members` *option for this Discord server. You can find it by right clicking the Pandamium icon and selecting Privacy Settings (you can disable it again afterwards). If there are any problems with the linking process, please message a member of staff.*')
+    
+        }
         
     } else { 
         return interaction.reply('This command is restricted')
@@ -360,6 +376,7 @@ In return, you'll receive the **Donator** rank as a thank you, both in Minecraft
         { name: "FAQ", value: "faq" },
         { name: "Ranks", value: "rank" },
         { name: "Donations", value: "donate" },
+        { name: "Welcome", value: "welcome" },
       ))
       .toJSON();
   }
