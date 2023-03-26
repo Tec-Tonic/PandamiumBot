@@ -441,7 +441,7 @@ await interaction.channel.send({embeds: [rr]})
         .setDescription(`The use auto clickers, auto reconnect mods or similar tools to get around the afk kick is NOT allowed. The reasoning for this is that it strains the mob cap, decreases server performance in general, and makes the playtime counter useless.`).setColor('#D02FB7')
 
         const embed15 = new EmbedBuilder()
-        .setDescription(`_These rules apply to the Pandamium Minecraft servers and the official Pandamium Discord. They also extend to direct messages if these messages are related to Pandamium._\n\n**The rules may be edited by the Owner (Sundroid) at any time.**`).setColor('#D02FB7')
+        .setDescription(`**These rules apply to the Pandamium Minecraft servers and the official Pandamium Discord. They also extend to direct messages if these messages are related to Pandamium.**\n\n**The rules may be edited by the Owner (Sundroid) at any time.**`).setColor('#D02FB7')
 
        //await interaction.channel.send(`https://media.discordapp.net/attachments/1062874624066605137/1087150896489697350/image_2.png?width=1440&height=130`)
 
