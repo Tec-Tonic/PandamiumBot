@@ -6,6 +6,7 @@ const {
   ButtonBuilder,
   EmbedBuilder,
   PermissionFlagsBits,
+  AttachmentBuilder
 } = require("discord.js");
 
 const util = require("minecraft-server-util");
