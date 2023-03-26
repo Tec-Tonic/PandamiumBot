@@ -572,6 +572,34 @@ You can view all of the mob heads on our [**website**](https://www.pandamium.com
     await interaction.channel.send({embeds: [mmh1]})
       }
 
+      if (update === 'ta'){
+        const town = new EmbedBuilder().setDescription(`
+If you want to apply for a town Discord channel, read the following carefully.
+
+**TOWN REQUIREMENTS**
+↳ The town must have at least six members to be considered for acceptance. 
+↳ You must provide screenshots of the town/area where it’s planned to be built.
+
+**HOW TO APPLY**
+:white_small_square:Open a ticket in <#1089326603672223794> and follow the directions.
+
+Please use the following template when applying:
+
+==========
+Server (Snapshot/Release):
+Town Name:
+Member Count: 
+Members: 
+Description:
+==========
+
+**Don't forget to provide screenshots!**
+`).setColor('#EA5374')
+
+await interaction.channel.send('https://cdn.discordapp.com/attachments/1079532250380648578/1089580862972121263/image.png')
+await interaction.channel.send({embeds: [town]})
+      }
+      
     } else { 
         return interaction.reply('This command is restricted')
     }
@@ -598,6 +626,7 @@ You can view all of the mob heads on our [**website**](https://www.pandamium.com
         { name: "Reaction Roles", value: "rr" },
         { name: "Rules", value: "rule" },
         { name: "Staff Applications [Closed]", value: "sa" },
+        { name: "Town Applications", value: "ta"},
         { name: "Vote", value: "vote" },
         { name: "Welcome", value: "welcome" },
         
