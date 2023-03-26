@@ -79,22 +79,24 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         }
         if (update === "vote") {
             const embed1 = new EmbedBuilder()
-.setDescription(`**SNAPSHOT SERVER**:
-https://minecraft-server-list.com/server/445164/vote/
-https://minecraftservers.org/vote/562059
-http://topminecraftservers.org/vote/29717
-https://minecraft.global/server/172/vote
-
-**RELEASE SERVER**:
-https://minecraft-server-list.com/server/432071/vote/
-https://minecraftservers.org/vote/559675
-http://topminecraftservers.org/vote/29718
-https://minecraft.global/server/173/vote 
-`).setColor('#0BF759')
-
-   await interaction.channel.send('https://cdn.discordapp.com/attachments/1079532165747982467/1089228783875268638/voting.png')
-   await interaction.channel.send('Voting daily is a great way to help Pandamium become more popular! When you vote, you will receive one vote credit per site. These credits can be used in our vote shop to buy useful items. Please note, votes are required in order to rank up. For more information, check out <#1079532021984014396> \n\n**You can get these links by running** \`/trigger vote\` **ingame**.')
-   await interaction.channel.send({embeds: [embed1]})
+            .setDescription(`**SNAPSHOT SERVER**:
+            https://minecraft-server-list.com/server/445164/vote/
+            https://minecraftservers.org/vote/562059
+            http://topminecraftservers.org/vote/29717
+            https://minecraft.global/server/172/vote
+            `).setColor('#0BF759')
+            
+            const embed2 = new EmbedBuilder()
+            .setDescription(`**RELEASE SERVER**:
+            https://minecraft-server-list.com/server/432071/vote/
+            https://minecraftservers.org/vote/559675
+            http://topminecraftservers.org/vote/29718
+            https://minecraft.global/server/173/vote 
+            `).setColor('#0BF759')
+    
+               await interaction.channel.send('https://cdn.discordapp.com/attachments/1079532165747982467/1089228783875268638/voting.png')
+               await interaction.channel.send('Voting daily is a great way to help Pandamium become more popular! When you vote, you will receive one vote credit per site. These credits can be used in our vote shop to buy useful items. Please note, votes are required in order to rank up. For more information, check out <#1079532021984014396> \n\n**You can get these links by running** \`/trigger vote\` **ingame**.')
+               await interaction.channel.send({embeds: [embed1, embed2]})
         }
         if (update === "faq") {
             const f1 = new EmbedBuilder()
@@ -244,14 +246,14 @@ await interaction.channel.send({embeds: [f1, f2, f3, f4, f5, f6, f7, f8]})
     Players who have donated.
              
     **Snapshot Perks**:
-    **▫️**Homes: 10ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    **▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
     **▫️**Access to lots of particle effects
     **▫️**Donator only <#1089274505295314964> 
             
     **Release Perks**: 
-    **▫️**Homes: 25
-    **▫️**Claims: 15
-    **▫️**Max Claim Area: 250,000 Blocks
+    **▫️**Homes: **25**
+    **▫️**Claims: **15**
+    **▫️**Max Claim Area: **250,000 Blocks**
     **▫️**Join even if the server is full
     **▫️**Donator only <#1089274505295314964>`).setColor('#AA00AA')
     
