@@ -122,11 +122,11 @@ const disc = new EmbedBuilder().setDescription(`
 **/faq** → displays a list of frequently asked questions
 `).setColor('#AF61E1')
 
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089327016379162644/1089632067521892362/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274505295314964/1089921681872650362/snapcommands.png')
         await interaction.channel.send({embeds: [snap]})
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089327016379162644/1089632368073134162/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274505295314964/1089921688315105421/relcommands.png')
         await interaction.channel.send({embeds: [release]})
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089327016379162644/1089632536763830312/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274505295314964/1089921693516054598/disccommands.png')
         await interaction.channel.send({embeds: [disc]})
       }
 
@@ -134,7 +134,7 @@ const disc = new EmbedBuilder().setDescription(`
         const image = new AttachmentBuilder('https://cdn.discordapp.com/attachments/1087413427972083752/1089651932727083161/final.gif')
         const image1 = new EmbedBuilder().setDescription('Pandamium custom recipes are designed to help improve the player experience on our server. Our recipes are crafted identically as to their vanilla counterparts.\n\nWe recommend that you view our custom recipes on the [**Pandamium Website**](https://www.pandamium.com/info/custom-recipes) for a better viewing experience.').setColor('#0159FF')
         
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1087413427972083752/1089639909066821642/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274546680516700/1089921719311028224/customrecipes.png')
         await interaction.channel.send({embeds: [image1]})
         await interaction.channel.send({ files : [image] })
         
@@ -160,9 +160,9 @@ const disc = new EmbedBuilder().setDescription(`
           
           
           **HOW TO GET DONATOR RANK**
-          ↳ Make a donation via [**Patreon**](https://www.patreon.com/pandamium)
-          ↳ Open a ticket in <#1089326603672223794> and tell us your Minecraft and Patreon names.
-          ↳ [**Link**](https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role) your Patreon and Discord accounts.
+          **↳** Make a donation via [**Patreon**](https://www.patreon.com/pandamium)
+          **↳** Open a ticket in <#1089326603672223794> and tell us your Minecraft and Patreon names.
+          **↳** [**Link**](https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role) your Patreon and Discord accounts.
           
           
           Donations through Patreon are subscriptions. Once you donate, you'll be charged every month until you cancel. Donator Rank is given for 1 month per $5 you donate! If you change your Minecraft or Patreon name, you need to tell us that, otherwise we won't know where the donation should go.
@@ -170,7 +170,7 @@ const disc = new EmbedBuilder().setDescription(`
       `).setColor('#D122F8')
       
       
-      await interaction.channel.send('https://media.discordapp.net/attachments/1079532215584706670/1089580753647587398/image.png?width=1595&height=220')
+      await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274399200391178/1089922475057483877/image.png')
       await interaction.channel.send({embeds: [emb]})
       }
 
@@ -239,7 +239,7 @@ const disc = new EmbedBuilder().setDescription(`
         
         
         
-        await interaction.channel.send('https://media.discordapp.net/attachments/1079531915155079178/1089599118764150934/image.png?width=1439&height=199')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274212662923386/1089921572283895909/faq.png')
         await interaction.channel.send({embeds: [f1, f2, f3, f4, f5, f6, f7, f8]})
       }
 
@@ -371,9 +371,9 @@ Owns the Discord and Minecraft servers.ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ�
 `).setColor('#AA0000')
 
 
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1079532021984014396/1089598304037376120/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274345702039673/1089921618513510501/playerranks.png')
         await interaction.channel.send({embeds: [embed, embed2 , embed3 , embed4, embed5, embed6, embed7, embed8]})
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1079532021984014396/1089598384224079922/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274345702039673/1089921625807409292/staffranks.png')
        await interaction.channel.send({embeds: [embed9, embed10, embed11, embed12, embed13]})
       }
 
@@ -390,7 +390,7 @@ Owns the Discord and Minecraft servers.ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ�
         :tada: ⭢ Event Pings
 `).setColor('#F53068')
 
-await interaction.channel.send('https://media.discordapp.net/attachments/1079531833567481977/1089598568525992076/image.png?width=1595&height=220')
+await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274296020500630/1089921589249839115/reactionroles.png')
 await interaction.channel.send({embeds: [rr]})
       }
 
@@ -443,7 +443,7 @@ await interaction.channel.send({embeds: [rr]})
         const embed15 = new EmbedBuilder()
         .setDescription(`**These rules apply to the Pandamium Minecraft servers and the official Pandamium Discord. They also extend to direct messages if these messages are related to Pandamium.**\n\n**The rules may be edited by the Owner (Sundroid) at any time.**`).setColor('#D02FB7')
 
-       await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274040839057489/1089579687149326426/image.png')
+       await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274040839057489/1089921506630438933/rules.png')
         await interaction.channel.send({embeds: [embed, embed1, embed2, embed3, embed4, embed5, embed6, embed7, embed8, embed9, ]})
         await interaction.channel.send({embeds: [embed10, embed11, embed12, embed13, embed14, embed15]})
 
@@ -478,7 +478,7 @@ await interaction.channel.send({embeds: [rr]})
                 `).setColor('#65FE54')
         
                 const closed = new EmbedBuilder().setTitle('Staff applications are currently closed. There will be an announcement when they reopen.').setColor('#Ff1d8e')
-          await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274599553908756/1089652960948125768/image.png')
+          await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274599553908756/1089921729020825671/staffapplications.png')
           await interaction.channel.send({embeds: [staff]})
           await interaction.channel.send({embeds: [closed]})
       }
@@ -502,7 +502,7 @@ await interaction.channel.send({embeds: [rr]})
         <https://minecraft.global/server/173/vote>
         `).setColor('#0BF759')
 
-        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274151304429578/1089597029904289812/image.png')
+        await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274151304429578/1089921551333335141/voting.png')
         await interaction.channel.send({embeds: [emb]})
       }
 
@@ -568,7 +568,7 @@ You can view all of the mob heads on our [**website**](https://www.pandamium.com
 
 `).setColor('#FE5453')
 
-    await interaction.channel.send('https://media.discordapp.net/attachments/1079532292080422914/1089581400073711686/image.png')
+    await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274638204403762/1089921740651630622/mobheads.png')
     await interaction.channel.send({embeds: [mmh1]})
       }
 
@@ -596,7 +596,7 @@ Description:
 **Don't forget to provide screenshots!**
 `).setColor('#EA5374')
 
-await interaction.channel.send('https://cdn.discordapp.com/attachments/1079532250380648578/1089580862972121263/image.png')
+await interaction.channel.send('https://cdn.discordapp.com/attachments/1089274446000423075/1089921659907084439/town.png')
 await interaction.channel.send({embeds: [town]})
       }
       
