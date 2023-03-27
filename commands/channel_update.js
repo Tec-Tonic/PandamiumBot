@@ -149,20 +149,20 @@ const disc = new EmbedBuilder().setDescription(`
           **DONATOR PERKS**
       
           **Snapshot Server:**
-          :white_small_square:10 Homes
-          :white_small_square:Access to lots of particle effects
-          :white_small_square:Donator only <#1089327016379162644> 
+          **↳** 10 Homes
+          **↳** Access to lots of particle effects
+          **↳** Donator only <#1089327016379162644> 
           
           **Release Server:**
-          :white_small_square:25 Homes & Larger claim limits
-          :white_small_square:Join even if the server is full
-          :white_small_square: Donator only <#1089327016379162644> 
+          **↳** 25 Homes & Larger claim limits
+          **↳** Join even if the server is full
+          **↳** Donator only <#1089327016379162644> 
           
           
           **HOW TO GET DONATOR RANK**
-          **↳** Make a donation via [**Patreon**](https://www.patreon.com/pandamium)
-          **↳** Open a ticket in <#1089326603672223794> and tell us your Minecraft and Patreon names.
-          **↳** [**Link**](https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role) your Patreon and Discord accounts.
+          :white_small_square: Make a donation via [**Patreon**](https://www.patreon.com/pandamium)
+          :white_small_square: Open a ticket in <#1089326603672223794> and tell us your Minecraft and Patreon names.
+          :white_small_square: [**Link**](https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role) your Patreon and Discord accounts.
           
           
           Donations through Patreon are subscriptions. Once you donate, you'll be charged every month until you cancel. Donator Rank is given for 1 month per $5 you donate! If you change your Minecraft or Patreon name, you need to tell us that, otherwise we won't know where the donation should go.
@@ -177,65 +177,65 @@ const disc = new EmbedBuilder().setDescription(`
       if (update === 'faq'){
         const f1 = new EmbedBuilder()
         .setDescription(`
-        **‣ What's the IP of the server?**
-          Release server: release.pandamium.eu
-          Snapshot server: snapshot.pandamium.eu
-        `).setColor('#FFA200')
+**‣ What's the IP of the server?**
+Release server: release.pandamium.eu
+Snapshot server: snapshot.pandamium.eu
+`).setColor('#FFA200')
         
-        const f2 = new EmbedBuilder()
-        .setDescription(`
-        **‣ When do auto restarts happen?**
-        Both servers will restart every 12 Hours - <t:0:t> and <t:43200:t>
-        `).setColor('#FFA200')
+const f2 = new EmbedBuilder()
+.setDescription(`
+**‣ When do auto restarts happen?**
+Both servers will restart every 12 Hours - <t:0:t> and <t:43200:t>
+`).setColor('#FFA200')
         
-        const f3 = new EmbedBuilder()
-        .setDescription(`
-        **‣ What hardware is the server running on?**
-          The hardware we're running is basically ideal for a Minecraft server, we have a CPU with great single core performance, more cores and RAM than the server actually needs and a fast NVMe SSD. If the server is lagging, it's because Minecraft is poorly optimized, not because of the server hardware.
+const f3 = new EmbedBuilder()
+.setDescription(`
+**‣ What hardware is the server running on?**
+The hardware we're running is basically ideal for a Minecraft server, we have a CPU with great single core performance, more cores and RAM than the server actually needs and a fast NVMe SSD. If the server is lagging, it's because Minecraft is poorly optimized, not because of the server hardware.
         
-        :white_small_square:AMD Ryzen 3600 (6C/12T @3.6Ghz)
-        :white_small_square:64 GB DDR4 ECC RAM.
-        :white_small_square:2x 500gb NVMe SSDs running in RAID1
-        :white_small_square:2x 1tb NVMe SSDs running in RAID1 for server backup.
-        :white_small_square:1 GBit Internet connection
-        `).setColor('#FFA200')
+:white_small_square:AMD Ryzen 3600 (6C/12T @3.6Ghz)
+:white_small_square:64 GB DDR4 ECC RAM.
+:white_small_square:2x 500gb NVMe SSDs running in RAID1
+:white_small_square:2x 1tb NVMe SSDs running in RAID1 for server backup.
+:white_small_square:1 GBit Internet connection
+`).setColor('#FFA200')
         
-        const f4 = new EmbedBuilder()
-        .setDescription(`
-        **‣ Is griefing and stealing allowed?**
-          No, it's absolutely not allowed. On the Release server you can create a claim to protect your stuff. Unfortunately this isn't possible on the Snapshot server because we can't use plugins there, so please move far away from spawn and only share the coords with people you trust. 
+const f4 = new EmbedBuilder()
+.setDescription(`
+**‣ Is griefing and stealing allowed?**
+No, it's absolutely not allowed. On the Release server you can create a claim to protect your stuff. Unfortunately this isn't possible on the Snapshot server because we can't use plugins there, so please move far away from spawn and only share the coords with people you trust. 
          
-        `).setColor('#FFA200')
+`).setColor('#FFA200')
         
-        const f5 = new EmbedBuilder()
-        .setDescription(`
-        **‣ How can I get more homes or bigger claims?**
-          You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#1089326766474154004> Instead you can also donate if you want, check out \n<#1089326826834366684>.
+const f5 = new EmbedBuilder()
+.setDescription(`
+**‣ How can I get more homes or bigger claims?**
+You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#1089326766474154004> Instead you can also donate if you want, check out \n<#1089326826834366684>.
          
-        `).setColor('#FFA200')
+`).setColor('#FFA200')
         
-        const f6 = new EmbedBuilder()
-        .setDescription(`
-        **‣ How can I join or create a town?**
-        To join a town, you need to apply in their Discord channel. It is up to the owners of the respective groups to accept/deny your application. To create your own, you need to open a ticket in <#1089326603672223794> and follow the correct template for the town application. Go to <#1089326977225347092> for more detail.
+const f6 = new EmbedBuilder()
+.setDescription(`
+**‣ How can I join or create a town?**
+To join a town, you need to apply in their Discord channel. It is up to the owners of the respective groups to accept/deny your application. To create your own, you need to open a ticket in <#1089326603672223794> and follow the correct template for the town application. Go to <#1089326977225347092> for more detail.
          
-        `).setColor('#FFA200')
+`).setColor('#FFA200')
         
-        const f7 = new EmbedBuilder()
-        .setDescription(`
-        **‣ Is it allowed to use Litematica to make building easier?**
-          You are allowed to use the visual features of Litematica. However, Litematica allows you to place blocks in the air or other impossible positions and allows automates building to make if much faster than for normal players. These parts of the mod are **not **allowed.
+const f7 = new EmbedBuilder()
+.setDescription(`
+**‣ Is it allowed to use Litematica to make building easier?**
+You are allowed to use the visual features of Litematica. However, Litematica allows you to place blocks in the air or other impossible positions and allows automates building to make if much faster than for normal players. These parts of the mod are **not **allowed.
         
-        `).setColor('#FFA200')
+`).setColor('#FFA200')
         
-        const f8 = new EmbedBuilder()
-        .setDescription(`
-        **‣ How are chunks reset?**
-        This does not refer to world resets but to periodic trimming of the world size!
+const f8 = new EmbedBuilder()
+.setDescription(`
+**‣ How are chunks reset?**
+This does not refer to world resets but to periodic trimming of the world size!
         
-          Exploring freely on Pandamium causes lots of chunks to be loaded (e.g. while flying with an elytra) and then never even loaded again. Those chunks take up a lot of space, so we need to trim the world size from time to time. For this we use a tool that only deletes chunks which haven't been loaded at all in at least two weeks and for more than 2 hours in total. World trimming isn't done regularly, we usually do it together with other server maintenance since the server has to be offline for it.
+Exploring freely on Pandamium causes lots of chunks to be loaded (e.g. while flying with an elytra) and then never even loaded again. Those chunks take up a lot of space, so we need to trim the world size from time to time. For this we use a tool that only deletes chunks which haven't been loaded at all in at least two weeks and for more than 2 hours in total. World trimming isn't done regularly, we usually do it together with other server maintenance since the server has to be offline for it.
         
-        `).setColor('#FFA200')
+`).setColor('#FFA200')
         
         
         
@@ -454,9 +454,9 @@ await interaction.channel.send({embeds: [rr]})
         If you want to apply to become a Helper, read the following carefully.
         
         **RECOMMENDATIONS FOR HELPER**
-        ↳  16+ years of age
-        ↳  50+ votes
-        ↳  50+ hours of playtime
+        **↳** 16+ years of age
+        **↳** 50+ votes
+        **↳** 50+ hours of playtime
         
         
         **HOW TO APPLY**
