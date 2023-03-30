@@ -11,7 +11,7 @@ const {
 
 const util = require("minecraft-server-util");
 const intComplete = new EmbedBuilder().setDescription(`Command sent!`).setColor('#189cab')
-const intNotComplete = new EmbedBuilder().setDescription(`This command is restricted!`).setColor('#F00')
+const intNotComplete = new EmbedBuilder().setDescription(`This command is restricted!`).setColor('#FF0000')
 
 module.exports = class faqSlashCommand extends BaseSlashCommand {
   constructor() {
