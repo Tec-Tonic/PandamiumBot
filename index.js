@@ -191,28 +191,28 @@ client.on("messageCreate", (message) => {
 });
 
 
-//Removed message from Gallery
-client.on('messageCreate', (msg) => {
-  if (msg.author == client.user) return;
-  const revokePost = new EmbedBuilder().setColor('#FF0000').setDescription('You may not comment on posts here, this channel is for high quality images only!')
+// //Removed message from Gallery
+// client.on('messageCreate', (msg) => {
+//   if (msg.author == client.user) return;
+//   const revokePost = new EmbedBuilder().setColor('#FF0000').setDescription('You may not comment on posts here, this channel is for high quality images only!')
 
-  const channelName = msg.channel.name //
-  if (channelName === 'gallery') {
-    if (msg.attachments.size > 0 | msg.embeds.length > 0) {
-      return;
-    } else {
-      console.log('Gallery message has been deleted')
+//   const channelName = msg.channel.name //
+//   if (channelName === 'gallery') {
+//     if (msg.attachments.size > 0 | msg.embeds.length > 0) {
+//       return;
+//     } else {
+//       console.log('Gallery message has been deleted')
 
-      msg.delete()
-        .then(msg => {
-          msg.channel.send({ embeds: [revokePost] })
-            .then(delMsg => {
-              setTimeout(() => delMsg.delete(), 30000)
-            })
-        })
-    }
-  }
-})
+//       msg.delete()
+//         .then(msg => {
+//           msg.channel.send({ embeds: [revokePost] })
+//             .then(delMsg => {
+//               setTimeout(() => delMsg.delete(), 30000)
+//             })
+//         })
+//     }
+//   }
+// })
 
 
 //lang
