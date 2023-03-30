@@ -10,6 +10,8 @@ const {
 } = require("discord.js");
 
 const util = require("minecraft-server-util");
+const intComplete = new EmbedBuilder().setDescription(`Command sent!`).setColor('#189cab')
+const intNotComplete = new EmbedBuilder().setDescription(`This command is restricted!`).setColor('#F00')
 
 module.exports = class faqSlashCommand extends BaseSlashCommand {
   constructor() {
@@ -28,6 +30,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const release = translateFileCommand.release;
         const disc = translateFileCommand.disc;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274505295314964/1089921681872650362/snapcommands.png"
         );
@@ -52,6 +55,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
           )
           .setColor("#0159FF");
 
+          await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274546680516700/1089921719311028224/customrecipes.png"
         );
@@ -63,6 +67,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileDonator = require("../embeds/donator-embed");
         const emb = translateFileDonator.emb;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274399200391178/1089922475057483877/image.png"
         );
@@ -80,6 +85,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const f7 = translateFileFAQ.f7;
         const f8 = translateFileFAQ.f8;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274212662923386/1089921572283895909/faq.png"
         );
@@ -104,8 +110,9 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const embed12 = translateFileRank.embed12;
         const embed13 = translateFileRank.embed13;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
-          "https://cdn.discordapp.com/attachments/1089274345702039673/1089921618513510501/playerranks.png"
+          "https://media.discordapp.net/attachments/1089274345702039673/1091085776932053052/image.png?width=1440&height=298"
         );
         await interaction.channel.send({
           embeds: [
@@ -119,6 +126,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
             embed8,
           ],
         });
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274345702039673/1089921625807409292/staffranks.png"
         );
@@ -131,6 +139,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileRR = require("../embeds/reaction-role-embed");
         const rr = translateFileRR.rr;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274296020500630/1089921589249839115/reactionroles.png"
         );
@@ -156,6 +165,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const embed14 = translateFileRule.embed14;
         const embed15 = translateFileRule.embed15;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274040839057489/1089921506630438933/rules.png"
         );
@@ -182,6 +192,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileStaffMsg = require("../embeds/staff-msg-embed");
         const staff = translateFileStaffMsg.staff;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274599553908756/1090012977702391948/image.png"
         );
@@ -192,6 +203,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileStaffop = require("../embeds/staff-open-embed");
         const open = translateFileStaffop.open;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send({ embeds: [open] });
       }
 
@@ -199,6 +211,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileStaffcl = require("../embeds/staff-closed-embed");
         const closed = translateFileStaffcl.closed;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send({ embeds: [closed] });
       }
 
@@ -206,6 +219,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileVote = require("../embeds/vote-embed");
         const emb = translateFileVote.emb;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274151304429578/1089921551333335141/voting.png"
         );
@@ -217,6 +231,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const em1 = translateFilewelcome.em1;
         const verify = translateFilewelcome.verify;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1079529798000447548/1089581593418530857/image.png"
         );
@@ -227,6 +242,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileMMH = require("../embeds/more-mob-heads-embed");
         const mmh1 = translateFileMMH.mmh1;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274638204403762/1089921740651630622/mobheads.png"
         );
@@ -237,15 +253,14 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const translateFileTownApps = require("../embeds/town-apps-embed");
         const town = translateFileTownApps.town;
 
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274446000423075/1090019998845653083/image.png"
         );
         await interaction.channel.send({ embeds: [town] });
       }
     } else {
-      return interaction.reply(
-        "You do not have the permissions to use this command."
-      );
+      return interaction.reply({embeds: [intNotComplete],ephemeral: true,})
     }
   }
   getSlashCommandJSON() {
