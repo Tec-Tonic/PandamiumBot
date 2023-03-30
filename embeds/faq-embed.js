@@ -43,14 +43,14 @@ No, it's absolutely not allowed. On the Release server you can create a claim to
 const f5 = new EmbedBuilder()
 .setDescription(`
 **‣ How can I get more homes or bigger claims?**
-You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#1089326766474154004> Instead you can also donate if you want, check out \n<#1089326826834366684>.
+You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#506987588742152202> Instead you can also donate if you want, check out \n<#506498349029916673>.
          
 `).setColor('#FFA200')
         
 const f6 = new EmbedBuilder()
 .setDescription(`
 **‣ How can I join or create a town?**
-To join a town, you need to apply in their Discord channel. It is up to the owners of the respective groups to accept/deny your application. To create your own, you need to open a ticket in <#1089326603672223794> and follow the correct template for the town application. Go to <#1089326977225347092> for more detail.
+To join a town, you need to apply in their Discord channel. It is up to the owners of the respective groups to accept/deny your application. To create your own, you need to open a ticket in <#750352670702698657> and follow the correct template for the town application. Go to <#1031296778907156511> for more detail.
          
 `).setColor('#FFA200')
         

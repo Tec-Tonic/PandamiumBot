@@ -17,7 +17,7 @@ If you want to apply for a town Discord channel, read the following carefully.
 **↳** You must provide screenshots of the town/area where it’s planned to be built.
 
 **HOW TO APPLY**
-:white_small_square:Open a ticket in <#1089326603672223794> and follow the directions.
+:white_small_square:Open a ticket in <#750352670702698657> and follow the directions.
 
 Please use the following template when applying:
 
