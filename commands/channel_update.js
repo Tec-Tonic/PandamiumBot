@@ -231,11 +231,11 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const em1 = translateFilewelcome.em1;
         //const verify = translateFilewelcome.verify;
 
-        await interaction.reply({embeds: [intComplete]/*,ephemeral: true,*/})
+        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1079529798000447548/1089581593418530857/image.png"
         );
-        await interaction.channel.send({ embeds: [em1], components: [verify] });
+        await interaction.channel.send({ embeds: [em1]/*, components: [verify] */});
       }
 
       if (update === "mmh") {
