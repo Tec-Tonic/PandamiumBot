@@ -304,4 +304,34 @@ client.on('interactionCreate', async (interaction) => {
 
 })
 
+
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isButton()) return;
+  const wait = require('node:timers/promises').setTimeout;
+  const intAuth = interaction.user.id
+
+  const modal = new ModalBuilder()
+  .setCustomId('myModal')
+  .setTitle('Verification');
+
+
+const favoriteColorInput = new TextInputBuilder()
+  .setCustomId('favoriteColorInput')
+    
+  .setLabel("Answer")
+  .setPlaceholder("Something goes here...")
+  .setStyle(TextInputStyle.Short);
+
+const firstActionRow = new ActionRowBuilder().addComponents(favoriteColorInput);
+
+
+
+modal.addComponents(firstActionRow);
+
+
+await interaction.showModal(modal);
+  
+}
+)
+
 main();
