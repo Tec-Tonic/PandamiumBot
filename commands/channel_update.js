@@ -126,7 +126,6 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
             embed8,
           ],
         });
-        await interaction.reply({embeds: [intComplete],ephemeral: true,})
         await interaction.channel.send(
           "https://cdn.discordapp.com/attachments/1089274345702039673/1089921625807409292/staffranks.png"
         );
