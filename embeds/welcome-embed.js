@@ -20,14 +20,7 @@ const { ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, EmbedBuilder } = r
 
 const em1 = new EmbedBuilder()
          .setDescription(`
-To access our Discord server, you need to link your Minecraft account to your Discord account. The following only needs to be done once:
-
-**HOW TO LINK YOUR ACCOUNTS**
-:white_small_square:Log into the **Release Server**  →  \`release.pandamium.eu\`.
-:white_small_square:Use the command \`/discord link\` in-game. You will get a 4 digit link code.
-:white_small_square:Send a private message with this link code to <@604625105758322688>
-
-To send a dm to the bot, you need to enable the \`Allow direct messages from server members\` option for this Discord server. You can find it by right clicking the Pandamium icon and selecting Privacy Settings (you can disable it again afterwards). If there are any problems with the linking process, please message a member of staff.
+To access our Discord server, you need to link your Minecraft account to your Discord account. The following only needs to be done once:\n\n**HOW TO LINK YOUR ACCOUNTS**\n:white_small_square:Log into the **Release Server**  →  \`release.pandamium.eu\`.\n:white_small_square:Use the command \`/discord link\` in-game. You will get a 4 digit link code.\n:white_small_square:Send a private message with this link code to <@604625105758322688>\n\nTo send a dm to the bot, you need to enable the \`Allow direct messages from server members\` option for this Discord server. You can find it by right clicking the Pandamium icon and selecting Privacy Settings (you can disable it again afterwards). If there are any problems with the linking process, please message a member of staff.
 `).setColor('#D10E91')
 
 
