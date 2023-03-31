@@ -21,8 +21,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
   async run(client, interaction) {
     const update = interaction.options.getString("channel_name");
     if (
-      interaction.user.id === "546277533138550786" ||
-      interaction.user.id === "1089362805137887232"
+      interaction.user.id === "546277533138550786" || interaction.user.id === "255766501464735744"
     ) {
       if (update === "commands") {
         const translateFileCommand = require("../embeds/command-embed");
