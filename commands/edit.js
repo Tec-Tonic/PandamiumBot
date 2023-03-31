@@ -72,10 +72,11 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       **/workbench** or **/wb** → opens a workbench
       `).setColor('#7A8CEA')
 
-        //interaction.reply({embeds: [noUpdates], ephemeral: true})
+        const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
+        interaction.reply({embeds: [noUpdates], ephemeral: true})
         
-        const channel = client.channels.cache.get('602084896709541898') //commands
-        channel.messages.fetch('1091446846452400158').then(msg => msg.edit({embeds: [release]}))
+        // const channel = client.channels.cache.get('602084896709541898') //commands
+        // channel.messages.fetch('1091446846452400158').then(msg => msg.edit({embeds: [release]}))
     } else {
       return interaction.reply(
         "You do not have the permissions to use this command."
@@ -87,28 +88,28 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       .setName(this.name)
       .setDescription("Edits message embeds!")
       .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
-      .addStringOption((option) =>
-        option
-          .setName("channel_name")
-          .setDescription("Updates old embed messages")
-          .setRequired(true)
-          .addChoices(
-            { name: "Commands", value: "commands" } //,
-            //{ name: "Custom Recipes", value: "custom" },
-            // { name: "Donations", value: "donate" },
-            // { name: "FAQ", value: "faq" },
-            // { name: "More Mob Heads", value: "mmh" },
-            // { name: "Ranks", value: "ranks" },
-            // { name: "Reaction Roles", value: "rr" },
-            // { name: "Rules", value: "rule" },
-            // { name: "Staff Applications [Message]", value: "sa" },
-            // { name: "Staff Applications [Open]", value: "open-sa" },
-            // { name: "Staff Applications [Closed]", value: "closed-sa" },
-            // { name: "Town Applications", value: "ta" },
-            // { name: "Vote", value: "vote" },
-            // { name: "Welcome", value: "welcome" }
-          )
-      )
+    //   .addStringOption((option) =>
+    //     option
+    //       .setName("channel_name")
+    //       .setDescription("Updates old embed messages")
+    //       .setRequired(true)
+    //       .addChoices(
+    //         { name: "Commands", value: "commands" } //,
+    //         //{ name: "Custom Recipes", value: "custom" },
+    //         // { name: "Donations", value: "donate" },
+    //         // { name: "FAQ", value: "faq" },
+    //         // { name: "More Mob Heads", value: "mmh" },
+    //         // { name: "Ranks", value: "ranks" },
+    //         // { name: "Reaction Roles", value: "rr" },
+    //         // { name: "Rules", value: "rule" },
+    //         // { name: "Staff Applications [Message]", value: "sa" },
+    //         // { name: "Staff Applications [Open]", value: "open-sa" },
+    //         // { name: "Staff Applications [Closed]", value: "closed-sa" },
+    //         // { name: "Town Applications", value: "ta" },
+    //         // { name: "Vote", value: "vote" },
+    //         // { name: "Welcome", value: "welcome" }
+    //       )
+    //   )
       .toJSON();
   }
 };
