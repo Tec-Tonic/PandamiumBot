@@ -22,19 +22,60 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     ) {
       //code here
        
-      const staff = new EmbedBuilder().setDescription(`
-      If you want to apply to become a Helper, read the following carefully.\n\n**RECOMMENDATIONS FOR HELPER**\n**↳** 16+ years of age\n**↳** 50+ votes\n**↳** 50+ hours of playtime\n\n\n**HOW TO APPLY**\n:white_small_square: Open a ticket in <#750352670702698657> and follow the directions. \n\nWhen you submit your application, it will be transferred to a private staff area for review and your ticket will be closed. Applications that have been transferred are unable to be edited.\n\n\n**HELPFUL TIPS**\n**↳** Write a long and detailed application.\n**↳** Include as much relevant information as possible (e.g. past staff experience, when/how long you can be online).\n**↳** Include any punishments you've received on the server and why you think you're still suitable to be on our staff team.\n\n\n**HOW DECISIONS ARE MADE**\nWe use a point based system to make decisions about staff applications. Every staff member can give you plus or minus points (higher ranks have more influence). There are also some additional points which are calculated by set formulas and depend on things like your playtime. A final decision will be made after we've reviewed all of the applications, which may take quite a while. Your ticket being closed just means we've seen your application, not that we've made a decision.
-              `).setColor('#65FE54')
+      const embed = new EmbedBuilder().setTitle(`GUEST`)
+      .setDescription(`
+New playersㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Snapshot Perks:**\n**▫️**Homes: **1**\n\n**Release Perks:**\n**▫️**Homes: **2**\n**▫️**Claims: **1**\n**▫️**Max Claim Area: **5,000 Blocks**`).setColor('#AAAAAA')
+
+      const embed2 = new EmbedBuilder().setTitle(`PLAYER`)
+      .setDescription(`
+Requires 5 hours of playtime and 5 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **2 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **3**\n**▫️**Claims: **2**\n**▫️**Max Claim Area: **10,000 Blocks **`).setColor('#55FF55')
+     
+      
+      const embed3 = new EmbedBuilder().setTitle(`MEMBER`)
+      .setDescription(`
+Requires 25 hours of playtime and 25 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **3 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **5**\n**▫️**Claims: **3**\n**▫️**Max Claim Area: **25,000 Blocks **`).setColor('#00AA00')
+
+      const embed4 = new EmbedBuilder().setTitle(`ELDER`)
+      .setDescription(`
+Requires 125 hours of playtime and 125 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **4 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **10**\n**▫️**Claims: **5**\n**▫️**Max Claim Area: **50,000 Blocks **`).setColor('#55FFFF')
+
+      const embed5 = new EmbedBuilder().setTitle(`VETERAN`)
+      .setDescription(`
+Requires 500 hours of playtime and 500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **20**\n**▫️**Claims: **10**\n**▫️**Max Claim Area: **150,000 Blocks **`).setColor('#00AAAA')
+
+      const embed6 = new EmbedBuilder().setTitle(`ELITE`)
+      .setDescription(`
+Requires 2,500 hours of playtime and 2,500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **20**\n**▫️**Claims: **10**\n**▫️**Max Claim Area: **150,000 Blocks **`).setColor('#5555FF')
+
+      const embed7 = new EmbedBuilder().setTitle(`DONATOR`)
+      .setDescription(`
+Players who have donated.\n\n**Snapshot Perks**:\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n**▫️**Access to lots of particle effects\n**▫️**Donator only <#1089327016379162644>         \n\n**Release Perks**: \n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**\n**▫️**Join even if the server is full\n**▫️**Donator only <#1089327016379162644>`).setColor('#AA00AA')
+
+      const embed8 = new EmbedBuilder().setTitle(`VIP`)
+      .setDescription(`
+Not obtainable via normal means and only given by the Owner.\n\n**Snapshot Perks:**\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks:**\n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**`).setColor('#0000AA')
+
+
+
     
 
         const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
         //interaction.reply({embeds: [noUpdates], ephemeral: true})
         
-        const msgID = '1091447674378670270'
-        const channelID = '559311187867729932'
+        const msgID = '1091447597224448081'
+        const channelID = '506987588742152202'
 
         const channel = client.channels.cache.get(channelID) //commands
-        channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [staff]}))
+        channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [
+          embed,
+          embed2,
+          embed3,
+          embed4,
+          embed5,
+          embed6,
+          embed7,
+          embed8,
+        ]}))
     } else {
       return interaction.reply(
         "You do not have the permissions to use this command."
