@@ -22,20 +22,19 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     ) {
       //code here
        
-      const emb = new EmbedBuilder()
-      .setDescription(`
-    If you would like to support Pandamium and help improve the hardware the server is running on, consider donating. In return, you'll receive the **Donator **rank as a thank you, both in Minecraft and on Discord. \n\n\n**DONATOR PERKS**\n\n**Snapshot Server:**\n**↳** 10 Homes\n**↳** Access to lots of particle effects\n**↳** Donator only <#602084896709541898> \n\n**Release Server:**\n**↳** 25 Homes & Larger claim limits\n**↳** Join even if the server is full\n**↳** Donator only <#602084896709541898> \n\n\n**HOW TO GET DONATOR RANK**\n:white_small_square: Make a donation via [**Patreon**](https://www.patreon.com/pandamium).\n:white_small_square: Open a ticket in <#750352670702698657> and follow the directions.\n:white_small_square: [**Link**](https://support.patreon.com/hc/en-us/articles/212052266-Get-my-Discord-role) your Patreon and Discord accounts.\n\n\nDonations through Patreon are subscriptions. Once you donate, you'll be charged every month until you cancel. Donator Rank is given for 1 month per $5 you donate! If you change your Minecraft or Patreon name, you need to tell us that, otherwise we won't know where the donation should go.`)
-  .setColor("#D122F8");
+      const staff = new EmbedBuilder().setDescription(`
+      If you want to apply to become a Helper, read the following carefully.\n\n**RECOMMENDATIONS FOR HELPER**\n**↳** 16+ years of age\n**↳** 50+ votes\n**↳** 50+ hours of playtime\n\n\n**HOW TO APPLY**\n:white_small_square: Open a ticket in <#750352670702698657> and follow the directions. \n\nWhen you submit your application, it will be transferred to a private staff area for review and your ticket will be closed. Applications that have been transferred are unable to be edited.\n\n\n**HELPFUL TIPS**\n**↳** Write a long and detailed application.\n**↳** Include as much relevant information as possible (e.g. past staff experience, when/how long you can be online).\n**↳** Include any punishments you've received on the server and why you think you're still suitable to be on our staff team.\n\n\n**HOW DECISIONS ARE MADE**\nWe use a point based system to make decisions about staff applications. Every staff member can give you plus or minus points (higher ranks have more influence). There are also some additional points which are calculated by set formulas and depend on things like your playtime. A final decision will be made after we've reviewed all of the applications, which may take quite a while. Your ticket being closed just means we've seen your application, not that we've made a decision.
+              `).setColor('#65FE54')
     
 
         const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
         //interaction.reply({embeds: [noUpdates], ephemeral: true})
         
-        const msgID = '1091447824400527360'
-        const channelID = '506498349029916673'
+        const msgID = '1091447674378670270'
+        const channelID = '559311187867729932'
 
         const channel = client.channels.cache.get(channelID) //commands
-        channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [emb]}))
+        channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [staff]}))
     } else {
       return interaction.reply(
         "You do not have the permissions to use this command."
