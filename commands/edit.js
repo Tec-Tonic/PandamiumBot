@@ -49,7 +49,7 @@ Requires 2,500 hours of playtime and 2,500 votes.\n\n**Snapshot Perks:**\n**▫�
 
       const embed7 = new EmbedBuilder().setTitle(`DONATOR`)
       .setDescription(`
-Players who have donated.\n\n**Snapshot Perks**:\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n**▫️**Access to lots of particle effects\n**▫️**Donator only <#1089327016379162644>         \n\n**Release Perks**: \n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**\n**▫️**Join even if the server is full\n**▫️**Donator only <#1089327016379162644>`).setColor('#AA00AA')
+Players who have donated.\n\n**Snapshot Perks**:\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n**▫️**Access to lots of particle effects\n**▫️**Donator only <#602084896709541898>         \n\n**Release Perks**: \n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**\n**▫️**Join even if the server is full\n**▫️**Donator only <#602084896709541898>`).setColor('#AA00AA')
 
       const embed8 = new EmbedBuilder().setTitle(`VIP`)
       .setDescription(`
