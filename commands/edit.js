@@ -22,60 +22,68 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     ) {
       //code here
        
-      const embed = new EmbedBuilder().setTitle(`GUEST`)
-      .setDescription(`
-New playersㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Snapshot Perks:**\n**▫️**Homes: **1**\n\n**Release Perks:**\n**▫️**Homes: **2**\n**▫️**Claims: **1**\n**▫️**Max Claim Area: **5,000 Blocks**`).setColor('#AAAAAA')
+      const release = new EmbedBuilder().setDescription(`
+       
 
-      const embed2 = new EmbedBuilder().setTitle(`PLAYER`)
-      .setDescription(`
-Requires 5 hours of playtime and 5 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **2 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **3**\n**▫️**Claims: **2**\n**▫️**Max Claim Area: **10,000 Blocks **`).setColor('#55FF55')
-     
+      **Miscellaneous**
+      **/afk** → toggle your afk status
+      **/clear **→ clears your inventory
+      **/discord** → gives you the Pandamium Discord link
+      **/playtime** → shows your total playtime on the server
+      **/playtimetop** → shows a ranking of all players sorted by playtime
+      **/respawn** → kills you and allows you to get back to your spawn point quickly
+      **/warp** → allows you to use warps
+      **/world_info** → shows you stats about your current dimension
       
-      const embed3 = new EmbedBuilder().setTitle(`MEMBER`)
-      .setDescription(`
-Requires 25 hours of playtime and 25 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **3 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **5**\n**▫️**Claims: **3**\n**▫️**Max Claim Area: **25,000 Blocks **`).setColor('#00AA00')
-
-      const embed4 = new EmbedBuilder().setTitle(`ELDER`)
-      .setDescription(`
-Requires 125 hours of playtime and 125 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **4 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **10**\n**▫️**Claims: **5**\n**▫️**Max Claim Area: **50,000 Blocks **`).setColor('#55FFFF')
-
-      const embed5 = new EmbedBuilder().setTitle(`VETERAN`)
-      .setDescription(`
-Requires 500 hours of playtime and 500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **20**\n**▫️**Claims: **10**\n**▫️**Max Claim Area: **150,000 Blocks **`).setColor('#00AAAA')
-
-      const embed6 = new EmbedBuilder().setTitle(`ELITE`)
-      .setDescription(`
-Requires 2,500 hours of playtime and 2,500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **20**\n**▫️**Claims: **10**\n**▫️**Max Claim Area: **150,000 Blocks **`).setColor('#5555FF')
-
-      const embed7 = new EmbedBuilder().setTitle(`DONATOR`)
-      .setDescription(`
-Players who have donated.\n\n**Snapshot Perks**:\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n**▫️**Access to lots of particle effects\n**▫️**Donator only <#602084896709541898>         \n\n**Release Perks**: \n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**\n**▫️**Join even if the server is full\n**▫️**Donator only <#602084896709541898>`).setColor('#AA00AA')
-
-      const embed8 = new EmbedBuilder().setTitle(`VIP`)
-      .setDescription(`
-Not obtainable via normal means and only given by the Owner.\n\n**Snapshot Perks:**\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks:**\n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**`).setColor('#0000AA')
-
-
+      **Homes**
+      **/homes** → shows you a list of your homes
+      **/sethome <homeName>** → sets a home with the specified name
+      
+      **Messaging**
+      **/chat** → allows you use chat rooms (Start your msg with ! to write in public)
+      **/ignore <playerName>** → blocks chat and msgs of a player
+      **/mail clear** → clear mail
+      **/mail read** → read mail
+      **/mail send <playername>** → send mail to a player. Can be sent to offline players
+      **/msg <playerName> <message> **→ privately sends the msg to the specified player
+      **/reply <message>** or **/r <message>** → responds to the last private msg received
+      
+      **Teleporting**
+      **/home <homeName>** → teleports you to the specified home
+      **/rtp** → randomly teleports you (same as the RTP portal at spawn)
+      **/spawn** → teleports you to the spawn
+      **/tpa <playerName>** → sends a teleport request to the specified player
+      **/tpaccept** → accepts a teleport request
+      **/tpdeny** → denies a teleport request 
+      
+      **Voting**
+      **/votes** → shows your vote count
+      **/votecredits** → tells you how many vote credits you currently have
+      **/voteshop** → opens the voteshop
+      **/votetop** → shows a ranking of all players sorted by votes
+      
+      **Donators Only**
+      **/armorstand **→ change armor stand settings
+      **/dye**  → change the color of leather armor
+      **/enderchest** or **/ec** → opens your ender chest
+      **/hat **→ puts the block you're currently holding on your head
+      **/item_font** → change the font/color of the name of the item held
+      **/sign_font** → change the font/color of the sign you are looking at 
+      **/workbench** or **/wb** → opens a workbench
+      `).setColor('#7A8CEA')
 
     
 
         const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
         //interaction.reply({embeds: [noUpdates], ephemeral: true})
         
-        const msgID = '1091447597224448081'
-        const channelID = '506987588742152202'
+        const msgID = '1091446846452400158'
+        const channelID = '602084896709541898'
 
         const channel = client.channels.cache.get(channelID) //commands
         channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [
-          embed,
-          embed2,
-          embed3,
-          embed4,
-          embed5,
-          embed6,
-          embed7,
-          embed8,
-        ]}))
+          release
+        ]}))  
     } else {
       return interaction.reply(
         "You do not have the permissions to use this command."
