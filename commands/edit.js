@@ -36,6 +36,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
       **/world_info** → shows you stats about your current dimension
       
       **Homes**
+      **/home <homeName>** → teleports you to the specified home
       **/homes** → shows you a list of your homes
       **/sethome <homeName>** → sets a home with the specified name
       
