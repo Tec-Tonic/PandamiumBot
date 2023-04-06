@@ -25,7 +25,7 @@ module.exports = class IpSlashCommand extends BaseSlashCommand {
           .addFields(
             {
               name: `Release IP: `,
-              value: `pandamium.eu\n **Version:** ${releaseVersionIP}\n\n`,
+              value: `release.pandamium.eu\n **Version:** ${releaseVersionIP}\n\n`,
             },
             {
               name: `Snapshot IP: `,
