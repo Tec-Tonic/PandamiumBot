@@ -16,7 +16,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     super("playerlist");
   }
 
-  run(client, interaction) {
+  async run(client, interaction)  {
 
         //Options for Snapshot & Release
     const options = {
@@ -37,7 +37,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     //if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
     try {
-    util.queryFull("pandamium.eu", port, options).then((Server) => {
+    util.queryFull("pandamium.eu", port, options).then(async (Server) => {
       const nameArr = Server.players.list.join(", ").toString();
 
       //Discord Log
@@ -85,7 +85,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         });
       }
 
-      client.channels.cache.get(logs).send({ embeds: [playerlistInteractionUsed] });
+      await client.channels.cache.get(logs).send({ embeds: [playerlistInteractionUsed] });
 
       return interaction.reply({
         embeds: [playerlistEmbedBetter],
