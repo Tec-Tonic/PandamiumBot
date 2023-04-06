@@ -44,11 +44,11 @@ client.on("ready", async () => {
     if (checkIfPlayer.toString() === "0") {
       client.user.setStatus('idle')
       return client.user.setPresence({
-        activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
+        activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
       })
     } else {
       client.user.setPresence({
-        activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
+        activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
         status: "online",
       });
     }
@@ -155,11 +155,11 @@ client.on('messageCreate', (message) => {
       if (checkIfPlayer.toString() === "0") {
         client.user.setStatus('idle')
         return client.user.setPresence({
-          activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
+          activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
         })
       } else {
         client.user.setPresence({
-          activities: [{ name: `Release players: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
+          activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
           status: "online",
         });
       }
