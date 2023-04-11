@@ -56,9 +56,8 @@ To join a town, you need to apply in their Discord channel. It is up to the owne
         
 const f7 = new EmbedBuilder()
 .setDescription(`
-**‣ Is it allowed to use Litematica to make building easier?**
-You are allowed to use the visual features of Litematica. However, Litematica allows you to place blocks in the air or other impossible positions and allows automates building to make if much faster than for normal players. These parts of the mod are **not **allowed.
-        
+**‣ Is Litematica allowed?**
+You are allowed to use the visual features of Litematica (holograms) as well as placement restriction mode. However, you are **not** allowed to use easy place mode or any printer (auto build) aspect of the mod.       
 `).setColor('#FFA200')
         
 const f8 = new EmbedBuilder()
