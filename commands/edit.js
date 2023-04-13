@@ -22,8 +22,8 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     ) {
       //code here
        
-      const translateFileStaffop = require("../embeds/staff-open-embed");
-      const open = translateFileStaffop.open;
+      const translateFileStaffMsg = require("../embeds/staff-msg-embed");
+        const staff = translateFileStaffMsg.staff;
 
 
     
@@ -36,7 +36,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
 
         const channel = client.channels.cache.get(channelID) //commands
         channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [
-          open
+          staff
         ]}))  
     } else {
       return interaction.reply(
