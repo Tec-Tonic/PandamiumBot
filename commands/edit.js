@@ -31,8 +31,8 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
         //interaction.reply({embeds: [noUpdates], ephemeral: true})
         
-        const msgID = '1091446742765023382'
-        const channelID = '710789637219811359'
+        const msgID = '1091447674378670270'
+        const channelID = '559311187867729932'
 
         const channel = client.channels.cache.get(channelID) //commands
         channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [
