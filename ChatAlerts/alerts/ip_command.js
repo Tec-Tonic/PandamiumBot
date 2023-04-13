@@ -4,7 +4,7 @@ const fs = require("fs");
 
 
 const list = require("minecraft-server-util");
-const server = await axios.get(url)
+//const server = await axios.get(url)
 
 //remove Punctuation
 var punctuation = "!\"#$%&'’()*+,-./:;<=>@[\\]^_`{|}~";
