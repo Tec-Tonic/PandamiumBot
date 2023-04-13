@@ -22,8 +22,8 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     ) {
       //code here
        
-      const translateFileStaffMsg = require("../embeds/staff-msg-embed");
-        const staff = translateFileStaffMsg.staff;
+      const translateFileStaffop = require("../embeds/staff-open-embed");
+      const open = translateFileStaffop.open;
 
 
     
@@ -31,12 +31,12 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
         //interaction.reply({embeds: [noUpdates], ephemeral: true})
         
-        const msgID = '1091447674378670270'
+        const msgID = '1091447694557466724'
         const channelID = '559311187867729932'
 
         const channel = client.channels.cache.get(channelID) //commands
         channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [
-          staff
+          open
         ]}))  
     } else {
       return interaction.reply(
