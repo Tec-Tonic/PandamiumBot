@@ -43,7 +43,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     try {
       if (channelName === "builder-general") {
         util.status("build.pandamium.eu", portB, options).then(async (ServerB) => {
-          const nameArr = ServerB.players.sample
+          const nameArr = ServerB.players.sample.name
     
           // Snapshot Playerlist Result
           const playerlistEmbedBetterB = new EmbedBuilder()
