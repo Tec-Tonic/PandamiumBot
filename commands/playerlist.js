@@ -43,7 +43,9 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     try {
       if (channelName === "builder-general") {
         util.status("build.pandamium.eu", portB, options).then(async (ServerB) => {
-          const nameArr = ServerB.players.sample.name
+          const nameArr = ServerB.players.sample
+          .map((obj) => obj.name)
+          .join(", ");
     
           // Snapshot Playerlist Result
           const playerlistEmbedBetterB = new EmbedBuilder()
@@ -52,7 +54,6 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
               `**Online players (${ServerB.players.online}/${ServerB.players.max}):**`
             )
             .setDescription(`\`\`\`${nameArr}\`\`\``)
-            .setFooter({ text: `Version: ${ServerB.version}` });
     
           // Snapshot No Players Online
           const ServerEmptyB = new EmbedBuilder()
