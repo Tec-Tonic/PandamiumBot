@@ -98,8 +98,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     })
 
     if (channelName === "builder-general") {
-    util.queryFull("build.pandamium.eu", portB, options).then(async (Server) => {
-      const nameArr = Server.players.list.join(", ").toString();
+    util.status("build.pandamium.eu", portB, options).then(async (Server) => {
+      const nameArr = Server.players.sample.join(", ").toString();
 
       // Snapshot Playerlist Result
       const playerlistEmbedBetterB = new EmbedBuilder()
