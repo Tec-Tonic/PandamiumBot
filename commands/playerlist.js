@@ -27,25 +27,21 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     var channelName = interaction.channel.name;
     if (channelName === "snapshot-ingame-chat") {
       var port = 25566;
-      var SName = "snapshot"
       var colour = "#2DF904";
       var ServerName = "Snapshot";
     } else if (channelName === "release-ingame-chat") {
       var port = 25565;
-      var SName = "release"
       var colour = "#058823";
       var ServerName = "Release";
     } else if (channelName === "builder-general") {
-      var port = 25565;
-      var SName = "build"
-      var colour = "#FF00FF";
-      var ServerName = "Build";
+      var portB = 25565;
+      var colourB = "#FF00FF";
     }
 
     //if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
     try {
-    util.queryFull(`${SName}.pandamium.eu`, port, options).then(async (Server) => {
+    util.queryFull("pandamium.eu", port, options).then(async (Server) => {
       const nameArr = Server.players.list.join(", ").toString();
 
       //Discord Log
@@ -99,7 +95,41 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         embeds: [playerlistEmbedBetter],
         ephemeral: true,
       });
+    })
+
+    if (channelName === "builder-general") {
+    util.queryFull("build.pandamium.eu", portB, options).then(async (Server) => {
+      const nameArr = Server.players.list.join(", ").toString();
+
+      // Snapshot Playerlist Result
+      const playerlistEmbedBetterB = new EmbedBuilder()
+        .setColor(colourB)
+        .setTitle(
+          `**Online players (${Server.players.online}/${Server.players.max}):**`
+        )
+        .setDescription(`\`\`\`${nameArr}\`\`\``)
+        .setFooter({ text: `Version: ${Server.version}` });
+
+      // Snapshot No Players Online
+      const ServerEmptyB = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setTitle(`**No online players**`);
+
+      const checkIfPlayer = Server.players.online;
+      if (checkIfPlayer.toString() === "0") {
+        return interaction.reply({
+          embeds: [ServerEmptyB],
+          ephemeral: true,
+        });
+      }
+
+      return interaction.reply({
+        embeds: [playerlistEmbedBetterB],
+        ephemeral: true,
+      });
     });
+  };
+
 } catch {
     const Error = new EmbedBuilder().setColor("#FF0000").setDescription('Server is \`Offline\` or \`Unreachable\`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur')
     interaction.reply({
