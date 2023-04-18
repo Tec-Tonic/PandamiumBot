@@ -41,6 +41,39 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     //if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
     try {
+      if (channelName === "builder-general") {
+        util.status("build.pandamium.eu", portB, options).then(async (ServerB) => {
+          const nameArr = ServerB.players.sample.join(", ").toString();
+    
+          // Snapshot Playerlist Result
+          const playerlistEmbedBetterB = new EmbedBuilder()
+            .setColor(colourB)
+            .setTitle(
+              `**Online players (${ServerB.players.online}/${ServerB.players.max}):**`
+            )
+            .setDescription(`\`\`\`${nameArr}\`\`\``)
+            .setFooter({ text: `Version: ${ServerB.version}` });
+    
+          // Snapshot No Players Online
+          const ServerEmptyB = new EmbedBuilder()
+            .setColor("#FF0000")
+            .setTitle(`**No online players**`);
+    
+          const checkIfPlayer = ServerB.players.online;
+          if (checkIfPlayer.toString() === "0") {
+            return interaction.reply({
+              embeds: [ServerEmptyB],
+              ephemeral: true,
+            });
+          }
+    
+          return interaction.reply({
+            embeds: [playerlistEmbedBetterB],
+            ephemeral: true,
+          });
+        });
+      } else {
+
     util.queryFull("pandamium.eu", port, options).then(async (Server) => {
       const nameArr = Server.players.list.join(", ").toString();
 
@@ -96,40 +129,8 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
         ephemeral: true,
       });
     })
-
-    if (channelName === "builder-general") {
-    util.status("build.pandamium.eu", portB, options).then(async (ServerB) => {
-      const nameArr = ServerB.players.sample.join(", ").toString();
-
-      // Snapshot Playerlist Result
-      const playerlistEmbedBetterB = new EmbedBuilder()
-        .setColor(colourB)
-        .setTitle(
-          `**Online players (${ServerB.players.online}/${ServerB.players.max}):**`
-        )
-        .setDescription(`\`\`\`${nameArr}\`\`\``)
-        .setFooter({ text: `Version: ${ServerB.version}` });
-
-      // Snapshot No Players Online
-      const ServerEmptyB = new EmbedBuilder()
-        .setColor("#FF0000")
-        .setTitle(`**No online players**`);
-
-      const checkIfPlayer = ServerB.players.online;
-      if (checkIfPlayer.toString() === "0") {
-        return interaction.reply({
-          embeds: [ServerEmptyB],
-          ephemeral: true,
-        });
-      }
-
-      return interaction.reply({
-        embeds: [playerlistEmbedBetterB],
-        ephemeral: true,
-      });
-    });
-  };
-
+  }
+  
 } catch {
     const Error = new EmbedBuilder().setColor("#FF0000").setDescription('Server is \`Offline\` or \`Unreachable\`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur')
     interaction.reply({
