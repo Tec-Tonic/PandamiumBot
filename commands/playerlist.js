@@ -27,17 +27,25 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     var channelName = interaction.channel.name;
     if (channelName === "snapshot-ingame-chat") {
       var port = 25566;
+      var SName = "snapshot"
       var colour = "#2DF904";
       var ServerName = "Snapshot";
     } else if (channelName === "release-ingame-chat") {
       var port = 25565;
+      var SName = "release"
       var colour = "#058823";
       var ServerName = "Release";
+    } else if (channelName === "builder-general") {
+      var port = 25565;
+      var SName = "build"
+      var colour = "#FF00FF";
+      var ServerName = "Build";
     }
+
     //if (channelName === "snapshot-ingame-chat" || channelName === "release-ingame-chat") {
 
     try {
-    util.queryFull("pandamium.eu", port, options).then(async (Server) => {
+    util.queryFull(`${SName}.pandamium.eu`, port, options).then(async (Server) => {
       const nameArr = Server.players.list.join(", ").toString();
 
       //Discord Log
