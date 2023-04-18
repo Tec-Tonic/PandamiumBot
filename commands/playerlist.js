@@ -43,7 +43,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     try {
       if (channelName === "builder-general") {
         util.status("build.pandamium.eu", portB, options).then(async (ServerB) => {
-          const nameArr = ServerB.players.sample.join(", ").toString();
+          const nameArr = ServerB.players.sample
     
           // Snapshot Playerlist Result
           const playerlistEmbedBetterB = new EmbedBuilder()
@@ -130,7 +130,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
       });
     })
   }
-  
+
 } catch {
     const Error = new EmbedBuilder().setColor("#FF0000").setDescription('Server is \`Offline\` or \`Unreachable\`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur')
     interaction.reply({
