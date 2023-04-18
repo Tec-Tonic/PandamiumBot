@@ -98,24 +98,24 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     })
 
     if (channelName === "builder-general") {
-    util.status("build.pandamium.eu", portB, options).then(async (Server) => {
-      const nameArr = Server.players.sample.join(", ").toString();
+    util.status("build.pandamium.eu", portB, options).then(async (ServerB) => {
+      const nameArr = ServerB.players.sample.join(", ").toString();
 
       // Snapshot Playerlist Result
       const playerlistEmbedBetterB = new EmbedBuilder()
         .setColor(colourB)
         .setTitle(
-          `**Online players (${Server.players.online}/${Server.players.max}):**`
+          `**Online players (${ServerB.players.online}/${ServerB.players.max}):**`
         )
         .setDescription(`\`\`\`${nameArr}\`\`\``)
-        .setFooter({ text: `Version: ${Server.version}` });
+        .setFooter({ text: `Version: ${ServerB.version}` });
 
       // Snapshot No Players Online
       const ServerEmptyB = new EmbedBuilder()
         .setColor("#FF0000")
         .setTitle(`**No online players**`);
 
-      const checkIfPlayer = Server.players.online;
+      const checkIfPlayer = ServerB.players.online;
       if (checkIfPlayer.toString() === "0") {
         return interaction.reply({
           embeds: [ServerEmptyB],
