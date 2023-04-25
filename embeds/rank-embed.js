@@ -11,7 +11,7 @@ const {
   
   const embed = new EmbedBuilder().setTitle(`GUEST`)
         .setDescription(`
-New playersㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Snapshot Perks:**\n**▫️**Homes: 1\n\n**Release Perks:**\n**▫️**Homes: **2**\n**▫️**Claims: **1**\n**▫️**Max Claim Area: **5,000 Blocks**`).setColor('#AAAAAA')
+New playersㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Snapshot Perks:**\n**▫️**Homes: **1 **\n\n**Release Perks:**\n**▫️**Homes: **2**\n**▫️**Claims: **1**\n**▫️**Max Claim Area: **5,000 Blocks**`).setColor('#AAAAAA')
 
         const embed2 = new EmbedBuilder().setTitle(`PLAYER`)
         .setDescription(`
