@@ -28,11 +28,11 @@ Requires 125 hours of playtime and 125 votes.\n\n**Snapshot Perks:**\n**▫️**
 
         const embed5 = new EmbedBuilder().setTitle(`VETERAN`)
         .setDescription(`
-Requires 500 hours of playtime and 500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **20**\n**▫️**Claims: **10**\n**▫️**Max Claim Area: **150,000 Blocks **`).setColor('#00AAAA')
+Requires 500 hours of playtime and 500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **5 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **15**\n**▫️**Claims: **10**\n**▫️**Max Claim Area: **150,000 Blocks **`).setColor('#00AAAA')
 
         const embed6 = new EmbedBuilder().setTitle(`ELITE`)
         .setDescription(`
-Requires 2500 hours of playtime and 2500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks **`).setColor('#5555FF')
+Requires 2500 hours of playtime and 2500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **20**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks **`).setColor('#5555FF')
 
         const embed7 = new EmbedBuilder().setTitle(`DONATOR`)
         .setDescription(`
