@@ -59,6 +59,7 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
             embed7,
             embed8,
         ]}))  
+        
     } else {
       return interaction.reply(
         "You do not have the permissions to use this command."
