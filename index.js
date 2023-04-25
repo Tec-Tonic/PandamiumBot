@@ -90,7 +90,7 @@ client.on("messageCreate", async message => {
   if (message.channel.type === ChannelType.DM) {
     if (!linkCode) return
     message.reply('Hello, If you are trying to link your account please message <@604625105758322688> (you can click the @ to message it)')
-    client.channels.cache.get('963436191426957352').send({ embeds: [codeEmbed] })
+    client.channels.cache.get('950432522137927690').send({ embeds: [codeEmbed] })
   }
 });
 
