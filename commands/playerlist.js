@@ -47,7 +47,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
           .map((obj) => obj.name)
           .join(", ");
     
-          // Snapshot Playerlist Result
+          // Playerlist Result
           const playerlistEmbedBetterB = new EmbedBuilder()
             .setColor(colourB)
             .setTitle(
@@ -55,7 +55,7 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
             )
             .setDescription(`\`\`\`${nameArr}\`\`\``)
     
-          // Snapshot No Players Online
+          // No Players Online
           const ServerEmptyB = new EmbedBuilder()
             .setColor("#FF0000")
             .setTitle(`**No online players**`);

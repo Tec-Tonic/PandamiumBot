@@ -22,8 +22,22 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
     ) {
       //code here
        
-      const translateFileStaffop = require("../embeds/staff-open-embed");
-      const open = translateFileStaffop.open;
+      const translateFileRank = require("../embeds/rank-embed");
+        
+        const embed = translateFileRank.embed;
+        const embed2 = translateFileRank.embed2;
+        const embed3 = translateFileRank.embed3;
+        const embed4 = translateFileRank.embed4;
+        const embed5 = translateFileRank.embed5;
+        const embed6 = translateFileRank.embed6;
+        const embed7 = translateFileRank.embed7;
+        const embed8 = translateFileRank.embed8;
+        
+        const embed9 = translateFileRank.embed9;
+        const embed10 = translateFileRank.embed10;
+        const embed11 = translateFileRank.embed11;
+        const embed12 = translateFileRank.embed12;
+        const embed13 = translateFileRank.embed13;
 
 
     
@@ -31,12 +45,19 @@ module.exports = class faqSlashCommand extends BaseSlashCommand {
         const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
         //interaction.reply({embeds: [noUpdates], ephemeral: true})
         
-        const msgID = '1091447694557466724'
-        const channelID = '559311187867729932'
+        const msgID = '1091447597224448081'
+        const channelID = '506987588742152202'
 
         const channel = client.channels.cache.get(channelID) //commands
         channel.messages.fetch(msgID).then(msg => msg.edit({embeds: [
-          open
+            embed,
+            embed2,
+            embed3,
+            embed4,
+            embed5,
+            embed6,
+            embed7,
+            embed8,
         ]}))  
     } else {
       return interaction.reply(
