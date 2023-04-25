@@ -84,7 +84,7 @@ client.on("messageCreate", async message => {
   let linkCode = Number(message.content.replace(/\D/g, ''))
   let author = message.author
 
-  const codeEmbed = new EmbedBuilder().setColor('#F205FA').setDescription(`**Attempt to link Account**\n\n<@${author.id}>` + ' tried to send code ' + linkCode)
+  const codeEmbed = new EmbedBuilder().setColor('#F205FA').setDescription(`**Attempt to link Account**\n\n<@${author.id}>` + ' has sent code ' + linkCode)
 
   if (message.author.bot) return;
   if (message.channel.type === ChannelType.DM) {
