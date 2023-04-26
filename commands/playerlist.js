@@ -25,11 +25,11 @@ module.exports = class PlayerlistSlashCommand extends BaseSlashCommand {
     };
 
     var channelName = interaction.channel.name;
-    if (channelName === "snapshot-ingame-chat") {
+    if (channelName === "snapshot-ingame-chat" || channelName === "snapshot-server") {
       var port = 25566;
       var colour = "#2DF904";
       var ServerName = "Snapshot";
-    } else if (channelName === "release-ingame-chat") {
+    } else if (channelName === "release-ingame-chat" || channelName === "release-server") {
       var port = 25565;
       var colour = "#058823";
       var ServerName = "Release";
