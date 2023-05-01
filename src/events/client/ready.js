@@ -1,5 +1,6 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder, EmbedBuilder, Client, GatewayIntentBits, ActivityType, Routes, Message, messageLink, Collection, channelLink, ModalBuilder, TextInputBuilder, TextInputStyle } = require("discord.js");
+const { REST, ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder, EmbedBuilder, Client, GatewayIntentBits, ActivityType, Routes, Message, messageLink, Collection, channelLink, ModalBuilder, TextInputBuilder, TextInputStyle } = require("discord.js");
 
+const rest = new REST().setToken(process.env.TOKEN);
 
 module.exports = {
     name: 'ready',
@@ -17,6 +18,8 @@ module.exports = {
             status: "online",
           });
           
-
+    rest.delete(Routes.applicationCommand(clientId, '1042597844885983354'))
+	.then(() => console.log('Successfully deleted application command'))
+	.catch(console.error);
     }
 }
