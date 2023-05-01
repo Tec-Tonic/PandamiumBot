@@ -19,8 +19,8 @@ module.exports = {
             status: "online",
           });
           
-    rest.delete(Routes.applicationCommand(clientId, '1042597844885983354'))
-	.then(() => console.log('Successfully deleted application command'))
-	.catch(console.error);
+    // rest.delete(Routes.applicationCommand(clientId, '1042597844885983354'))
+	// .then(() => console.log('Successfully deleted application command'))
+	// .catch(console.error);
     }
 }
