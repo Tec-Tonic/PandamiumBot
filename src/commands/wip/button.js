@@ -10,8 +10,7 @@ module.exports = {
         .setLabel(`Our Website`)
         .setStyle(ButtonStyle.Primary);
 
-        await interaction.reply({
-            components: [new ActionRowBuilder().addComponents(button)]
+        await interaction.reply({ content: "Work In Progess, feel free to check out this cool button tho ;)", components: [new ActionRowBuilder().addComponents(button)]
         });
     }
 }

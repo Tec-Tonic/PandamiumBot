@@ -35,7 +35,7 @@ module.exports = {
       const result = intResult + newTime
 
       //console.log(result);
-      interaction.reply(`${result} -> <t:${result}:t>` );
+      return interaction.reply(`Work in progress`/*`${result} -> <t:${result}:t>`*/ );
     }
   },
 };

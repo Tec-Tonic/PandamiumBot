@@ -18,7 +18,7 @@ module.exports = {
 
     const TickEmbed = new EmbedBuilder().setColor('#189cab').setDescription(`**Ticks**: ${ticks} \n---\n**Seconds**: ${toSeconds} \n---\n**Minutes**: ${toMin}`)
 
-    interaction.reply({embeds: [TickEmbed], ephemeral: true})
+    return interaction.reply(`Work In Progress`/*{embeds: [TickEmbed], ephemeral: true}*/)
    
     }
 }

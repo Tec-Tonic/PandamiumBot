@@ -3,7 +3,7 @@ const { EmbedBuilder } = require("discord.js");
 const fs = require("fs");
 
 //remove Punctuation
-const remove = require('../../functions/events/Punctuation')
+const remove = require('../../functions/events/punctuation')
 
 module.exports = {
   name: "ip",

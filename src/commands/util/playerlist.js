@@ -6,7 +6,7 @@ const {
 
 const axios = require("axios");
 const util = require("util");
-const remove = require("../../functions/events/Punctuation");
+const remove = require("../../functions/events/punctuation");
 const data = require("../../components/playerlist/quotes.json");
 
 function randomObject(obj) {
