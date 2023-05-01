@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { token, logs, welcome } = process.env;
+const { TOKEN, logs, welcome } = process.env;
 const {
   Client,
   Collection,
@@ -104,4 +104,4 @@ client.on("guildMemberAdd", (user) => {
 client.eventHandler();
 client.commandHandler();
 client.componentHandler();
-client.login(token);
+client.login(TOKEN);
