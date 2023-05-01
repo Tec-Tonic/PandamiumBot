@@ -1,6 +1,7 @@
 const { REST, ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder, EmbedBuilder, Client, GatewayIntentBits, ActivityType, Routes, Message, messageLink, Collection, channelLink, ModalBuilder, TextInputBuilder, TextInputStyle } = require("discord.js");
 
 const rest = new REST().setToken(process.env.TOKEN);
+const clientId = '785978462837276684'
 
 module.exports = {
     name: 'ready',
