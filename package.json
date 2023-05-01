@@ -1,22 +1,27 @@
 {
-  "name": "disv14",
+  "name": "new-util",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "nodemon": "nodemon bot.js"
   },
-  "author": "TecTonic",
+  "keywords": [],
+  "author": "Tec",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/rest": "^1.0.1",
+    "@discordjs/rest": "^1.6.0",
     "@iamtraction/google-translate": "^2.0.1",
+    "axios": "^1.3.5",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.37",
     "discord.js": "^14.8.0",
-    "dotenv": "^16.0.1",
-    "file-type": "^18.0.0",
+    "dotenv": "^16.0.3",
     "iso-639-1": "^2.1.15",
-    "minecraft-server-util": "^5.3.0",
-    "minimatch": "^5.1.0",
-    "partials": "^0.1.0"
+    "minecraft-server-util": "^5.4.2",
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
