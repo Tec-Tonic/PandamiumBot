@@ -1,72 +1,72 @@
-// const BaseSlashCommand = require("../utils/BaseSlashCommands");
-// const {
-//     SlashCommandBuilder,
-//     EmbedBuilder,
-//     discordSort,
-//     DiscordAPIError,
-//     Discord,
-// } = require("discord.js");
+const BaseSlashCommand = require("../utils/BaseSlashCommands");
+const {
+    SlashCommandBuilder,
+    EmbedBuilder,
+    discordSort,
+    DiscordAPIError,
+    Discord,
+} = require("discord.js");
 
-// module.exports = class QuoteSlashCommand extends BaseSlashCommand {
-//     constructor() {
-//         super("quote");
-//     }
+module.exports = class QuoteSlashCommand extends BaseSlashCommand {
+    constructor() {
+        super("quote");
+    }
 
-//     async run(client, interaction) {
+    async run(client, interaction) {
 
-//     try {
-//         const link = interaction.options.getString('link')
-//         const ErrlinkReply = new EmbedBuilder().setDescription(`I do not have access to this message, provide a message link from this server.`).setColor('#FF0000')
+    try {
+        const link = interaction.options.getString('link')
+        const ErrlinkReply = new EmbedBuilder().setDescription(`I do not have access to this message, provide a message link from this server.`).setColor('#FF0000')
 
-//         const discordLinkReg = /\/([0-9].*)\/([0-9].*)\/([0-9].*[^/])\/{0,}/
-//         const parsed = discordLinkReg.exec(link)
-//         const messageId = parsed[3];
-//         const channelId = parsed[2];
-//         const guildId = parsed[1];
+        const discordLinkReg = /\/([0-9].*)\/([0-9].*)\/([0-9].*[^/])\/{0,}/
+        const parsed = discordLinkReg.exec(link)
+        const messageId = parsed[3];
+        const channelId = parsed[2];
+        const guildId = parsed[1];
 
-//         if (guildId === '504627012921589763') {
+        if (guildId === '504627012921589763') {
 
-//             const channel = await client.channels.fetch(channelId);
-//             const message = await channel.messages.fetch(messageId);
-//             const time = Math.round(message.createdTimestamp / 1000);
+            const channel = await client.channels.fetch(channelId);
+            const message = await channel.messages.fetch(messageId);
+            const time = Math.round(message.createdTimestamp / 1000);
 
-//             try {
-//                 var EMBED_COLOR = message.member.displayHexColor
-//             } catch {
-//                 var EMBED_COLOR = '#1BEACA'
-//             };
-//             if (EMBED_COLOR == '#000000') {
-//                  var EMBED_COLOR = '#1BEACA'
-//             }
+            try {
+                var EMBED_COLOR = message.member.displayHexColor
+            } catch {
+                var EMBED_COLOR = '#1BEACA'
+            };
+            if (EMBED_COLOR == '#000000') {
+                 var EMBED_COLOR = '#1BEACA'
+            }
 
-//             const linkReply = new EmbedBuilder()
-//                 .setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/` + message.author.id + `/` + message.author.avatar + `.jpeg`, url: `${link}` })
-//                 .setDescription(`${message.content}`)
-//                 .setColor(EMBED_COLOR)
+            const linkReply = new EmbedBuilder()
+                .setAuthor({ name: `${message.author.tag}`, iconURL: `https://cdn.discordapp.com/avatars/` + message.author.id + `/` + message.author.avatar + `.jpeg`, url: `${link}` })
+                .setDescription(`${message.content}`)
+                .setColor(EMBED_COLOR)
 
-//             const dateReply = new EmbedBuilder()
-//                 .setDescription(`[Original Message](${link}) sent <t:${time}:R> in <#${channelId}>`)
-//                 .setColor(EMBED_COLOR)
+            const dateReply = new EmbedBuilder()
+                .setDescription(`[Original Message](${link}) sent <t:${time}:R> in <#${channelId}>`)
+                .setColor(EMBED_COLOR)
 
 
-//             await interaction.reply({ embeds: [dateReply, linkReply] });
+            await interaction.reply({ embeds: [dateReply, linkReply] });
 
-//         } else {
-//             interaction.reply({ embeds: [ErrlinkReply] })
-//         }
-//     } catch {
-//         const ErrorThrow = new EmbedBuilder().setColor('#FF0000').setDescription('Please use a valid link!')
-//         interaction.reply({ embeds: [ErrorThrow], ephemeral: true})
-//     }}
+        } else {
+            interaction.reply({ embeds: [ErrlinkReply] })
+        }
+    } catch {
+        const ErrorThrow = new EmbedBuilder().setColor('#FF0000').setDescription('Please use a valid link!')
+        interaction.reply({ embeds: [ErrorThrow], ephemeral: true})
+    }}
 
-//     getSlashCommandJSON() {
-//         return new SlashCommandBuilder()
-//             .setName(this.name)
-//             .setDescription("Converts a Discord message link into an Embed! [Visible to everyone]")
-//             .addStringOption(option =>
-//                 option.setName('link')
-//                     .setDescription('link required')
-//                     .setRequired(true))
-//             .toJSON();
-//     }
-// };
+    getSlashCommandJSON() {
+        return new SlashCommandBuilder()
+            .setName(this.name)
+            .setDescription("Converts a Discord message link into an Embed! [Visible to everyone]")
+            .addStringOption(option =>
+                option.setName('link')
+                    .setDescription('link required')
+                    .setRequired(true))
+            .toJSON();
+    }
+};
