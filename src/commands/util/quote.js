@@ -31,7 +31,7 @@ module.exports = {
       const channelId = parsed[2];
       const guildId = parsed[1];
 
-      if (guildId === "1090777057392336896") {
+      if (guildId === "504627012921589763") {
         const channel = await client.channels.fetch(channelId);
         const message = await channel.messages.fetch(messageId);
         const time = Math.round(message.createdTimestamp / 1000);
