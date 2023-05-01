@@ -56,7 +56,10 @@ client.on("ready", async () => {
 
   // how to delete a command!
   //await client.rest.delete(Routes.applicationCommands(APP_ID, '1042597844885983354')).then(() => console.log('Successfully deleted command')).catch(console.error);
- 
+  guild.commands.delete('1042597844885983353')
+  .then(console.log)
+  .catch(console.error);
+
 });
 
 // welcome reactions
