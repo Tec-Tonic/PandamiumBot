@@ -56,10 +56,6 @@ client.on("ready", async () => {
 
   // how to delete a command!
   //await client.rest.delete(Routes.applicationCommands(APP_ID, '1042597844885983354')).then(() => console.log('Successfully deleted command')).catch(console.error);
-  guild.commands.delete('1042597844885983353')
-  .then(console.log)
-  .catch(console.error);
-
 });
 
 // welcome reactions
@@ -284,7 +280,7 @@ client.on('interactionCreate', async (interaction) => {
 
     const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
 
-    const translateFile = require('./commands/translator_app');
+    const translateFile = require('./zdefultcode/translator_app');
 
     const msgID = await translateFile.msgid
     const channelID = await translateFile.chanid
