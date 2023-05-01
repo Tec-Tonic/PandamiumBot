@@ -2,6 +2,7 @@ const { REST, ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder, E
 
 const rest = new REST().setToken(process.env.TOKEN);
 const clientId = '785978462837276684'
+const guildId = '504627012921589763'
 
 module.exports = {
     name: 'ready',
@@ -19,6 +20,33 @@ module.exports = {
             status: "online",
           });
           
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605435'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605427'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605428'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605429'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605430'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605431'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725565208871013'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605436'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+    rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1102725564965605432'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
     // rest.delete(Routes.applicationCommand(clientId, '1042597844885983354'))
 	// .then(() => console.log('Successfully deleted application command'))
 	// .catch(console.error);
