@@ -2,8 +2,8 @@ const BaseSlashCommand = require("../utils/BaseSlashCommands");
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const util = require("minecraft-server-util");
 
-const data = require('../filters/funny_quotes.json')
-const staffMember = require("../filters/staff.json");
+// const data = require('../filters/funny_quotes.json')
+// const staffMember = require("../filters/staff.json");
 const logs = process.env.LOGS
 
 function randomObject(obj) {
