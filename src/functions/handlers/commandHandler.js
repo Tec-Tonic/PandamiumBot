@@ -19,8 +19,8 @@ module.exports = (client) => {
       }
     }
 
-    const clientId = "835211465988112405";
-    const guildId = "1090777057392336896";
+    const clientId = "785978462837276684";
+    const guildId = "504627012921589763";
     const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
 
     try {
