@@ -1,4 +1,4 @@
-
+const log = process.env.PANDALOGS
 const { EmbedBuilder } = require("discord.js");
 const cheatFilter = require(`../filters/hack_alert_filter.json`);
 module.exports = {
@@ -29,8 +29,7 @@ module.exports = {
         )
         .setFooter({ text: `Author : ${cheatAuthor}` });
 
-        message.reply({ embeds: [cheatEmbed] })
-      //client.channels.cache.get(log).send({ embeds: [cheatEmbed] });
+      client.channels.cache.get(log).send({ embeds: [cheatEmbed] });
     }
   },
 };

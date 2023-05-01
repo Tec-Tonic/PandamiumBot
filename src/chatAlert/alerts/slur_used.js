@@ -1,4 +1,4 @@
-const botlogs = process.env.LOGS
+const botlogs = process.env.PANDALOGS
 const { EmbedBuilder } = require("discord.js");
 const slurFilter = require(`../filters/slur_alert_filter.json`);
 module.exports = {

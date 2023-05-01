@@ -1,4 +1,4 @@
-const log = process.env.LOGS
+const log = process.env.PANDALOGS
 const { EmbedBuilder } = require("discord.js");
 const topicFilter = require(`../filters/contro_alert_filter.json`);
 module.exports = {

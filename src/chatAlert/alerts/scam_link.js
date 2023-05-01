@@ -1,4 +1,4 @@
-const log = process.env.LOGS
+const log = process.env.PANDALOGS
 const myLog = process.env.LOGS
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle, GuildMember } = require("discord.js");
 const scamLinkFilter = require(`../filters/scam_link_filter.json`);
