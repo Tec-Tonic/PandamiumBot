@@ -37,61 +37,65 @@ client.on("ready", async () => {
 
   const readyEmbed = new EmbedBuilder().setColor('#36FF00').setDescription(`${client.user.tag} has logged in successfully.`)
   client.channels.cache.get('1024714159637680168').send({ embeds: [readyEmbed] })
+  
+  client.user.setPresence({
+    activities: [{ name: `Update in progress!`, type: ActivityType.Playing }],
+    status: "online",
+  });
+  // util.status("pandamium.eu").then((Response) => {
 
-  util.status("pandamium.eu").then((Response) => {
-
-    const checkIfPlayer = Response.players.online;
-    if (checkIfPlayer.toString() === "0") {
-      client.user.setStatus('idle')
-      return client.user.setPresence({
-        activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
-      })
-    } else {
-      client.user.setPresence({
-        activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
-        status: "online",
-      });
-    }
-  })
+  //   const checkIfPlayer = Response.players.online;
+  //   if (checkIfPlayer.toString() === "0") {
+  //     client.user.setStatus('idle')
+  //     return client.user.setPresence({
+  //       activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
+  //     })
+  //   } else {
+  //     client.user.setPresence({
+  //       activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
+  //       status: "online",
+  //     });
+  //   }
+  // })
 
   // how to delete a command!
   //await client.rest.delete(Routes.applicationCommands(APP_ID, '1042597844885983354')).then(() => console.log('Successfully deleted command')).catch(console.error);
 });
 
 // welcome reactions
-client.on('guildMemberAdd', (member) => {
-  const pandaEmoji = `<:pandamium:797762197567832105>`
-  setTimeout(() => {
-    const message = member.guild.channels.cache.get('531885643626971170').lastMessage
-    message.react(pandaEmoji)
-  }, 500)
-})
+// client.on('guildMemberAdd', (member) => {
+//   const pandaEmoji = `<:pandamium:797762197567832105>`
+//   setTimeout(() => {
+//     const message = member.guild.channels.cache.get('531885643626971170').lastMessage
+//     message.react(pandaEmoji)
+//   }, 500)
+// })
 
 // Chat Alert checks
-client.command = new Collection();
-const commandFiles = fs
-  .readdirSync("./ChatAlerts/alerts")
-  .filter((file) => file.endsWith(".js"));
-for (const file of commandFiles) {
-  const command = require(`./ChatAlerts/alerts/${file}`);
-  client.command.set(command.name, command);
-}
+// client.command = new Collection();
+// const commandFiles = fs
+//   .readdirSync("./ChatAlerts/alerts")
+//   .filter((file) => file.endsWith(".js"));
+// for (const file of commandFiles) {
+//   const command = require(`./ChatAlerts/alerts/${file}`);
+//   client.command.set(command.name, command);
+// }
 
-//DM message responder
-client.on("messageCreate", async message => {
+// //DM message responder
+// client.on("messageCreate", async message => {
 
-  let linkCode = Number(message.content.replace(/\D/g, ''))
-  let author = message.author
+//   let linkCode = Number(message.content.replace(/\D/g, ''))
+//   let author = message.author
 
-  const codeEmbed = new EmbedBuilder().setColor('#F205FA').setDescription(`**Attempt to link Account**\n\n<@${author.id}>` + ' has sent code ' + linkCode)
+//   const codeEmbed = new EmbedBuilder().setColor('#F205FA').setDescription(`**Attempt to link Account**\n\n<@${author.id}>` + ' has sent code ' + linkCode)
 
-  if (message.author.bot) return;
-  if (message.channel.type === ChannelType.DM) {
-    if (!linkCode) return
-    message.reply('Hello, If you are trying to link your account please message <@604625105758322688> (you can click the @ to message it)')
-    client.channels.cache.get('950432522137927690').send({ embeds: [codeEmbed] })
-  }
-});
+//   if (message.author.bot) return;
+//   if (message.channel.type === ChannelType.DM) {
+//     if (!linkCode) return
+//     message.reply('Hello, If you are trying to link your account please message <@604625105758322688> (you can click the @ to message it)')
+//     client.channels.cache.get('950432522137927690').send({ embeds: [codeEmbed] })
+//   }
+// });
 
 
 // Interaction(s)
@@ -144,50 +148,50 @@ async function main() {
 
 }
 
-client.on('messageCreate', (message) => {
-  const channelNames = message.channel.name
-  if (channelNames === "release-ingame-chat") {
+// client.on('messageCreate', (message) => {
+//   const channelNames = message.channel.name
+//   if (channelNames === "release-ingame-chat") {
 
-    util.status("pandamium.eu").then((Response) => {
+//     util.status("pandamium.eu").then((Response) => {
 
-      const checkIfPlayer = Response.players.online;
-      if (checkIfPlayer.toString() === "0") {
-        client.user.setStatus('idle')
-        return client.user.setPresence({
-          activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
-        })
-      } else {
-        client.user.setPresence({
-          activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
-          status: "online",
-        });
-      }
-    })
-  }
-})
+//       const checkIfPlayer = Response.players.online;
+//       if (checkIfPlayer.toString() === "0") {
+//         client.user.setStatus('idle')
+//         return client.user.setPresence({
+//           activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }]
+//         })
+//       } else {
+//         client.user.setPresence({
+//           activities: [{ name: `Release: ${Response.players.online}/${Response.players.max}`, type: ActivityType.Playing }],
+//           status: "online",
+//         });
+//       }
+//     })
+//   }
+// })
 
-// Message commands
-client.on("messageCreate", (message) => {
-  // Scam filter
-  if (message.author == client.user) return;
-  client.command.get("scam").execute(message, client);
-  // Slur topic filter
-  client.command.get("slur").execute(message, client);
-  // Controversial topic filter
-  client.command.get("contro").execute(message, client);
-  // Hacking topic filter
-  client.command.get("hacks").execute(message, client);
-  // IP checks
-  client.command.get("ip").execute(message, client);
-  // Playerlist
-  client.command.get("playerlist").execute(message, client);
-  // Prefix IP command
-  const args = message.content.slice(prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
-  if (command === "ip") {
-    client.command.get("prefixip").execute(message, client);
-  }
-});
+// // Message commands
+// client.on("messageCreate", (message) => {
+//   // Scam filter
+//   if (message.author == client.user) return;
+//   client.command.get("scam").execute(message, client);
+//   // Slur topic filter
+//   client.command.get("slur").execute(message, client);
+//   // Controversial topic filter
+//   client.command.get("contro").execute(message, client);
+//   // Hacking topic filter
+//   client.command.get("hacks").execute(message, client);
+//   // IP checks
+//   client.command.get("ip").execute(message, client);
+//   // Playerlist
+//   client.command.get("playerlist").execute(message, client);
+//   // Prefix IP command
+//   const args = message.content.slice(prefix.length).split(/ +/);
+//   const command = args.shift().toLowerCase();
+//   if (command === "ip") {
+//     client.command.get("prefixip").execute(message, client);
+//   }
+// });
 
 
 // //Removed message from Gallery
@@ -215,93 +219,93 @@ client.on("messageCreate", (message) => {
 
 
 //lang
-client.on('interactionCreate', async (interaction) => {
+// client.on('interactionCreate', async (interaction) => {
 
-  const translate = require("@iamtraction/google-translate");
-  const ISO6391 = require("iso-639-1");
-  let toLang = ''
-  let toLangFull = ''
+//   const translate = require("@iamtraction/google-translate");
+//   const ISO6391 = require("iso-639-1");
+//   let toLang = ''
+//   let toLangFull = ''
 
-  if (interaction.customId === 'LangSelector') {
-    let choices = ""
-    await interaction.values.forEach(async value => {
-      choices += `${value}`
-    })
+//   if (interaction.customId === 'LangSelector') {
+//     let choices = ""
+//     await interaction.values.forEach(async value => {
+//       choices += `${value}`
+//     })
 
-    if (choices === 'english-select') {
-      toLang = 'en'
-      toLangFull = 'English'
-    }
-    else if (choices === 'chinese-select') {
-      toLang = 'zh-cn'
-      toLangFull = 'Mandarin'
-    }
-    else if (choices === 'hindi-select') {
-      toLang = 'hi'
-      toLangFull = 'Hindi'
-    }
-    else if (choices === 'spanish-select') {
-      toLang = 'es'
-      toLangFull = 'Spanish'
-    }
-    else if (choices === 'french-select') {
-      toLang = 'fr'
-      toLangFull = 'French'
-    }
-    else if (choices === 'arabic-select') {
-      toLang = 'ar'
-      toLangFull = 'Arabic'
-    }
-    else if (choices === 'russian-select') {
-      toLang = 'ru'
-      toLangFull = 'Russian'
-    }
-    else if (choices === 'portuguese-select') {
-      toLang = 'pt'
-      toLangFull = 'Portuguese'
-    }
-    else if (choices === 'indonesian-select') {
-      toLang = 'id'
-      toLangFull = 'Indonesian'
-    }
-    else if (choices === 'urdu-select') {
-      toLang = 'ur'
-      toLangFull = 'Urdu'
-    }
-    else if (choices === 'japanese-select') {
-      toLang = 'ja'
-      toLangFull = 'Japanese'
-    }
-    else if (choices === 'german-select') {
-      toLang = 'de'
-      toLangFull = 'German'
-    }
+//     if (choices === 'english-select') {
+//       toLang = 'en'
+//       toLangFull = 'English'
+//     }
+//     else if (choices === 'chinese-select') {
+//       toLang = 'zh-cn'
+//       toLangFull = 'Mandarin'
+//     }
+//     else if (choices === 'hindi-select') {
+//       toLang = 'hi'
+//       toLangFull = 'Hindi'
+//     }
+//     else if (choices === 'spanish-select') {
+//       toLang = 'es'
+//       toLangFull = 'Spanish'
+//     }
+//     else if (choices === 'french-select') {
+//       toLang = 'fr'
+//       toLangFull = 'French'
+//     }
+//     else if (choices === 'arabic-select') {
+//       toLang = 'ar'
+//       toLangFull = 'Arabic'
+//     }
+//     else if (choices === 'russian-select') {
+//       toLang = 'ru'
+//       toLangFull = 'Russian'
+//     }
+//     else if (choices === 'portuguese-select') {
+//       toLang = 'pt'
+//       toLangFull = 'Portuguese'
+//     }
+//     else if (choices === 'indonesian-select') {
+//       toLang = 'id'
+//       toLangFull = 'Indonesian'
+//     }
+//     else if (choices === 'urdu-select') {
+//       toLang = 'ur'
+//       toLangFull = 'Urdu'
+//     }
+//     else if (choices === 'japanese-select') {
+//       toLang = 'ja'
+//       toLangFull = 'Japanese'
+//     }
+//     else if (choices === 'german-select') {
+//       toLang = 'de'
+//       toLangFull = 'German'
+//     }
 
 
-    const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
+//     const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
 
-    const translateFile = require('./zdefultcode/translator_app');
+//     const translateFile = require('./zdefultcode/translator_app');
 
-    const msgID = await translateFile.msgid
-    const channelID = await translateFile.chanid
-    const foreignLanguage = await client.channels.cache.get(channelID).messages.fetch(msgID);
+//     const msgID = await translateFile.msgid
+//     const channelID = await translateFile.chanid
+//     const foreignLanguage = await client.channels.cache.get(channelID).messages.fetch(msgID);
 
-    translate(foreignLanguage, { to: `${toLang}` })
-      .then((res) => {
-        const getIsoName = res.from.language.iso;
-        const isoName = ISO6391.getName(getIsoName);
+//     translate(foreignLanguage, { to: `${toLang}` })
+//       .then((res) => {
+//         const getIsoName = res.from.language.iso;
+//         const isoName = ISO6391.getName(getIsoName);
 
-        const translatedEmbed = new EmbedBuilder().setColor("#00FFFF").setDescription(`${isoName} -> ${toLangFull}`).setFields({ name: `Original Message :`, value: `${foreignLanguage}` }, { name: `Translation :`, value: `${res.text}` }).setFooter({ text: "Google Translate", iconURL: "https://www.transparentpng.com/thumb/google-logo/google-logo-png-icon-free-download-SUF63j.png", });
-        interaction.reply({ embeds: [translatedEmbed], ephemeral: true });
-      })
-      .catch((err) => {
-        interaction.reply({ embeds: [ERRembed], ephemeral: true });
-        console.error(err);
-      });
+//         const translatedEmbed = new EmbedBuilder().setColor("#00FFFF").setDescription(`${isoName} -> ${toLangFull}`).setFields({ name: `Original Message :`, value: `${foreignLanguage}` }, { name: `Translation :`, value: `${res.text}` }).setFooter({ text: "Google Translate", iconURL: "https://www.transparentpng.com/thumb/google-logo/google-logo-png-icon-free-download-SUF63j.png", });
+//         interaction.reply({ embeds: [translatedEmbed], ephemeral: true });
+//       })
+//       .catch((err) => {
+//         interaction.reply({ embeds: [ERRembed], ephemeral: true });
+//         console.error(err);
+//       });
 
-  }
+//   }
 
-})
+// })
 
 
 
