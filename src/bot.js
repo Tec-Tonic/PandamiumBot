@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { TOKEN, logs, welcome } = process.env;
+const { TOKEN, logs, WELCOME } = process.env;
 const {
   Client,
   Collection,
@@ -85,7 +85,7 @@ client.on("guildMemberAdd", (user) => {
   const pandaEmoji = `<:pandamium:797762197567832105>`;
   setTimeout(() => {
     const message =
-      user.guild.channels.cache.get(welcome).lastMessage;
+      user.guild.channels.cache.get(WELCOME).lastMessage;
     message.react(pandaEmoji);
   }, 500);
 
