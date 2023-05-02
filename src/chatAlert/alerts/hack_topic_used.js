@@ -19,7 +19,7 @@ module.exports = {
     if (cheatFoundInText) {
       const cheatEmbed = new EmbedBuilder()
         .setColor("#7b9bcc")
-        .setTitle("Terms about Hacking/Cheating!")
+        .setTitle("Terms about Hacking/Cheating")
         .addFields(
           { name: `Message :`, value: `${cheatMessageLog}` },
           {
@@ -30,6 +30,8 @@ module.exports = {
         .setFooter({ text: `Author : ${cheatAuthor}` });
 
       client.channels.cache.get(log).send({ embeds: [cheatEmbed] });
+    } else {
+      return;
     }
   },
 };

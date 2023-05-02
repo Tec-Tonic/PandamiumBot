@@ -54,6 +54,8 @@ module.exports = {
           message.delete();
         }, 32000);
       })
+    } else {
+      return;
     }
   },
 };

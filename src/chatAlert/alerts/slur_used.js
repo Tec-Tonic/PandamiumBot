@@ -1,4 +1,4 @@
-const botlogs = process.env.PANDALOGS
+const botlogs = process.env.PANDALOGS;
 const { EmbedBuilder } = require("discord.js");
 const slurFilter = require(`../filters/slur_alert_filter.json`);
 module.exports = {
@@ -31,6 +31,8 @@ module.exports = {
         .setFooter({ text: `Author : ${slurAuthor}` });
 
       client.channels.cache.get(botlogs).send({ embeds: [slurEmbed] });
-    } else return;
+    } else {
+      return;
+    }
   },
 };

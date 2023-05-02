@@ -30,6 +30,8 @@ module.exports = {
         .setFooter({ text: `Author : ${topicAuthor}` });
 
       client.channels.cache.get(log).send({ embeds: [controEmbed] });
+    } else {
+      return;
     }
   },
 };

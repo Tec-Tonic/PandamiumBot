@@ -1,5 +1,6 @@
+// TODO: Move button function to src/components/buttons (line 27) didnt make the handler for nothing stupid.... 
+
 const log = process.env.PANDALOGS
-const myLog = process.env.LOGS
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle, GuildMember } = require("discord.js");
 const scamLinkFilter = require(`../filters/scam_link_filter.json`);
 module.exports = {
@@ -59,6 +60,8 @@ module.exports = {
     
         client.channels.cache.get(log).send({ embeds: [scamEmbed, authorEmbed] }); //normal server
         break;
+      } else {
+        return;
       }
     }
   },
