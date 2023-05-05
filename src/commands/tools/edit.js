@@ -13,7 +13,7 @@ const {
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('edit')
-    .setDescription('Edits Message Embeds'),
+    .setDescription('Edits Message Embeds').setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
     async execute(interaction, client) {
         
         if (

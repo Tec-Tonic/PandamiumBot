@@ -1,5 +1,13 @@
-const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require(`discord.js`);
-
+const {
+    SlashCommandBuilder,
+    ButtonStyle,
+    ActionRowBuilder,
+    ButtonBuilder,
+    EmbedBuilder,
+    PermissionFlagsBits,
+    AttachmentBuilder,
+  } = require("discord.js");
+  
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('button')
@@ -8,7 +16,8 @@ module.exports = {
         const button = new ButtonBuilder()
         .setCustomId(`test1`)
         .setLabel(`Our Website`)
-        .setStyle(ButtonStyle.Primary);
+        .setStyle(ButtonStyle.Primary)
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages);
 
         await interaction.reply({ content: "Work In Progess, feel free to check out this cool button tho ;)", components: [new ActionRowBuilder().addComponents(button)]
         });
