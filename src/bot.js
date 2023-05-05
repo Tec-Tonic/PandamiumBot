@@ -81,27 +81,27 @@ client.on("messageCreate", async (message) => {
 // TODO: Add Welcome channel ID to .env and Heroku config
 //       Add a useful User Embed (info about them ect..)
 //       Move to src/events/client -> Will allow for a cleaners bot.js file
-client.on("guildMemberAdd", (user) => {
-  const pandaEmoji = `<:pandamium:797762197567832105>`;
-  setTimeout(() => {
-    const message =
-      user.guild.channels.cache.get(WELCOME).lastMessage;
-    message.react(pandaEmoji);
-  }, 500);
+// client.on("guildMemberAdd", (user) => {
+//   const pandaEmoji = `<:pandamium:797762197567832105>`;
+//   setTimeout(() => {
+//     const message =
+//       user.guild.channels.cache.get(WELCOME).lastMessage;
+//     message.react(pandaEmoji);
+//   }, 500);
 
-  // Update this
-  // const authorEmbed = new EmbedBuilder()
-  //   .setColor("#FF0000")
-  //   .setThumbnail(`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.jpeg`)
-  //   .setDescription(
-  //     `**<@${user.id}> joined**
+//   // Update this
+//   // const authorEmbed = new EmbedBuilder()
+//   //   .setColor("#FF0000")
+//   //   .setThumbnail(`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.jpeg`)
+//   //   .setDescription(
+//   //     `**<@${user.id}> joined**
 
-  //     ID: ${user.id} \nJoined Discord: ${new Date(
-  //       user.createdTimestamp
-  //     ).toLocaleDateString()}`
-  //   );
-  //   client.channels.cache.get(logs).send({ embeds: [authorEmbed] })
-});
+//   //     ID: ${user.id} \nJoined Discord: ${new Date(
+//   //       user.createdTimestamp
+//   //     ).toLocaleDateString()}`
+//   //   );
+//   //   client.channels.cache.get(logs).send({ embeds: [authorEmbed] })
+// });
 
 client.eventHandler();
 client.commandHandler();
