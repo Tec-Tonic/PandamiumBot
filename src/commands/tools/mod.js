@@ -20,7 +20,7 @@ module.exports = {
         var Iris = 'https://tec-tonic.github.io/snapshot-mods/mods/iris/23w18a/iris-mc23w18a-1.6.2-c075ea36-dirty.jar'
         var Sodium = 'https://tec-tonic.github.io/snapshot-mods/mods/sodium/23w18a/sodium-fabric-mc23w18a-0.4.11rev.f773c15.jar'
         
-        const intRestricted = new EmbedBuilder().setDescription({content: `You do not have access to this command.`, ephemeral: true}).setColor('#FF0000')
+        const intRestricted = new EmbedBuilder().setDescription(`You do not have access to this command.`).setColor('#FF0000')
 
         const ModEmbed = new EmbedBuilder().setTitle(version + ' Mods').setColor('#2DF904')
         .setDescription('For more Snapshot Mods click [here](https://tec-tonic.github.io/snapshot-mods/)')
