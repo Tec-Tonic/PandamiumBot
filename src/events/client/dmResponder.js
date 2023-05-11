@@ -19,6 +19,7 @@ module.exports = {
       .setDescription(
         `Hey ${author.username}, if you are trying to link your account please message <@604625105758322688>. \n\nIf you require help please use the help button below and a Staff member will be in touch with you when available \n\nHappy Minecrafting, Pandamium`
       );
+    
     const codeEmbed = new EmbedBuilder()
       .setColor("#F205FA")
       .setDescription(
@@ -37,9 +38,8 @@ module.exports = {
     if (message.channel.type === ChannelType.DM) {
       if (!linkCode) return;
       message.reply({ embeds: [rejectMessage], components: [new ActionRowBuilder().addComponents(button)] });
-      client.channels.cache
-        .get("950432522137927690")
-        .send({ embeds: [codeEmbed] });
+      
+      client.channels.cache.get("950432522137927690").send({ embeds: [codeEmbed] });
     }
 
     module.exports.author = author
