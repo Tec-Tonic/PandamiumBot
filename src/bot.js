@@ -82,6 +82,8 @@ setInterval(playerlistUpdate, 60000); //Every 60 seconds.
 async function playerlistUpdate() {
   const remove = require("../src/functions/events/punctuation");
 
+  const axios = require("axios");
+  const util = require("util");
   const url = `https://api.mcstatus.io/v2/status/java/snapshot.pandamium.eu`;
   const server = await axios.get(url);
   const search = util.inspect;
