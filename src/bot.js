@@ -77,7 +77,7 @@ client.on("messageCreate", async (message) => {
 
 
 //temp
-setInterval(playerlistUpdate, 60000); //Every 60 seconds.
+setInterval(playerlistUpdate, 300000); //Every 60 seconds.
 
 async function playerlistUpdate() {
   const remove = require("../src/functions/events/punctuation");
@@ -100,7 +100,7 @@ async function playerlistUpdate() {
   if (checkIfPlayer.toString() === "0") {
     const ServerEmpty = new EmbedBuilder()
       .setColor("#FF0000")
-      .setTitle(`**No online players**`);
+      .setTitle(`**Server is Empty**`);
 
     channel.messages
       .fetch(msgID)
@@ -114,7 +114,7 @@ async function playerlistUpdate() {
       .setDescription(
         `\`\`\`${remove.Punctuation(
           nameArr
-        )}\`\`\`\n*This message updates every 60 seconds.*`
+        )}\`\`\`\n*This message updates every 5 minutes.*`
       )
       .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
