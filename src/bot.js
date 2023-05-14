@@ -64,7 +64,6 @@ client.on("messageCreate", async (message) => {
 
   const server = await axios.get(url);
   const checkIfPlayer = server.data.players.online;
-  if (checkIfPlayer.toString() === "0") {
     client.user.setPresence({
       activities: [
         {
@@ -74,7 +73,6 @@ client.on("messageCreate", async (message) => {
       ],
       status: "online",
     });
-  }
 });
 
 client.eventHandler();

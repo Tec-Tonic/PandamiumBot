@@ -26,7 +26,7 @@ const {
       const HelpNeededEmbed = new EmbedBuilder()
         .setColor("#F205FA")
         .setDescription(
-          `<@${interaction.user.id}> requests help, please Dm them`
+          `<@${interaction.user.id}> requests help, please DM them`
         );
   
       await client.channels.cache
