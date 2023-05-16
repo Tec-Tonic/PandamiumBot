@@ -77,7 +77,7 @@ client.on("messageCreate", async (message) => {
 
 
 //temp
-setInterval(playerlistUpdate, 300000); //Every 60 seconds.
+setInterval(playerlistUpdate, 300000); //Every 5 min.
 
 async function playerlistUpdate() {
   const remove = require("../src/functions/events/punctuation");
