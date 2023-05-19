@@ -35,7 +35,10 @@ module.exports = {
       ) {
         var ip = "release.pandamium.eu";
         var colour = "#058823";
-      } else if (channelName === "builder-general") {
+      } else if (
+        channelName === "builder-general" ||
+        channelName === "builder-ingame-chat"
+      ) {
         var ip = "build.pandamium.eu";
         var colour = "#FF00FF";
       }
@@ -48,10 +51,10 @@ module.exports = {
         server.data.players.list.map((obj) => obj.name_clean).join(", ")
       );
 
-       //No Players Online
-       const ServerEmpty = new EmbedBuilder()
-       .setColor("#FF0000")
-       .setTitle(`**No online players**`);
+      //No Players Online
+      const ServerEmpty = new EmbedBuilder()
+        .setColor("#FF0000")
+        .setTitle(`**No online players**`);
 
       const checkIfPlayer = server.data.players.online;
       if (checkIfPlayer.toString() === "0") {
@@ -61,14 +64,16 @@ module.exports = {
         });
       }
 
-       //Single player Online (Use Quote)
-       if (checkIfPlayer.toString() === "1") {
+      //Single player Online (Use Quote)
+      if (checkIfPlayer.toString() === "1") {
         const singlePlayerEmbed = new EmbedBuilder()
           .setColor(colour)
           .setTitle(
             `**Online player (${server.data.players.online}/${server.data.players.max}):**`
           )
-          .setDescription(`\`\`\`${remove.Punctuation(nameArr)}\`\`\` \n` + randomObject(data))
+          .setDescription(
+            `\`\`\`${remove.Punctuation(nameArr)}\`\`\` \n` + randomObject(data)
+          )
           .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
         return interaction.reply({
@@ -76,7 +81,7 @@ module.exports = {
           ephemeral: true,
         });
       }
-  
+
       const playerlistEmbed = new EmbedBuilder()
         .setColor(colour)
         .setTitle(

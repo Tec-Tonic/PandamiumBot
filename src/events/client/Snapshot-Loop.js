@@ -25,7 +25,7 @@ module.exports = {
     setInterval(playerlistUpdate, 300000); //Every 5 min.
 
     async function playerlistUpdate() {
-      const remove = require("../src/functions/events/punctuation");
+      const remove = require("../../functions/events/punctuation");
 
       const axios = require("axios");
       const util = require("util");
