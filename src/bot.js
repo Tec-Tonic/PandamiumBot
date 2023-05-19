@@ -76,54 +76,6 @@ client.on("messageCreate", async (message) => {
 });
 
 
-//temp
-setInterval(playerlistUpdate, 300000); //Every 5 min.
-
-async function playerlistUpdate() {
-  const remove = require("../src/functions/events/punctuation");
-
-  const axios = require("axios");
-  const util = require("util");
-  const url = `https://api.mcstatus.io/v2/status/java/snapshot.pandamium.eu`;
-  const server = await axios.get(url);
-  const search = util.inspect;
-  const nameArr = await search(
-    server.data.players.list.map((obj) => obj.name_clean).join(", ")
-  );
-  // Message to Update
-  const msgID = "1107317681268461648";
-  const channelID = "824234748217393212";
-  const channel = client.channels.cache.get(channelID);
-  
-  //Checks if the server is Empty or not 
-  const checkIfPlayer = server.data.players.online;
-  if (checkIfPlayer.toString() === "0") {
-    const ServerEmpty = new EmbedBuilder()
-      .setColor("#FF0000")
-      .setTitle(`**Server is Empty**`);
-
-    channel.messages
-      .fetch(msgID)
-      .then((msg) => msg.edit({ embeds: [ServerEmpty] }));
-  } else {
-    const playerlistEmbed = new EmbedBuilder()
-      .setColor("#2DF904")
-      .setTitle(
-        `**Online players (${server.data.players.online}/${server.data.players.max}):**`
-      )
-      .setDescription(
-        `\`\`\`${remove.Punctuation(
-          nameArr
-        )}\`\`\`\n*This message updates every 5 minutes.*`
-      )
-      .setFooter({ text: `Version: ${server.data.version.name_raw}` });
-
-    channel.messages
-      .fetch(msgID)
-      .then((msg) => msg.edit({ embeds: [playerlistEmbed] }));
-  }
-}
-
 client.eventHandler();
 client.commandHandler();
 client.componentHandler();

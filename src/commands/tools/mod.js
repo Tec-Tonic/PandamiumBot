@@ -16,7 +16,7 @@ module.exports = {
     .setDescription("Gets current snapshot mod embed.")
     .setDefaultMemberPermissions(PermissionFlagsBits.CreateInstantInvite),
   async execute(interaction, client) {
-    var version = "1.20 pre release 1-2";
+    var version = "1.20 Pre Release 1-2";
     var Iris =
       "https://tec-tonic.github.io/snapshot-mods/mods/iris/1-20-pre-release-1/iris-mc1.20-pre1-1.6.3-b7bf8745-dirty.jar";
     var Sodium =
