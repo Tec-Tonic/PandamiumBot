@@ -40,6 +40,8 @@ module.exports = {
       const channelID = "824234748217393212";
       const channel = client.channels.cache.get(channelID);
 
+
+      try {
       //Checks if the server is Empty or not
       const checkIfPlayer = server.data.players.online;
       if (checkIfPlayer.toString() === "0") {
@@ -67,6 +69,15 @@ module.exports = {
           .fetch(msgID)
           .then((msg) => msg.edit({ embeds: [playerlistEmbed] }));
       }
+    } catch {
+      const serverOffline = new EmbedBuilder()
+      .setColor("#FF0000")
+      .setTitle(`**Server is offline**`);
+
+      channel.messages
+          .fetch(msgID)
+          .then((msg) => msg.edit({ embeds: [serverOffline] }));
+    }
     }
   },
 };
