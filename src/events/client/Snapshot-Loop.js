@@ -32,9 +32,7 @@ module.exports = {
       const url = `https://api.mcstatus.io/v2/status/java/snapshot.pandamium.eu`;
       const server = await axios.get(url);
       const search = util.inspect;
-      const nameArr = await search(
-        server.data.players.list.map((obj) => obj.name_clean).join(", ")
-      );
+  
       // Message to Update
       const msgID = "1107317681268461648";
       const channelID = "824234748217393212";
@@ -42,6 +40,10 @@ module.exports = {
 
 
       try {
+        const nameArr = await search(
+          server.data.players.list.map((obj) => obj.name_clean).join(", ")
+        );
+        
       //Checks if the server is Empty or not
       const checkIfPlayer = server.data.players.online;
       if (checkIfPlayer.toString() === "0") {
@@ -72,7 +74,7 @@ module.exports = {
     } catch {
       const serverOffline = new EmbedBuilder()
       .setColor("#FF0000")
-      .setTitle(`**Server is offline**`);
+      .setTitle(`**Server is offline **`);
 
       channel.messages
           .fetch(msgID)
