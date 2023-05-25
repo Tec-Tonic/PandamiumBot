@@ -36,7 +36,7 @@ const {
           server.data.players.list.map((obj) => obj.name_clean).join(", ")
         );
         // Message to Update
-        const msgID = "1109174802075373628";
+        const msgID = "1109174802075373628"; 
         const channelID = "1109096205251792956";
         const channel = client.channels.cache.get(channelID);
   

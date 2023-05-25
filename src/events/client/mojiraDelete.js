@@ -14,7 +14,7 @@ module.exports = {
       message.react("❌");
 
       setTimeout(() => {
-        return message.react('👍')//message.delete();
+        return message.delete();
       }, 5000);
     }
   },
