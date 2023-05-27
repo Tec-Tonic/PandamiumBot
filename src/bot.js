@@ -59,28 +59,22 @@ client.on("messageCreate", async (message) => {
   }
 
   // Updates Presence
-  const axios = require("axios");
-  let url = `https://api.mcstatus.io/v2/status/java/release.pandamium.eu`;
+  // const axios = require("axios");
+  // let url = `https://api.mcstatus.io/v2/status/java/release.pandamium.eu`;
 
-  const server = await axios.get(url);
-  const checkIfPlayer = server.data.players.online;
+  // const server = await axios.get(url);
+  // const checkIfPlayer = server.data.players.online;                        // Will add this back when release is fixed.
 
-  try {
-    client.user.setPresence({
-      activities: [
-        {
-          name: `Release: ${server.data.players.online}/${server.data.players.max}`,
-          type: ActivityType.Playing,
-        },
-      ],
-      status: "online",
-    });
-  } catch {
-    client.user.setPresence({
-      activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
-      status: "online",
-    });
-  }
+  
+  //   client.user.setPresence({
+  //     activities: [
+  //       {
+  //         name: `Release: ${server.data.players.online}/${server.data.players.max}`,
+  //         type: ActivityType.Playing,
+  //       },
+  //     ],
+  //     status: "online",
+  //   });
 });
 
 client.eventHandler();
