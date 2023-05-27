@@ -64,6 +64,8 @@ client.on("messageCreate", async (message) => {
 
   const server = await axios.get(url);
   const checkIfPlayer = server.data.players.online;
+
+  try {
     client.user.setPresence({
       activities: [
         {
@@ -73,8 +75,13 @@ client.on("messageCreate", async (message) => {
       ],
       status: "online",
     });
+  } catch {
+    client.user.setPresence({
+      activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
+      status: "online",
+    });
+  }
 });
-
 
 client.eventHandler();
 client.commandHandler();
