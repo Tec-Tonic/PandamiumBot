@@ -54,7 +54,8 @@ module.exports = {
       //No Players Online
       const ServerEmpty = new EmbedBuilder()
         .setColor("#FF0000")
-        .setTitle(`**No online players**`);
+        .setTitle(`**No online players**`)
+        .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
       const checkIfPlayer = server.data.players.online;
       if (checkIfPlayer.toString() === "0") {

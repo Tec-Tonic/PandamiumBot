@@ -49,7 +49,8 @@ module.exports = {
       if (checkIfPlayer.toString() === "0") {
         const ServerEmpty = new EmbedBuilder()
           .setColor("#FF0000")
-          .setTitle(`**Server is Empty**`);
+          .setTitle(`**Server is Empty**`)
+          .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
         channel.messages
           .fetch(msgID)
