@@ -26,7 +26,6 @@ const {
   const axios = require("axios");
   let url = `https://api.mcstatus.io/v2/status/java/release.pandamium.eu`;
 
-  try {
     client.user.setPresence({
       activities: [
         {
@@ -36,13 +35,7 @@ const {
       ],
       status: "online",
     });
-  } catch {
-    client.user.setPresence({
-      activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
-      status: "online",
-    });
-  }
-
+ 
     },
   };
   
