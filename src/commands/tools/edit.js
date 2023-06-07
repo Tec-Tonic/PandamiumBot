@@ -19,7 +19,7 @@ module.exports = {
         if (
             interaction.user.id === "546277533138550786" || interaction.user.id === "255766501464735744"
           ) {
-            //get files from here
+            
 
               const noUpdates = new EmbedBuilder().setDescription('There is nothing to update!').setColor('#189cab')
               return interaction.reply({embeds: [noUpdates], ephemeral: true})

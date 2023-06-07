@@ -9,7 +9,7 @@ const {
   EmbedBuilder,
 } = require("discord.js");
 const fs = require("fs");
-// Discord requirements ↓ ↑
+
 const client = new Client({
   intents: [
     GatewayIntentBits.DirectMessages,
@@ -57,24 +57,6 @@ client.on("messageCreate", async (message) => {
     if (message.author == client.user) return;
     client.command.get(name).execute(message, client);
   }
-
-  // Updates Presence
-  // const axios = require("axios");
-  // let url = `https://api.mcstatus.io/v2/status/java/release.pandamium.eu`;
-
-  // const server = await axios.get(url);
-  // const checkIfPlayer = server.data.players.online;                        // Will add this back when release is fixed.
-
-  
-  //   client.user.setPresence({
-  //     activities: [
-  //       {
-  //         name: `Release: ${server.data.players.online}/${server.data.players.max}`,
-  //         type: ActivityType.Playing,
-  //       },
-  //     ],
-  //     status: "online",
-  //   });
 });
 
 client.eventHandler();
