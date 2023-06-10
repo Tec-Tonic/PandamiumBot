@@ -23,11 +23,11 @@ module.exports = {
   name: "ready",
   once: true,
   async execute(client) {
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Logged in as ${client.user.username}!`);
 
     const readyEmbed = new EmbedBuilder()
       .setColor("#36FF00")
-      .setDescription(`${client.user.tag} has logged in.`);
+      .setDescription(`${client.user.username} has logged in.`);
     client.channels.cache.get(process.env.LOGS).send({ embeds: [readyEmbed] });
 
     const axios = require("axios");

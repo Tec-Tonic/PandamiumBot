@@ -38,7 +38,7 @@ module.exports = {
 
         const linkReply = new EmbedBuilder()
           .setAuthor({
-            name: `${message.author.tag}`,
+            name: `${message.author.username}`,
             iconURL:
               `https://cdn.discordapp.com/avatars/` +
               message.author.id +
