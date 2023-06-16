@@ -67,9 +67,7 @@ module.exports = {
             `**Online players (${server.data.players.online}/${server.data.players.max}):**`
           )
           .setDescription(
-            `\`\`\`${remove.Punctuation(
-              nameArr
-            )}\`\`\`\n*This message updates every 5 minutes.*`
+            `\`\`\`${nameArr}\`\`\`\n*This message updates every 5 minutes.*`
           )
           .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
