@@ -26,6 +26,8 @@ module.exports = {
 
     async function playerlistUpdate() {
       const remove = require("../../functions/events/punctuation");
+// Temp
+      const utility = require("minecraft-server-util");
 
       const axios = require("axios");
       const util = require("util");
@@ -40,9 +42,9 @@ module.exports = {
 
 
       try {
-        const nameArr = await search(
-          server.data.players.list.map((obj) => obj.name_clean).join(", ")
-        );
+        // const nameArr = await search(
+        //   server.data.players.list.map((obj) => obj.name_clean).join(", ")
+        // );
         
       //Checks if the server is Empty or not
       const checkIfPlayer = server.data.players.online;
@@ -56,6 +58,9 @@ module.exports = {
           .fetch(msgID)
           .then((msg) => msg.edit({ embeds: [ServerEmpty] }));
       } else {
+        utility.queryFull("pandamium.eu", 25566, options).then((Response) => { // temp - Removes Anonymous Player
+          const nameArr = Response.players.list.join(", ").toString(); //temp 
+
         const playerlistEmbed = new EmbedBuilder()
           .setColor("#2DF904")
           .setTitle(
@@ -71,7 +76,7 @@ module.exports = {
         channel.messages
           .fetch(msgID)
           .then((msg) => msg.edit({ embeds: [playerlistEmbed] }));
-      }
+      })}
     } catch {
       const serverOffline = new EmbedBuilder()
       .setColor("#FF0000")
