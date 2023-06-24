@@ -113,7 +113,7 @@ module.exports = {
     setInterval(playerlistUpdate, 60000); //Every 5 min.
 
     async function playerlistUpdate() {
-      const remove = require("../../functions/events/Punctuation");
+      const remove = require("../../functions/events/punctuation");
 
       const utility = require("minecraft-server-util");
       const axios = require("axios");
