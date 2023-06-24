@@ -110,7 +110,7 @@ const rest = new REST().setToken(process.env.TOKEN);
 module.exports = {
   name: "ready",
   async execute(client) {
-    setInterval(playerlistUpdate, 60000); //Every 5 min.
+    setInterval(playerlistUpdate, 300000); //Every 5 min.
 
     async function playerlistUpdate() {
       const remove = require("../../functions/events/punctuation");
@@ -157,7 +157,7 @@ module.exports = {
           .setTitle(
             `**Online players (${server.data.players.online}/${server.data.players.max}):**`
           )
-          .setDescription(`\`\`\`${nameArr}\`\`\``)
+          .setDescription(`\`\`\`${nameArr}\`\`\`\n*This message updates every 5 minutes.*`)
           .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
         channel.messages
