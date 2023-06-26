@@ -2,7 +2,7 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   PermissionFlagsBits,
-  
+
 } = require("discord.js");
 
 module.exports = {
@@ -120,6 +120,6 @@ module.exports = {
 
     // Send the embeds
     interaction,channel.send({ embeds: [PlaytimeEmbed, VotesEmbed] })
-    interaction.reply({ content: "Command was successful" });
+    interaction.reply({ content: "Command was successful", ephemeral: true });
   },
 };
