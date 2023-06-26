@@ -1,16 +1,8 @@
 const {
-  Client,
-  ContextMenuCommandInteraction,
-  ApplicationCommandType,
   SlashCommandBuilder,
   EmbedBuilder,
-  ContextMenuCommandBuilder,
-  ActionRowBuilder,
-  StringSelectMenuBuilder,
   PermissionFlagsBits,
-  ModalBuilder,
-  TextInputBuilder,
-  TextInputStyle,
+  
 } = require("discord.js");
 
 module.exports = {
@@ -127,6 +119,7 @@ module.exports = {
     );
 
     // Send the embeds
-    interaction.reply({ embeds: [PlaytimeEmbed, VotesEmbed] });
+    interaction,channel.send({ embeds: [PlaytimeEmbed, VotesEmbed] })
+    interaction.reply({ content: "Command was successful" });
   },
 };
