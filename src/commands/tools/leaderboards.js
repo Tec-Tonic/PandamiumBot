@@ -119,7 +119,7 @@ module.exports = {
     );
 
     // Send the embeds
-    interaction,channel.send({ embeds: [PlaytimeEmbed, VotesEmbed] })
+    interaction.channel.send({ embeds: [PlaytimeEmbed, VotesEmbed] })
     interaction.reply({ content: "Command was successful", ephemeral: true });
   },
 };
