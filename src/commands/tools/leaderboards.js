@@ -2,7 +2,6 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   PermissionFlagsBits,
-
 } = require("discord.js");
 
 module.exports = {
@@ -17,6 +16,77 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
+    async function processJsonData(upload) {
+      // Fetch file
+      const file = upload.url;
+      if (!file) return console.log("No attached file found");
+
+      const response = await fetch(file);
+      if (!response.ok)
+        return console.log(
+          "There was an error with fetching the file:",
+          response.statusText
+        );
+      const jsonData = await response.json();
+
+      // Validate JSON data
+      if (!validateJsonData(jsonData)) {
+        return false;
+      }
+
+      jsonData.forEach((item) => {
+        let dateStr = "";
+        if (item.date) {
+          const [year, month] = item.date;
+          dateStr =
+            " - " +
+            new Date(year, month - 1).toLocaleString("en-US", {
+              month: "long",
+              year: "numeric",
+            });
+        }
+        const embed = new EmbedBuilder()
+          .setDescription("## " + item.title + dateStr)
+          .setColor(item.color);
+        const fields = item.entries.map((entry) => {
+          return {
+            name: entry.username.replace(/_/g, "\\_"),
+            value:
+              "```" +
+              item.entry_format
+                .replace("%s", entry.values[0])
+                .replace("%s", entry.values[1]) +
+              "```",
+            inline: true,
+          };
+        });
+        embed.addFields(fields);
+        interaction.channel.send({ embeds: [embed] });
+      });
+
+      return true;
+    }
+
+    function validateJsonData(jsonData) {
+      if (!Array.isArray(jsonData)) return false;
+
+      for (const item of jsonData) {
+        if (!item.title || !item.color || !item.entry_format || !item.entries)
+          return false;
+
+        if (!Array.isArray(item.entries)) return false;
+
+        for (const entry of item.entries) {
+          if (!entry.username || !entry.values) return false;
+
+          if (!Array.isArray(entry.values)) return false;
+        }
+      }
+
+      // All checks passed
+      return true;
+    }
+
     // Check user roles
     if (
       !interaction.member.roles.cache.some((role) =>
@@ -32,94 +102,13 @@ module.exports = {
     // Get options
     const upload = interaction.options.getAttachment("file");
 
-    function getMonthlyData(jsonData) {
-      let result = {
-        monthly_playtime: [],
-        monthly_votes: [],
-      };
-      jsonData.monthly_playtime.forEach((item) => {
-        result.monthly_playtime.push({
-          username: item.username,
-          value: item.value,
-        });
-      });
-      jsonData.monthly_votes.forEach((item) => {
-        result.monthly_votes.push({
-          username: item.username,
-          value: item.value,
-        });
-      });
-      return result;
-    }
+    // Process JSON data
+    const success = await processJsonData(upload);
 
-    // Fetch file
-    const file = upload.url;
-    if (!file) return console.log("No attached file found");
-
-    const response = await fetch(file);
-    if (!response.ok)
-      return interaction.channel.send(
-        "There was an error with fetching the file:",
-        response.statusText
-      );
-    const jsonData = await response.json();
-    let monthlyData = getMonthlyData(jsonData);
-
-    const numberEmojis = [' 🥇 ', '🥈', '🥉', '⒋', '⒌', '⒍', '⒎', '⒏', '⒐', '⒑', '⒒', '⒓', '⒔', '⒕', '⒖'];
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-
-    // Helper function to get the end of the month
-    function getMonthEnd(date) {
-      return new Date(date.getFullYear(), date.getMonth(), 0);
-    }
-
-    // Get closest month end
-    const date = new Date();
-    const closestMonthEnd = getMonthEnd(date);
-    const formattedClosestMonthEnd = `${
-      monthNames[closestMonthEnd.getMonth()]
-    } ${closestMonthEnd.getFullYear()}`;
-
-    // Create the embeds
-    const PlaytimeEmbed = new EmbedBuilder()
-      .setColor("#00FF0F")
-      .setDescription(
-        `## Monthly Playtime Leaderboard results - ${formattedClosestMonthEnd}`
-      );
-
-    const VotesEmbed = new EmbedBuilder()
-      .setColor("#00FF0F")
-      .setDescription(
-        `## Monthly Votes Leaderboard results - ${formattedClosestMonthEnd}`
-      );
-
-    // Add fields for playtime data
-    PlaytimeEmbed.addFields(
-      ...monthlyData.monthly_playtime.map((item, index) => {
-        const hours = Math.floor((item.value * 0.05) / 60 / 60);
-        const minutes = Math.round(
-          ((item.value * 0.05) / 60 / 60 - hours) * 60
-        );
-        return {
-          name: `${numberEmojis[index]} ${item.username.replace(/_/g, "\\_")}`,
-          value: `\`\`\`${hours} Hrs & ${minutes} Mins\`\`\``,
-          inline: true,
-        };
-      })
-    );
-
-    // Add fields for votes data
-    VotesEmbed.addFields(
-      ...monthlyData.monthly_votes.map((item, index) => ({
-        name: `${numberEmojis[index]} ${item.username.replace(/_/g, "\\_")}`,
-        value: `\`\`\`${item.value.toString()} Votes\`\`\``,
-        inline: true,
-      }))
-    );
-
-    // Send the embeds
-    interaction.channel.send({ embeds: [PlaytimeEmbed, VotesEmbed] })
-    interaction.reply({ content: "Command was successful", ephemeral: true });
+    // Final reply
+    interaction.reply({
+      content: success ? "Embeds were created" : "Invalid JSON data",
+      ephemeral: true,
+    });
   },
 };
