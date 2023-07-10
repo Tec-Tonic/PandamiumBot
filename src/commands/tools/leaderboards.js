@@ -28,7 +28,7 @@ module.exports = {
           response.statusText
         );
       const jsonData = await response.json();
-      const numberEmojis = [' 🥇 ', '🥈 ', '🥉 ', '⒋ ', '⒌ ', '⒍ ', '⒎ ', '⒏ ', '⒐ ', '⒑ ', '⒒ ', '⒓ ', '⒔ ', '⒕ ', '⒖ '];
+      const numberEmojis = [' 🥇 ', '🥈 ', '🥉 ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. ', '11. ', '12. ', '13. ', '14. ', '15. ', '16. ', '17. ', '18. ', '19. ', '20. ','21. ','22. ','23. ','24. '];
 
       // Validate JSON data
       if (!validateJsonData(jsonData)) {
@@ -49,7 +49,7 @@ module.exports = {
         const embed = new EmbedBuilder()
           .setDescription("## " + item.title + dateStr)
           .setColor(item.color);
-        const fields = item.entries.map((entry, index) => {
+        const fields = item.entries.slice(0,24).map((entry, index) => {
           return {
             name: numberEmojis[index] + entry.username.replace(/_/g, "\\_"),
             value:
