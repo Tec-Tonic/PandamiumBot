@@ -26,7 +26,7 @@ const {
       
       if (!isEphemeral) {
         const member = interaction.member;
-        const hasStaffRole = member.roles.cache.some(role => role.name === 'staff');
+        const hasStaffRole = member.roles.cache.some(role => role.name === 'Staff');
         if (!hasStaffRole) {
           return interaction.reply({ content: 'You must have the @staff role to use the public version of this command.', ephemeral: true });
         }
