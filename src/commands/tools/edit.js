@@ -14,7 +14,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("edit")
     .setDescription("Gets embed data")
-    .setDefaultMemberPermissions(PermissionFlagsBits.CreateInstantInvite)
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .addSubcommand((subcommand) =>
       subcommand
         .setName("getfile")
@@ -107,11 +107,11 @@ module.exports = {
         .setFile(buffer);
 
       interaction.reply({
-        content: "Please check <#1096191936961990747> for the file",
+        content: "Please check <#1133032584620822548> for the file",
         ephemeral: true,
       });
       client.channels.cache
-        .get("1096191936961990747")
+        .get("1133032584620822548")
         .send({ files: [attachment] });
     } else if (interaction.options.getSubcommand() === "sendfile") {
       const attachmentOption = interaction.options.get("file");
