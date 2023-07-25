@@ -1,6 +1,8 @@
 const botlogs = process.env.PANDALOGS;
 const { EmbedBuilder } = require("discord.js");
 const slurFilter = require(`../filters/slur_alert_filter.json`);
+
+
 module.exports = {
   name: "slur_used",
   execute(message, client) {
@@ -18,6 +20,14 @@ module.exports = {
     }
 
     if (slurFoundInText) {
+      const btn = new ButtonBuilder()
+			.setCustomId('addReason')
+			.setLabel('Add Reason')
+			.setStyle(ButtonStyle.Danger);
+      
+      const row = new ActionRowBuilder()
+			.addComponents(btn);
+
       const slurEmbed = new EmbedBuilder()
         .setColor("#FF0000")
         .setTitle("Slurs")
@@ -30,9 +40,7 @@ module.exports = {
         )
         .setFooter({ text: `Author : ${slurAuthor}` });
 
-      client.channels.cache.get(botlogs).send({ embeds: [slurEmbed] });
-    } else {
-      return;
-    }
+      client.channels.cache.get(botlogs).send({ embeds: [slurEmbed], components: [row] });
+    } else return;
   },
 };
