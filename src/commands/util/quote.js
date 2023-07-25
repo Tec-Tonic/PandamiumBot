@@ -94,7 +94,7 @@ module.exports = {
 
             const dateReply = new EmbedBuilder()
               .setDescription(
-                `Original Message sent <t:${time}:R> in <#${channelId}>`
+                `[Original Message](${link}) sent <t:${time}:R> in <#${channelId}>`
               )
               .setColor("#1BEACA");
 
