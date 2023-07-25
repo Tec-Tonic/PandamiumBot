@@ -1,5 +1,5 @@
 const botlogs = process.env.PANDALOGS;
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, ButtonBuilder, ButtonComponent, ButtonStyle, ActionRowBuilder } = require("discord.js");
 const slurFilter = require(`../filters/slur_alert_filter.json`);
 
 
