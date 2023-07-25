@@ -111,7 +111,7 @@ module.exports = {
             }
           }
         } catch (e) {
-          if (e instanceof DiscordAPIError && e.code === 10003) {
+          if (e instanceof DiscordAPIError && (e.code === 10003 || e.code === 50001)) {
             // Channel not found
             interaction.reply({
               embeds: [channelNotFound],
