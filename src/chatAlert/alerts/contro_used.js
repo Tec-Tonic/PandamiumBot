@@ -1,5 +1,5 @@
 const log = process.env.PANDALOGS
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, ButtonBuilder, ButtonComponent, ButtonStyle, ActionRowBuilder } = require("discord.js");
 const topicFilter = require(`../filters/contro_alert_filter.json`);
 module.exports = {
   name: "contro",
@@ -17,6 +17,15 @@ module.exports = {
         topicFoundInText = true;
     }
     if (topicFoundInText) {
+
+      const btn = new ButtonBuilder()
+			.setCustomId('addReason')
+			.setLabel('Add Reason')
+			.setStyle(ButtonStyle.Danger);
+      
+      const row = new ActionRowBuilder()
+			.addComponents(btn);
+
       const controEmbed = new EmbedBuilder()
         .setColor("#7b9bcc")
         .setTitle("Controversial Topics") //stop adding exclamations to everything
@@ -29,7 +38,7 @@ module.exports = {
         )
         .setFooter({ text: `Author : ${topicAuthor}` });
 
-      client.channels.cache.get(log).send({ embeds: [controEmbed] });
+      client.channels.cache.get(log).send({ embeds: [controEmbed], components: [row] });
     } else {
       return;
     }
