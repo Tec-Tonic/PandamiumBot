@@ -10,7 +10,7 @@ module.exports = {
 
       const suggestion = interaction.fields.getTextInputValue("suggestInput");
 
-      const channel = client.channels.cache.get("1137153655477391421");
+      const channel = client.channels.cache.get("1137133652086636584");
       const thread = await channel.threads.create({
         name: "suggestion-thread",
         autoArchiveDuration: 60,
