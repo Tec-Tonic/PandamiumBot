@@ -14,11 +14,15 @@ module.exports = {
     )
     .addStringOption((option) =>
       option.setName("link").setDescription("link required").setRequired(true)
-    ),
+    ).addStringOption((option) =>
+    option.setName("message").setDescription("message optional").setRequired(false)
+  ),
 
   async execute(interaction, client) {
     try {
       const link = interaction.options.getString("link");
+      const quoteMessage = interaction.options.getString("message");
+
       const ErrlinkReply = new EmbedBuilder()
         .setDescription(
           `I do not have access to this message, provide a message link from this server.`
@@ -98,7 +102,11 @@ module.exports = {
               )
               .setColor("#1BEACA");
 
-            await interaction.reply({ embeds: [dateReply, linkReply] });
+              if (quoteMessage) {
+                await interaction.reply({ content: `${quoteMessage}`, embeds: [dateReply, linkReply] });
+              } else {
+                await interaction.reply({ embeds: [dateReply, linkReply] });
+              }
           } catch (e) {
             if (e instanceof DiscordAPIError && e.code === 10008) {
               // Message not found
