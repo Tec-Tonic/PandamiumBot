@@ -5,7 +5,6 @@ module.exports = {
     name: 'interactionCreate',
     async execute(interaction, client) {
 
-    console.log("test");
     if (interaction.customId === "suggest") {
 
       const suggestion = interaction.fields.getTextInputValue("suggestInput");

@@ -15,7 +15,7 @@
         "name": "DorkOrc",
         "id": "336123112187887619",
         "rank":"Admin",
-        "auto-quote": "false"
+        "auto-quote": "true"
     },
     {
         "name": "Echos",
@@ -105,12 +105,6 @@
         "name": "Tom",
         "id": "203577381385011200",
         "rank": "Admin",
-        "auto-quote": "false"
-    },
-    {
-        "name": "Yadiel",
-        "id": "773685606622429184",
-        "rank": "Moderator",
         "auto-quote": "false"
     }
 ]

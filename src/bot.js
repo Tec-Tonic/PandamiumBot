@@ -82,7 +82,6 @@ client.on("messageCreate", async (message) => {
             status: "online",
           });
         }
-
 });
 
 client.eventHandler();
