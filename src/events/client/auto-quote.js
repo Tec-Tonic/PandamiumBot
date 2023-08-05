@@ -65,7 +65,6 @@ module.exports = {
                     url: `${link}`,
                   })
                   .setColor("#1BEACA")
-                  .setFooter({ text: `⚙️ Auto-Generated` });
 
                 if (fetchedMessage.content) {
                   linkReply.setDescription(`${fetchedMessage.content}`);

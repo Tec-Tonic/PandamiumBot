@@ -3,108 +3,126 @@
         "name": "DiamondMon",
         "id": "451802211757064192",
         "rank": "Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "Digit1740",
         "id": "511155292461989889",
         "rank": "Helper",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "DorkOrc",
         "id": "336123112187887619",
         "rank":"Admin",
-        "auto-quote": "true"
+        "auto-quote": "true",
+        "join-date": "null"    
     },
     {
         "name": "Echos",
         "id": "915455249899221033",
         "rank": "Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "GGIS",
         "id": "918213403376492574",
         "rank": "Helper",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "Hawkan",
         "id": "497214837374320670",
         "rank": "SR.Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "KittyAcel",
         "id": "423288503422418946",
         "rank":"SR.Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "KodaDaCod",
         "id": "202863749315559424",
         "rank": "Helper",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "L0Lluc007",
         "id": "351039332238491648",
         "rank": "Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "MaroonAngel",
         "id": "405540902174720001",
         "rank":"SR.Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "Olexorus",
         "id": "210716756778418187",
         "rank": "Admin",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "Orthon",
         "id": "288374565170708480",
         "rank": "Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "PixelAnxiety",
         "id": "565544573154230313",
         "rank": "Helper",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "QAelin",
         "id": "692153466428063825",
         "rank": "Helper",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "SivanEnnair",
         "id": "570952544709378049",
         "rank":"SR.Moderator",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "Sundroid",
         "id": "255766501464735744",
          "rank": "Owner",
-         "auto-quote": "false"
+         "auto-quote": "true",
+        "join-date": "null"
     },
     {
         "name": "Tec",
         "id": "546277533138550786",
         "rank": "SR.Moderator",
-        "auto-quote": "true"
+        "auto-quote": "true",
+        "join-date": "null"    
     },
     {
         "name": "Tom",
         "id": "203577381385011200",
         "rank": "Admin",
-        "auto-quote": "false"
+        "auto-quote": "true",
+        "join-date": "null"
     }
 ]
