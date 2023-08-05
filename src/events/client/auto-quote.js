@@ -103,7 +103,7 @@ module.exports = {
                 )
                 .setColor("#1BEACA");
 
-              await message.reply({ embeds: [dateReply, linkReply] });
+              await message.channel.send({ embeds: [dateReply, linkReply] });
             } catch (e) {
               if (e instanceof DiscordAPIError && e.code === 10008) {
                 return;
