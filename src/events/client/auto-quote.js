@@ -30,7 +30,7 @@ module.exports = {
     const linkMatch = message.content.match(linkRegex);
     if (linkMatch) {
       // Extract the first link from the message
-      const link = linkMatch[0];
+      const link = linkMatch[0].substring(1);
 
       // Execute the provided code with the extracted link
       try {
