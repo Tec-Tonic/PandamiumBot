@@ -26,7 +26,7 @@ module.exports = {
       return;
 
     // Check if the message contains a link
-    const linkRegex = /https?:\/\/[\S]+/g;
+    const linkRegex = /\?https?:\/\/[\S]+/g;
     const linkMatch = message.content.match(linkRegex);
     if (linkMatch) {
       // Extract the first link from the message
