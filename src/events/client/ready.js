@@ -51,5 +51,71 @@ module.exports = {
         status: "online",
       });
     }
+
+    // Loop
+    setInterval(playerlistUpdate, 300000); //Every 5 min.
+
+    async function playerlistUpdate() {
+      const remove = require("../../functions/events/punctuation");
+
+      const utility = require("minecraft-server-util");
+      const axios = require("axios");
+      const util = require("util");
+      const url = `https://api.mcstatus.io/v2/status/java/snapshot.pandamium.eu`;
+      const server = await axios.get(url);
+      const search = util.inspect;
+      const checkIfPlayer = server.data.players.online;
+
+      // Message to Update
+      const msgID = "1138257210925924403";
+      const channelID = "824234748217393212";
+
+      const channel = client.channels.cache.get(channelID);
+
+      const options = {
+        sessionID: 1, // a random 32-bit signed number, optional
+        enableSRV: true, // SRV record lookup
+      };
+
+      try {
+
+
+      //Checks if the server is Empty or not
+
+      if (checkIfPlayer.toString() === "0") {
+        const ServerEmpty = new EmbedBuilder()
+          .setColor("#FF0000")
+          .setTitle(`**Server is Empty**`)
+          .setFooter({ text: `Version: ${server.data.version.name_raw}` });
+
+        channel.messages
+          .fetch(msgID)
+          .then((msg) => msg.edit({ embeds: [ServerEmpty] }));
+      } else {
+        utility.queryFull("pandamium.eu", 25566, options).then((Response) => {
+          const nameArr = Response.players.list.join(", ").toString();
+
+        const playerlistEmbed = new EmbedBuilder()
+          .setColor("#2DF904")
+          .setTitle(
+            `**Online players (${Response.players.online}/${Response.players.max}):**`
+          )
+          .setDescription(`\`\`\`${nameArr}\`\`\`\n*This message updates every 5 minutes.*`)
+          .setFooter({ text: `Version: ${server.data.version.name_raw}` });
+
+        channel.messages
+          .fetch(msgID)
+          .then((msg) => msg.edit({content: "# Fabric API has not updated yet, Chat Linking mod has been disabled.", embeds: [playerlistEmbed] }));
+      })}
+    } catch {
+      const serverOffline = new EmbedBuilder()
+      .setColor("#FF0000")
+      .setTitle(`**Server is offline **`);
+
+      channel.messages
+          .fetch(msgID)
+          .then((msg) => msg.edit({ embeds: [serverOffline] }));
+    }
+    }
   },
 };
