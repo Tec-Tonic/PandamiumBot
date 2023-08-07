@@ -105,7 +105,7 @@ module.exports = {
 
         channel.messages
           .fetch(msgID)
-          .then((msg) => msg.edit({content: "# Fabric API has not updated yet, Chat Linking mod has been disabled.", embeds: [playerlistEmbed] }));
+          .then((msg) => msg.edit({content: "# Chat Linking mod has been disabled.", embeds: [playerlistEmbed] }));
       })}
     } catch {
       const serverOffline = new EmbedBuilder()
