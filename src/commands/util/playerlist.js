@@ -4,9 +4,6 @@ const {
   EmbedBuilder,
 } = require(`discord.js`);
 
-const axios = require("axios");
-const util = require("util");
-const remove = require("../../functions/events/punctuation");
 const data = require("../../components/playerlist/quotes.json");
 
 function randomObject(obj) {
@@ -27,37 +24,43 @@ module.exports = {
         channelName === "snapshot-ingame-chat" ||
         channelName === "snapshot-server"
       ) {
-        var ip = "snapshot.pandamium.eu";
+        var ip = "pandamium.eu";
         var colour = "#2DF904";
+        var port = 25566
       } else if (
         channelName === "release-ingame-chat" ||
         channelName === "release-server"
       ) {
-        var ip = "release.pandamium.eu";
+        var ip = "pandamium.eu";
         var colour = "#058823";
+        var port = 25565
       } else if (
         channelName === "builder-general" ||
-        channelName === "builder-ingame-chat"
+        channelName === "builder-ingame-chat" 
       ) {
         var ip = "build.pandamium.eu";
         var colour = "#FF00FF";
+        var port = 25565
       }
 
+      const options = {
+        sessionID: 1, 
+        enableSRV: true, 
+      };
+
       // call API
-      const url = `https://api.mcstatus.io/v2/status/java/${ip}`;
-      const server = await axios.get(url);
-      const search = util.inspect;
-      const nameArr = await search(
-        server.data.players.list.map((obj) => obj.name_clean).join(", ")
-      );
+      const utility = require("minecraft-server-util");
+ 
+      utility.queryFull("pandamium.eu", port, options).then((Response) => {
+        const nameArr = Response.players.list.join(", ").toString();
 
       //No Players Online
       const ServerEmpty = new EmbedBuilder()
         .setColor("#FF0000")
         .setTitle(`**No online players**`)
-        .setFooter({ text: `Version: ${server.data.version.name_raw}` });
+        .setFooter({ text: `Version: ${Response.version}` });
 
-      const checkIfPlayer = server.data.players.online;
+      const checkIfPlayer = Response.players.online
       if (checkIfPlayer.toString() === "0") {
         return interaction.reply({
           embeds: [ServerEmpty],
@@ -70,12 +73,12 @@ module.exports = {
         const singlePlayerEmbed = new EmbedBuilder()
           .setColor(colour)
           .setTitle(
-            `**Online player (${server.data.players.online}/${server.data.players.max}):**`
+            `**Online player (${Response.players.online}/${Response.players.max}):**`
           )
           .setDescription(
-            `\`\`\`${remove.Punctuation(nameArr)}\`\`\` \n` + randomObject(data)
+            `\`\`\`${nameArr}\`\`\` \n` + randomObject(data)
           )
-          .setFooter({ text: `Version: ${server.data.version.name_raw}` });
+          .setFooter({ text: `Version: ${Response.version}` });
 
         return interaction.reply({
           embeds: [singlePlayerEmbed],
@@ -84,15 +87,18 @@ module.exports = {
       }
 
       const playerlistEmbed = new EmbedBuilder()
-        .setColor(colour)
-        .setTitle(
-          `**Online players (${server.data.players.online}/${server.data.players.max}):**`
-        )
-        .setDescription(`\`\`\`${remove.Punctuation(nameArr)}\`\`\``)
-        .setFooter({ text: `Version: ${server.data.version.name_raw}` });
+      .setColor(colour)
+      .setTitle(
+        `**Online players (${Response.players.online}/${Response.players.max}):**`
+      )
+      .setDescription(`\`\`\`${nameArr}\`\`\``)
+      .setFooter({ text: `Version: ${Response.version}` });
 
       interaction.reply({ embeds: [playerlistEmbed], ephemeral: true });
-    } catch {
+      })
+    } catch (error) {
+      console.log(error)
+
       const Error = new EmbedBuilder()
         .setColor("#FF0000")
         .setDescription(
