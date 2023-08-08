@@ -65,6 +65,7 @@ module.exports = {
       const server = await axios.get(url);
       const search = util.inspect;
       const checkIfPlayer = server.data.players.online;
+      const unixTimestamp = Math.floor((Date.now() + 300000) / 1000);
 
       // Message to Update
       const msgID = "1138257210925924403";
@@ -84,7 +85,7 @@ module.exports = {
           const ServerEmpty = new EmbedBuilder()
             .setColor("#FF0000")
             .setTitle(`**Server is Empty**`)
-            .setDescription(`*This message updates every 5 minutes.*`)
+            .setDescription(`*Message will refresh <t:${unixTimestamp}:R>*`)
             .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
           channel.messages
@@ -106,7 +107,7 @@ module.exports = {
                 `**Online players (${Response.players.online}/${Response.players.max}):**`
               )
               .setDescription(
-                `\`\`\`${nameArr}\`\`\`\n*This message updates every 5 minutes.*`
+                `\`\`\`${nameArr}\`\`\`\n*Message will refresh <t:${unixTimestamp}:R>*`
               )
               .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
@@ -125,7 +126,7 @@ module.exports = {
         const serverOffline = new EmbedBuilder()
           .setColor("#FF0000")
           .setTitle(`**Server is offline **`)
-          .setDescription(`*This message updates every 5 minutes.*`);
+          .setDescription(`*Message will refresh <t:${unixTimestamp}:R>*`);
 
         channel.messages
           .fetch(msgID)
