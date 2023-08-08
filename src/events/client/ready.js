@@ -67,7 +67,7 @@ module.exports = {
       const checkIfPlayer = server.data.players.online;
 
       // Message to Update
-      const msgID = "1138257210925924403"; 
+      const msgID = "1138257210925924403";
       const channelID = "824234748217393212";
 
       const channel = client.channels.cache.get(channelID);
@@ -78,44 +78,65 @@ module.exports = {
       };
 
       try {
+        //Checks if the server is Empty or not
 
+        if (checkIfPlayer.toString() === "0") {
+          const ServerEmpty = new EmbedBuilder()
+            .setColor("#FF0000")
+            .setTitle(`**Server is Empty**`)
+            .setDescription(`*This message updates every 5 minutes.*`)
+            .setFooter({ text: `Version: ${server.data.version.name_raw}` });
 
-      //Checks if the server is Empty or not
+          channel.messages
+            .fetch(msgID)
+            .then((msg) =>
+              msg.edit({
+                content:
+                  "# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.",
+                embeds: [ServerEmpty],
+              })
+            );
+        } else {
+          utility.queryFull("pandamium.eu", 25566, options).then((Response) => {
+            const nameArr = Response.players.list.join(", ").toString();
 
-      if (checkIfPlayer.toString() === "0") {
-        const ServerEmpty = new EmbedBuilder()
+            const playerlistEmbed = new EmbedBuilder()
+              .setColor("#2DF904")
+              .setTitle(
+                `**Online players (${Response.players.online}/${Response.players.max}):**`
+              )
+              .setDescription(
+                `\`\`\`${nameArr}\`\`\`\n*This message updates every 5 minutes.*`
+              )
+              .setFooter({ text: `Version: ${server.data.version.name_raw}` });
+
+            channel.messages
+              .fetch(msgID)
+              .then((msg) =>
+                msg.edit({
+                  content:
+                    "# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.",
+                  embeds: [playerlistEmbed],
+                })
+              );
+          });
+        }
+      } catch {
+        const serverOffline = new EmbedBuilder()
           .setColor("#FF0000")
-          .setTitle(`**Server is Empty**`)
-          .setFooter({ text: `Version: ${server.data.version.name_raw}` });
+          .setTitle(`**Server is offline **`)
+          .setDescription(`*This message updates every 5 minutes.*`);
 
         channel.messages
           .fetch(msgID)
-          .then((msg) => msg.edit({content: "# Chat Linking mod has been disabled. Keep an eye on <#505093367903027220> to know when this channel is working again.", embeds: [ServerEmpty] }));
-      } else {
-        utility.queryFull("pandamium.eu", 25566, options).then((Response) => {
-          const nameArr = Response.players.list.join(", ").toString();
-
-        const playerlistEmbed = new EmbedBuilder()
-          .setColor("#2DF904")
-          .setTitle(
-            `**Online players (${Response.players.online}/${Response.players.max}):**`
-          )
-          .setDescription(`\`\`\`${nameArr}\`\`\`\n*This message updates every 5 minutes.*`)
-          .setFooter({ text: `Version: ${server.data.version.name_raw}` });
-
-        channel.messages
-          .fetch(msgID)
-          .then((msg) => msg.edit({content: "# Chat Linking mod has been disabled. Keep an eye on <#505093367903027220> to know when this channel is working again.", embeds: [playerlistEmbed] }));
-      })}
-    } catch {
-      const serverOffline = new EmbedBuilder()
-      .setColor("#FF0000")
-      .setTitle(`**Server is offline **`);
-
-      channel.messages
-          .fetch(msgID)
-          .then((msg) => msg.edit({ embeds: [serverOffline] }));
-    }
+          .then((msg) =>
+            msg.edit({
+              content:
+                "# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.",
+              embeds: [serverOffline],
+            })
+          );
+      }
     }
   },
 };
