@@ -67,7 +67,7 @@ module.exports = {
       const checkIfPlayer = server.data.players.online;
 
       // Message to Update
-      const msgID = "1138257210925924403";
+      const msgID = "1138257210925924403"; 
       const channelID = "824234748217393212";
 
       const channel = client.channels.cache.get(channelID);
@@ -90,7 +90,7 @@ module.exports = {
 
         channel.messages
           .fetch(msgID)
-          .then((msg) => msg.edit({ embeds: [ServerEmpty] }));
+          .then((msg) => msg.edit({content: "# Chat Linking mod has been disabled. Keep an eye on <#505093367903027220> to know when this channel is working again.", embeds: [ServerEmpty] }));
       } else {
         utility.queryFull("pandamium.eu", 25566, options).then((Response) => {
           const nameArr = Response.players.list.join(", ").toString();
@@ -105,7 +105,7 @@ module.exports = {
 
         channel.messages
           .fetch(msgID)
-          .then((msg) => msg.edit({content: "# Chat Linking mod has been disabled.", embeds: [playerlistEmbed] }));
+          .then((msg) => msg.edit({content: "# Chat Linking mod has been disabled. Keep an eye on <#505093367903027220> to know when this channel is working again.", embeds: [playerlistEmbed] }));
       })}
     } catch {
       const serverOffline = new EmbedBuilder()
