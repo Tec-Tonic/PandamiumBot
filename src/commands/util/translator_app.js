@@ -11,7 +11,7 @@ const {
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-    .setName('Translates')
+    .setName('Translate')
     .setType(ApplicationCommandType.Message),
     async execute(interaction, client) {
         

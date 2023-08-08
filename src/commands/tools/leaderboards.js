@@ -14,6 +14,12 @@ module.exports = {
         .setName("jsondata")
         .setDescription("Please enter JSON data")
         .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("footer")
+        .setDescription("Footer Text (optional)")
+        .setRequired(false)
     ),
   async execute(interaction, client) {
     async function processJsonData(jsonData) {
@@ -22,7 +28,7 @@ module.exports = {
         return false;
       }
 
-      const numberEmojis = [' 🥇 ', '🥈 ', '🥉 ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. ', '11. ', '12. ', '13. ', '14. ', '15. ', '16. ', '17. ', '18. ', '19. ', '20. ','21. ','22. ','23. ','24. '];
+      const numberEmojis = ['🥇 ', '🥈 ', '🥉 ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. ', '11. ', '12. ', '13. ', '14. ', '15. ', '16. ', '17. ', '18. ', '19. ', '20. ','21. ','22. ','23. ','24. '];
 
       jsonData.forEach((item) => {
         let dateStr = "";
@@ -51,6 +57,13 @@ module.exports = {
           };
         });
         embed.addFields(fields);
+        
+        // Add footer if provided
+        const footerText = interaction.options.getString("footer");
+        if (footerText) {
+          embed.addFields({name: `\u00A0`, value: `${footerText}`})
+        }
+        
         interaction.channel.send({ embeds: [embed] });
       });
 
@@ -99,6 +112,7 @@ module.exports = {
         ephemeral: true,
       });
     }
+    
     // Process JSON data
     const success = await processJsonData(jsonData);
 
@@ -109,3 +123,4 @@ module.exports = {
     });
   },
 };
+
