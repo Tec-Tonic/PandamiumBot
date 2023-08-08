@@ -9,31 +9,20 @@ module.exports = {
     .setName("leaderboards")
     .setDescription("Creates leaderboard Embeds")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
-    .addAttachmentOption((option) =>
+    .addStringOption((option) =>
       option
-        .setName("file")
-        .setDescription("please attach file")
+        .setName("jsondata")
+        .setDescription("Please enter JSON data")
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    async function processJsonData(upload) {
-      // Fetch file
-      const file = upload.url;
-      if (!file) return console.log("No attached file found");
-
-      const response = await fetch(file);
-      if (!response.ok)
-        return console.log(
-          "There was an error with fetching the file:",
-          response.statusText
-        );
-      const jsonData = await response.json();
-      const numberEmojis = [' 🥇 ', '🥈 ', '🥉 ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. ', '11. ', '12. ', '13. ', '14. ', '15. ', '16. ', '17. ', '18. ', '19. ', '20. ','21. ','22. ','23. ','24. '];
-
+    async function processJsonData(jsonData) {
       // Validate JSON data
       if (!validateJsonData(jsonData)) {
         return false;
       }
+
+      const numberEmojis = [' 🥇 ', '🥈 ', '🥉 ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. ', '11. ', '12. ', '13. ', '14. ', '15. ', '16. ', '17. ', '18. ', '19. ', '20. ','21. ','22. ','23. ','24. '];
 
       jsonData.forEach((item) => {
         let dateStr = "";
@@ -91,7 +80,7 @@ module.exports = {
     // Check user roles
     if (
       !interaction.member.roles.cache.some((role) =>
-        ["Sr. Moderator", "Admin", "Owner"].includes(role.name)
+        ["Moderator", "Sr. Moderator", "Admin", "Owner"].includes(role.name)
       )
     ) {
       return interaction.reply({
@@ -101,10 +90,17 @@ module.exports = {
     }
 
     // Get options
-    const upload = interaction.options.getAttachment("file");
-
+    let jsonData;
+    try {
+      jsonData = JSON.parse(interaction.options.getString("jsondata"));
+    } catch (error) {
+      return interaction.reply({
+        content: "Invalid JSON data",
+        ephemeral: true,
+      });
+    }
     // Process JSON data
-    const success = await processJsonData(upload);
+    const success = await processJsonData(jsonData);
 
     // Final reply
     interaction.reply({
