@@ -14,13 +14,8 @@ module.exports = {
         .setName("jsondata")
         .setDescription("Please enter JSON data")
         .setRequired(true)
-    )
-    .addStringOption((option) =>
-      option
-        .setName("footer")
-        .setDescription("Footer Text (optional)")
-        .setRequired(false)
     ),
+    
   async execute(interaction, client) {
     async function processJsonData(jsonData) {
       // Validate JSON data
@@ -58,10 +53,9 @@ module.exports = {
         });
         embed.addFields(fields);
         
-        // Add footer if provided
-        const footerText = interaction.options.getString("footer");
-        if (footerText) {
-          embed.addFields({name: `\u00A0`, value: `${footerText}`})
+        // Add footer field
+        if (item.footer) {
+          embed.addFields({name: "\u00A0", value: item.footer});
         }
         
         interaction.channel.send({ embeds: [embed] });
