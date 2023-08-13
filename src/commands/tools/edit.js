@@ -25,29 +25,29 @@ module.exports = {
             .setDescription("The file you want the JSON data for.")
             .setRequired(true)
             .addChoices(
-              { name: "Reaction Roles", value: "rr.json" },
-              { name: "Rules [1-10]", value: "rules1_10.json" },
-              { name: "Rules [11-15]", value: "rules11_15.json" },
+              { name: "Reaction Roles", value: "reaction_roles.json" },
+              { name: "Rules [1-10]", value: "rules_1_10.json" },
+              { name: "Rules [11-15]", value: "rules_11_15.json" },
               { name: "FAQ", value: "faq.json" },
               { name: "Ranks [Player Ranks]", value: "ranks_player.json" },
               { name: "Ranks [Staff Ranks]", value: "ranks_staff.json" },
               { name: "Voting", value: "vote.json" },
               { name: "Donations", value: "donations.json" },
               { name: "Commands [Snapshot Server]", value: "cmd_snap.json" },
-              { name: "Commands [Release Server]", value: "cmd_rele.json" },
-              { name: "Commands [Discord Server]", value: "cmd_disc.json" },
-              { name: "Custom Recipes", value: "cr.json" },
-              { name: "More Mob Heads", value: "mmh.json" },
+              { name: "Commands [Release Server]", value: "cmd_release.json" },
+              { name: "Commands [Discord Server]", value: "cmd_discord.json" },
+              { name: "Custom Recipes", value: "custom_recipes.json" },
+              { name: "More Mob Heads", value: "more_mod_heads.json" },
               {
                 name: "Staff Applications [Main Message]",
-                value: "sa_main.json",
+                value: "staff_apps_main.json",
               },
               {
                 name: "Staff Applications [Open/Closed Message]",
-                value: "sa_last.json",
+                value: "staff_apps_last.json",
               },
-              { name: "Town Applications", value: "ta.json" },
-              { name: "Timezone", value: "tz.json" }
+              { name: "Town Applications", value: "town_apps.json" },
+              { name: "Timezone", value: "timezone.json" }
             )
         )
     )
