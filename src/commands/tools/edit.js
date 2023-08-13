@@ -46,7 +46,8 @@ module.exports = {
                 name: "Staff Applications [Open/Closed Message]",
                 value: "sa_last.json",
               },
-              { name: "Town Applications", value: "ta.json" }
+              { name: "Town Applications", value: "ta.json" },
+              { name: "Timezone", value: "tz.json" }
             )
         )
     )
