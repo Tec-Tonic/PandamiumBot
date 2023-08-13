@@ -35,6 +35,7 @@ const {
           { name: "Staff Applications [Message]", value: "sa" },
           { name: "Staff Applications [Open]", value: "open-sa" },
           { name: "Staff Applications [Closed]", value: "closed-sa" },
+          { name: "TimeZone", value: "tz"},
           { name: "Town Applications", value: "ta" },
           { name: "Vote", value: "vote" },
           { name: "Welcome", value: "welcome" }
@@ -45,6 +46,12 @@ const {
         if (
           interaction.user.id === "546277533138550786" || interaction.user.id === "255766501464735744"
         ) {
+          if (update === "tz") {
+           const translateFileTZ = require("../../components/embeds/channels/timezone");
+            const tz = translateFileTZ.tz
+            await interaction.reply({embeds: [intComplete],ephemeral: true,})
+            await interaction.channel.send({ embeds: [tz]});
+          }
           if (update === "commands") {
             const translateFileCommand = require("../../components/embeds/channels/command-embed");
             const snap = translateFileCommand.snap;
