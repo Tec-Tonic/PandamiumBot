@@ -104,7 +104,7 @@ module.exports = {
       const buffer = Buffer.from(JSON.stringify(data), "utf-8");
 
       const attachment = new AttachmentBuilder()
-        .setName(`${fileName} Embed`)
+        .setName(fileName)
         .setFile(buffer);
 
       interaction.reply({
