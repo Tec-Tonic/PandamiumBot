@@ -35,9 +35,9 @@ module.exports = {
     if (TextFoundInText) {
       message.react("❌");
 
-      // setTimeout(() => {
-      //   return message.delete();
-      // }, 5000);
+      setTimeout(() => {
+        return message.delete();
+      }, 5000);
     }
     
   },
