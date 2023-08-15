@@ -20,9 +20,7 @@ module.exports = {
     let ipFoundInText = false;
     for (var i in ipFilter) {
       if (
-        remove.Punctuation(filterPunctuation)
-          .toLowerCase()
-          .includes(ipFilter[i])
+        remove.Punctuation(filterPunctuation).toLowerCase().includes(ipFilter[i])
       )
         ipFoundInText = true;
     }

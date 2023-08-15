@@ -70,7 +70,7 @@ client.on("messageCreate", async (message) => {
           client.user.setPresence({
             activities: [
               {
-                name: `Release: ${server.data.players.online}/${server.data.players.max}`,
+                name: `Release | ${server.data.players.online}/${server.data.players.max}`,
                 type: ActivityType.Playing,
               },
             ],
