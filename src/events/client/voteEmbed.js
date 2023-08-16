@@ -11,8 +11,9 @@ const {
 module.exports = {
   name: "messageCreate",
   async execute(message, client) {
-    if (message.author.bot) {
+    
       if (message.content.startsWith("<Rcon>")) {
+        if (message.channel.name === 'snapshot-ingame-chat') {
         // Extract the username from the message
         const username = message.content.match(
           /\<Rcon\> \[Info\] (\w+) got one vote credit for voting!/
