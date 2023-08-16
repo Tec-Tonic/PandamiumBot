@@ -1,22 +1,13 @@
-const {
-  SlashCommandBuilder,
-  ButtonStyle,
-  ActionRowBuilder,
-  ButtonBuilder,
-  EmbedBuilder,
-  PermissionFlagsBits,
-  AttachmentBuilder,
-} = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "messageCreate",
   async execute(message, client) {
-    if (message.author.bot) {
-      if (message.content.startsWith("**<Rcon>**")) {
-        // Extract the username from the message
-        const username = message.content.match(
-          /\*\*\<Rcon\>\*\* \[Info\] (\w+) got one vote credit for voting!/
-        )[1];
+    if (message.author.bot && message.content.startsWith("**<Rcon>**")) {
+      // Extract the username from the message
+      const match = message.content.match(/\*\*\<Rcon\>\*\* \[Info\] (\w+) got one vote credit for voting!/);
+      if (match) {
+        const username = match[1];
 
         // Delete the original message
         await message.delete();
@@ -34,3 +25,4 @@ module.exports = {
     }
   },
 };
+
