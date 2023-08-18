@@ -7,15 +7,15 @@ module.exports = {
     if (message.author.bot && message.content.startsWith("**<Rcon>**")) {
         
       // Extract the username from the message
-      const match = message.content.match(/\*\*\<Rcon\>\*\* \[Info\] (_{1,2})?(\w+)(_{1,2})? got one vote credit for voting!/);
+      const match = message.content.match(/\*\*\<Rcon\>\*\* \[Info\] (\w+) got one vote credit for voting!/);
       if (match) {
-        const username = match[2];
+        const username = match[1];
 
         // Delete the original message
         await message.delete();
         
         // Create an embed version of the message
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
           .setColor("#1f8b4c")
           .setDescription(
             `**[Info]** \`${username}\` got one vote credit for voting!`
