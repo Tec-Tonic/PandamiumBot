@@ -6,19 +6,22 @@ module.exports = {
     
     if (message.author.bot && message.content.startsWith("**<Rcon>**")) {
         
-      // Extract the username from the message
-      const match = message.content.match(/\*\*\<Rcon\>\*\* \[Voting\] (\w+) got 2 vote credits for voting!/);
+      // Extract the username and message content from the message
+      const match = message.content.match(/\*\*\<Rcon\>\*\* \[(.+)\] (\w+) (.+)/);
       if (match) {
-        const username = match[1];
+        const category = match[1];
+        const username = match[2];
+        const msgContent = match[3];
 
         // Delete the original message
-        await message.delete();
-        
+        //await message.delete();
+        await message.react("😁");
+
         // Create an embed version of the message
         const embed = new EmbedBuilder()
           .setColor("#1f8b4c")
           .setDescription(
-            `**[Voting]** \`${username}\` got 2 vote credits for voting!`
+            `**[${category}]** \`${username}\` ${msgContent}`
           );
 
         // Send the embed to the same channel
@@ -27,4 +30,3 @@ module.exports = {
     }
   },
 };
-
