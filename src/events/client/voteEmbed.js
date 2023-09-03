@@ -7,7 +7,7 @@ module.exports = {
     if (message.author.bot && message.content.startsWith("**<Rcon>**")) {
         
       // Extract the username and message content from the message
-      const match = message.content.match(/\*\*\<Rcon\>\*\* \[(.+)\] (\w+) (.+)/);
+      const match = message.content.match(/\*\*\<Rcon\>\*\* \[(.+)\] ([\w_]+) (.+)/);
       if (match) {
         const category = match[1];
         const username = match[2];
