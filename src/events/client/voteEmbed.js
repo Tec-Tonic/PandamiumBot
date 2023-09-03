@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "messageCreate",
@@ -14,10 +14,10 @@ module.exports = {
 
       // Delete the original message
       //await message.delete();
-      await message.react("😁");
+      await message.react("❌")
         
       // Create an embed version of the message
-      const embed = new EmbedBuilder()
+      const embed = new MessageEmbed()
         .setColor("#1f8b4c")
         .setDescription(
           `**[${category}]** \`${username}\` ${msgContent}`
