@@ -8,9 +8,9 @@ module.exports = {
         
       // Extract the username and message content from the message
       const splitMessage = message.content.split(" ");
-      const category = splitMessage[2].slice(1, -1);
-      const username = splitMessage[3];
-      const msgContent = splitMessage.slice(4).join(" ");
+      const category = splitMessage[3].slice(1, -1);
+      const username = splitMessage[4];
+      const msgContent = splitMessage.slice(5).join(" ");
 
       // Delete the original message
       //await message.delete();
