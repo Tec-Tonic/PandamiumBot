@@ -1,4 +1,4 @@
-const {EmbedBuilder } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "messageCreate",
@@ -6,25 +6,25 @@ module.exports = {
     
     if (message.author.bot && message.content.startsWith("**<Rcon>**")) {
         
-      // Extract the username and message content from the message
-      const splitMessage = message.content.split(" ");
-      const category = splitMessage[3].slice(1, -1);
-      const username = splitMessage[4];
-      const msgContent = splitMessage.slice(5).join(" ");
+      // Extract the username from the message
+      const match = message.content.match(/\*\*\<Rcon\>\*\* \[Voting\] (\w+) got 2 vote credits for voting!/);
+      if (match) {
+        const username = match[1];
 
-      // Delete the original message
-      //await message.delete();
-      await message.react("❌")
+        // Delete the original message
+        await message.delete();
         
-      // Create an embed version of the message
-      const embed = new EmbedBuilder()
-        .setColor("#1f8b4c")
-        .setDescription(
-          `**[${category}]** \`${username}\` ${msgContent}`
-        );
+        // Create an embed version of the message
+        const embed = new EmbedBuilder()
+          .setColor("#1f8b4c")
+          .setDescription(
+            `**[Voting]** \`${username}\` got 2 vote credits for voting!`
+          );
 
-      // Send the embed to the same channel
-      await message.channel.send({ embeds: [embed] });
+        // Send the embed to the same channel
+        await message.channel.send({ embeds: [embed] });
+      }
     }
   },
 };
+
