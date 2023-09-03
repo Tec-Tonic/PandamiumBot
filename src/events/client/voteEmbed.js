@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const {EmbedBuilder } = require("discord.js");
 
 module.exports = {
   name: "messageCreate",
@@ -17,7 +17,7 @@ module.exports = {
       await message.react("❌")
         
       // Create an embed version of the message
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
         .setColor("#1f8b4c")
         .setDescription(
           `**[${category}]** \`${username}\` ${msgContent}`
