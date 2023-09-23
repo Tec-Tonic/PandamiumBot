@@ -4,7 +4,7 @@ const axios = require("axios");
 module.exports = {
   name: "messageCreate",
   async execute(client, message) {
-    if (message.content === "!ip") {
+    if (message.content.trim() === "!ip") {
       const url = `https://api.mcstatus.io/v2/status/java/`;
       const snapshot = await axios.get(url + "snapshot.pandamium.eu");
       const release = await axios.get(url + "release.pandamium.eu");
