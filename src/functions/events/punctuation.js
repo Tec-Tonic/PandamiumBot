@@ -1,7 +1,7 @@
 module.exports = (client) => {
   
   // removes punctuation from messages (used by ip_ask & playerlist(int))
-    var punctuation = "!\"#$%&'’()*+-./:;<=>@[\\]^`{|}~";
+    var punctuation = "\"#$%&'’()*+-./:;<=>@[\\]^`{|}~";
     function Punctuation(string) {
       return string
         .split("")
