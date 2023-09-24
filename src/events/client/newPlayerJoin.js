@@ -11,10 +11,18 @@ module.exports = {
         const username = match[1];
         const newPlayerEmbed = new EmbedBuilder()
         .setColor("#00FF04")
-        .setDescription(`<@&1155559317500596234>\n${username} joined the server for the first time!`)
+        .setDescription(`${username} joined the server for the first time!`)
 
         if (message.author == client.user) return;
-        client.channels.cache.get("950432522137927690").send({ embeds: [newPlayerEmbed] });
+        // Send the ping message first
+        client.channels.cache.get("950432522137927690").send(`<@&1155559317500596234>`)
+        .then(sentMessage => {
+            // Wait for a few seconds
+            setTimeout(() => {
+                // Edit the message to include the embed
+                sentMessage.edit({ content: '', embeds: [newPlayerEmbed] });
+            }, 2000);  // Wait for 5 seconds
+        });
     }
   },
 };
