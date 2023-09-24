@@ -4,7 +4,7 @@ module.exports = {
   name: "messageCreate",
   async execute(message, client) {
     
-    const regex = /<(.*)> \[Server\] Welcome to the server, (.*)! Have fun!/;
+    const regex = /\*\*<([^\s]+)>\*\* \[Server\] Welcome to the server, ([^\s]+)! Have fun!/;
     const match = message.content.match(regex);
 
     if (match) {
