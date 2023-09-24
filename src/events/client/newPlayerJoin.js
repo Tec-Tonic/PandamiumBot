@@ -11,7 +11,7 @@ module.exports = {
         const username = match[1];
         const newPlayerEmbed = new EmbedBuilder()
         .setColor("#00FF04")
-        .setDescription(`<@1155559317500596234>\nGuest | ${username} joined the server for the first time!`)
+        .setDescription(`<@&1155559317500596234>\n${username} joined the server for the first time!`)
 
         if (message.author == client.user) return;
         client.channels.cache.get("950432522137927690").send({ embeds: [newPlayerEmbed] });
