@@ -16,7 +16,6 @@ module.exports = {
       const usernameWithPrefix = match[1];
       const username = usernameWithPrefix.replace("Guest | ", "");
       const newPlayerMessageLink = message.url;
-      console.log(username)
       const url = `https://api.mojang.com/users/profiles/minecraft/${username}`;
       fetch(url)
         .then((response) => response.json())
@@ -24,10 +23,11 @@ module.exports = {
           if (data && data.id) {
             const uuid = data.id;
             const skinUrl = `https://visage.surgeplay.com/full/512/${uuid}`;
+            const nameMCProfileLink = `https://namemc.com/profile/${uuid}`;
             const newPlayerEmbed = new EmbedBuilder()
               .setColor("#00FF04")
               .setDescription(
-                `${usernameWithPrefix} joined the snapshot server for the first time! | [View In-Game Chat](${newPlayerMessageLink})`
+                `${usernameWithPrefix} joined the snapshot server for the first time!\n[\[View In-Game Chat\]](${newPlayerMessageLink}) | [\[View ${username}'s NameMC\]](${nameMCProfileLink})`
               )
               .setThumbnail(skinUrl);
 
@@ -43,7 +43,7 @@ module.exports = {
             // Send the ping message first
             client.channels.cache
               .get("950432522137927690")
-              .send(`<@&1155559317500596234>`)
+              .send(`<@&1091453191159283773>`/*`<@&1155559317500596234>`*/)
               .then((sentMessage) => {
                 // Wait for a few seconds
                 setTimeout(() => {
