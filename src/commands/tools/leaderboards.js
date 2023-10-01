@@ -87,7 +87,7 @@ module.exports = {
     // Check user roles
     if (
       !interaction.member.roles.cache.some((role) =>
-        ["Moderator", "Sr. Moderator", "Admin", "Owner"].includes(role.name)
+        ["Bot Developer", "Moderator", "Sr. Moderator", "Admin", "Owner"].includes(role.name)
       )
     ) {
       return interaction.reply({
