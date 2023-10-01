@@ -23,7 +23,7 @@ module.exports = {
         .then((data) => {
           if (data && data.id) {
             const uuid = data.id;
-            const skinUrl = `https://crafatar.com/skins/${uuid}`;
+            const skinUrl = `https://visage.surgeplay.com/full/512/${uuid}`;
             const newPlayerEmbed = new EmbedBuilder()
               .setColor("#00FF04")
               .setDescription(
