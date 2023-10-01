@@ -52,7 +52,7 @@ module.exports = {
                 }, 2000); // Wait for 2 seconds
               });
           } else {
-            console.log("Error: Failed to retrieve skin URL.");
+            console.log(`Error: Failed to retrieve skin URL. Username-Prefix: ${usernameWithPrefix}, Username: ${username}`);
           }
         })
         .catch((error) => {
