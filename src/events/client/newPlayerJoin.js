@@ -13,7 +13,8 @@ module.exports = {
     const match = message.content.match(regex);
     if (match) {
       await message.react("❌"); //await message.delete();
-      const username = match[1];
+      const usernameWithPrefix = match[1];
+      const username = usernameWithPrefix.replace("Guest | ", "");
       const newPlayerMessageLink = message.url;
       console.log(username)
       const url = `https://api.mojang.com/users/profiles/minecraft/${username}`;
@@ -26,13 +27,13 @@ module.exports = {
             const newPlayerEmbed = new EmbedBuilder()
               .setColor("#00FF04")
               .setDescription(
-                `${username} joined the snapshot server for the first time! | [View In-Game Chat](${newPlayerMessageLink})`
+                `${usernameWithPrefix} joined the snapshot server for the first time! | [View In-Game Chat](${newPlayerMessageLink})`
               )
               .setThumbnail(skinUrl);
 
             const inGameMessage = new EmbedBuilder()
               .setColor("#00FF04")
-              .setDescription(`Welcome to the server, ${username}! Have fun!`);
+              .setDescription(`Welcome to the server, ${usernameWithPrefix}! Have fun!`);
 
             if (message.author == client.user) return;
 
