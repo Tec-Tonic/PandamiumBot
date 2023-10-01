@@ -28,8 +28,10 @@ module.exports = {
             .setDescription(
               `${username} joined the snapshot server for the first time! | [View In-Game Chat](${newPlayerMessageLink})`
             )
-            .setThumbnail(skinUrl);
-
+            .setThumbnail(skinUrl)
+            //testing
+            console.log(skinUrl);
+            
           const inGameMessage = new EmbedBuilder()
             .setColor("#00FF04")
             .setDescription(`Welcome to the server, ${username}! Have fun!`);
