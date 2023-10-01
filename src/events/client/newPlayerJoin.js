@@ -12,7 +12,7 @@ module.exports = {
       /\*\*<(.*)>\*\* \[Server\] Welcome to the server, (.*)! Have fun!/;
     const match = message.content.match(regex);
     if (match) {
-      await message.react("❌"); //await message.delete();
+      await message.delete();
       const usernameWithPrefix = match[1];
       const username = usernameWithPrefix.replace("Guest | ", "");
       const newPlayerMessageLink = message.url;
@@ -43,7 +43,7 @@ module.exports = {
             // Send the ping message first
             client.channels.cache
               .get("950432522137927690")
-              .send(`<@&1091453191159283773>`/*`<@&1155559317500596234>`*/)
+              .send(`<@&1155559317500596234>`)
               .then((sentMessage) => {
                 // Wait for a few seconds
                 setTimeout(() => {
