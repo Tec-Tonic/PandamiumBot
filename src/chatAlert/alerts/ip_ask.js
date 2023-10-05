@@ -36,11 +36,11 @@ module.exports = {
         .addFields(
           {
             name: `Snapshot IP: `,
-            value: `snapshot.pandamium.eu\n **Version:** ${snapVersion}`,
+            value: `\`\`\`snapshot.pandamium.eu\`\`\`\n **Version:** ${snapVersion}`,
           },
           {
             name: `Release IP: `,
-            value: `release.pandamium.eu\n **Version:** ${releaseVersion}\n\n`,
+            value: `\`\`\`release.pandamium.eu\`\`\`\n **Version:** ${releaseVersion}\n\n`,
           }
         );
 
