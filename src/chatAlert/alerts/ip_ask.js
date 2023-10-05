@@ -47,10 +47,10 @@ module.exports = {
       message.channel.send({ embeds: [ipAskEmbed] }).then((message) => {
         setTimeout(function () {
           message.edit(`[Delete] Will be deleted shortly.`);
-        }, 30000);
+        }, 117000);
         setTimeout(function () {
           message.delete();
-        }, 32000);
+        }, 120000);
       })
     } else {
       return;
