@@ -32,7 +32,7 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
           if (!lastBotMessage || !lastBotMessage.editable) {
             channel.send({content: "# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.", embeds: [ServerEmpty] }).then(newMessage => {
               if (lastBotMessage) {
-                //lastBotMessage.delete(); // Delete the previous bot message if it exists
+                lastBotMessage.delete(); // Delete the previous bot message if it exists
               }
               lastBotMessage = newMessage;
             });
@@ -55,7 +55,7 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
             if (!lastBotMessage || !lastBotMessage.editable) {
               channel.send({content:"# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.", embeds: [playerlistEmbed] }).then(newMessage => {
                 if (lastBotMessage) {
-                  //lastBotMessage.delete(); // Delete the previous bot message if it exists
+                  lastBotMessage.delete(); // Delete the previous bot message if it exists
                 }
                 lastBotMessage = newMessage;
               });
@@ -75,7 +75,7 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
       if (!lastBotMessage || !lastBotMessage.editable) {
         channel.send({content:"# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.", embeds: [serverOffline] }).then(newMessage => {
           if (lastBotMessage) {
-            //lastBotMessage.delete(); // Delete the previous bot message if it exists
+            lastBotMessage.delete(); // Delete the previous bot message if it exists
           }
           lastBotMessage = newMessage;
         });

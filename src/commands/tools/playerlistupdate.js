@@ -21,25 +21,33 @@ module.exports = {
     .setName("PlayerList Toggle")
     .setType(ApplicationCommandType.Message),
   async execute(interaction, client) {
-    
-    const guildID = "797494884159848469";
-    const channelID = "1062411654983319592";
-    const guild = client.guilds.cache.get(guildID);
-    const channel = guild.channels.cache.get(channelID);
+    const staffData = readStaffData();
 
-    // Fetch the last message sent by the bot in the channel
-    const lastBotMessage = channel.messages.cache.find(
-      (m) => m.author.id === client.user.id
-    );
+    // Find the staff member in the staffData array based on their ID
+    const staffMember = staffData.find((staff) => staff.id === interaction.user.id);
 
-    if (lastBotMessage) {
-      const messageContent = lastBotMessage.content.toLowerCase();
-      const toggledMessageContent =
-        messageContent === "true" ? "false" : "true";
-      lastBotMessage.edit(toggledMessageContent).catch(console.error);
-      interaction.reply({content: `Playerlist Loop set to ${toggledMessageContent}`, ephemeral: true})
+    // Check if the staff member exists and has a perm-lvl of 3 or higher
+    if (staffMember && parseInt(staffMember["perm-lvl"]) >= 3) {
+      const guildID = "797494884159848469";
+      const channelID = "1062411654983319592";
+      const guild = client.guilds.cache.get(guildID);
+      const channel = guild.channels.cache.get(channelID);
+
+      // Fetch the last message sent by the bot in the channel
+      const lastBotMessage = channel.messages.cache.find(
+        (m) => m.author.id === client.user.id
+      );
+
+      if (lastBotMessage) {
+        const messageContent = lastBotMessage.content.toLowerCase();
+        const toggledMessageContent = messageContent === "true" ? "false" : "true";
+        lastBotMessage.edit(toggledMessageContent).catch(console.error);
+        interaction.reply({ content: `Playerlist Loop set to ${toggledMessageContent}`, ephemeral: true });
+      } else {
+        channel.send("true").catch(console.error);
+      }
     } else {
-      channel.send("true").catch(console.error);
+      interaction.reply({ content: "You do not have permission to use this command.", ephemeral: true });
     }
   },
 };
