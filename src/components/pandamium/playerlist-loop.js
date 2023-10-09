@@ -28,11 +28,11 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
             .setTitle("**Server is Empty**")
             .setDescription(`*Message will refresh <t:${unixTimestamp}:R>*`)
             .setFooter({ text: `Version: ${server.data.version.name_raw}` });
-          // Send a new message if the last bot message doesn't exist or it is not editable
+          
           if (!lastBotMessage || !lastBotMessage.editable) {
             channel.send({content: "# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.", embeds: [ServerEmpty] }).then(newMessage => {
               if (lastBotMessage) {
-                lastBotMessage.delete(); // Delete the previous bot message if it exists
+                lastBotMessage.delete(); 
               }
               lastBotMessage = newMessage;
             });
@@ -51,11 +51,11 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
               .setTitle(`**Online players (${Response.players.online}/${Response.players.max}):**`)
               .setDescription(`\`\`\`${nameArr}\`\`\`\n*Message will refresh <t:${unixTimestamp}:R>*`)
               .setFooter({ text: `Version: ${server.data.version.name_raw}` });
-            // Send a new message if the last bot message doesn't exist or it is not editable
+            
             if (!lastBotMessage || !lastBotMessage.editable) {
               channel.send({content:"# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.", embeds: [playerlistEmbed] }).then(newMessage => {
                 if (lastBotMessage) {
-                  lastBotMessage.delete(); // Delete the previous bot message if it exists
+                  lastBotMessage.delete(); 
                 }
                 lastBotMessage = newMessage;
               });
@@ -71,11 +71,11 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
         .setColor("#FF0000")
         .setTitle("**Server is offline**")
         .setDescription(`*Message will refresh <t:${unixTimestamp}:R>*`);
-      // Send a new message if the last bot message doesn't exist or it is not editable
+      
       if (!lastBotMessage || !lastBotMessage.editable) {
         channel.send({content:"# The chat linking mod we have been using is currently broken in the latest Minecraft version. Keep an eye on <#505093367903027220> to know when this channel is working again. \n## You can use </playerlist:1102727613102960663> in <#614507998357880862>.", embeds: [serverOffline] }).then(newMessage => {
           if (lastBotMessage) {
-            lastBotMessage.delete(); // Delete the previous bot message if it exists
+            lastBotMessage.delete(); 
           }
           lastBotMessage = newMessage;
         });

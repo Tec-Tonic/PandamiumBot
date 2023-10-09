@@ -2,6 +2,7 @@ const playerlistUpdate = require("../../components/pandamium/playerlist-loop");
 const {
   ApplicationCommandType,
   ContextMenuCommandBuilder,
+  PermissionFlagsBits
 } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
@@ -18,7 +19,8 @@ function readStaffData() {
 
 module.exports = {
   data: new ContextMenuCommandBuilder()
-    .setName("PlayerList Toggle")
+    .setName("Playerlist Toggle")
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .setType(ApplicationCommandType.Message),
   async execute(interaction, client) {
     const staffData = readStaffData();
