@@ -55,8 +55,8 @@ module.exports = {
     const playerlistUpdate = require("../../components/pandamium/playerlist-loop");
 
     // Get the guild and channel objects
-    const guildID = "504627012921589763";
-    const channelID = "824234748217393212";
+    const guildID = "797494884159848469";
+    const channelID = "1062411654983319592";
     const guild = client.guilds.cache.get(guildID);
     const channel = guild.channels.cache.get(channelID);
 
