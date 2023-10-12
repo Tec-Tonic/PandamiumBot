@@ -44,6 +44,13 @@ module.exports = {
         const messageContent = lastBotMessage.content.toLowerCase();
         const toggledMessageContent = messageContent === "true" ? "false" : "true";
         lastBotMessage.edit(toggledMessageContent).catch(console.error);
+
+        if (toggledMessageContent === "false") {
+          playerlistUpdate.stopLoop() // Activate the stopLoop function
+        } else {
+          playerlistUpdate(client, true); // Continue the loop
+        }
+
         interaction.reply({ content: `Playerlist Loop set to ${toggledMessageContent}`, ephemeral: true });
       } else {
         channel.send("true").catch(console.error);
