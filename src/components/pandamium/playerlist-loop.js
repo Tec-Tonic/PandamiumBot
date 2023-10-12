@@ -87,7 +87,7 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
   // Continue running the loop until loopFlag is set to false
   if (loopFlag) {
     setTimeout(() => {
-      playerlistUpdate(client, true); // Pass true to indicate command executed
+      playerlistUpdate(client, commandExecuted); // Pass true to indicate command executed
     }, 300000); // Every 5 Min
   }
 };
