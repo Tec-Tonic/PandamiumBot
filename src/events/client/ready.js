@@ -66,7 +66,7 @@ module.exports = {
       const commandExecuted = lastMessage.content.toLowerCase() === "true";
 
       // Call the playerlistUpdate function to start the loop
-      playerlistUpdate(client, commandExecuted);
+      playerlistUpdate(client, !commandExecuted);
     });
   },
 };
