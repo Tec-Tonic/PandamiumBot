@@ -35,19 +35,37 @@ module.exports = {
     let url = `https://api.mcstatus.io/v2/status/java/${ip}`;
     const server = await axios.get(url);
 
+    // try {
+    //   client.user.setPresence({
+    //     activities: [
+    //       {
+    //         name: `Release | ${server.data.players.online}/${server.data.players.max}`,
+    //         type: ActivityType.Playing,
+    //       },
+    //     ],
+    //     status: "online",
+    //   });
+    // } catch {
+    //   client.user.setPresence({
+    //     activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
+    //     status: "online",
+    //   });
+    // }
+
+    //Minecraft live 2023
     try {
       client.user.setPresence({
         activities: [
           {
-            name: `Release | ${server.data.players.online}/${server.data.players.max}`,
-            type: ActivityType.Playing,
+            name: `Minecraft Live 2023`,
+            type: ActivityType.Watching,
           },
         ],
         status: "online",
       });
     } catch {
       client.user.setPresence({
-        activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
+        activities: [{ name: `Minecraft Live 2023`, type: ActivityType.Watching }],
         status: "online",
       });
     }

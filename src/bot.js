@@ -53,35 +53,59 @@ for (const file of commandFiles) {
 // Filters each Alert file & Update Release x/100
 client.on("messageCreate", async (message) => {
   // If alert is in these channel, it gets ignored.
-  if (message.channel.name === "player-record" || message.channel.name === "player-watchlist") return;
+  if (
+    message.channel.name === "player-record" ||
+    message.channel.name === "player-watchlist"
+  )
+    return;
 
   for (const file of commandFiles) {
     const { name } = require(`./chatAlert/alerts/${file}`);
     if (message.author == client.user) return;
     client.command.get(name).execute(message, client);
   }
-// Presence Update (why is this here again??)
+  // Presence Update (why is this here again??)
   const axios = require("axios");
-        const ip = "release.pandamium.eu";
-        let url = `https://api.mcstatus.io/v2/status/java/${ip}`;
-        const server = await axios.get(url);
-    
-        try {
-          client.user.setPresence({
-            activities: [
-              {
-                name: `Release | ${server.data.players.online}/${server.data.players.max}`,
-                type: ActivityType.Playing,
-              },
-            ],
-            status: "online",
-          });
-        } catch {
-          client.user.setPresence({
-            activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
-            status: "online",
-          });
-        }
+  const ip = "release.pandamium.eu";
+  let url = `https://api.mcstatus.io/v2/status/java/${ip}`;
+  const server = await axios.get(url);
+
+  // try {
+  //   client.user.setPresence({
+  //     activities: [
+  //       {
+  //         name: `Release | ${server.data.players.online}/${server.data.players.max}`,
+  //         type: ActivityType.Playing,
+  //       },
+  //     ],
+  //     status: "online",
+  //   });
+  // } catch {
+  //   client.user.setPresence({
+  //     activities: [{ name: `Minecraft`, type: ActivityType.Playing }],
+  //     status: "online",
+  //   });
+  // }
+
+  //Minecraft live 2023
+  try {
+    client.user.setPresence({
+      activities: [
+        {
+          name: `Minecraft Live 2023`,
+          type: ActivityType.Watching,
+        },
+      ],
+      status: "online",
+    });
+  } catch {
+    client.user.setPresence({
+      activities: [
+        { name: `Minecraft Live 2023`, type: ActivityType.Watching },
+      ],
+      status: "online",
+    });
+  }
 });
 
 client.eventHandler();
