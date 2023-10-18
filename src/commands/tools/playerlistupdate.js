@@ -19,7 +19,7 @@ function readStaffData() {
 
 module.exports = {
   data: new ContextMenuCommandBuilder()
-    .setName("Playerlist Toggle")
+    .setName("Playerlist Toggle [Staff-Only]")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .setType(ApplicationCommandType.Message),
   async execute(interaction, client) {

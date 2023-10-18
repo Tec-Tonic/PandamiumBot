@@ -1,3 +1,5 @@
+// TODO: 
+// Update user perms from role name to staff perm lvl
 const {
   SlashCommandBuilder,
   EmbedBuilder,
@@ -7,7 +9,7 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("leaderboards")
-    .setDescription("Creates leaderboard Embeds")
+    .setDescription("Creates leaderboard Embeds [Staff-Only]")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .addStringOption((option) =>
       option

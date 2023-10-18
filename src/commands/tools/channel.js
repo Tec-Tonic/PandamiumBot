@@ -17,7 +17,7 @@ const {
   module.exports = {
     data: new SlashCommandBuilder()
     .setName('channel')
-    .setDescription('sends information embeds').setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
+    .setDescription('Information Embeds [Staff-Only]').setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .addStringOption((option) =>
       option
         .setName("channel_name")

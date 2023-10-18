@@ -14,7 +14,7 @@ function randomObject(obj) {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("playerlist")
-    .setDescription("Returns a list of Online Players."),
+    .setDescription("Returns a list of Online Players. [Public]"),
 
   async execute(interaction, client) {
     try {

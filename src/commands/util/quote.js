@@ -10,7 +10,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("quote")
     .setDescription(
-      "Converts a Discord message link into an Embed! [Visible to everyone]"
+      "Converts a Discord message link into an Embed! [Public]"
     )
     .addStringOption((option) =>
       option.setName("link").setDescription("link required").setRequired(true)

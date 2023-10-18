@@ -11,7 +11,7 @@ const util = require("minecraft-server-util"); // Deprecated (use API)
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("faq")
-    .setDescription("Replies with the relevant categories information")
+    .setDescription("Replies with the relevant categories information [Public]")
     .addStringOption((option) =>
       option
         .setName("category")

@@ -13,7 +13,7 @@ const axios = require("axios");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("edit")
-    .setDescription("Gets embed data")
+    .setDescription("Allows staff to edit embeds. [Staff-Only]")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .addSubcommand((subcommand) =>
       subcommand
@@ -54,7 +54,7 @@ module.exports = {
     .addSubcommand((subcommand) =>
       subcommand
         .setName("sendfile")
-        .setDescription("Use the attached file to edit the embed")
+        .setDescription("Use the attached file to edit the embed [Staff-Only]")
         .addAttachmentOption((option) =>
           option
             .setName("file")
