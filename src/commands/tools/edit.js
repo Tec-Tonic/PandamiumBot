@@ -37,7 +37,7 @@ module.exports = {
               { name: "Commands [Release Server]", value: "cmd_release.json" },
               { name: "Commands [Discord Server]", value: "cmd_discord.json" },
               { name: "Custom Recipes", value: "custom_recipes.json" },
-              { name: "More Mob Heads", value: "more_mob_heads.json" },
+              { name: "More Mob Heads", value: "more_mob_head.json" },
               {
                 name: "Staff Applications [Main Message]",
                 value: "staff_apps_main.json",
