@@ -13,12 +13,12 @@ const axios = require("axios");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("edit")
-    .setDescription("Allows staff to edit embeds. [Staff-Only]")
+    .setDescription("Allows staff to edit embeds.")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .addSubcommand((subcommand) =>
       subcommand
         .setName("getfile")
-        .setDescription("Get one of the predefined files and send it")
+        .setDescription("Get one of the predefined files and send it [Staff-Only]")
         .addStringOption((option) =>
           option
             .setName("name")
