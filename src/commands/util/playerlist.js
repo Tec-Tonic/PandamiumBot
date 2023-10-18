@@ -41,6 +41,8 @@ module.exports = {
         var ip = "build.pandamium.eu";
         var colour = "#FF00FF";
         var port = 25565
+      } else {
+        var colour = "#FF0000"
       }
 
       const options = {
