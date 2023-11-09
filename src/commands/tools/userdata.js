@@ -34,7 +34,7 @@ module.exports = {
           .setDescription(`The player \`${username}\` could not be found.`)
           .setColor('#FF0000');
       
-        await interaction.reply({ embeds: [embed] });
+        await interaction.reply({ embeds: [embed], ephemeral: true });
         return;
       }
 
@@ -83,6 +83,6 @@ module.exports = {
       )
       .setThumbnail(skinUrl);
 
-    await interaction.reply({ embeds: [embed] });
+    await interaction.reply({ embeds: [embed], ephemeral: true });
   },
 };
