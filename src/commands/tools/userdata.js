@@ -27,18 +27,18 @@ module.exports = {
     const response = await fetch(url);
     const data = await response.json();
 
+    // Player doesnt exist - return true
     if (!data.success) {
         const embed = new EmbedBuilder()
           .setTitle(`Player Not Found`)
           .setDescription(`The player \`${username}\` could not be found.`)
           .setColor('#FF0000');
       
-        // Send the embed
         await interaction.reply({ embeds: [embed] });
         return;
       }
 
-    // Access the data using the path
+    // Access the data
     const skinData = data.data.skins_count.toString() || "No Data";
     const capeData = data.data.capes_count.toString() || "No Data";
     const uuidData = data.data.uuid || "No Data";
@@ -55,9 +55,10 @@ module.exports = {
       second: "2-digit",
       timeZoneName: "short",
     };
+
     const formattedDate = createdAtData.toLocaleDateString("en-GB", options);
 
-    // Map over the usernames array and create a list of usernames
+    // Map over the usernames array - creates a list
     const usernames = data.data.usernames.map((user) => user.username);
     let formattedUsernames = `+ ${usernames[0]}`;
     if (usernames.length > 1) {
@@ -67,7 +68,7 @@ module.exports = {
     // Skin 
     const skinUrl = `https://visage.surgeplay.com/full/512/${uuidData}`;
 
-    // Create a new embed
+    
     const embed = new EmbedBuilder()
       .setTitle(`Data for \`${username}\``)
       .setDescription(
@@ -82,7 +83,6 @@ module.exports = {
       )
       .setThumbnail(skinUrl);
 
-    // Send the embed
     await interaction.reply({ embeds: [embed] });
   },
 };
