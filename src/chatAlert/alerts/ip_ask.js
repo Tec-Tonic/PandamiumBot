@@ -27,8 +27,8 @@ module.exports = {
     if (ipFoundInText) {
       message.react("✅");
 
-      const releaseVersion = release.data.version.name_raw;
-      const snapVersion = snapshot.data.version.name_raw;
+      const releaseVersion = release.data.version.name_raw || "Unable to retrieve";
+      const snapVersion = snapshot.data.version.name_raw || "Unable to retrieve";
 
       const ipAskEmbed = new EmbedBuilder()
         .setColor("#008000")

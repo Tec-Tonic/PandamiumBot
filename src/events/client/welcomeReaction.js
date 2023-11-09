@@ -1,6 +1,3 @@
-const { REST, ActionRowBuilder, ButtonBuilder, ButtonStyle, SelectMenuBuilder, EmbedBuilder, Client, GatewayIntentBits, ActivityType, Routes, Message, messageLink, Collection, channelLink, ModalBuilder, TextInputBuilder, TextInputStyle } = require("discord.js");
-const rest = new REST().setToken(process.env.TOKEN);
-
 module.exports = {
     name: 'guildMemberAdd',
     async execute(user, client) {
