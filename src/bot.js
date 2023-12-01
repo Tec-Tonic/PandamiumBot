@@ -88,6 +88,17 @@ client.on("messageCreate", async (message) => {
   }
 });
 
+
+// Temp change until I figure out why `src\events\client\welcomeReaction.js` is not working!
+// React to new User Join on Discord!
+client.on('guildMemberAdd', async (user) =>{
+  setTimeout(() => {
+    const message =
+      user.guild.channels.cache.get('531885643626971170').lastMessage;
+    message.react("<:pandamium:797762197567832105>");
+  }, 500);
+});
+
 client.eventHandler();
 client.commandHandler();
 client.componentHandler();

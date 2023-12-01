@@ -29,6 +29,10 @@ module.exports = (client) => {
         body: client.commandArray,
       });
 
+      await rest.delete(
+        Routes.applicationGuildCommand('785978462837276684', '504627012921589763', '1102725564965605433')
+      );
+
       console.log("Success");
     } catch (error) {
       console.log(error);
