@@ -22,7 +22,8 @@ module.exports = {
     .setName("Playerlist Toggle [Staff-Only]")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .setType(ApplicationCommandType.Message),
-  async execute(interaction, client) {
+  
+    async execute(interaction, client) {
     const staffData = readStaffData();
 
     // Find the staff member in the staffData array based on their ID

@@ -16,12 +16,15 @@ module.exports = {
       option.setName("link").setDescription("link required").setRequired(true)
     ).addStringOption((option) =>
     option.setName("message").setDescription("message optional").setRequired(false)
-  ),
-
+  )
+  .addBooleanOption((option) =>
+  option.setName("date").setDescription("date embed toggle optional").setRequired(false)
+),
   async execute(interaction, client) {
     try {
       const link = interaction.options.getString("link");
       const quoteMessage = interaction.options.getString("message");
+      const showDate = interaction.options.getBoolean("date");
 
       const ErrlinkReply = new EmbedBuilder()
         .setDescription(
@@ -102,10 +105,22 @@ module.exports = {
               )
               .setColor("#1BEACA");
 
+              let userName = interaction.member.displayName ? interaction.member.displayName : interaction.user.username;
+              let userMessage = `**${userName}:** ${quoteMessage ? quoteMessage : ''}`;
+
+
               if (quoteMessage) {
-                await interaction.reply({ content: `${quoteMessage}`, embeds: [dateReply, linkReply] });
+                if (showDate !== false) { // Show dateReply by default
+                  await interaction.reply({ content: userMessage, embeds: [dateReply, linkReply] });
+                } else {
+                  await interaction.reply({ content: userMessage, embeds: [linkReply] });
+                }
               } else {
-                await interaction.reply({ embeds: [dateReply, linkReply] });
+                if (showDate !== false) { // Show dateReply by default
+                  await interaction.reply({ embeds: [dateReply, linkReply] });
+                } else {
+                  await interaction.reply({ embeds: [linkReply] });
+                }
               }
           } catch (e) {
             if (e instanceof DiscordAPIError && e.code === 10008) {
