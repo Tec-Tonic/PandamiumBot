@@ -33,7 +33,7 @@ module.exports = {
             const newPlayerEmbed = new EmbedBuilder()
               .setColor("#00FF04")
               .setDescription(
-                `${usernameWithPrefix} joined the snapshot server for the first time!\n[\[View In-Game Chat\]](${newPlayerMessageLink}) | [\[View ${username}'s NameMC\]](${nameMCProfileLink})`
+                `${username} joined the snapshot server for the first time!\n[\[View In-Game Chat\]](${newPlayerMessageLink}) | [\[View ${username}'s NameMC\]](${nameMCProfileLink})`
               )
               .setThumbnail(skinUrl);
 
