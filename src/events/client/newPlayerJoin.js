@@ -2,6 +2,12 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   PermissionFlagsBits,
+  ButtonStyle,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonInteraction,
+  ModalBuilder,
+
 } = require("discord.js");
 const fetch = require("node-fetch");
 
@@ -33,26 +39,38 @@ module.exports = {
 
             const inGameMessage = new EmbedBuilder()
               .setColor("#00FF04")
-              .setDescription(`Welcome to the server, ${usernameWithPrefix}! Have fun!`);
+              .setDescription(
+                `Welcome to the server, ${usernameWithPrefix}! Have fun!`
+              );
 
             if (message.author == client.user) return;
 
             // Replace join message with embed
             message.channel.send({ embeds: [inGameMessage] });
 
+            // Create a button
+            const button = new ButtonBuilder()
+              .setCustomId("craftyData")
+              .setLabel("Crafty API Data")
+              .setStyle(ButtonStyle.Primary);
+
+            const craftyButton = new ActionRowBuilder().addComponents(button);
+
             // Send the ping message first
             client.channels.cache
-              .get("950432522137927690")
+              .get("1095405945917550623")
               .send(`<@&1155559317500596234>`)
               .then((sentMessage) => {
                 // Wait for a few seconds
                 setTimeout(() => {
                   // Edit the message to include the embed
-                  sentMessage.edit({ content: "", embeds: [newPlayerEmbed] });
+                  sentMessage.edit({ content: "", embeds: [newPlayerEmbed], components: [craftyButton] });
                 }, 2000); // Wait for 2 seconds
               });
           } else {
-            console.log(`Error: Failed to retrieve skin URL. Username-Prefix: ${usernameWithPrefix}, Username: ${username}`);
+            console.log(
+              `Error: Failed to retrieve skin URL. Username-Prefix: ${usernameWithPrefix}, Username: ${username}`
+            );
           }
         })
         .catch((error) => {
