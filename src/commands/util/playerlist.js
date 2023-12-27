@@ -18,7 +18,7 @@ module.exports = {
 
   async execute(interaction, client) {
 
-    await interaction.defereditReply({ephemeral: true});
+    await interaction.deferReply({ephemeral: true});
 
     try {
       //Get Server

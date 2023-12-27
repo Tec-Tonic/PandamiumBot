@@ -87,6 +87,7 @@ module.exports = {
     }
 
     // Check user roles
+    // TODO: Replace with perm-lvl
     if (
       !interaction.member.roles.cache.some((role) =>
         ["Bot Developer", "Moderator", "Sr. Moderator", "Admin", "Owner"].includes(role.name)
