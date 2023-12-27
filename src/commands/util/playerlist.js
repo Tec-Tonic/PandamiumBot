@@ -3,7 +3,7 @@ const {
   PermissionFlagsBits,
   EmbedBuilder,
 } = require(`discord.js`);
-
+const log = process.env.PANDALOGS
 const data = require("../../components/playerlist/quotes.json");
 
 function randomObject(obj) {
@@ -17,6 +17,9 @@ module.exports = {
     .setDescription("Returns a list of Online Players. [Public]"),
 
   async execute(interaction, client) {
+
+    await interaction.defereditReply({ephemeral: true});
+
     try {
       //Get Server
       var channelName = interaction.channel.name;
@@ -64,7 +67,7 @@ module.exports = {
 
       const checkIfPlayer = Response.players.online
       if (checkIfPlayer.toString() === "0") {
-        return interaction.reply({
+        return interaction.editReply({
           embeds: [ServerEmpty],
           ephemeral: true,
         });
@@ -82,7 +85,7 @@ module.exports = {
           )
           .setFooter({ text: `Version: ${Response.version}` });
 
-        return interaction.reply({
+        return interaction.editReply({
           embeds: [singlePlayerEmbed],
           ephemeral: true,
         });
@@ -96,20 +99,46 @@ module.exports = {
       .setDescription(`\`\`\`${nameArr}\`\`\``)
       .setFooter({ text: `Version: ${Response.version}` });
 
-      interaction.reply({ embeds: [playerlistEmbed], ephemeral: true });
-      })
-    } catch (error) {
-      console.log(error)
+      interaction.editReply({ embeds: [playerlistEmbed], ephemeral: true });
+      }).catch((error) => {
+        console.log(error)
+        const Error = new EmbedBuilder()
+          .setColor("#FF0000")
+          .setDescription(
+            "Server is `Offline` or `Unreachable`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur"
+          );
+        interaction.editReply({
+          embeds: [Error],
+          ephemeral: true,
+        });
 
+        const AlertErrorEmbed = new EmbedBuilder()
+          .setColor("#FF0000")
+          .setDescription(
+            "Server is `Offline` or `Unreachable`!"
+          )
+          .addFields(
+            {
+              name: `Info :`,
+              value: `User: ${interaction.user.username})`,
+            }
+          )
+        client.channels.cache.get(log).send({ embeds: [AlertErrorEmbed] });
+      });
+
+    } catch (error) {
+      
       const Error = new EmbedBuilder()
         .setColor("#FF0000")
         .setDescription(
           "Server is `Offline` or `Unreachable`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur"
         );
-      interaction.reply({
+      interaction.editReply({
         embeds: [Error],
         ephemeral: true,
       });
+      console.log(error)
+
     }
   },
 };
