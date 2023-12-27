@@ -114,14 +114,9 @@ module.exports = {
 
         const AlertErrorEmbed = new EmbedBuilder()
           .setColor("#FF0000")
+          .setTitle("Interaction Failed")
           .setDescription(
-            "Server is `Offline` or `Unreachable`!"
-          )
-          .addFields(
-            {
-              name: `Info :`,
-              value: `User: ${interaction.user.username})`,
-            }
+            `Server is \`Offline\` or \`Unreachable\`!\n\nUser: ${interaction.user.username}`
           )
         client.channels.cache.get(log).send({ embeds: [AlertErrorEmbed] });
       });
