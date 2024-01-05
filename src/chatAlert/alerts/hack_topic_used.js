@@ -33,7 +33,7 @@ module.exports = {
           { name: `Message :`, value: `${cheatMessageLog}` },
           {
             name: `Info :`,
-            value: `Check <#${cheatChannel}> || [Click Me](${cheatTextLink})`,
+            value: `Jump to message: ${cheatTextLink}`,
           }
         )
         .setFooter({ text: `Author : ${cheatAuthor}` });

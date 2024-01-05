@@ -35,7 +35,7 @@ module.exports = {
           { name: `Message :`, value: `|| ${slurMessageLog} ||` },
           {
             name: `Info: `,
-            value: `check <#${slurChannel}> || [click me](${slurTextLink})`,
+            value: `Jump to message: ${slurTextLink}`,
           }
         )
         .setFooter({ text: `Author : ${slurAuthor}` });
