@@ -7,7 +7,6 @@ const {
   ButtonBuilder,
   ButtonInteraction,
   ModalBuilder,
-
 } = require("discord.js");
 const fetch = require("node-fetch");
 
@@ -33,7 +32,7 @@ module.exports = {
             const newPlayerEmbed = new EmbedBuilder()
               .setColor("#00FF04")
               .setDescription(
-                `${username} joined the snapshot server for the first time!\n[\[View In-Game Chat\]](${newPlayerMessageLink}) | [\[View ${username}'s NameMC\]](${nameMCProfileLink})`
+                `${username} joined the snapshot server for the first time!`
               )
               .setThumbnail(skinUrl);
 
@@ -48,23 +47,47 @@ module.exports = {
             // Replace join message with embed
             message.channel.send({ embeds: [inGameMessage] });
 
-            // Create a button
+            // Create a API button
             const button = new ButtonBuilder()
               .setCustomId("craftyData")
               .setLabel("Crafty API Data")
               .setStyle(ButtonStyle.Primary);
 
+            // Create a Msg Link
+            const linkButton = new ButtonBuilder()
+              .setStyle(ButtonStyle.Link)
+              .setLabel(`In-Game Chat`)
+              .setURL(newPlayerMessageLink);
+
+
+
+            // Create a Msg Link
+            const linkNameMCButton = new ButtonBuilder()
+              .setStyle(ButtonStyle.Link)
+              .setLabel(`NameMC Profile`)
+              .setURL(nameMCProfileLink);
+
+            const linkNMCButton = new ActionRowBuilder().addComponents(
+              linkButton,
+              linkNameMCButton
+            );
+
             const craftyButton = new ActionRowBuilder().addComponents(button);
+
 
             // Send the ping message first
             client.channels.cache
-              .get("950432522137927690")
+              .get("1095405945917550623")
               .send(`<@&1155559317500596234>`)
               .then((sentMessage) => {
                 // Wait for a few seconds
                 setTimeout(() => {
                   // Edit the message to include the embed
-                  sentMessage.edit({ content: "", embeds: [newPlayerEmbed], components: [craftyButton] });
+                  sentMessage.edit({
+                    content: "",
+                    embeds: [newPlayerEmbed],
+                    components: [linkNMCButton, craftyButton],
+                  });
                 }, 2000); // Wait for 2 seconds
               });
           } else {
