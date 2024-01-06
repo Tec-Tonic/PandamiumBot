@@ -77,7 +77,7 @@ module.exports = {
 
             // Send the ping message first
             client.channels.cache
-              .get("1095405945917550623")
+              .get("950432522137927690")
               .send(`<@&1155559317500596234>`)
               .then((sentMessage) => {
                 // Wait for a few seconds
