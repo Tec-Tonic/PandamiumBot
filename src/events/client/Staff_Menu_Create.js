@@ -15,7 +15,7 @@ module.exports = {
   name: "interactionCreate",
   async execute(interaction, client) {
     if (interaction.customId === "staff_menu") {
-      const translateFile = require("../../commands/tools/user_app");
+      const translateFile = require("../../commands/staff/user_app");
       const user = translateFile.user;
       const message = translateFile.message;
 
