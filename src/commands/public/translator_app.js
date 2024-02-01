@@ -90,10 +90,6 @@ module.exports = {
           const channelID = await interaction.channelId;
           module.exports.chanid = channelID
           
-          return interaction.reply({components : [LanguageSelect], ephemeral: true})
-        //   .then(delMsg => {
-        //                  setTimeout(() => delMsg.delete(), 20000)
-        //                 })
-          
+          return interaction.reply({components : [LanguageSelect], ephemeral: true})      
     }
 }

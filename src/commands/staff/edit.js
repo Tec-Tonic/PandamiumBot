@@ -18,7 +18,7 @@ module.exports = {
     .addSubcommand((subcommand) =>
       subcommand
         .setName("getfile")
-        .setDescription("Get one of the predefined files and send it [Staff-Only]")
+        .setDescription("Sends embed json data as file attachment [Staff-Only]")
         .addStringOption((option) =>
           option
             .setName("name")

@@ -11,7 +11,7 @@ const util = require("minecraft-server-util"); // Deprecated (use API)
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("faq")
-    .setDescription("Replies with the relevant categories information [Public]")
+    .setDescription("Replies with the relevant categories information")
     .addStringOption((option) =>
       option
         .setName("category")
@@ -20,7 +20,6 @@ module.exports = {
         .addChoices(
           { name: "Change Game Version", value: "gameVer-faq" },
           { name: "Connection Issues", value: "connect-faq" },
-          { name: "Dont Ask To Ask", value: "data-faq" },
           { name: "Last World Reset (Snapshot)", value: "reset-faq" },
           { name: "Server IP", value: "ip-faq" },
         )
@@ -56,10 +55,6 @@ module.exports = {
       return interaction.reply(
         "https://help.minecraft.net/hc/en-us/articles/360034754852-Changing-game-versions-"
       );
-    }
-    // Dont Ask To Ask Link
-    else if (category === "data-faq") {
-      return interaction.reply("https://dontasktoask.com/");
     }
 
     // Reset Info

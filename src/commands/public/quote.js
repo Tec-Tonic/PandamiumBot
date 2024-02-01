@@ -10,7 +10,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("quote")
     .setDescription(
-      "Converts a Discord message link into an Embed! [Public]"
+      "Converts a Discord message link into an Embed!"
     )
     .addStringOption((option) =>
       option.setName("link").setDescription("link required").setRequired(true)
@@ -101,7 +101,7 @@ module.exports = {
 
             const dateReply = new EmbedBuilder()
               .setDescription(
-                `[Original Message](${link}) sent <t:${time}:R> in <#${channelId}>`
+                `${message.author.username} sent <#${link}> <t:${time}:R>`
               )
               .setColor("#1BEACA");
 
