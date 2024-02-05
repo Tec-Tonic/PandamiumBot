@@ -41,7 +41,7 @@ const {
 **/trigger vote** → gives you links to websites where you can vote for the server
 **/trigger vote_shop** → opens a menu where you can spend your vote credits
 
-**Donators Only**
+**Supporter Only**
 **/trigger frame_visibility** → allows you to make item frames invisible
 **/trigger hat** → puts the item in your hand onto your head
 **/trigger item_font** → change the font/color of the name of the item held
@@ -89,7 +89,7 @@ const {
 **/voteshop** → opens the voteshop
 **/votetop** → shows a ranking of all players sorted by votes
 
-**Donators Only**
+**Supporter Only**
 **/armorstand **→ change armor stand settings
 **/dye**  → change the color of leather armor
 **/enderchest** or **/ec** → opens your ender chest

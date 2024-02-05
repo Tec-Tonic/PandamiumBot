@@ -43,7 +43,7 @@ No, it's absolutely not allowed. On the Release server you can create a claim to
 const f5 = new EmbedBuilder()
 .setDescription(`
 **‣ How can I get more homes or bigger claims?**
-You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#506987588742152202> Instead you can also donate if you want, check out \n<#506498349029916673>.
+You can rank up by reaching a certain amount of playtime and votes. For more info, check out <#506987588742152202> Instead you can also support us monetarily if you want, check out \n<#506498349029916673>.
          
 `).setColor('#FFA200')
         

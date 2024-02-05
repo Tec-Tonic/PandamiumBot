@@ -34,9 +34,9 @@ Requires 500 hours of playtime and 500 votes.\n\n**Snapshot Perks:**\n**▫️**
         .setDescription(`
 Requires 2,500 hours of playtime and 2,500 votes.\n\n**Snapshot Perks:**\n**▫️**Homes: **7 **ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n\n**Release Perks: **\n**▫️**Homes: **20**\n**▫️**Claims: **10**\n**▫️**Max Claim Area: **150,000 Blocks **`).setColor('#5555FF')
 
-        const embed7 = new EmbedBuilder().setTitle(`DONATOR`)
+        const embed7 = new EmbedBuilder().setTitle(`SUPPORTER`)
         .setDescription(`
-Players who have donated.\n\n**Snapshot Perks**:\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n**▫️**Access to lots of particle effects\n**▫️**Donator only <#602084896709541898>         \n\n**Release Perks**: \n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**\n**▫️**Join even if the server is full\n**▫️**Donator only <#602084896709541898>`).setColor('#AA00AA')
+Players who have subscribed to our Patreon.\n\n**Snapshot Perks**:\n**▫️**Homes: **10**ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n**▫️**Access to lots of particle effects\n**▫️**Supporter-only <#602084896709541898>         \n\n**Release Perks**: \n**▫️**Homes: **25**\n**▫️**Claims: **15**\n**▫️**Max Claim Area: **250,000 Blocks**\n**▫️**Join even if the server is full\n**▫️**Supporter-only <#602084896709541898>`).setColor('#AA00AA')
 
         const embed8 = new EmbedBuilder().setTitle(`VIP`)
         .setDescription(`
