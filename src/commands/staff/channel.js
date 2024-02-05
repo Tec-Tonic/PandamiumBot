@@ -1,5 +1,3 @@
-// Update required, to lazy 
-
 const {
     SlashCommandBuilder,
     ButtonStyle,
@@ -26,7 +24,6 @@ const {
         .addChoices(
           { name: "Commands", value: "commands" },
           { name: "Custom Recipes", value: "custom" },
-          { name: "Donations", value: "donate" },
           { name: "FAQ", value: "faq" },
           { name: "More Mob Heads", value: "mmh" },
           { name: "Ranks", value: "ranks" },
@@ -35,6 +32,7 @@ const {
           { name: "Staff Applications [Message]", value: "sa" },
           { name: "Staff Applications [Open]", value: "open-sa" },
           { name: "Staff Applications [Closed]", value: "closed-sa" },
+          { name: "Supporter", value: "support" },
           { name: "TimeZone", value: "tz"},
           { name: "Town Applications", value: "ta" },
           { name: "Vote", value: "vote" },
@@ -91,9 +89,9 @@ const {
             await interaction.channel.send({ files: [image] });
           }
     
-          if (update === "donate") {
-            const translateFileDonator = require("../../components/embeds/channels/donator-embed");
-            const emb = translateFileDonator.emb;
+          if (update === "support") {
+            const translateFileSupport = require("../../components/embeds/channels/supporter-embed");
+            const emb = translateFileSupport.emb;
     
             await interaction.reply({embeds: [intComplete],ephemeral: true,})
             await interaction.channel.send(
