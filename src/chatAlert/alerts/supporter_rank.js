@@ -22,7 +22,7 @@ module.exports = {
         .setDescription(`
 We have changed the "Donator" rank to "Supporter". Nothing is changing with the cosmetic perks that come with the rank, and if you already have the rank then you will of course keep it, this is purely a visual change.
 ### Why?
-In order to appear on the [official Minecraft server list](https://findmcserver.com/server/GiOOKwFVlz?vote=true) we have to comply with Mojang's usage and community and guidelines. We already do for the most part, so nothing else will be changing about the server, but the specific use of the word "donate" and its variants come with legal implications that we'd like to avoid 😄 
+In order to appear on the [official Minecraft server list](https://findmcserver.com/server/GiOOKwFVlz?vote=true) we have to comply with Mojang's usage and community and guidelines. We already do for the most part, so nothing else will be changing about the server, but the specific use of the word "donate" and its variants come with legal implications that we'd like to avoid 
 `)
 
       message.reply({ embeds: [SupporterEmbed] }).then((message) => {

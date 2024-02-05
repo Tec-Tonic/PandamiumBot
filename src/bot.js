@@ -55,7 +55,11 @@ client.on("messageCreate", async (message) => {
   // If alert is in these channel, it gets ignored.
   if (
     message.channel.name === "player-record" ||
-    message.channel.name === "player-watchlist"
+    message.channel.name === "player-watchlist" ||
+    message.channel.name === "staff-chat" ||
+    message.channel.name === "staff-offtopic" ||
+    message.channel.name === "mod-chat" ||
+    message.channel.name === "srmod-chat"
   )
     return;
 
