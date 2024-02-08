@@ -9,6 +9,7 @@ const {
   EmbedBuilder,
 } = require("discord.js");
 const fs = require("fs");
+const path = require("path");
 
 const client = new Client({
   intents: [
@@ -50,25 +51,24 @@ for (const file of commandFiles) {
   client.command.set(command.name, command);
 }
 
-// Filters each Alert file & Update Release x/100
 client.on("messageCreate", async (message) => {
-  // If alert is in these channel, it gets ignored.
-  if (
-    message.channel.name === "player-record" ||
-    message.channel.name === "player-watchlist" ||
-    message.channel.name === "staff-chat" ||
-    message.channel.name === "staff-offtopic" ||
-    message.channel.name === "mod-chat" ||
-    message.channel.name === "srmod-chat"
-  )
-    return;
+  function readStaffData() {
+    const filePath = path.join(__dirname, "./components/pandamium/staff.json");
+    const staffData = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(staffData);
+  }
+  const staffData = readStaffData();
+
+  const staffMember = staffData.find((staff) => staff.id === message.author.id);
+
+  if (staffMember) return;
 
   for (const file of commandFiles) {
     const { name } = require(`./chatAlert/alerts/${file}`);
     if (message.author == client.user) return;
     client.command.get(name).execute(message, client);
   }
-  // Presence Update (why is this here again??)
+
   const axios = require("axios");
   const ip = "release.pandamium.eu";
   let url = `https://api.mcstatus.io/v2/status/java/${ip}`;
@@ -91,8 +91,6 @@ client.on("messageCreate", async (message) => {
     });
   }
 });
-
-
 
 client.eventHandler();
 client.commandHandler();
