@@ -9,13 +9,13 @@ const {
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("username-data")
+    .setName("lookup")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
-    .setDescription("Gets common user data - using crafty.gg API")
+    .setDescription("Gets minecraft username data - using crafty.gg API")
     .addStringOption((option) =>
       option
         .setName("username")
-        .setDescription("This will gather data for this user.")
+        .setDescription("This will gather data for this username.")
         .setRequired(true)
     ),
 
