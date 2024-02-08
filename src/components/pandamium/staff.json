@@ -1,27 +1,27 @@
 [
     {
+        "name": "GGIS",
+        "id": "918213403376492574",
+        "rank": "Helper",
+        "auto-quote": "true",
+        "join-date": "25/04/2023",
+        "perm-lvl": "1"
+    },
+    {
+        "name": "QAelin",
+        "id": "692153466428063825",
+        "rank": "Helper",
+        "auto-quote": "true",
+        "join-date": "25/04/2023",
+        "perm-lvl": "1"
+    },
+    {
         "name": "DiamondMon",
         "id": "451802211757064192",
         "rank": "Moderator",
         "auto-quote": "true",
         "join-date": "24/01/2022",
         "perm-lvl": "2"
-    },
-    {
-        "name": "Digit1740",
-        "id": "511155292461989889",
-        "rank": "Moderator",
-        "auto-quote": "true",
-        "join-date": "25/04/2023",
-        "perm-lvl": "2"
-    },
-    {
-        "name": "DorkOrc",
-        "id": "336123112187887619",
-        "rank":"Owner",
-        "auto-quote": "true",
-        "join-date": "06/06/2020",
-        "perm-lvl": "4"    
     },
     {
         "name": "Echos",
@@ -32,12 +32,28 @@
         "perm-lvl": "2"
     },
     {
-        "name": "GGIS",
-        "id": "918213403376492574",
-        "rank": "Helper",
+        "name": "L0Lluc007",
+        "id": "351039332238491648",
+        "rank": "Moderator",
         "auto-quote": "true",
         "join-date": "25/04/2023",
-        "perm-lvl": "1"
+        "perm-lvl": "2"
+    },
+    {
+        "name": "PixelAnxiety",
+        "id": "565544573154230313",
+        "rank": "Moderator",
+        "auto-quote": "true",
+        "join-date": "22/03/2021",
+        "perm-lvl": "2"
+    },
+    {
+        "name": "Orthon",
+        "id": "288374565170708480",
+        "rank": "SR.Moderator",
+        "auto-quote": "true",
+        "join-date": "24/01/2022",
+        "perm-lvl": "3"
     },
     {
         "name": "KittyAcel",
@@ -46,22 +62,6 @@
         "auto-quote": "true",
         "join-date": "04/07/2019",
         "perm-lvl": "3"
-    },
-    {
-        "name": "KodaDaCod",
-        "id": "202863749315559424",
-        "rank": "Helper",
-        "auto-quote": "true",
-        "join-date": "null",
-        "perm-lvl": "1"
-    },
-    {
-        "name": "L0Lluc007",
-        "id": "351039332238491648",
-        "rank": "Moderator",
-        "auto-quote": "true",
-        "join-date": "25/04/2023",
-        "perm-lvl": "2"
     },
     {
         "name": "MaroonAngel",
@@ -80,36 +80,28 @@
         "perm-lvl": "3"
     },
     {
-        "name": "Orthon",
-        "id": "288374565170708480",
-        "rank": "Moderator",
-        "auto-quote": "true",
-        "join-date": "24/01/2022",
-        "perm-lvl": "2"
-    },
-    {
-        "name": "PixelAnxiety",
-        "id": "565544573154230313",
-        "rank": "Moderator",
-        "auto-quote": "true",
-        "join-date": "22/03/2021",
-        "perm-lvl": "2"
-    },
-    {
-        "name": "QAelin",
-        "id": "692153466428063825",
-        "rank": "Helper",
-        "auto-quote": "true",
-        "join-date": "25/04/2023",
-        "perm-lvl": "1"
-    },
-    {
         "name": "SivanEnnair",
         "id": "570952544709378049",
         "rank":"SR.Moderator",
         "auto-quote": "true",
         "join-date": "24/01/2022",
         "perm-lvl": "3"
+    },
+    {
+        "name": "Tom",
+        "id": "203577381385011200",
+        "rank": "Admin",
+        "auto-quote": "true",
+        "join-date": "11/12/2019",
+        "perm-lvl": "3"
+    },
+    {
+        "name": "DorkOrc",
+        "id": "336123112187887619",
+        "rank":"Owner",
+        "auto-quote": "true",
+        "join-date": "06/06/2020",
+        "perm-lvl": "4"    
     },
     {
         "name": "Sundroid",
@@ -126,13 +118,5 @@
         "auto-quote": "true",
         "join-date": "22/03/2021",
         "perm-lvl": "4"    
-    },
-    {
-        "name": "Tom",
-        "id": "203577381385011200",
-        "rank": "Admin",
-        "auto-quote": "true",
-        "join-date": "11/12/2019",
-        "perm-lvl": "3"
     }
 ]
