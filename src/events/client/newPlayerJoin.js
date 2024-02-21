@@ -14,7 +14,7 @@ module.exports = {
   name: "messageCreate",
   async execute(message, client) {
     const regex =
-      /\*\*<(.*)>\*\* \[Server\] Welcome to the server, (.*)! Have fun!/;
+      /\*\*<(.*)>\*\* \[Pandamium\] Welcome to the server, (.*)! Have fun!/;
     const match = message.content.match(regex);
     if (match) {
       await message.delete();
