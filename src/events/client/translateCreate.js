@@ -76,7 +76,7 @@ const {
       
           const ERRembed = new EmbedBuilder().setColor("#FF0000").setTitle(`Unable to translate!`);
       
-          const translateFile = require('../../commands/util/translator_app');
+          const translateFile = require('../../commands/public/translator_app');
       
           const msgID = await translateFile.msgid
           const channelID = await translateFile.chanid
