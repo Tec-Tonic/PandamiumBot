@@ -84,25 +84,26 @@ module.exports = {
       const SnapshotServer = await axios.get(SnapshotURL);
       const ReleaseServer = await axios.get(ReleaseURL);
 
-      const ipAskEmbedSnapshot = new EmbedBuilder()
-      .setColor("#008000")
-      .setTitle("Pandamium Server IP's")
-      .addFields(
-        {
-          name: `Snapshot IP: `,
-          value: `\`\`\`snapshot.pandamium.eu\`\`\`\n **Version:** ${SnapshotServer}`,
-        }
-      );
-      const ipAskEmbedRelease = new EmbedBuilder()
-      .setColor("#008000")
-      .addFields(
-        {
-          name: `Release IP: `,
-          value: `\`\`\`release.pandamium.eu\`\`\`\n **Version:** ${ReleaseServer}\n\n`,
-        }
-      );
+      const ipSnapshotEmbed = new EmbedBuilder()
+        .setColor("#008000")
+        .setTitle("Pandamium Server IP's")
+        .addFields(
+          {
+            name: `Snapshot IP: `,
+            value: `snapshot.pandamium.eu\n **Version:** ${SnapshotServer.data.version.name_raw}`,
+          }
+        );
 
-      return interaction.reply({ embeds: [ipAskEmbedSnapshot, ipAskEmbedRelease], ephemeral: showPublic });
+        const ipReleaseEmbed = new EmbedBuilder()
+        .setColor("#008000")
+        .addFields(
+          {
+            name: `Release IP: `,
+            value: `release.pandamium.eu\n **Version:** ${ReleaseServer.data.version.name_raw}\n\n`,
+          }
+        );
+
+      return interaction.reply({ embeds: [ipSnapshotEmbed, ipReleaseEmbed], ephemeral: showPublic });
     } else if (category === "support-faq") {
       const SupporterEmbed = new EmbedBuilder()
         .setTitle(`Supporter Rank`)
