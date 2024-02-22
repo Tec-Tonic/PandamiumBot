@@ -90,7 +90,7 @@ module.exports = {
       .addFields(
         {
           name: `Snapshot IP: `,
-          value: `\`\`\`snapshot.pandamium.eu\`\`\`\n **Version:** ${snapVersion}`,
+          value: `\`\`\`snapshot.pandamium.eu\`\`\`\n **Version:** ${SnapshotServer}`,
         }
       );
       const ipAskEmbedRelease = new EmbedBuilder()
@@ -98,7 +98,7 @@ module.exports = {
       .addFields(
         {
           name: `Release IP: `,
-          value: `\`\`\`release.pandamium.eu\`\`\`\n **Version:** ${releaseVersion}\n\n`,
+          value: `\`\`\`release.pandamium.eu\`\`\`\n **Version:** ${ReleaseServer}\n\n`,
         }
       );
 
