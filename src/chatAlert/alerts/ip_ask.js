@@ -30,21 +30,25 @@ module.exports = {
       const releaseVersion = release.data.version.name_raw || "Unable to retrieve";
       const snapVersion = snapshot.data.version.name_raw || "Unable to retrieve";
 
-      const ipAskEmbed = new EmbedBuilder()
+      const ipAskEmbedSnapshot = new EmbedBuilder()
         .setColor("#008000")
         .setTitle("Pandamium Server IP's")
         .addFields(
           {
             name: `Snapshot IP: `,
             value: `\`\`\`snapshot.pandamium.eu\`\`\`\n **Version:** ${snapVersion}`,
-          },
+          }
+        );
+        const ipAskEmbedRelease = new EmbedBuilder()
+        .setColor("#008000")
+        .addFields(
           {
             name: `Release IP: `,
             value: `\`\`\`release.pandamium.eu\`\`\`\n **Version:** ${releaseVersion}\n\n`,
           }
         );
 
-      message.channel.send({ embeds: [ipAskEmbed] }).then((message) => {
+      message.channel.send({ embeds: [ipAskEmbedSnapshot, ipAskEmbedRelease] }).then((message) => {
         setTimeout(function () {
           message.edit(`[Delete] Will be deleted shortly.`);
         }, 117000);
