@@ -92,16 +92,7 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-// Temp Edit 
-client.once('ready', () => {
-let channel = client.channels.cache.get('506498349029916673');
 
-channel.messages.fetch('1091447822890582157')
-  .then(message => {
-    message.edit("https://cdn.discordapp.com/attachments/1079532215584706670/1212476590282506260/Supporter.png?ex=65f1f9d1&is=65df84d1&hm=c4bc0e4c782446e5eb53de7b96261a9091538e8d41b6a51ea8c0a05f21c93136&");
-  })
-  .catch(console.error);
-})
 client.eventHandler();
 client.commandHandler();
 client.componentHandler();
