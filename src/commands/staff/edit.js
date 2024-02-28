@@ -33,7 +33,6 @@ module.exports = {
               { name: "Ranks [Staff Ranks]", value: "ranks_staff.json" },
               { name: "Voting", value: "vote.json" },
               { name: "Supporter", value: "supporter.json" },
-              { name: "Supporter Image", value: "supporter-image.json" },
               { name: "Commands [Snapshot Server]", value: "cmd_snap.json" },
               { name: "Commands [Release Server]", value: "cmd_release.json" },
               { name: "Commands [Discord Server]", value: "cmd_discord.json" },
