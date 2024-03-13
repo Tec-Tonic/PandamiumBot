@@ -170,8 +170,9 @@ module.exports = {
         const InviteMessage = new EmbedBuilder()
           .setTitle(`Discord Invite`)
           .setColor("#0CFF00")
+          .setThumbnail("https://tec-tonic.github.io/Mob-Heads-Checklist/src/img/site/ai1ia.png?ex=659dbeae&is=658b49ae&hm=6c031d2c93cfcd4a46be92652fdb74bf10df39fb7a4a4d5198a28ac6b88b33bc&")
           .setDescription(
-            `Hey ${user.username}, \nYou can use http://discord.pandamium.eu/ or https://discord.com/invite/5FG758KPru`
+            `Hey ${user.username}, You can use one of the following! \n- http://discord.pandamium.eu/ \n- https://discord.com/invite/5FG758KPru`
           );
 
         interaction.reply({ content: `Message sent`, ephemeral: true });

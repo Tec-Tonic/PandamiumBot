@@ -70,7 +70,7 @@ module.exports = {
           });
         }
 
-    // Update Game versions
+    // Discord Invite
     else if (category === "gameVer-faq") {
       return interaction.reply({content:
         "https://help.minecraft.net/hc/en-us/articles/360034754852-Changing-game-versions-",
