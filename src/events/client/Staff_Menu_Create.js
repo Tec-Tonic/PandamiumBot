@@ -165,6 +165,17 @@ module.exports = {
 
         interaction.reply({ content: `Message sent`, ephemeral: true });
         interaction.channel.send({ embeds: [TicketMessage] });
+      } 
+      else if (choices === "Invite") {
+        const InviteMessage = new EmbedBuilder()
+          .setTitle(`Discord Invite`)
+          .setColor("#0CFF00")
+          .setDescription(
+            `Hey ${user.username}, \nYou can use http://discord.pandamium.eu/ or https://discord.com/invite/5FG758KPru`
+          );
+
+        interaction.reply({ content: `Message sent`, ephemeral: true });
+        interaction.channel.send({ embeds: [InviteMessage] });
       }
     }
   },

@@ -20,6 +20,7 @@ module.exports = {
         .addChoices(
           { name: "Change Game Version", value: "gameVer-faq" },
           { name: "Connection Issues", value: "connect-faq" },
+          { name: "Discord Invite Link", value: "invite-faq" },
           { name: "Last World Reset (Snapshot)", value: "reset-faq" },
           { name: "Server IP", value: "ip-faq" },
           { name: "Supporter Rank", value: "support-faq" }
@@ -50,6 +51,7 @@ module.exports = {
 
     const category = interaction.options.getString("category");
 
+    
     // Connection
     if (category === "connect-faq") {
       const connectionEmbed = new EmbedBuilder()
@@ -59,6 +61,14 @@ module.exports = {
         );
       return interaction.reply({ embeds: [connectionEmbed], ephemeral: showPublic });
     }
+
+        // Update Game versions
+        else if (category === "invite-faq") {
+          return interaction.reply({content:
+            "https://discord.com/invite/5FG758KPru",
+            ephemeral: showPublic
+          });
+        }
 
     // Update Game versions
     else if (category === "gameVer-faq") {

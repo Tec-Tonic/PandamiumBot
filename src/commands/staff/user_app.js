@@ -48,6 +48,11 @@ module.exports = {
                   description: 'Send a ticket message to this user',
                   value: 'ticket',
                 },
+                {
+                  label: 'Send Discord Invite Link',
+                  description: 'Send a Discord invite to this user',
+                  value: 'invite',
+                },
               ),
           );
     
