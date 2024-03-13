@@ -166,7 +166,7 @@ module.exports = {
         interaction.reply({ content: `Message sent`, ephemeral: true });
         interaction.channel.send({ embeds: [TicketMessage] });
       } 
-      else if (choices === "Invite") {
+      else if (choices === "invite") {
         const InviteMessage = new EmbedBuilder()
           .setTitle(`Discord Invite`)
           .setColor("#0CFF00")
