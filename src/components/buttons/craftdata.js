@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const axios = require("axios");
 const {
   SlashCommandBuilder,
   PermissionFlagsBits,
@@ -19,8 +19,8 @@ module.exports = {
     const url = "https://api.crafty.gg/api/v2/players?search=" + username;
 
     // Fetch the data from the API
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = await axios.get(url);
+    const data = response.data;
 
     // Player doesnt exist - return true
     if (!data.success) {
@@ -79,6 +79,5 @@ module.exports = {
 
     await interaction.reply({ embeds: [embed], ephemeral: true });
   }
-
-}
+  }
 }
