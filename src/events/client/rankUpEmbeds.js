@@ -1,5 +1,5 @@
-const { EmbedBuilder } = require("discord.js");
-const fetch = require('node-fetch');
+const { EmbedBuilder } = require('discord.js');
+const axios = require('axios');
 
 module.exports = {
   name: "messageCreate",
@@ -12,9 +12,6 @@ module.exports = {
       if (match) {
         let username = match[2];
         const rank = match[4];
-
-        // Escape underscores in the username
-        username = username.replace(/_/g, '\\_');
 
         // Define rank colors
         const rankColors = {
@@ -36,35 +33,34 @@ module.exports = {
         const previousRankIndex = rankOrder.indexOf(rank) - 1;
         const previousRank = rankOrder[previousRankIndex >= 0 ? previousRankIndex : 0];
 
-       // Get the Minecraft username without escape characters
-       const minecraftUsername = username.split('|')[1].trim().replace(/\\_/g, '_');
+        // Get the Minecraft username without escape characters
+        const minecraftUsername = username.split('|')[1].trim().replace(/\\_/g, '_');
 
-       // Fetch the player's UUID from PlayerDB API
-       const response = await fetch(`https://playerdb.co/api/player/minecraft/${minecraftUsername}`);
-       const data = await response.json();
-       console.log({data, username, minecraftUsername})
-       
-       // Check if the player's data is found and the UUID property exists
-       if (data && data.data && data.data.player && data.data.player.id) {
-         const uuid = data.data.player.id;
+        // Fetch the player's UUID from PlayerDB API
+        const response = await axios.get(`https://playerdb.co/api/player/minecraft/${minecraftUsername}`);
+        const data = response.data;
+        
+        // Check if the player's data is found and the UUID property exists
+        if (data && data.data && data.data.player && data.data.player.id) {
+          const uuid = data.data.player.id;
 
-         // Use the UUID to get the player's head PNG from Crafthead API
-         const avatarUrl = `https://crafthead.net/avatar/${uuid}`;
+          // Use the UUID to get the player's head PNG from Crafthead API
+          const avatarUrl = `https://crafthead.net/avatar/${uuid}`;
 
-         // Delete the original message
-         await message.delete();
-         
-         // Create an embed version of the message
-         const embed = new EmbedBuilder()
-         .setColor(color)
-         .setAuthor({ name: `${previousRank} | ${minecraftUsername} has ranked up to [${rank}]`, iconURL: avatarUrl })
-
-         // Send the embed to the same channel
-         await message.channel.send({ embeds: [embed] });
-       } else {
-         console.log('Player data not found or UUID property does not exist');
-       }
-     }
-   }
- },
+          // Delete the original message
+          await message.delete();
+          
+          // Create an embed version of the message
+          const embed = new EmbedBuilder()
+            .setColor(color)
+            .setAuthor({ name: `${previousRank} | ${minecraftUsername} has ranked up to [${rank}]`, iconURL: avatarUrl })
+      
+          // Send the embed to the same channel
+          await message.channel.send({ embeds: [embed] });
+        } else {
+          console.log('Player data not found or UUID property does not exist');
+        }
+      }
+    }
+  },
 };
