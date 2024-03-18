@@ -99,12 +99,6 @@ module.exports = {
               // Replace join message with embed
               message.channel.send({ embeds: [inGameMessage] });
 
-              // Create a API button
-              const button = new ButtonBuilder()
-                .setCustomId("craftyData")
-                .setLabel("Crafty API Data")
-                .setStyle(ButtonStyle.Primary);
-
               // Create a Msg Link
               const linkButton = new ButtonBuilder()
                 .setStyle(ButtonStyle.Link)
@@ -122,15 +116,13 @@ module.exports = {
                 linkNameMCButton
               );
 
-              const craftyButton = new ActionRowBuilder().addComponents(button);
-
               // Bot-log pings
               let messageContent = `<@&1155559317500596234>`;
 
               client.channels.cache.get("950432522137927690").send({
                 content: messageContent,
                 embeds: [newPlayerEmbed],
-                components: [linkNMCButton, craftyButton],
+                components: [linkNMCButton],
               });
             });
         } else {
