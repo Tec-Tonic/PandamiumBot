@@ -1,6 +1,7 @@
 [
     {
         "name": "GGIS",
+        "UUID": "dfee2f0ce76c46f8860dccf28a853b6a",
         "id": "918213403376492574",
         "rank": "Helper",
         "auto-quote": "true",
@@ -9,6 +10,7 @@
     },
     {
         "name": "QAelin",
+        "UUID": "46f8e4a197304ca3b3fd48d6e20eb372",
         "id": "692153466428063825",
         "rank": "Helper",
         "auto-quote": "true",
@@ -17,6 +19,7 @@
     },
     {
         "name": "DiamondMon",
+        "UUID": "55ebe781b3f44ffd85ce98abd4208c38",
         "id": "451802211757064192",
         "rank": "Moderator",
         "auto-quote": "true",
@@ -25,6 +28,7 @@
     },
     {
         "name": "Echos",
+        "UUID": "0357cc4f398e47d8aa46afa7f75e6969",
         "id": "915455249899221033",
         "rank": "Moderator",
         "auto-quote": "true",
@@ -33,6 +37,7 @@
     },
     {
         "name": "L0Lluc007",
+        "UUID": "ec9e64541496400dacfdc0593c4ee751",
         "id": "351039332238491648",
         "rank": "Moderator",
         "auto-quote": "true",
@@ -41,6 +46,7 @@
     },
     {
         "name": "PixelAnxiety",
+        "UUID": "f866a129d15445af9aec544e42605b0f",
         "id": "565544573154230313",
         "rank": "Moderator",
         "auto-quote": "true",
@@ -49,6 +55,7 @@
     },
     {
         "name": "Orthon",
+        "UUID": "0405583b1c1d4d6abf190b4fae44664f",
         "id": "288374565170708480",
         "rank": "SR.Moderator",
         "auto-quote": "true",
@@ -57,6 +64,7 @@
     },
     {
         "name": "KittyAcel",
+        "UUID": "53d102dc8b5449d391df102fb86535d4",
         "id": "423288503422418946",
         "rank":"SR.Moderator",
         "auto-quote": "true",
@@ -65,6 +73,7 @@
     },
     {
         "name": "MaroonAngel",
+        "UUID": "4308456b8b2f4145a472403798d4ee58",
         "id": "405540902174720001",
         "rank":"SR.Moderator",
         "auto-quote": "true",
@@ -73,6 +82,7 @@
     },
     {
         "name": "Olexorus",
+        "UUID": "9c18e9881a7d4a79b0bdfd731e6fe655",
         "id": "210716756778418187",
         "rank": "Admin",
         "auto-quote": "true",
@@ -81,6 +91,7 @@
     },
     {
         "name": "SivanEnnair",
+        "UUID": "36ea0251083e4c368f2ccbe35108a11a",
         "id": "570952544709378049",
         "rank":"SR.Moderator",
         "auto-quote": "true",
@@ -89,6 +100,7 @@
     },
     {
         "name": "Tom",
+        "UUID": "4674cce327d44d71bfe4e3258704e5a5",
         "id": "203577381385011200",
         "rank": "Admin",
         "auto-quote": "true",
@@ -97,6 +109,7 @@
     },
     {
         "name": "DorkOrc",
+        "UUID": "374c2f0c690c40dd94a2c3291b6688e5",
         "id": "336123112187887619",
         "rank":"Owner",
         "auto-quote": "true",
@@ -105,6 +118,7 @@
     },
     {
         "name": "Sundroid",
+        "UUID": "250421a566464903a6488f6374824742",
         "id": "255766501464735744",
          "rank": "Owner",
          "auto-quote": "true",
@@ -113,6 +127,7 @@
     },
     {
         "name": "Tec",
+        "UUID": "4a85ca500f304bf69f098939e6bb4d32",
         "id": "546277533138550786",
         "rank": "Bot Developer",
         "auto-quote": "true",
