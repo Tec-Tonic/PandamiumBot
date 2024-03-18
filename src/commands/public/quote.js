@@ -74,9 +74,13 @@ module.exports = {
                 })
                 .setColor("#1BEACA");
 
-              if (message.content) {
-                linkReply.setDescription(`${message.content}`);
-              }
+                if (message.content) {
+                  if (showDate !== false) {
+                  linkReply.setDescription(`${message.content}`);
+                  } else {
+                    linkReply.setDescription(`🔗${link}\n${message.content}`);
+                  }
+                }
 
               if (message.attachments.size > 0) {
                 let attachmentText = "";
