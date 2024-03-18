@@ -92,7 +92,7 @@ module.exports = async function playerlistUpdate(client, commandExecuted) {
   }
 };
 
-// // Function to stop the loop
-// module.exports.stopLoop = function() {
-//   loopFlag = false;
-// };
+// Function to stop the loop
+module.exports.stopLoop = function() {
+  loopFlag = false;
+};

@@ -38,6 +38,7 @@ module.exports = {
       const guild = client.guilds.cache.get(guildID);
       const channel = guild.channels.cache.get(channelID);
 
+      
       // Fetch the last message sent by the bot in the channel
       const lastBotMessage = channel.messages.cache.find(
         (m) => m.author.id === client.user.id
