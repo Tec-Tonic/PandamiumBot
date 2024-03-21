@@ -8,6 +8,8 @@ const {
   ActionRowBuilder,
   StringSelectMenuBuilder,
 } = require("discord.js");
+const fs = require("fs");
+const path = require("path");
 
 const watchlist = "688479008395886605"; //#Watchlist
 const player_records = "513781098904420371"; //#player-records
