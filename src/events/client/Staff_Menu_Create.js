@@ -15,6 +15,23 @@ module.exports = {
   name: "interactionCreate",
   async execute(interaction, client) {
     if (interaction.customId === "staff_menu") {
+      // Function to read the staff data from the JSON file
+      function readStaffData() {
+        const filePath = path.join(
+          __dirname,
+          "../../components/pandamium/staff.json"
+        );
+        const staffData = fs.readFileSync(filePath, "utf8");
+        return JSON.parse(staffData);
+      }
+
+      const staffData = readStaffData();
+
+      // Find the staff member in the staffData array based on their ID
+      const staffMember = staffData.find(
+        (staff) => staff.id === interaction.user.id
+      );
+
       const translateFile = require("../../commands/staff/user_app");
       const user = translateFile.user;
       const message = translateFile.message;
@@ -165,18 +182,57 @@ module.exports = {
 
         interaction.reply({ content: `Message sent`, ephemeral: true });
         interaction.channel.send({ embeds: [TicketMessage] });
-      } 
-      else if (choices === "invite") {
+      } else if (choices === "invite") {
         const InviteMessage = new EmbedBuilder()
           .setTitle(`Discord Invite`)
           .setColor("#0CFF00")
-          .setThumbnail("https://tec-tonic.github.io/Mob-Heads-Checklist/src/img/site/ai1ia.png?ex=659dbeae&is=658b49ae&hm=6c031d2c93cfcd4a46be92652fdb74bf10df39fb7a4a4d5198a28ac6b88b33bc&")
+          .setThumbnail(
+            "https://tec-tonic.github.io/Mob-Heads-Checklist/src/img/site/ai1ia.png?ex=659dbeae&is=658b49ae&hm=6c031d2c93cfcd4a46be92652fdb74bf10df39fb7a4a4d5198a28ac6b88b33bc&"
+          )
           .setDescription(
             `Hey ${user.username}, You can use one of the following! \n- http://discord.pandamium.eu/ \n- https://discord.com/invite/5FG758KPru`
           );
 
         interaction.reply({ content: `Message sent`, ephemeral: true });
         interaction.channel.send({ embeds: [InviteMessage] });
+      } else if (choices === "console-log-test") {
+        // Get an array of the IDs of the staff members with a permission level of 4
+        const perm4StaffIDs = staffData
+          .filter((staff) => parseInt(staff["perm-lvl"]) === 4)
+          .map((staff) => `<@${staff.id}>`);
+
+        // Join the IDs into a string with a space separator
+        const perm4StaffIDString = perm4StaffIDs.join(" ");
+        if (staffMember && parseInt(staffMember["perm-lvl"]) >= 4) {
+          // Check if message object exists
+          if (!message) {
+            interaction.reply({
+              content: `'Message object is undefined'`,
+              ephemeral: true,
+            });
+          }
+          // Check if message.content exists
+          else if (!message.content) {
+            interaction.reply({
+              content: `'Message content is undefined'`,
+              ephemeral: true,
+            });
+          } else {
+            interaction.reply({
+              content: `Messaged Logged:\n\`\`\`json\n${JSON.stringify(
+                message,
+                null,
+                2
+              )}\`\`\``,
+              ephemeral: true,
+            });
+          }
+        } else {
+          interaction.reply({
+            content: `This command is for debugging. \nAllowed users:\n${perm4StaffIDString}`,
+            ephemeral: true,
+          });
+        }
       }
     }
   },

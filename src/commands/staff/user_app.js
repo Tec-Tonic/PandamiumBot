@@ -53,6 +53,11 @@ module.exports = {
                   description: 'Send a Discord invite to this user',
                   value: 'invite',
                 },
+                {
+                  label: 'Log Message Data',
+                  description: 'Only used for debugging',
+                  value: 'console-log-test',
+                },
               ),
           );
     
