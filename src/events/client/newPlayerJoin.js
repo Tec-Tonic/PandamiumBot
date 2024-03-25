@@ -84,7 +84,7 @@ module.exports = {
               const newPlayerEmbed = new EmbedBuilder()
                 .setColor("#00FF04")
                 .setDescription(
-                  `${username} joined the snapshot server for the first time!\n\n**Online Staff**: \n${onlineStaffMessage}`
+                  `${username} joined the snapshot server for the first time!\n\n**Online Staff**: \n\`${onlineStaffMessage}\``
                 )
                 .setThumbnail(skinUrl);
 
