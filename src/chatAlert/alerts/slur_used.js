@@ -32,13 +32,13 @@ module.exports = {
         .setColor("#FF0000")
         .setTitle("Slurs")
         .addFields(
-          { name: `Message :`, value: `|| ${slurMessageLog} ||` },
+          { name: `Message:`, value: `|| ${slurMessageLog} ||` },
           {
             name: `Info: `,
             value: `Jump to message: ${slurTextLink}`,
           }
         )
-        .setFooter({ text: `Author : ${slurAuthor}` });
+        .setFooter({ text: `Author: ${slurAuthor}` });
 
       client.channels.cache.get(botlogs).send({ embeds: [slurEmbed], components: [row] });
     } else return;

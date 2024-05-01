@@ -30,13 +30,13 @@ module.exports = {
         .setColor("#7b9bcc")
         .setTitle("Terms about Hacking/Cheating")
         .addFields(
-          { name: `Message :`, value: `${cheatMessageLog}` },
+          { name: `Message:`, value: `${cheatMessageLog}` },
           {
-            name: `Info :`,
+            name: `Info:`,
             value: `Jump to message: ${cheatTextLink}`,
           }
         )
-        .setFooter({ text: `Author : ${cheatAuthor}` });
+        .setFooter({ text: `Author: ${cheatAuthor}` });
 
       client.channels.cache.get(log).send({ embeds: [cheatEmbed], components: [row] });
     } else {

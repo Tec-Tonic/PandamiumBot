@@ -30,13 +30,13 @@ module.exports = {
         .setColor("#7b9bcc")
         .setTitle("Controversial Topics") //stop adding exclamations to everything
         .addFields(
-          { name: `Message :`, value: `${topicMessageLog}` },
+          { name: `Message:`, value: `${topicMessageLog}` },
           {
-            name: `Info :`,
+            name: `Info:`,
             value: `Jump to message: ${topicTextLink}`,
           }
         )
-        .setFooter({ text: `Author : ${topicAuthor}` });
+        .setFooter({ text: `Author: ${topicAuthor}` });
 
       client.channels.cache.get(log).send({ embeds: [controEmbed], components: [row] });
     } else {
