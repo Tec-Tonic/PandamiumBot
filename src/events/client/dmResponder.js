@@ -10,7 +10,7 @@ const {
 module.exports = {
   name: "messageCreate",
   async execute(message, client) {
-    let linkCode = Number(message.content.replace(/\D/g, ""));
+    let DMmessage = message.content;
     let author = message.author;
 
     const rejectMessage = new EmbedBuilder()
@@ -22,10 +22,9 @@ module.exports = {
     
     const codeEmbed = new EmbedBuilder()
       .setColor("#F205FA")
-      .setDescription(
-        `**Attempt to link Account**\n\n<@${author.id}>` +
-          " tried to send code " +
-          linkCode
+      .setDescription(`**Direct Message Received**`)
+      .addFields(
+        {name: `<@${author.id}> sent:`, value: DMmessage}
       );
 
       const button = new ButtonBuilder()
@@ -36,7 +35,7 @@ module.exports = {
 
     if (message.author.bot) return;
     if (message.channel.type === ChannelType.DM) {
-      if (!linkCode) return;
+      if (!DMmessage) return;
       message.reply({ embeds: [rejectMessage], components: [new ActionRowBuilder().addComponents(button)] });
       
       client.channels.cache.get("950432522137927690").send({ embeds: [codeEmbed] });
