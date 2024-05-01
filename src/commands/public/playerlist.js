@@ -120,7 +120,7 @@ module.exports = {
           ).addFields(
             {name: `User`, value: `${interaction.user.username}`, inline: false},
             {name: `Channel`, value: `${interaction.channel}`, inline: true},
-            {name: `Server IP`, value: ` pandamium.eu`, inline: true},
+            {name: `Server IP`, value: `pandamium.eu`, inline: true},
             {name: `Port`, value: `${port}`, inline: true}
           )
         client.channels.cache.get(log).send({ embeds: [AlertErrorEmbed] });
