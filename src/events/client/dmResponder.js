@@ -24,7 +24,7 @@ module.exports = {
       .setColor("#F205FA")
       .setDescription(`**Direct Message Received**`)
       .addFields(
-        {name: `<@${author.id}> sent:`, value: DMmessage}
+        {name: `${author.username} sent:`, value: `${DMmessage}`}
       );
 
       const button = new ButtonBuilder()
