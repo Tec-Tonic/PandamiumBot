@@ -22,10 +22,8 @@ module.exports = {
     
     const codeEmbed = new EmbedBuilder()
       .setColor("#F205FA")
-      .setDescription(`**Direct Message Received**`)
-      .addFields(
-        [{name: `${author.username} sent:`, value: `${DMmessage}`}]
-      );
+      .setTitle(`**Direct Message Received**`)
+      .setDescription(`${author.username} sent:\n${DMmessage}`);
 
       const button = new ButtonBuilder()
         .setCustomId(`dmHelp`)
