@@ -17,7 +17,7 @@ module.exports = {
       .setColor("#FF0000")
       .setTitle("Linking Account")
       .setDescription(
-        `Hey ${author.username}, if you are trying to link your account please message <@604625105758322688>. \n\nIf you require help please use the help button below and a Staff member will respond when available. \n\nHappy Minecrafting, Pandamium`
+        `Hey ${author.username}, \nIf you require help please use the help button below and a Staff member will respond when available. \n\nHappy Minecrafting, Pandamium`
       );
     
     const codeEmbed = new EmbedBuilder()

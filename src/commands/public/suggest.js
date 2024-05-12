@@ -13,7 +13,7 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("suggest")
-    .setDescription("Allow users to suggest directly to staff members anonymously. [Public]"),
+    .setDescription("Allow users to suggest directly to staff members anonymously."),
 
   async execute(interaction, client) {
     
