@@ -23,6 +23,7 @@ module.exports = {
           { name: "Discord Invite Link", value: "invite-faq" },
           { name: "Last World Reset (Snapshot)", value: "reset-faq" },
           { name: "Server IP", value: "ip-faq" },
+          { name: "Snapshot Render Distance", value: "render-faq"},
           { name: "Supporter Rank", value: "support-faq" }
         )
     )
@@ -127,6 +128,15 @@ In order to appear on the [official Minecraft server list](https://findmcserver.
         embeds: [SupporterEmbed],
         ephemeral: showPublic,
       });
+    }     
+    else if (category === "render-faq") {
+      const RenderDistanceEmbed = new EmbedBuilder()
+        .setColor("#2DF904")
+        .setDescription(
+          `**‣ What is the Snapshot Render Distance?**\nSimulation Distance: 3\nView Distance: 6\nEntity Broadcast Range Percentage: 100`
+        );
+
+      return interaction.reply({ embeds: [RenderDistanceEmbed], ephemeral: showPublic });
     }
   },
 };
