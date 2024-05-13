@@ -4,10 +4,10 @@ module.exports = {
   name: "messageCreate",
   async execute(message, client) {
     
-    if (message.author.bot && (message.content.startsWith("Rcon") || message.content.startsWith("Server"))) {
+    if (message.author.bot && (message.content.startsWith("*Rcon") || message.content.startsWith("*Server"))) {
         
       // Extract the username and reward credits from the message
-      const match = message.content.match(/\*\*(?:Rcon|Server)\*\* \[Voting\] ([^\s]+) got (\d+) reward credit\(s\)? for voting!\*/);
+      const match = message.content.match(/\*\*\*(?:Rcon|Server)\*\* \[Voting\] ([^\s]+) got (\d+) reward credit\(s\)? for voting!\*/);
       if (match) {
         const username = match[1];
         const credits = match[2];
