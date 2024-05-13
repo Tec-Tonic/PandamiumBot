@@ -7,7 +7,7 @@ module.exports = {
     if (message.author.bot && (message.content.startsWith("*Rcon") || message.content.startsWith("*Server"))) {
         
       // Extract the username and reward credits from the message
-      const match = message.content.match(/\*\*\*(?:Rcon|Server)\*\* \[Voting\] ([^\s]+) got (\d+) reward credit\(s\)? for voting!\*/);
+      const match = message.content.match(/(?:Rcon|Server) \[Voting\] ([^\s]+) got (\d+) reward/);
       if (match) {
         const username = match[1];
         const credits = match[2];
@@ -20,7 +20,7 @@ module.exports = {
         const embed = new EmbedBuilder()
           .setColor("#1f8b4c")
           .setDescription(
-            `**[Voting]** ${username} got ${credits} reward ${creditWord} for voting!`
+            `**[Voting]** \`${username}\` got ${credits} reward ${creditWord} for voting!`
           );
 
         // Send the embed to the same channel
