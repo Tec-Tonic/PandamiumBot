@@ -20,7 +20,7 @@ module.exports = {
         const embed = new EmbedBuilder()
           .setColor("#1f8b4c")
           .setDescription(
-            `**[Voting]** \`${username}\` got ${credits} reward ${creditWord} for voting!`
+            `**[Voting]** ${username} got ${credits} reward ${creditWord} for voting!`
           );
 
         // Send the embed to the same channel
