@@ -28,9 +28,17 @@ module.exports = {
       enableSRV: true,
     };
 
-    const regex =
-      /\*\*<(.*)>\*\* \[Pandamium\] Welcome to the server, (.*)! Have fun!/;
-    const match = message.content.match(regex);
+    let content = message.content;
+    if (content.startsWith('*')) {
+        content = content.slice(1);
+    }
+    if (content.endsWith('*')) {
+        content = content.slice(0, -1);
+    }
+
+    const regex = /(.*) \[Pandamium\] Welcome to the server, (.*)! Have fun!/;
+    const match = content.match(regex);
+
     if (match) {
       await message.delete();
       const usernameWithPrefix = match[1];
