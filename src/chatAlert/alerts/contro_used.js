@@ -19,8 +19,8 @@ module.exports = {
     if (topicFoundInText) {
 
       const btn = new ButtonBuilder()
-			.setCustomId('addReason')
-			.setLabel('Add Reason')
+			.setCustomId('addComment')
+			.setLabel('Add Comment')
 			.setStyle(ButtonStyle.Danger);
       
       const row = new ActionRowBuilder()

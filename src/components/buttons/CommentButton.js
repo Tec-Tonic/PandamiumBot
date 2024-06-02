@@ -10,23 +10,23 @@ const {
 
 module.exports = {
     data: {
-        name: `addReason`
+        name: `addComment`
     },
     async execute(interaction, client) {
         if (interaction.isButton()) {
-            if (interaction.customId === "addReason") {
+            if (interaction.customId === "addComment") {
               
               const modal = new ModalBuilder()
-                .setCustomId("reasonModal")
-                .setTitle("Reason");
+                .setCustomId("commentModal")
+                .setTitle("Comment");
       
-              const ReasonInput = new TextInputBuilder()
-                .setCustomId("reasonInput")
-                .setLabel("Please add a reason")
+              const commentInput = new TextInputBuilder()
+                .setCustomId("commentInput")
+                .setLabel("Please add a comment")
                 .setStyle(TextInputStyle.Paragraph);
       
               const secondActionRow = new ActionRowBuilder().addComponents(
-                ReasonInput
+                commentInput
               );
       
               modal.addComponents(secondActionRow);

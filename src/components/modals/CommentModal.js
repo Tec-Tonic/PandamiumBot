@@ -10,12 +10,12 @@ const {
 
 module.exports = {
     data: {
-        name: `reasonModal`
+        name: `commentModal`
     },
     async execute(interaction, client) {
         console.log('Component handler function called');
-        if (interaction.customId === "reasonModal") {
-            const reason = interaction.fields.getTextInputValue("reasonInput");
+        if (interaction.customId === "commentModal") {
+            const comment = interaction.fields.getTextInputValue("commentInput");
             const channelID = interaction.message.channel.id;
             const messageID = interaction.message.id;
             const embed = interaction.message.embeds;
@@ -26,12 +26,12 @@ module.exports = {
               .setDescription(firstEmbed.description)
               .setColor(firstEmbed.color)
               .addFields(firstEmbed.fields)
-              .addFields({ name: "Reason: ", value: reason })
+              .addFields({ name: "comment: ", value: comment })
               .setFooter({ text: `${firstEmbed.footer.text}` });
       
             const disabledButton = new ButtonBuilder()
-              .setCustomId("addReason")
-              .setLabel("Reason Added")
+              .setCustomId("addComment")
+              .setLabel("Comment Added")
               .setStyle(ButtonStyle.Secondary)
               .setDisabled(true);
       
@@ -47,7 +47,7 @@ module.exports = {
                 })
               );
       
-            return interaction.reply({content: "Reason has been added!", ephemeral: true});
+            return interaction.reply({content: "comment has been added!", ephemeral: true});
           }
     }
 }
