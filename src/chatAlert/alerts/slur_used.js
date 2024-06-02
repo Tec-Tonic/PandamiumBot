@@ -32,15 +32,28 @@ module.exports = {
         .setColor("#FF0000")
         .setTitle("Slurs")
         .addFields(
-          { name: `Message:`, value: `|| ${slurMessageLog} ||` },
+          { name: `Message :`, value: `|| ${slurMessageLog} ||` },
           {
             name: `Info: `,
-            value: `Jump to message: ${slurTextLink}`,
+            value: `check <#${slurChannel}> || [click me](${slurTextLink})`,
           }
         )
-        .setFooter({ text: `Author: ${slurAuthor}` });
+        .setFooter({ text: `Slur will be deleted in 2 minutes` });
 
-      client.channels.cache.get(botlogs).send({ embeds: [slurEmbed], components: [row] });
+      client.channels.cache
+        .get(botlogs)
+        .send({ embeds: [slurEmbed], components: [row] })
+        .then((sentEmbed) => {
+          setTimeout(() => {
+            message.delete().catch(console.error);
+
+            // Edit the embed to update the footer after the message is deleted
+            const editedEmbed = new EmbedBuilder(sentEmbed.embeds[0]).setFooter(
+              { text: `Slur has been deleted` }
+            );
+            sentEmbed.edit({ embeds: [editedEmbed] }).catch(console.error);
+          }, 120000);
+        });
     } else return;
   },
 };
