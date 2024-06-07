@@ -61,12 +61,12 @@ client.on("messageCreate", async (message) => {
 
   const staffMember = staffData.find((staff) => staff.id === message.author.id);
 
-  if (staffMember) return;
-
-  for (const file of commandFiles) {
-    const { name } = require(`./chatAlert/alerts/${file}`);
-    if (message.author == client.user) return;
-    client.command.get(name).execute(message, client);
+  if (message.content.startsWith("[Allow-Alert]") && staffMember) {
+    for (const file of commandFiles) {
+      const { name } = require(`./chatAlert/alerts/${file}`);
+      if (message.author == client.user) return;
+      client.command.get(name).execute(message, client);
+    }
   }
 
   const axios = require("axios");
