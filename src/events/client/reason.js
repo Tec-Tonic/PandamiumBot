@@ -24,12 +24,12 @@ const {
           .setDescription(firstEmbed.description)
           .setColor(firstEmbed.color)
           .addFields(firstEmbed.fields)
-          .addFields({ name: "Reason: ", value: reason })
+          .addFields({ name: "Comment: ", value: reason })
           .setFooter({ text: `${firstEmbed.footer.text}` });
   
         const disabledButton = new ButtonBuilder()
           .setCustomId("addReason")
-          .setLabel("Reason Added")
+          .setLabel("Comment Added")
           .setStyle(ButtonStyle.Secondary)
           .setDisabled(true);
   
@@ -45,7 +45,7 @@ const {
             })
           );
   
-        return interaction.reply({content: "Reason has been added!", ephemeral: true});
+        return interaction.reply({content: "Comment has been added!", ephemeral: true});
       }
     },
   };
