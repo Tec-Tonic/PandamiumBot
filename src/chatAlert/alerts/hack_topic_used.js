@@ -19,7 +19,7 @@ module.exports = {
     if (cheatFoundInText) {
 
       const btn = new ButtonBuilder()
-			.setCustomId('addComment')
+			.setCustomId('addReason')
 			.setLabel('Add Comment')
 			.setStyle(ButtonStyle.Danger);
       

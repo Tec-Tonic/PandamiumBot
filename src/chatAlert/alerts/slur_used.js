@@ -21,12 +21,11 @@ module.exports = {
 
     if (slurFoundInText) {
       const btn = new ButtonBuilder()
-			.setCustomId('addComment')
-			.setLabel('Add Comment')
-			.setStyle(ButtonStyle.Danger);
-      
-      const row = new ActionRowBuilder()
-			.addComponents(btn);
+        .setCustomId("addReason")
+        .setLabel("Add Comment")
+        .setStyle(ButtonStyle.Danger);
+
+      const row = new ActionRowBuilder().addComponents(btn);
 
       const slurEmbed = new EmbedBuilder()
         .setColor("#FF0000")

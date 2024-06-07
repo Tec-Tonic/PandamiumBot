@@ -18,127 +18,134 @@ module.exports = {
 
   async execute(interaction, client) {
 
-    await interaction.deferReply({ephemeral: true});
+    const tempRemoved = new EmbedBuilder().setColor('#FF0000')
+    .setTitle('Playerlist Issue')
+    .setDescription('This command is not working curently - please use </playerlist:1247723184036515931>')
+    await interaction.reply({embeds: [tempRemoved]})
 
-    try {
-      //Get Server
-      var channelName = interaction.channel.name;
-      if (
-        channelName === "snapshot-ingame-chat" ||
-        channelName === "snapshot-server"
-      ) {
-        var ip = "pandamium.eu";
-        var colour = "#2DF904";
-        var port = 25566
-      } else if (
-        channelName === "release-ingame-chat" ||
-        channelName === "release-server"
-      ) {
-        var ip = "pandamium.eu";
-        var colour = "#058823";
-        var port = 25565
-      } else if (
-        channelName === "builder-general" ||
-        channelName === "builder-ingame-chat" 
-      ) {
-        var ip = "build.pandamium.eu";
-        var colour = "#FF00FF";
-        var port = 25565
-      } else {
-        var colour = "#FF0000"
-      }
+    // TEMP FIX
 
-      const options = {
-        sessionID: 1, 
-        enableSRV: true, 
-      };
+    // await interaction.deferReply({ephemeral: true});
 
-      // call API
-      const utility = require("minecraft-server-util");
+    // try {
+    //   //Get Server
+    //   var channelName = interaction.channel.name;
+    //   if (
+    //     channelName === "snapshot-ingame-chat" ||
+    //     channelName === "snapshot-server"
+    //   ) {
+    //     var ip = "pandamium.eu";
+    //     var colour = "#2DF904";
+    //     var port = 25566
+    //   } else if (
+    //     channelName === "release-ingame-chat" ||
+    //     channelName === "release-server"
+    //   ) {
+    //     var ip = "pandamium.eu";
+    //     var colour = "#058823";
+    //     var port = 25565
+    //   } else if (
+    //     channelName === "builder-general" ||
+    //     channelName === "builder-ingame-chat" 
+    //   ) {
+    //     var ip = "build.pandamium.eu";
+    //     var colour = "#FF00FF";
+    //     var port = 25565
+    //   } else {
+    //     var colour = "#FF0000"
+    //   }
+
+    //   const options = {
+    //     sessionID: 1, 
+    //     enableSRV: true, 
+    //   };
+
+    //   // call API
+    //   const utility = require("minecraft-server-util");
  
-      utility.queryFull("pandamium.eu", port, options).then((Response) => {
-        const nameArr = Response.players.list.join(", ").toString();
+    //   utility.queryFull("pandamium.eu", port, options).then((Response) => {
+    //     const nameArr = Response.players.list.join(", ").toString();
 
-      //No Players Online
-      const ServerEmpty = new EmbedBuilder()
-        .setColor("#FF0000")
-        .setTitle(`**No online players**`)
-        .setFooter({ text: `Version: ${Response.version}` });
+    //   //No Players Online
+    //   const ServerEmpty = new EmbedBuilder()
+    //     .setColor("#FF0000")
+    //     .setTitle(`**No online players**`)
+    //     .setFooter({ text: `Version: ${Response.version}` });
 
-      const checkIfPlayer = Response.players.online
-      if (checkIfPlayer.toString() === "0") {
-        return interaction.editReply({
-          embeds: [ServerEmpty],
-          ephemeral: true,
-        });
-      }
+    //   const checkIfPlayer = Response.players.online
+    //   if (checkIfPlayer.toString() === "0") {
+    //     return interaction.editReply({
+    //       embeds: [ServerEmpty],
+    //       ephemeral: true,
+    //     });
+    //   }
 
-      //Single player Online (Use Quote)
-      if (checkIfPlayer.toString() === "1") {
-        const singlePlayerEmbed = new EmbedBuilder()
-          .setColor(colour)
-          .setTitle(
-            `**Online player (${Response.players.online}/${Response.players.max}):**`
-          )
-          .setDescription(
-            `\`\`\`${nameArr}\`\`\` \n` + randomObject(data)
-          )
-          .setFooter({ text: `Version: ${Response.version}` });
+    //   //Single player Online (Use Quote)
+    //   if (checkIfPlayer.toString() === "1") {
+    //     const singlePlayerEmbed = new EmbedBuilder()
+    //       .setColor(colour)
+    //       .setTitle(
+    //         `**Online player (${Response.players.online}/${Response.players.max}):**`
+    //       )
+    //       .setDescription(
+    //         `\`\`\`${nameArr}\`\`\` \n` + randomObject(data)
+    //       )
+    //       .setFooter({ text: `Version: ${Response.version}` });
 
-        return interaction.editReply({
-          embeds: [singlePlayerEmbed],
-          ephemeral: true,
-        });
-      }
+    //     return interaction.editReply({
+    //       embeds: [singlePlayerEmbed],
+    //       ephemeral: true,
+    //     });
+    //   }
 
-      const playerlistEmbed = new EmbedBuilder()
-      .setColor(colour)
-      .setTitle(
-        `**Online players (${Response.players.online}/${Response.players.max}):**`
-      )
-      .setDescription(`\`\`\`${nameArr}\`\`\``)
-      .setFooter({ text: `Version: ${Response.version}` });
+    //   const playerlistEmbed = new EmbedBuilder()
+    //   .setColor(colour)
+    //   .setTitle(
+    //     `**Online players (${Response.players.online}/${Response.players.max}):**`
+    //   )
+    //   .setDescription(`\`\`\`${nameArr}\`\`\``)
+    //   .setFooter({ text: `Version: ${Response.version}` });
 
-      interaction.editReply({ embeds: [playerlistEmbed], ephemeral: true });
-      }).catch((error) => {
-        console.log(error)
-        const Error = new EmbedBuilder()
-          .setColor("#FF0000")
-          .setDescription(
-            "Server is `Offline` or `Unreachable`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur"
-          );
-        interaction.editReply({
-          embeds: [Error],
-          ephemeral: true,
-        });
+    //   interaction.editReply({ embeds: [playerlistEmbed], ephemeral: true });
+    //   }).catch((error) => {
+    //     console.log(error)
+    //     const Error = new EmbedBuilder()
+    //       .setColor("#FF0000")
+    //       .setDescription(
+    //         "Server is `Offline` or `Unreachable`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur"
+    //       );
+    //     interaction.editReply({
+    //       embeds: [Error],
+    //       ephemeral: true,
+    //     });
 
-        const AlertErrorEmbed = new EmbedBuilder()
-          .setColor("#FF0000")
-          .setTitle("Interaction Failed")
-          .setDescription(
-            `Server is \`Offline\` or \`Unreachable\``
-          ).addFields(
-            {name: `User`, value: `${interaction.user.username}`, inline: false},
-            {name: `Channel`, value: `${interaction.channel}`, inline: true},
-            {name: `Server IP`, value: `pandamium.eu`, inline: true},
-            {name: `Port`, value: `${port}`, inline: true}
-          )
-        client.channels.cache.get(log).send({ embeds: [AlertErrorEmbed] });
-      });
+    //     const AlertErrorEmbed = new EmbedBuilder()
+    //       .setColor("#FF0000")
+    //       .setTitle("Interaction Failed")
+    //       .setDescription(
+    //         `Server is \`Offline\` or \`Unreachable\``
+    //       ).addFields(
+    //         {name: `User`, value: `${interaction.user.username}`, inline: false},
+    //         {name: `Channel`, value: `${interaction.channel}`, inline: true},
+    //         {name: `Server IP`, value: `pandamium.eu`, inline: true},
+    //         {name: `Port`, value: `${port}`, inline: true}
+    //       )
+    //     client.channels.cache.get(log).send({ embeds: [AlertErrorEmbed] });
+    //   });
 
-    } catch (error) {
+    // } catch (error) {
       
-      const Error = new EmbedBuilder()
-        .setColor("#FF0000")
-        .setDescription(
-          "Server is `Offline` or `Unreachable`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur"
-        );
-      interaction.editReply({
-        embeds: [Error],
-        ephemeral: true,
-      });
-      console.log(error)
+    //   const Error = new EmbedBuilder()
+    //     .setColor("#FF0000")
+    //     .setDescription(
+    //       "Server is `Offline` or `Unreachable`! \n\nPlease report this issue in <#515269721688375296> if it continues to occur"
+    //     );
+    //   interaction.editReply({
+    //     embeds: [Error],
+    //     ephemeral: true,
+    //   });
+    //   console.log(error)
 
-    }
+    // }
   },
 };

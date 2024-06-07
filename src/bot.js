@@ -73,7 +73,6 @@ client.on("messageCreate", async (message) => {
   const ip = "release.pandamium.eu";
   let url = `https://api.mcstatus.io/v2/status/java/${ip}`;
   const server = await axios.get(url);
-
   try {
     client.user.setPresence({
       activities: [
