@@ -131,8 +131,6 @@ module.exports = {
         channel.send(
           "<@&505093367903027220>\n# Double Voting Rewards Week!\nFor the next week, you will now receive 2 reward credits when voting for the **snapshot** server!"
         );
-      } else {
-        console.log("Channel not found");
       }
     }
     // ^^^
