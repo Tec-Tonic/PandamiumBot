@@ -33,7 +33,7 @@ module.exports = {
           { name: `Message :`, value: `${topicMessageLog}` },
           {
             name: `Info :`,
-            value: `check <#${topicChannel}> || [click me](${topicTextLink})`,
+            value: `Jump to message: ${topicTextLink}`,
           }
         )
         .setFooter({ text: `Author : ${topicAuthor}` });
