@@ -61,13 +61,14 @@ client.on("messageCreate", async (message) => {
 
   const staffMember = staffData.find((staff) => staff.id === message.author.id);
 
-  if (message.content.startsWith("[Allow-Alert]") && staffMember) {
+  if (staffMember) return;
+  
     for (const file of commandFiles) {
       const { name } = require(`./chatAlert/alerts/${file}`);
       if (message.author == client.user) return;
       client.command.get(name).execute(message, client);
     }
-  }
+
 
   const axios = require("axios");
   const ip = "release.pandamium.eu";

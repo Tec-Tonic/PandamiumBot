@@ -119,20 +119,21 @@ module.exports = {
         // Send the embed to the same channel
         await message.channel.send({ embeds: [embed] });
       }
-
-      // Double Vote Credit Week
-      const DVCmatch = message.content.includes(
-        "The monthly leader boards have been reset and a week of double reward credits for voting has begun!"
-      );
-
-      const channel = client.channels.cache.get("1095405945917550623");
-
-      if (channel && DVCmatch) {
-        channel.send(
-          "<@&505093367903027220>\n# Double Voting Rewards Week!\nFor the next week, you will now receive 2 reward credits when voting for the **snapshot** server!"
-        );
-      }
     }
+    // ^^^
+
+          // Double Vote Credit Week
+          const DVCmatch = message.content.includes(
+            "The monthly leader boards have been reset and a week of double reward credits for voting has begun!"
+          );
+    
+          const channel = client.channels.cache.get("505093367903027220"); 
+    
+          if (DVCmatch) {
+            channel.send(
+              "<@&1150149222331588730>\n# Double Voting Rewards Week!\nFor the next week, you will now receive 2 reward credits when voting for the **snapshot** server!"
+            );
+          }
     // ^^^
 
     // DM Reply

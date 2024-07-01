@@ -44,8 +44,6 @@ module.exports = {
         .setFooter({ text: `Author: ${topicAuthor}`});
 
       client.channels.cache.get(log).send({ embeds: [adultEmbed], components: [row] });
-    } else {
-      return;
     }
   },
 };
